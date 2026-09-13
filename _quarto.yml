@@ -1,3 +1,69 @@
 project:
   type: website
   output-dir: docs
+
+website:
+  title: "Proyecto Integrador - Almacenes y Minería de Datos"
+  description: "Anticipación de saturación y recomendación de rutas alternas en la red del STC Metro y Metrobús de la CDMX"
+  site-url: "https://fernando-bm.github.io/Proyecto_Mineria_Datos"
+  repo-url: "https://github.com/Fernando-BM/Proyecto_Mineria_Datos"
+  page-navigation: true
+  back-to-top-navigation: true
+
+  navbar:
+    background: "#0f2c52"
+    foreground: light
+    left:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "E0 - Comprensión del Negocio"
+        menu:
+          - text: "1. Bitácora del stakeholder"
+            href: entregas/E0_comprension_negocio/bitacora.qmd
+          - text: "2. Business Understanding Canvas"
+            href: entregas/E0_comprension_negocio/canvas.qmd
+          - text: "3. Preguntas de investigación"
+            href: entregas/E0_comprension_negocio/preguntas.qmd
+          - text: "4. Criterio de éxito"
+            href: entregas/E0_comprension_negocio/criterio_exito.qmd
+          - text: "5. Supuestos y riesgos"
+            href: entregas/E0_comprension_negocio/riesgos_supuestos.qmd
+          - text: "---"
+          - text: "6. Uso de herramientas de IA"
+            href: entregas/E0_comprension_negocio/uso_ia.qmd
+          - text: "7. Fuentes consultadas"
+            href: entregas/E0_comprension_negocio/fuentes.qmd
+
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Inicio"
+        href: index.qmd
+      - section: "E0 - Comprensión del Negocio"
+        contents:
+          - entregas/E0_comprension_negocio/bitacora.qmd
+          - entregas/E0_comprension_negocio/canvas.qmd
+          - entregas/E0_comprension_negocio/preguntas.qmd
+          - entregas/E0_comprension_negocio/criterio_exito.qmd
+          - entregas/E0_comprension_negocio/riesgos_supuestos.qmd
+          - entregas/E0_comprension_negocio/uso_ia.qmd
+          - entregas/E0_comprension_negocio/fuentes.qmd
+
+  page-footer:
+    background: light
+    left: "Facultad de Ciencias, UNAM · Almacenes y Minería de Datos"
+    right: "Datos: SEMOVI, Portal de Datos Abiertos de la CDMX (CC-BY-4.0-ESP)"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "En esta página"
+    number-sections: false
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    lang: es

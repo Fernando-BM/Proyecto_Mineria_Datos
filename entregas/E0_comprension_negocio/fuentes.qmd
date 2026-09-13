@@ -1,0 +1,56 @@
+---
+title: "7. Fuentes consultadas"
+subtitle: "Entrega E0 - Comprensión del Negocio"
+---
+
+Todas las fuentes fueron consultadas y verificadas por el equipo en **septiembre de 2026**. Las bases de datos se publican bajo licencia **CC-BY-4.0-ESP**, con atribución a la Secretaría de Movilidad (SEMOVI) del Gobierno de la Ciudad de México.
+
+## Datos abiertos y fuentes oficiales
+
+[**[1]**]{#f1} SEMOVI - *Afluencia diaria del Metro CDMX*, Portal de Datos Abiertos de la CDMX. Datos desde enero de 2010, actualización mensual, licencia CC-BY-4.0-ESP; incluye el aviso de actualizaciones retroactivas y el correo de contacto `datosabiertos@cdmx.gob.mx`.
+<https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx>
+
+[**[2]**]{#f2} SEMOVI - *Afluencia diaria de Metrobús CDMX*, Portal de Datos Abiertos de la CDMX. Datos desde julio de 2005; actualizaciones posteriores a enero de 2022 reflejadas solo en la base desglosada.
+<https://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx>
+
+[**[3]**]{#f3} SEMOVI - recurso *Afluencia Diaria del Metro (Simple)* y su diccionario de datos: campos `fecha, anio, mes, linea, estacion, afluencia`; formato CSV.
+<https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx/resource/0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb>
+
+[**[4]**]{#f4} SEMOVI - *Afluencia preliminar en transporte público (histórico)*, Portal de Datos Abiertos de la CDMX.
+<https://datos.cdmx.gob.mx/dataset/?q=afluencia+preliminar>
+
+[**[5]**]{#f5} STC Metro - *Afluencia de estación por línea* (publicación oficial de cifras de afluencia).
+<https://metro.cdmx.gob.mx/operacion/mas-informacion/afluencia-de-estacion-por-linea>
+
+[**[12]**]{#f12} SEMOVI - *Datos de Movilidad (histórico COVID-19)*, Portal de Datos Abiertos de la CDMX. Índices de afluencia de los organismos de transporte e índices de tránsito de Waze y TomTom durante la pandemia; es el único desglose horario publicado y se presenta como índice, no como conteo por estación.
+<https://datos.cdmx.gob.mx/dataset/movilidad-historico-covid-19>
+
+## Prensa
+
+[**[6]**]{#f6} Infobae - *Estas fueron las estaciones del metro más transcurridas [sic] durante 2024* (Pantitlán, 41,546,181 accesos anuales).
+<https://www.infobae.com/mexico/2025/01/29/estas-fueron-las-estaciones-del-metro-mas-transcurridas-durante-2024/>
+
+[**[7]**]{#f7} Milenio - *Línea del Metro de CdMx que registró más usuarios durante 2024* (Línea 2: 212,233,035 usuarios anuales, ~581,460 diarios). Cifra contrastada con Politico.mx e Infobae; ver [riesgo R8](riesgos_supuestos.qmd#r8).
+<https://www.milenio.com/politica/comunidad/linea-del-metro-de-cdmx-registro-mas-usuarios-durante-2024-cual-es>
+
+[**[8]**]{#f8} El Universal - *Caos en el Metro CDMX en hora pico; retrasos y saturación afectan al menos siete líneas*. Consultada el [DD]{.todo} de septiembre de 2026; el equipo debe registrar la fecha de publicación de la nota al citarla.
+<https://www.eluniversal.com.mx/metropoli/caos-en-el-metro-cdmx-en-hora-pico-retrasos-y-saturacion-afectan-al-menos-siete-lineas/>
+
+[**[9]**]{#f9} El Gráfico - *¿Qué está pasando en la Línea 1 del Metro CDMX? Reportan estaciones colapsadas y trenes detenidos* (30 de julio de 2026).
+<https://www.elgrafico.mx/al-dia/2026/07/30/que-esta-pasando-en-la-linea-1-del-metro-cdmx-reportan-estaciones-colapsadas-y-trenes-detenidos/>
+
+[**[10]**]{#f10} El Financiero - *Línea 1 del Metro CDMX reabre en su totalidad: así fue su remodelación que tomó más de 3 años* (cierre del Tramo I el 11 de julio de 2022; cierre Balderas-Observatorio el 9 de noviembre de 2023).
+<https://www.elfinanciero.com.mx/cdmx/2025/11/16/metro-cdmx-reabre-tramo-juanacatlan-observatorio-asi-fueron-las-remodelaciones-de-la-linea-1-que-tomaron-mas-de-3-anos/>
+
+[**[11]**]{#f11} Infobae - *Reapertura Línea 1 del Metro CDMX: a qué hora abrirá todo el servicio de Pantitlán hasta Observatorio* (reapertura total el 16 de noviembre de 2025).
+<https://www.infobae.com/mexico/2025/11/14/reapertura-linea-1-del-metro-cdmx-a-que-hora-abrira-todo-el-servicio-de-pantitlan-hasta-observatorio/>
+
+## Términos de uso de terceros
+
+[**[13]**]{#f13} Waze Partners Help - *About the Waze for Cities program* y *Waze Data Feed specifications*: el intercambio de datos ocurre mediante un *feed* GeoRSS con socios gubernamentales, bajo términos que impiden hacer públicos los datos; no existe API pública abierta.
+<https://support.google.com/waze/partners/answer/10618477> · <https://support.google.com/waze/partners/answer/13458165>
+
+::: {.caja}
+[Evidencia archivada]{.etiqueta}
+Las capturas y PDF de respaldo de estas fuentes se guardan en la carpeta `fuentes/` de esta entrega, para que sigan siendo consultables aunque una URL cambie o desaparezca.
+:::

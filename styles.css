@@ -1,0 +1,119 @@
+/* ---------- Estilos del sitio ---------- */
+
+:root {
+  --azul: #0f2c52;
+  --azul-claro: #1b3f6e;
+  --oro: #c8a94b;
+  --gris: #5a6472;
+}
+
+h1, h2, h3 { color: var(--azul); }
+h2 { border-bottom: 2px solid var(--oro); padding-bottom: .3rem; margin-top: 2.2rem; }
+
+/* Cajas destacadas */
+.caja {
+  border: 1px solid #b9c4d2;
+  background: #f7f9fc;
+  border-left: 4px solid var(--azul-claro);
+  padding: .9rem 1.1rem;
+  margin: 1.2rem 0;
+  border-radius: 3px;
+}
+.caja-aviso { border-left-color: #d9b473; background: #fdf8ec; }
+.caja-clave { border-left-color: #2c5c9e; background: #eef4fb; }
+.caja p:last-child, .caja ul:last-child { margin-bottom: 0; }
+
+.etiqueta {
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--azul); display: block; margin-bottom: .35rem;
+}
+
+/* Preguntas y respuestas de la bitácora */
+.pregunta { font-weight: 700; color: #143a66; margin: 1.4rem 0 .4rem 0; }
+.respuesta {
+  margin: 0 0 .4rem 1rem; padding-left: .9rem;
+  border-left: 3px solid #d4dbe4; font-style: italic; color: #23272e;
+}
+
+/* Píldoras de prioridad */
+.pill {
+  display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .03em;
+  padding: .15rem .45rem; border-radius: 3px; color: #fff; vertical-align: middle;
+  margin-right: .4rem;
+}
+.p-alta  { background: #a8322c; }
+.p-media { background: #b2791f; }
+.p-baja  { background: #4a6b8a; }
+
+/* Superíndices de fuente */
+sup.f a, sup.f { font-size: .68em; color: #1b5fa8; font-weight: 700; text-decoration: none; }
+
+/* ---------- Business Understanding Canvas ---------- */
+/* Debe leerse como UNA sola página, de forma autónoma. */
+
+.canvas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+  font-size: .78rem;
+  line-height: 1.35;
+  margin: 1.2rem 0 2rem 0;
+}
+.canvas .celda { border: 1px solid #98a6b8; padding: .6rem .7rem; border-radius: 2px; }
+.canvas h4 {
+  font-size: .78rem; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--azul); margin: 0 0 .45rem 0; border: none;
+}
+.canvas p  { margin: 0 0 .45rem 0; }
+.canvas ul { padding-left: 1rem; margin: 0 0 .45rem 0; }
+.canvas li { margin-bottom: .18rem; }
+.canvas .em { font-weight: 700; color: #143a66; }
+
+.canvas .c1 { grid-column: span 3; border-left: 4px solid #2c5c9e; }
+.canvas .c2 { grid-column: span 1; border-left: 4px solid #2f7d4f; }
+.canvas .c3 { grid-column: span 4; border-left: 4px solid var(--oro); }
+.canvas .c4 { grid-column: span 3; border-left: 4px solid #6b4fa0; }
+.canvas .c5 { grid-column: span 1; border-left: 4px solid #a8322c; }
+.canvas .c6 { grid-column: span 4; border-left: 4px solid #4a6b8a; }
+
+.canvas .cuadrantes,
+.canvas .fases { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+
+/* En pantallas angostas el canvas se apila para seguir siendo legible */
+@media (max-width: 900px) {
+  .canvas, .canvas .cuadrantes, .canvas .fases { grid-template-columns: 1fr; }
+  .canvas .c1, .canvas .c2, .canvas .c3,
+  .canvas .c4, .canvas .c5, .canvas .c6 { grid-column: span 1; }
+}
+
+/* Impresión: el canvas debe caber en UNA hoja apaisada.
+   Tamaños en px (no rem) para no depender del tipo base del tema. */
+@page { size: letter landscape; margin: 10mm; }
+@media print {
+  .canvas { font-size: 8.1px; line-height: 1.17; gap: 4px; margin: 6px 0; }
+  .canvas .celda { padding: 4px 5px; }
+  .canvas h4 { font-size: 8.8px; margin-bottom: 3px; }
+  .canvas p  { margin-bottom: 3px; }
+  .canvas ul { padding-left: 11px; margin-bottom: 3px; }
+  .canvas li { margin-bottom: 1px; }
+  .canvas .cuadrantes, .canvas .fases { gap: 5px; }
+  .canvas sup.f { font-size: 6px; }
+  /* el canvas nunca se parte y se mantiene en 4 columnas al imprimir */
+  .canvas, .canvas .cuadrantes, .canvas .fases { grid-template-columns: repeat(4, 1fr); }
+  .canvas .c1 { grid-column: span 3; } .canvas .c2 { grid-column: span 1; }
+  .canvas .c3 { grid-column: span 4; }
+  .canvas .c4 { grid-column: span 3; } .canvas .c5 { grid-column: span 1; }
+  .canvas .c6 { grid-column: span 4; }
+  /* ocultar cromo del sitio al imprimir la página */
+  .sidebar, #quarto-sidebar, .navbar, #quarto-header, #quarto-margin-sidebar,
+  .page-footer, #quarto-footer, .callout, div[class^="callout-"], div[class*=" callout-"],
+  .quarto-title-block .subtitle, #TOC, .toc-actions, .no-print { display: none !important; }
+  #quarto-content, main, body { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+}
+
+/* Tablas */
+table { font-size: .88rem; }
+thead th { background: #eef2f7; color: var(--azul); }
+
+/* Marcas de campos por completar */
+.todo { background: #fff3cd; padding: 0 .2rem; border-radius: 2px; }

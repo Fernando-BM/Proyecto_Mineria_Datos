@@ -1,1 +1,90 @@
-:
+---
+title: "3. Preguntas de investigación priorizadas"
+subtitle: "Entrega E0 - Comprensión del Negocio"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+**El conjunto priorizado son cuatro preguntas (PI-1 a PI-4)**, conforme a lo solicitado; PI-5 se incluye únicamente como pregunta de reserva y no forma parte de la priorización.
+
+Las preguntas se ordenan por prioridad según dos criterios: (i) cuánto bloquean al resto del proyecto si no se responden, y (ii) qué tan directamente alimentan la decisión que el stakeholder debe tomar la víspera. Cada una se conecta explícitamente con una tarea de minería de datos.
+
+---
+
+## Preguntas Priorizadas por Alcance Analítico
+
+### 1. Alcance Descriptivo y Baseline
+
+#### [Prioridad 1]{.pill .p-alta} PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?
+
+| | |
+|---|---|
+| **Tarea de minería** | **EDA con visualización temporal** y descomposición de estacionalidad múltiple (día de la semana, quincena, mes, periodos vacacionales). |
+| **Por qué es la primera** | Define el **umbral** que separa "día normal" de "día de alta demanda". Sin ese umbral no existe la variable objetivo de PI-2 y el criterio de éxito no es medible. |
+| **Cómo se responde** | Serie `(fecha, linea, estacion, afluencia)` desde 2010; normalización por estación; percentiles condicionados al día de la semana y al periodo del año.<sup class="f">[[3](fuentes.qmd#f3)]</sup> |
+| **Evidencia de logro** | Umbral documentado y justificado por estación, más el mapa de calor línea × día de la semana. |
+
+---
+
+### 2. Alcance Predictivo
+
+#### [Prioridad 2]{.pill .p-alta} PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?
+
+| | |
+|---|---|
+| **Tarea de minería** | **Regresión / pronóstico** de serie de tiempo, seguida de **clasificación binaria** por umbral sobre el valor pronosticado. |
+| **Por qué importa** | Es **la** pregunta del proyecto: contiene el criterio de éxito completo. Su respuesta determina si el sistema es accionable o solo descriptivo. |
+| **Cómo se responde** | Variables de calendario y de estado de servicio; validación temporal estricta; comparación obligatoria contra la línea base ingenua (media del mismo día de la semana en las 4 semanas previas). |
+| **Evidencia de logro** | Recall $\ge 0.70$ y precision $\ge 0.70$ en la clase de alta demanda, sobre un periodo de prueba posterior al de entrenamiento. |
+
+---
+
+### 3. Alcance de Segmentación y Recomendación
+
+#### [Prioridad 3]{.pill .p-media} PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?
+
+| | |
+|---|---|
+| **Tarea de minería** | **Clustering** de patrones de demanda sobre series normalizadas, más análisis de complementariedad entre Metro y Metrobús. |
+| **Por qué importa** | Es la mitad del enunciado que suele quedarse sin resolver: *recomendar rutas alternas*. Sin una segmentación de perfiles, la recomendación sería una lista fija hecha a mano. |
+| **Cómo se responde** | Perfiles semanales y anuales normalizados por estación; agrupamiento; cruce con la base de afluencia de Metrobús para identificar corredores con capacidad remanente en las mismas franjas.<sup class="f">[[2](fuentes.qmd#f2)]</sup> |
+| **Evidencia de logro** | Catálogo de pares estación $\leftrightarrow$ alternativa, con la justificación cuantitativa de cada par. |
+
+---
+
+### 4. Alcance Diagnóstico y de Anomalías
+
+#### [Prioridad 4]{.pill .p-media} PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?
+
+| | |
+|---|---|
+| **Tarea de minería** | **Detección de anomalías** sobre los residuales del modelo de PI-2. |
+| **Por qué importa** | Separa el ruido explicable del incidente genuino. Si una fracción alta de anomalías se explica por el calendario, esas variables deben volver al modelo; si no, se han encontrado los incidentes operativos que interesan al stakeholder. |
+| **Cómo se responde** | Residuales estandarizados por estación, contrastados contra el calendario de eventos (cierres de línea, festivos, sismos, eventos masivos, clima), con especial atención al periodo de cierre de la Línea 1.<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup> |
+| **Evidencia de logro** | Catálogo de anomalías etiquetadas por causa probable y el porcentaje que queda sin explicación. |
+
+---
+
+### 5. Pregunta de Reserva
+
+#### [Reserva]{.pill .p-baja} PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?
+
+Pregunta de segundo orden que se abordará **solo si PI-1 a PI-4 se resuelven con holgura**. El cierre prolongado de la Línea 1 entre 2022 y 2025 ofrece un **cuasiexperimento natural** para medir el desplazamiento de demanda entre modos<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup>, lo que daría fundamento empírico -y no solo geográfico- a la recomendación de rutas alternas.
+
+* **Tarea asociada:** Análisis de correlación y de cambio de nivel entre series de ambos sistemas.
+
+---
+
+## Matriz de Trazabilidad hacia EDA y Feature Engineering
+
+La siguiente tabla resume el paso directo desde cada pregunta priorizada hacia la ejecución técnica en las fases posteriores:
+
+| ID | Alcance Analítico | Tarea de Minería | Entregable en EDA / Feature Engineering |
+|:---|:---|:---|:---|
+| **PI-1** | Descriptivo | EDA / Descomposición de estacionalidad | Mapas de calor (línea $\times$ día), percentiles de afluencia y definición cuantitativa del umbral de "Alta Demanda". |
+| **PI-2** | Predictivo | Regresión (Series de tiempo) + Clasificación | Lags temporales ($t-7$, $t-28$), variables de calendario (festivos, quincenas) e indicador binario objetivo. |
+| **PI-3** | Clustering | Agrupamiento de series + Análisis espacial | Matriz de distancia entre perfiles de estación y catálogo de complementariedad con líneas de Metrobús. |
+| **PI-4** | Diagnóstico | Detección de anomalías sobre residuales | Serie de residuales estandarizados, etiquetas de causa probable (cierres, clima) y dataset limpio de atípicos. |
+| **PI-5** | Causal (Reserva) | Análisis de correlación / Cambio de nivel | Estimación del coeficiente de absorción de demanda Metro $\rightarrow$ Metrobús en el periodo del cierre de L1. |
