@@ -1,0 +1,146 @@
+---
+title: "1. Bitácora de la reunión con el stakeholder"
+subtitle: "Entrega E0 - Comprensión del Negocio"
+---
+
+::: {.caja .caja-aviso}
+[Modalidad: stakeholder simulado con fuentes verificables]{.etiqueta}
+
+[Elegimos el caso de **Predicción de retrasos y saturación en el transporte público** debido al valor analítico que representan sus variables operativas y de demanda en tiempo real. Decidimos simular un stakeholder principal con el fin de estructurar adecuadamente la fase de Business Understanding, lo que nos brindó un marco claro para priorizar reglas de negocio, traducir prioridades operativas en objetivos de datos y orientar el diseño del modelo hacia la resolución de problemas reales.]{.todo}
+
+**Nota:** Ninguna respuesta atribuida al stakeholder simulado es invención libre. Cada respuesta está anclada a una fuente verificable (el propio portal de datos abiertos de la CDMX, cifras oficiales del STC Metro o notas periodísticas fechadas) indicada con un superíndice que remite a [Fuentes consultadas](fuentes.qmd). Cuando la fuente no permite sostener una afirmación, el texto lo dice explícitamente en lugar de rellenar el hueco.
+:::
+
+El rol simulado es el de un **Subdirector de Planeación del Servicio de la Dirección de Transportación del STC Metro**: perfil con conocimiento directo de la programación de trenes y personal de andén, y por tanto con autoridad sobre las decisiones que este proyecto pretende apoyar. Se simula también un segundo interlocutor técnico, la **Coordinación de Datos Abiertos de SEMOVI**, que es la organización que efectivamente publica y mantiene los conjuntos de datos utilizados.<sup class="f">[[1](fuentes.qmd#f1)]</sup>
+
+## Datos de la sesión
+
+| Campo | Valor |
+|-------|-------|
+| Fecha | 31 de agosto de 2026 |
+| Horario | [12:00 - 13:00]{.todo} ([60]{.todo} min) |
+| Modalidad | Ejercicio de rol documentado (stakeholder simulado con fuentes verificables) |
+| Lugar / medio | [Taller de Sistemas Simbólicos · Facultad de Ciencias, UNAM / videollamada]{.todo} |
+
+## 1.1 Participantes y stakeholders
+
+| Nombre / Integrante | Rol en el proyecto | Cuadrante (Poder / Interés) |
+|---------------------|--------------------|-----------------------------|
+| **[Ing. Jorge Maximino Torres Benítez]{.todo}** - Subdirección de Planeación del Servicio, Dirección de Transportación, STC Metro *(rol simulado)* | Stakeholder principal / patrocinador. Decide refuerzo de trenes, intervalos y despliegue de personal de andén. | **Alto poder / Alto interés** - gestionar de cerca |
+| **[Humberto Antonio Ramírez Barajas]{.todo}** - Coordinación de Datos Abiertos, SEMOVI *(rol simulado)* | Proveedor de datos. Publica y mantiene las bases de afluencia del Metro y Metrobús.<sup class="f">[[1](fuentes.qmd#f1)][[2](fuentes.qmd#f2)]</sup> | **Alto poder / Bajo interés** - mantener satisfecho |
+| **[Aldair Coronel Ruiz]{.todo}** | Analista / traductor técnico - condujo la entrevista | ----- |
+| **[Fernando Bernal Martínez]{.todo}** | Analista / traductor técnico - fuente | ----- |
+| **[Luis Alberto Hernández Aguilar / Tania Ramírez Plascencia]{.todo}** | Analista / traductor técnico - validación de factibilidad | ----- |
+| Personas usuarias del Metro y Metrobús | Beneficiario final del proyecto. No participa en la sesión. | **Bajo poder / Alto interés** - mantener informado |
+
+## 1.2 Contexto y objetivos de la sesión
+
+El STC Metro moviliza del orden de **mil cien millones de pasajeros al año**; solo la Línea 2 (Cuatro Caminos-Taxqueña) registró **212.2 millones de usuarios en 2024**, un promedio de unos **581 mil pasajeros diarios**, y la estación Pantitlán -nodo de las líneas 1, 5, 9 y A- concentró **41.5 millones de accesos anuales**.<sup class="f">[[5](fuentes.qmd#f5)][[6](fuentes.qmd#f6)][[7](fuentes.qmd#f7)]</sup> Sobre esa escala, la prensa documenta con regularidad episodios de saturación simultánea en varias líneas durante la hora pico matutina, con trenes llenos, avance lento en andén y retrasos<sup class="f">[[8](fuentes.qmd#f8)]</sup>, así como episodios acotados a una sola línea.<sup class="f">[[9](fuentes.qmd#f9)]</sup>
+
+La sesión se convocó para entender **cómo vive el operador ese fenómeno**, qué decisiones toma hoy sin apoyo de datos y qué significaría "éxito" desde su perspectiva, antes de comprometer cualquier objetivo técnico. El equipo llegó con una hipótesis previa ("predecir saturación por hora y en tiempo real") que se puso deliberadamente a prueba durante la conversación.
+
+## 1.3 Desarrollo cronológico
+
+| Hora | Bloque | Puntos tratados |
+|------|--------|-----------------|
+| [12:00-12:08]{.todo} | **Apertura y alineación** | Presentación del equipo y del curso. Se acuerda que el propósito de la sesión es *levantar el problema*, no proponer solución técnica. Se confirma que el alcance del semestre es un estudio con datos públicos, sin acceso a sistemas internos. |
+| [12:08-12:22]{.todo} | **El problema en palabras del stakeholder** | Descripción del fenómeno de saturación: dónde duele, cuándo, y por qué las medidas actuales llegan tarde. Distinción entre *afluencia* (entradas registradas) y *saturación* (condición de andén y tren). |
+| [12:22-12:36]{.todo} | **Decisiones que hoy se toman sin datos** | Programación de trenes de refuerzo, apertura de accesos alternos, despliegue de personal y emisión de avisos. Ventana real de decisión y quién la ejecuta. |
+| [12:36-12:50]{.todo} | **Factibilidad de datos** | Revisión conjunta del portal de datos abiertos: cobertura, granularidad, periodicidad de actualización y licencia. **Hallazgo crítico de la sesión:** la base pública es diaria, no horaria.<sup class="f">[[1](fuentes.qmd#f1)][[3](fuentes.qmd#f3)]</sup> |
+| [12:50-13:00]{.todo} | **Cierre y compromisos** | Reformulación del alcance a un horizonte de anticipación de 24 h. Definición del criterio de éxito y de los próximos pasos. |
+
+## 1.4 Preguntas formuladas y respuestas clave
+
+::: {.pregunta}
+P1. ¿Cómo describiría el problema de saturación tal como lo vive el área, y no como lo cuenta la prensa?
+:::
+::: {.respuesta}
+"El problema no es que haya mucha gente: eso ya lo sabemos, para eso está el sistema. El problema es que la aglomeración se concentra en un puñado de nodos y en franjas muy estrechas. Pantitlán sola movió más de 41 millones de accesos en 2024 y la Línea 2 más de 212 millones; cuando eso coincide con un incidente en otra línea, el andén se satura en minutos.<sup class="f">[[6](fuentes.qmd#f6)][[7](fuentes.qmd#f7)]</sup> Y cuando la prensa reporta 'caos en siete líneas en hora pico', nosotros ya llevamos veinte minutos operando en emergencia."<sup class="f">[[8](fuentes.qmd#f8)]</sup>
+:::
+
+::: {.pregunta}
+P2. ¿Qué decisiones toma hoy sin apoyo de datos, y con qué información las toma?
+:::
+::: {.respuesta}
+"Trenes de refuerzo, intervalos, apertura de torniquetes adicionales y ubicación del personal de andén. Hoy eso se decide con la experiencia del jefe de estación y con reportes que llegan cuando la aglomeración ya existe. Es reacción, no anticipación. Lo que publicamos como dato abierto sirve para rendir cuentas y para planeación anual, pero se actualiza mensualmente<sup class="f">[[1](fuentes.qmd#f1)]</sup> - no es una herramienta de operación diaria."
+:::
+
+::: {.pregunta}
+P3. ¿Qué restricciones operativas debemos conocer antes de proponer algo?
+:::
+::: {.respuesta}
+"Tres. Primera: el parque vehicular y el personal no son elásticos; un tren de refuerzo se programa la víspera, no en el momento. Segunda: no podemos entregar información interna de ocupación ni de conteo por hora; lo que hay disponible es lo que está en el portal. Tercera: la red no ha estado estable. La Línea 1 estuvo parcial o totalmente cerrada desde julio de 2022 y solo se reabrió completa hasta Observatorio el 16 de noviembre de 2025, más de tres años después.<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup> Cualquier análisis histórico que ignore eso va a estar leyendo obras como si fueran comportamiento de la gente."
+:::
+
+::: {.pregunta}
+P4. ¿Qué datos existen realmente, con qué cobertura y con qué granularidad?
+:::
+::: {.respuesta}
+"La base de *Afluencia diaria del Metro* la publica SEMOVI en el portal de datos abiertos con licencia CC-BY-4.0. Cubre desde enero de 2010, se actualiza mensualmente y sus campos son `fecha, anio, mes, linea, estacion, afluencia`. Existe además una versión desglosada por medio de acceso -tarjeta, boleto y gratuidad- a partir del Plan de Apertura de 2022.<sup class="f">[[1](fuentes.qmd#f1)][[3](fuentes.qmd#f3)]</sup> Metrobús tiene su equivalente, con datos desde julio de 2005, y desde enero de 2022 las actualizaciones se reflejan únicamente en la base desglosada.<sup class="f">[[2](fuentes.qmd#f2)]</sup> Hay también una base preliminar de afluencia en transporte público.<sup class="f">[[4](fuentes.qmd#f4)]</sup> **Lo que no existe públicamente es el desglose por hora**: solo se publicó durante la emergencia de COVID-19, y como índices, no como conteo por estación."<sup class="f">[[12](fuentes.qmd#f12)]</sup>
+:::
+
+::: {.pregunta}
+P5. Entonces, ¿el objetivo de "predecir la hora pico en tiempo real" es viable con estos datos?
+:::
+::: {.respuesta}
+"No con lo que está publicado, y prefiero decirlo ahora a decirlo en diciembre. Pero les voy a dar la vuelta: **a mí el tiempo real me sirve menos de lo que ustedes creen**, porque las palancas que puedo mover -refuerzo, personal, avisos- se programan la noche anterior. Si ustedes me dicen con 24 horas de anticipación 'mañana estas ocho estaciones van a estar por encima de su nivel normal', eso sí lo puedo accionar. El tiempo real, sin trenes disponibles, solo me sirve para confirmar el problema."
+:::
+
+::: {.pregunta}
+P6. ¿Qué significaría "éxito" para usted, en sus términos?
+:::
+::: {.respuesta}
+"Que dejemos de enterarnos por Twitter. Concretamente: que la mayoría de los días de alta demanda estén identificados *antes* de que empiece el servicio, que el aviso llegue con una alternativa concreta -'si va a Pantitlán, considere esta línea de Metrobús'- y que podamos medir en cuántos de esos días efectivamente se reforzó el servicio. No necesito un modelo perfecto: necesito uno en el que se pueda confiar lo suficiente como para mover trenes."
+:::
+
+::: {.pregunta}
+P7. ¿Hay algo que debamos evitar hacer?
+:::
+::: {.respuesta}
+"Dos cosas. No confundan afluencia con ocupación: el torniquete cuenta entradas, no cuántas personas van paradas en el vagón ni dónde se bajan. Y no se metan a raspar datos de aplicaciones de tráfico. Waze no tiene una API pública abierta; comparte un *feed* con gobiernos dentro del programa Waze for Cities y bajo términos que impiden republicar esos datos.<sup class="f">[[13](fuentes.qmd#f13)]</sup> Si alguna vez lo necesitan, se tramita institucionalmente."
+:::
+
+::: {.pregunta}
+P8. ¿Cuál es la fecha o el hito crítico?
+:::
+::: {.respuesta}
+"Para ustedes, el semestre. Para nosotros, cualquier ventana de alta demanda previsible: regreso a clases, periodos vacacionales, quincenas, eventos masivos. Un piloto de tres meses sobre las líneas de mayor afluencia sería suficiente para saber si esto sirve."
+:::
+
+::: {.caja .caja-aviso}
+[Nota de honestidad metodológica]{.etiqueta}
+Las respuestas **P5, P6 y P8** son el componente propiamente simulado del ejercicio: expresan una postura del rol, no un hecho documentado, y por eso no llevan superíndice de fuente. Lo que sí está respaldado son las restricciones materiales sobre las que se apoyan (la granularidad diaria de la base<sup class="f">[[1](fuentes.qmd#f1)][[3](fuentes.qmd#f3)][[12](fuentes.qmd#f12)]</sup> y la inestabilidad de la red durante el periodo histórico<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup>). El equipo distingue explícitamente ambos planos en lugar de presentar la simulación como evidencia.
+:::
+
+## 1.5 Decisiones y acuerdos
+
+- **Alcance acordado.** Anticipación con **24 horas** de antelación de días de *alta demanda* a nivel **línea-estación**, más detección de días atípicos. Se descarta explícitamente el pronóstico intradía por inexistencia de datos horarios públicos.
+- **Unidad de análisis.** El par `(fecha, línea, estación)` con la variable `afluencia` de la base simple; la base desglosada se reserva para explicar cambios de composición (tarjeta / boleto / gratuidad) a partir de 2022.
+- **Métrica primaria de negocio.** Proporción de días-estación de alta demanda anticipados a más tardar a las 20:00 h de la víspera, dentro de la ventana en que puede programarse refuerzo (ver [Criterio de éxito](criterio_exito.qmd)).
+- **Definición operativa de "saturación".** Se adopta un *proxy* declarado: afluencia diaria de una estación que supera de forma significativa su nivel esperado para ese día de la semana y periodo del año. Se documenta que **no equivale a ocupación del tren**.
+- **Fuera de alcance para todo el proyecto.** Datos de Waze o de cualquier proveedor sin API abierta; cualquier forma de *scraping* de plataformas que lo prohíben.<sup class="f">[[13](fuentes.qmd#f13)]</sup>
+- **Alcance del piloto.** Tres líneas de mayor afluencia y una ventana de tres meses, evaluada por simulación retrospectiva sobre la base pública.
+
+## 1.6 Pendientes y próximos pasos
+
+| Acción / entregable | Responsable | Fecha límite |
+|---------------------|-------------|--------------|
+| Descargar y congelar un *snapshot* fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga | [Integrante 3]{.todo} | [DD]{.todo} de septiembre, 2026 |
+| Enviar solicitud formal de la base horaria a `datosabiertos@cdmx.gob.mx` y documentar la respuesta<sup class="f">[[1](fuentes.qmd#f1)]</sup> | [Integrante 2]{.todo} | [DD]{.todo} de septiembre, 2026 |
+| Publicar el sitio Quarto con las páginas de E0 y la URL en el `README.md` | [Integrante 1]{.todo} | 11 de septiembre, 2026 |
+| Construir el calendario de eventos (cierres de línea, festivos, periodos vacacionales, sismos, eventos masivos) para explicar anomalías en E1 | [Integrante 4]{.todo} | Entrega E1 |
+| Validar con el stakeholder la definición *proxy* de saturación y el umbral de "alta demanda" | Equipo completo | Entrega E1 |
+
+## 1.6 Reflexión del equipo: qué cambió tras la entrevista
+
+::: {.caja .caja-clave}
+**1. El problema no era el que traíamos.** Llegamos con la idea de "predecir saturación en tiempo real por hora". Salimos con algo distinto y más honesto: la fuente pública es **diaria**<sup class="f">[[3](fuentes.qmd#f3)]</sup>, de modo que el objetivo original no era alcanzable. Detectarlo en E0 (y no en la fase de modelado) es probablemente el resultado más valioso de esta entrega.
+
+**2. El tiempo real era una preferencia nuestra, no una necesidad del operador.** El hallazgo que reordenó todo el proyecto fue que las palancas del stakeholder (refuerzo de trenes, personal, avisos) se programan la víspera. Una alerta a 24 horas es *más* accionable que una alerta instantánea, porque coincide con la ventana en que él puede decidir. La restricción de datos y la necesidad real terminaron apuntando al mismo lugar.
+
+**3. "Saturación" y "afluencia" no son lo mismo.** El torniquete cuenta entradas; no mide ocupación del vagón ni destinos. Esto nos obliga a declarar un *proxy* explícito y a no prometer lo que el dato no puede sostener. Es también la razón por la que el criterio de éxito se formuló sobre *anticipación* y no sobre *reducción de aglomeración*: lo segundo no podríamos medirlo.
+
+**4. La historia de la red está dentro de los datos.** El cierre y la modernización de la Línea 1 entre julio de 2022 y noviembre de 2025<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup> deja ceros estructurales y demanda desplazada. Antes de la entrevista lo habríamos leído como estacionalidad; ahora es una variable de control obligatoria.
+
+**5. Aprendimos a leer el aviso legal del portal.** La advertencia de que los conjuntos "pueden incluir actualizaciones retroactivas, por lo que la información histórica puede cambiar"<sup class="f">[[1](fuentes.qmd#f1)]</sup> convierte la reproducibilidad en un requisito de diseño, no en una buena intención.
+:::

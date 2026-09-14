@@ -1,0 +1,143 @@
+---
+title: "2. Business Understanding Canvas (CRISP-DM)"
+subtitle: "Anticipación de saturación en el transporte público de la CDMX"
+toc: false
+---
+
+::: {.callout-note appearance="minimal"}
+UNAM Facultad de Ciencias, Almacenes y Minería de Datos · Entrega E0 · 11 de septiembre de 2026 · Stakeholder: Subdirección de Planeación del Servicio, STC Metro (rol simulado con fuentes verificables).
+:::
+
+::: {.canvas}
+
+::: {.celda .c1}
+#### 1 · Objetivo de negocio
+
+[Dolor actual.]{.em} La autoridad de movilidad reacciona a la saturación una vez que ya ocurrió: la aglomeración se detecta por reportes de andén y redes sociales, cuando el refuerzo de servicio ya no puede desplegarse a tiempo. La prensa documenta episodios simultáneos de saturación y retrasos en múltiples líneas en hora pico<sup class="f">[8]</sup>, y también colapsos acotados a una línea.<sup class="f">[9]</sup>
+
+[Proceso impactado.]{.em} Programación de trenes de refuerzo e intervalos, apertura de accesos, despliegue de personal de andén y comunicación de rutas alternas al público.
+
+[Meta.]{.em} Pasar de una operación **reactiva** a una **anticipatoria**: que el operador sepa, **a más tardar a las 20:00 h de la víspera** (cuando todavía puede programar un tren de refuerzo), qué estaciones y líneas presentarán demanda inusualmente alta al día siguiente, y que cada aviso al público llegue acompañado de una alternativa concreta (otra línea del Metro o un corredor de Metrobús).<sup class="f">[2]</sup>
+
+[Beneficiarios.]{.em} Personas usuarias del Metro y Metrobús (≈581 mil pasajeros diarios solo en la Línea 2)<sup class="f">[7]</sup>; jefes de estación; áreas de comunicación y de planeación del servicio.
+
+[Horizonte.]{.em} Piloto de 3 meses sobre las 3 líneas de mayor afluencia, evaluado dentro del semestre en curso.
+:::
+
+::: {.celda .c2}
+#### 2 · Criterio de éxito (negocio)
+
+Al cierre del piloto de 3 meses:
+
+- **≥ 70 %** de los días-estación de alta demanda quedan **identificados a más tardar a las 20:00 h de la víspera**, dentro de la ventana en que el operador programa refuerzo. Hoy no existe anticipación sistemática documentada: la detección ocurre durante el evento.<sup class="f">[8][9]</sup>
+- **≤ 30 %** de falsas alarmas sobre el total de avisos que el sistema habría emitido, para no desgastar la credibilidad operativa.
+- **≥ 2 de cada 3** avisos habrían incluido una ruta alterna concreta y nombrada.
+- El tiempo entre detección y aviso pasa de *reactivo* a **≈ 24 h de antelación**.
+
+[Ventana de medición:]{.em} 3 meses continuos, evaluados por **simulación retrospectiva sobre la base pública de afluencia** - no requiere datos internos.
+:::
+
+::: {.celda .c3}
+#### 3 · Evaluación de la situación
+
+::: {.cuadrantes}
+::: {.sub}
+[Recursos]{.em}
+
+- **Afluencia diaria Metro** (SEMOVI, CC-BY-4.0): desde ene-2010, mensual; campos `fecha, anio, mes, linea, estacion, afluencia`.<sup class="f">[1][3]</sup>
+- **Afluencia desglosada** por medio de acceso (tarjeta / boleto / gratuidad), desde 2022.<sup class="f">[1]</sup>
+- **Afluencia diaria Metrobús**: desde jul-2005; actualizaciones post ene-2022 solo en la base desglosada.<sup class="f">[2]</sup>
+- **Afluencia preliminar** en transporte público.<sup class="f">[4]</sup>
+- Cifras oficiales de afluencia por estación y línea del STC.<sup class="f">[5]</sup>
+- Equipo: 4 estudiantes; Python (pandas, scikit-learn), Git/GitHub, Quarto. Sin costo de infraestructura.
+:::
+
+::: {.sub}
+[Requisitos]{.em}
+
+- Entregas parciales ancladas a CRISP-DM a lo largo del semestre; E0 al 11-sep-2026.
+- Todo debe ser reproducible desde el repositorio y publicado como sitio Quarto.
+- Atribución obligatoria a SEMOVI (licencia CC-BY-4.0-ESP).<sup class="f">[1]</sup>
+- Solo fuentes públicas y descarga directa: **sin scraping** de plataformas que lo prohíben.<sup class="f">[13]</sup>
+- Cómputo limitado a equipos personales: los modelos deben entrenarse en minutos, no en horas.
+- El aviso debe producirse dentro de la ventana de programación de la víspera para ser accionable.
+:::
+
+::: {.sub}
+[Supuestos]{.em}
+
+- La afluencia de torniquete es un *proxy* estable de la demanda relativa entre estaciones.
+- El portal seguirá publicando mensualmente durante el semestre.<sup class="f">[1]</sup>
+- Los patrones de calendario (día de la semana, quincena, vacaciones, festivos) siguen vigentes tras la reapertura completa de la L1.<sup class="f">[11]</sup>
+- Las llaves `linea` y `estacion` son consistentes en el histórico (a verificar en E1).
+- El operador puede accionar un aviso con 24 h de antelación.
+:::
+
+::: {.sub}
+[Riesgos]{.em}
+
+- **Granularidad diaria**: no hay dato horario público → la meta de "hora pico" es inalcanzable. *Mit.:* reformular a día-estación; solicitar base horaria.<sup class="f">[12]</sup>
+- **Actualizaciones retroactivas**: el histórico puede cambiar.<sup class="f">[1]</sup> *Mit.:* snapshot congelado y versionado.
+- **Ruptura estructural L1** (jul-2022 → nov-2025).<sup class="f">[10][11]</sup> *Mit.:* indicador de estado de servicio y validación temporal.
+- **Afluencia ≠ ocupación**. *Mit.:* declarar el *proxy*; no prometer ocupación.
+- **Éxito no alcanzable** con los datos. *Mit.:* criterio renegociado en la propia entrevista.
+:::
+:::
+:::
+
+::: {.celda .c4}
+#### 4 · Objetivo de minería de datos
+
+[Traducción técnica.]{.em} Estimar, para cada par (estación, día) con horizonte primario de **1 día** (extensible a 7 si el operador ampliara su ventana), la afluencia esperada y la probabilidad de que supere su umbral de alta demanda; y aislar los días cuyo comportamiento no explican el calendario ni la tendencia.
+
+[Tareas.]{.em} (a) **EDA temporal** - descomposición de estacionalidad múltiple (día de semana, quincena, mes, periodos vacacionales) y auditoría de huecos; (b) **regresión / pronóstico** de afluencia diaria por estación con variables de calendario y estado de servicio; (c) **clasificación binaria** día-estación de alta demanda, derivada del umbral sobre el pronóstico; (d) **clustering** de estaciones por perfil de demanda normalizado, base del catálogo de rutas alternas; (e) **detección de anomalías** sobre residuales, para identificar incidentes.
+
+[Entregable técnico.]{.em} Tabla de *scoring* diario `(fecha, linea, estacion, afluencia_esperada, score_saturacion, bandera_alta_demanda)`, matriz de segmentación de estaciones y catálogo de pares estación↔alternativa (Metro/Metrobús).
+
+[Filtros clave.]{.em} Excluir del entrenamiento los tramos con servicio suspendido; acotar el modelo operativo a 2022 en adelante y usar 2010-2021 solo para el estudio estacional.
+:::
+
+::: {.celda .c5}
+#### 5 · Éxito técnico
+
+- **Recall ≥ 0.70** en la clase "alta demanda" - traducción directa del "≥ 70 % identificados en la víspera".
+- **Precision ≥ 0.70** - traduce el "≤ 30 % de falsas alarmas".
+- **MAPE ≤ 12 %** en el pronóstico diario por estación (líneas del piloto).
+- Superar una **línea base ingenua** (media del mismo día de la semana en las 4 semanas previas) en al menos **20 %** de reducción de error.
+- **Validación temporal** (*train* pasado / *test* futuro), nunca aleatoria.
+- **Coeficiente de silueta** interpretable y estable en el *clustering* de perfiles.
+:::
+
+::: {.celda .c6}
+#### 6 · Plan del proyecto
+
+::: {.fases}
+::: {.sub}
+[Fase 1 - Comprensión y exploración]{.em} (E1-E2)
+
+Snapshot congelado de las bases; auditoría de huecos, duplicados y consistencia de llaves `linea/estacion`; EDA temporal y calendario de eventos (cierres, festivos, vacaciones).
+:::
+::: {.sub}
+[Fase 2 - Preparación y modelado]{.em} (E3)
+
+Ingeniería de variables de calendario y estado de servicio; línea base ingenua; modelos de pronóstico y clasificación; *clustering* de perfiles; detección de anomalías sobre residuales.
+:::
+::: {.sub}
+[Fase 3 - Revisión con el stakeholder]{.em} (E4)
+
+Validación del umbral de alta demanda y del catálogo de rutas alternas; ajuste del balance precision/recall según el costo operativo de una falsa alarma.
+:::
+::: {.sub}
+[Fase 4 - Piloto simulado y evaluación]{.em} (E5 / final)
+
+Simulación retrospectiva del piloto de 3 meses sobre las 3 líneas de mayor afluencia; cálculo del criterio de éxito de negocio; documentación de despliegue y limitaciones.
+:::
+:::
+:::
+
+:::
+
+::: {.caja .no-print}
+[Sobre los superíndices]{.etiqueta}
+Los números remiten a la página de [Fuentes consultadas](fuentes.qmd). Se dejan como texto plano dentro del canvas para que la página conserve su lectura autónoma al imprimirse.
+:::

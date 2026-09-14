@@ -1,0 +1,37 @@
+---
+title: "4. Criterio de éxito en términos de negocio"
+subtitle: "Entrega E0 - Comprensión del Negocio"
+---
+
+::: {.caja .caja-clave}
+[Enunciado]{.etiqueta}
+
+> "Al cierre de un piloto de tres meses sobre las tres líneas de mayor afluencia, **al menos 7 de cada 10 días-estación que resulten de alta demanda habrán sido identificados a más tardar a las 20:00 h de la víspera**, es decir, dentro de la ventana en que todavía puede programarse un tren de refuerzo, con **no más de 3 de cada 10 avisos que resulten falsas alarmas**, y con **al menos 2 de cada 3 avisos acompañados de una ruta alterna concreta y nombrada**."
+:::
+
+## 4.1 Por qué este enunciado es verificable
+
+- **Tiene línea base declarada.** El stakeholder describe la práctica actual como reactiva (la aglomeración se conoce por reportes de andén y redes sociales<sup class="f">[[8](fuentes.qmd#f8)][[9](fuentes.qmd#f9)]</sup>), pero el equipo **no dispone de una medición institucional de la anticipación actual**. Por eso la línea base operativa que se usará para comparar es cuantificable y pública: la *regla ingenua* (media del mismo día de la semana en las 4 semanas previas), y el criterio se juzga como mejora sobre ella, no sobre un "0 %" que no podríamos acreditar.
+- **Tiene unidad de medida y denominador.** La unidad es el *día-estación*; el denominador son los días-estación que superan el umbral definido en [PI-1](preguntas.qmd), calculable a posteriori sobre la misma base pública.
+- **Tiene ventana temporal y es computable sin datos internos.** Tres meses continuos sobre tres líneas nombradas, evaluados por **simulación retrospectiva**: se reproduce qué habría anticipado el sistema cada víspera y se contrasta con la afluencia efectivamente publicada. No depende del registro operativo de refuerzos, al que el equipo no tiene acceso.
+- **Tiene un contracriterio.** El límite de falsas alarmas impide alcanzar el 70 % trivialmente marcando todo como alta demanda: obliga al sistema a discriminar.
+
+## 4.2 Vínculo con la métrica técnica
+
+A cerrar en las fases de modelado y evaluación:
+
+| Criterio de negocio | Métrica técnica equivalente | Umbral objetivo |
+|---------------------|----------------------------|-----------------|
+| 7 de cada 10 días de alta demanda identificados en la víspera | **Recall** (sensibilidad) de la clase "alta demanda" | ≥ 0.70 |
+| No más de 3 de cada 10 avisos son falsa alarma | **Precision** de la clase "alta demanda" | ≥ 0.70 |
+| El pronóstico es suficientemente fino para dimensionar el refuerzo | **MAPE** del pronóstico diario por estación | ≤ 12 % |
+| El sistema aporta valor sobre "hacer lo de siempre" | Mejora relativa contra la **línea base ingenua** | ≥ 20 % de reducción de error |
+| 2 de cada 3 avisos llevan una alternativa concreta | Cobertura del catálogo (PI-3) sobre las **estaciones que generan avisos**, no sobre todas las del piloto | ≥ 67 % de las estaciones con aviso |
+
+::: {.caja .caja-aviso}
+[Advertencia declarada al stakeholder]{.etiqueta}
+
+El criterio mide **anticipación**, no **reducción de aglomeración**. Con datos públicos de afluencia no es posible acreditar que el andén estuvo menos lleno, porque el torniquete cuenta entradas y no ocupación.
+
+Formular el éxito como "reducir un 20 % la saturación" habría producido un enunciado atractivo pero **no verificable** con los datos disponibles. La reducción de aglomeración solo podría evaluarse en un despliegue real con datos operativos internos, lo que se documenta como trabajo futuro.
+:::
