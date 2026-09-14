@@ -125,8 +125,7 @@ Las respuestas **P5, P6 y P8** son el componente propiamente simulado del ejerci
 
 | Acción / entregable | Responsable | Fecha límite |
 |---------------------|-------------|--------------|
-| Descargar y congelar un *snapshot* fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga | [Integrante 3]{.todo} | [DD]{.todo} de septiembre, 2026 |
-| Enviar solicitud formal de la base horaria a `datosabiertos@cdmx.gob.mx` y documentar la respuesta<sup class="f">[[1](fuentes.qmd#f1)]</sup> | [Integrante 2]{.todo} | [DD]{.todo} de septiembre, 2026 |
+| Descargar y congelar un *snapshot* fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga | [Integrante 3]{.todo} | septiembre, 2026 |
 | Publicar el sitio Quarto con las páginas de E0 y la URL en el `README.md` | [Integrante 1]{.todo} | 11 de septiembre, 2026 |
 | Construir el calendario de eventos (cierres de línea, festivos, periodos vacacionales, sismos, eventos masivos) para explicar anomalías en E1 | [Integrante 4]{.todo} | Entrega E1 |
 | Validar con el stakeholder la definición *proxy* de saturación y el umbral de "alta demanda" | Equipo completo | Entrega E1 |

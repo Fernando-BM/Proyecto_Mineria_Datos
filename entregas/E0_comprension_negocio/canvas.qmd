@@ -137,7 +137,3 @@ Simulación retrospectiva del piloto de 3 meses sobre las 3 líneas de mayor afl
 
 :::
 
-::: {.caja .no-print}
-[Sobre los superíndices]{.etiqueta}
-Los números remiten a la página de [Fuentes consultadas](fuentes.qmd). Se dejan como texto plano dentro del canvas para que la página conserve su lectura autónoma al imprimirse.
-:::
