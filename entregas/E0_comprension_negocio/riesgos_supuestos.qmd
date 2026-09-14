@@ -1,0 +1,30 @@
+---
+title: "5. Supuestos y riesgos"
+subtitle: "Entrega E0 - Comprensión del Negocio"
+---
+
+## 5.1 Matriz de Gestión de Riesgos
+
+| Categoría | Riesgo Identificado | Impacto | Probabilidad | Plan de Mitigación |
+| :--- | :--- | :--- | :--- | :--- |
+| **Alcance y Requisitos** | **[R1]{#r1} · Granularidad publicada diaria (no horaria)**<br>Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico. | Alto | Alta *(Materializado)* | Reformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (`datosabiertos@cdmx.gob.mx`) y usar el histórico COVID-19 solo como referencia estructural intradía. |
+| **Calidad de Datos** | **[R2]{#r2} · Actualizaciones retroactivas de la fuente**<br>Cambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables. | Alto | Media | Congelar un *snapshot* fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el *pipeline* sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga. |
+| **Datos y Modelado** | **[R3]{#r3} · Ruptura estructural por cierre de Línea 1**<br>Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida. | Alto | Alta | Crear la variable `estado_servicio` por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura. |
+| **Definición de Negocio** | **[R4]{#r4} · El indicador no es el fenómeno de interés**<br>La afluencia mide entradas por torniquete, no la saturación real de andenes/vagones. | Alto | Media | Declarar formalmente la definición *proxy* en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como "riesgo relativo de alta demanda" en lugar de ocupación absoluta. |
+| **Datos y Modelado** | **[R5]{#r5} · Cambio de régimen en la serie histórica**<br>Mezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases. | Medio | Alta | Acotar el modelo operativo a datos de **2022 en adelante**; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1. |
+| **Calidad de Datos** | **[R6]{#r6} · Llaves sucias entre línea y estación**<br>Inconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones. | Medio | Alta | Realizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas. |
+| **Dependencias Externas** | **[R7]{#r7} · Inaccesibilidad de fuentes externas (Waze)**<br>Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer *scraping* generaría bloqueos legales o técnicos. | Medio | Baja | Excluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas. |
+| **Calidad de Datos** | **[R8]{#r8} · Discrepancia entre cifras reportadas públicamente**<br>Diferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas. | Bajo | Media | Definir la base de datos abiertos como la **única fuente de verdad** técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos. |
+
+## 5.2 Supuestos que el equipo asume explícitamente
+
+| # | Supuesto | Cómo se verificará (o qué pasa si es falso) |
+|---|----------|---------------------------------------------|
+| **S1** | El portal de datos abiertos mantendrá la publicación mensual de las bases de afluencia durante todo el semestre.<sup class="f">[[1](fuentes.qmd#f1)]</sup> | Registro mensual de la fecha de última actualización. Si se interrumpe, el proyecto continúa con el *snapshot* congelado y se documenta el corte. |
+| **S2** | La afluencia registrada en torniquete es un *proxy* estable de la demanda relativa entre estaciones, aun sin medir ocupación. | Se contrasta el ordenamiento de estaciones con la publicación oficial del STC.<sup class="f">[[5](fuentes.qmd#f5)][[6](fuentes.qmd#f6)]</sup> Si el *proxy* no se sostiene, el alcance se restringe a pronóstico de afluencia sin interpretación de saturación. |
+| **S3** | Los patrones de calendario (día de la semana, quincena, periodos vacacionales, días festivos) siguen vigentes tras la reapertura completa de la Línea 1 en noviembre de 2025.<sup class="f">[[11](fuentes.qmd#f11)]</sup> | Prueba de estabilidad comparando los perfiles semanales antes y después de la reapertura. Si difieren, se restringe el entrenamiento al periodo posterior. |
+| **S4** | El catálogo de estaciones y líneas es consistente a lo largo del histórico. | Auditoría de llaves en E1 (ver [R6](#r6)). Si no lo es, se construye una tabla de equivalencias documentada. |
+| **S5** | El operador puede efectivamente accionar un aviso emitido con 24 horas de antelación (disponibilidad de parque vehicular y de personal). | Supuesto tomado del propio stakeholder. Si la ventana real fuera más larga, el horizonte de pronóstico se extiende a 3-7 días, algo que el modelo ya contempla. |
+| **S6** | Los eventos que explican anomalías (cierres, festivos, eventos masivos) son documentables públicamente con fecha. | Construcción del calendario de eventos en E1. Los días sin explicación se reportan como anomalías no atribuidas, sin forzar una causa. |
+
+
