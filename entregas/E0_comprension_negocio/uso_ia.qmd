@@ -3,19 +3,19 @@ title: "6. Documentación del uso de herramientas de IA"
 subtitle: "Entrega E0 - Comprensión del Negocio"
 ---
 
-El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna salida se incorporó sin revisión.**
+El equipo utilizó un modelo de lenguaje como **herramienta de apoyo** en esta entrega. Las decisiones de fondo (caso a trabajar, alcance, criterio de éxito, estructura final de los entregables) y la validación de todo el contenido fueron responsabilidad del equipo. **Ninguna salida se incorporó sin revisión.** Cada registro sigue los cuatro puntos solicitados: herramienta, tarea, prompt y revisión crítica del equipo.
 
 ## Registro de usos
 
-### Uso 1 - Estructuración de los entregables
+### Uso 1 - Borrador inicial y estructura de los entregables
 
 | Campo | Detalle |
 |-------|---------|
 | **Herramienta** | Claude (Anthropic) - modelo: Opus 5 |
 | **Fecha** | 31 de agosto de 2026 |
-| **Tarea** | Estructurar los cinco entregables de E0 a partir del PDF de instrucciones y de las dos plantillas del curso. |
+| **Tarea** | Apoyo para generar un **borrador inicial** de los entregables de E0 (bitácora, Canvas, preguntas de investigación, criterio de éxito, supuestos y riesgos) a partir del PDF de instrucciones, las dos plantillas del curso y el caso elegido por el equipo. La herramienta propuso una estructura y una redacción base; el equipo decidió qué conservar, qué corregir y cómo adaptarlo al proyecto. |
 | **Prompt (resumen fiel)** | "Lee el PDF de instrucciones de la entrega E0, la plantilla de bitácora y la plantilla del Business Understanding Canvas. Redacta los entregables para el tema 8 (predicción de retrasos y saturación en el transporte público), con stakeholder simulado sustentado en fuentes verificables." |
-| **Qué hizo el equipo con la salida** | Se revisó que cada sección correspondiera a un entregable de la rúbrica y a sus criterios mínimos. Se ajustaron los nombres de los stakeholders, la fecha y horarios de la reunión de acuerdo al horario en que se reunió el equipo, los elementos del business canvas y el inicio del sitio. |
+| **Revisión y validación crítica del equipo** | El borrador se trató como punto de partida, no como versión final: **(1) Contraste con la rúbrica:** se revisó sección por sección que cada entregable cumpliera sus criterios mínimos y no cayera en las causas de penalización. **(2) Decisiones propias:** el equipo eligió el caso 8 y redactó su justificación en la bitácora; definió la fecha, el horario y el lugar de la sesión, los roles de cada integrante y los nombres de los interlocutores del ejercicio de rol. **(3) Correcciones de contenido:** se ajustó la redacción y se corrigieron datos en la bitácora, el Canvas, el criterio de éxito, las preguntas, las fuentes y los riesgos, y se eliminaron los marcadores pendientes del Canvas. **(4) Reestructuración:** los riesgos se reorganizaron como una matriz de gestión con categorías (alcance, calidad de datos, datos y modelado, definición de negocio, dependencias externas), en lugar del formato de lista del borrador. **(5) Vigencia de fuentes:** se revisaron y actualizaron las referencias citadas. Estos ajustes quedaron registrados en el historial del repositorio. |
 
 ### Uso 2 - Búsqueda y verificación de fuentes
 
@@ -25,7 +25,7 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | **Fecha** | 02 de septiembre de 2026 |
 | **Tarea** | Localizar y verificar las fuentes que sustentan las respuestas del stakeholder simulado. |
 | **Prompt (resumen fiel)** | Consultas sobre: estructura y cobertura de las bases de afluencia de Metro y Metrobús en el portal de datos abiertos; afluencia oficial por línea y estación en 2024; cronología del cierre y reapertura de la Línea 1; condiciones de acceso a datos de Waze. |
-| **Qué hizo el equipo con la salida** | Cada fuente se abrió y se leyó directamente. **Se descartaron las afirmaciones no verificables** y se detectó una discrepancia entre cifras de prensa sobre la afluencia total de 2024, que se documentó como [riesgo R8](riesgos_supuestos.qmd#r8) en lugar de elegir una cifra arbitrariamente. |
+| **Revisión y validación crítica del equipo** | Cada fuente se abrió y se leyó directamente. **Se descartaron las afirmaciones no verificables** y se detectó una discrepancia entre cifras de prensa sobre la afluencia total de 2024, que se documentó como [riesgo R8](riesgos_supuestos.qmd#r8) en lugar de elegir una cifra arbitrariamente. |
 
 ### Uso 3 - Redacción del ejercicio de rol
 
@@ -35,19 +35,19 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | **Fecha** | 04 de septiembre de 2026 |
 | **Tarea** | Redacción de las respuestas del stakeholder simulado. |
 | **Prompt (resumen fiel)** | "Genera las respuestas del stakeholder a partir *únicamente* de las fuentes citadas; si una fuente no sostiene una afirmación, dilo explícitamente en lugar de rellenar." |
-| **Qué hizo el equipo con la salida** | El equipo verificó una por una que cada respuesta tuviera su superíndice de fuente, e identificó que P5, P6 y P8 son postura del rol y no hecho documentado; esa distinción se hizo explícita en la [bitácora](bitacora.qmd). |
+| **Revisión y validación crítica del equipo** | El equipo verificó una por una que cada respuesta tuviera su superíndice de fuente, e identificó que P5, P6 y P8 son postura del rol y no hecho documentado; esa distinción se hizo explícita en la [bitácora](bitacora.qmd). |
 
-### Uso 4 — Conversión del documento a sitio Quarto
+### Uso 4 - Conversión del documento a sitio Quarto
 
 | Campo | Detalle |
 |-------|---------|
-| **Herramienta** | Claude (Anthropic) — modelo: Opus 5 |
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5 |
 | **Fecha** | 09 de septiembre de 2026 |
-| **Tarea** | Portar el contenido ya redactado y revisado a la infraestructura que exige la entrega: un sitio Quarto desplegable en GitHub Pages. Incluyó el andamiaje del repositorio (`_quarto.yml` con `output-dir: docs`, navbar y barra lateral), la conversión de cada entregable a su `.qmd`, y el `styles.css` que da forma al Canvas. |
+| **Tarea** | Portar el contenido ya revisado a la infraestructura que exige la entrega: un sitio Quarto desplegable en GitHub Pages. Incluyó el andamiaje del repositorio (`_quarto.yml` con `output-dir: docs`, navbar y barra lateral), la conversión de cada entregable a su `.qmd`, y el `styles.css` que da forma al Canvas. |
 | **Prompt (resumen fiel)** | "Genera los archivos fuente del sitio Quarto a partir del contenido ya aprobado: `_quarto.yml`, `index.qmd` y las páginas de E0, respetando la estructura de carpetas que pide la rúbrica. No lo despliegues." |
-| **Decisión técnica relevante** | El Canvas debe leerse como **una sola lámina**. Se resolvió con una retícula CSS de seis bloques (`.canvas`), más una regla `@media print` que reduce tipografías y oculta el menú lateral para que la lámina **quepa en una hoja apaisada** al imprimirse, y una regla responsiva que la apila en pantallas angostas para no perder legibilidad. |
-| **Qué hizo el equipo con la salida** | El equipo **verificó el resultado antes de aceptarlo**, no solo la apariencia: (a) el YAML de los ocho `.qmd` y el de `_quarto.yml` parsean sin error; (b) cada página se procesó con Pandoc para confirmar que los bloques `:::` y los *spans* producen el HTML esperado; (c) se imprimió la página del Canvas y se comprobó que ocupa **exactamente una hoja**.
-| **Qué NO hizo la herramienta** | No se desplegó el sitio ni se ejecutó `git push`: la publicación en GitHub Pages y la verificación de que la URL carga son responsabilidad del equipo. |
+| **Decisión técnica relevante** | El Canvas debe leerse como **una sola lámina**. Se resolvió con una retícula CSS de seis bloques (`.canvas`), más una regla `@media print` para que la lámina **quepa en una hoja apaisada** al imprimirse, y una regla responsiva que la apila en pantallas angostas. |
+| **Revisión y validación crítica del equipo** | La herramienta ejecutó validaciones automáticas sobre los archivos que generó (parseo del YAML, procesamiento con Pandoc y prueba de impresión del Canvas). A partir de ahí, el trabajo de integración y publicación fue del equipo: configuró el flujo de GitHub Actions que renderiza y publica el sitio, ajustó la portada y el `README.md`, modificó los estilos (eliminación de fondos de texto), resolvió los conflictos de fusión entre ramas y verificó en el sitio desplegado que todas las páginas del menú cargaran correctamente. |
+| **Qué NO hizo la herramienta** | No desplegó el sitio ni ejecutó `git push`: la publicación en GitHub Pages fue responsabilidad del equipo. |
 
 ## Verificación humana realizada por el equipo
 
