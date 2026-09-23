@@ -15,14 +15,14 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | **Fecha** | 31 de agosto de 2026 |
 | **Tarea** | Estructurar los cinco entregables de E0 a partir del PDF de instrucciones y de las dos plantillas del curso. |
 | **Prompt (resumen fiel)** | "Lee el PDF de instrucciones de la entrega E0, la plantilla de bitácora y la plantilla del Business Understanding Canvas. Redacta los entregables para el tema 8 (predicción de retrasos y saturación en el transporte público), con stakeholder simulado sustentado en fuentes verificables." |
-| **Qué hizo el equipo con la salida** | Se revisó que cada sección correspondiera a un entregable de la rúbrica y a sus criterios mínimos. Se ajustaron [los nombres de los stakeholders, la fecha y horarios de la reunión de acuerdo al horario en que se reunió el equipo, los elementos del business canvas y el inicio del sitio]{.todo}. |
+| **Qué hizo el equipo con la salida** | Se revisó que cada sección correspondiera a un entregable de la rúbrica y a sus criterios mínimos. Se ajustaron los nombres de los stakeholders, la fecha y horarios de la reunión de acuerdo al horario en que se reunió el equipo, los elementos del business canvas y el inicio del sitio. |
 
 ### Uso 2 - Búsqueda y verificación de fuentes
 
 | Campo | Detalle |
 |-------|---------|
 | **Herramienta** | Claude (Anthropic), con búsqueda web |
-| **Fecha** | [02 de septiembre de 2026]{.todo} |
+| **Fecha** | 02 de septiembre de 2026 |
 | **Tarea** | Localizar y verificar las fuentes que sustentan las respuestas del stakeholder simulado. |
 | **Prompt (resumen fiel)** | Consultas sobre: estructura y cobertura de las bases de afluencia de Metro y Metrobús en el portal de datos abiertos; afluencia oficial por línea y estación en 2024; cronología del cierre y reapertura de la Línea 1; condiciones de acceso a datos de Waze. |
 | **Qué hizo el equipo con la salida** | Cada fuente se abrió y se leyó directamente. **Se descartaron las afirmaciones no verificables** y se detectó una discrepancia entre cifras de prensa sobre la afluencia total de 2024, que se documentó como [riesgo R8](riesgos_supuestos.qmd#r8) en lugar de elegir una cifra arbitrariamente. |
@@ -32,7 +32,7 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | Campo | Detalle |
 |-------|---------|
 | **Herramienta** | Claude (Anthropic) |
-| **Fecha** | [04 de septiembre de 2026]{.todo} |
+| **Fecha** | 04 de septiembre de 2026 |
 | **Tarea** | Redacción de las respuestas del stakeholder simulado. |
 | **Prompt (resumen fiel)** | "Genera las respuestas del stakeholder a partir *únicamente* de las fuentes citadas; si una fuente no sostiene una afirmación, dilo explícitamente en lugar de rellenar." |
 | **Qué hizo el equipo con la salida** | El equipo verificó una por una que cada respuesta tuviera su superíndice de fuente, e identificó que P5, P6 y P8 son postura del rol y no hecho documentado; esa distinción se hizo explícita en la [bitácora](bitacora.qmd). |
@@ -45,5 +45,4 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 - Se validó que el criterio de éxito estuviera formulado en lenguaje de negocio y no en métricas de modelo, y que existiera su equivalencia técnica.
 - Se revisó que los riesgos fueran específicos de este proyecto y no genéricos, y que cada uno tuviera mitigación.
 - Se separó explícitamente lo documentado de lo simulado en las respuestas del stakeholder, en vez de presentar todo como respaldado.
-- [Añadir aquí cualquier corrección de fondo que el equipo haya hecho al borrador: es lo que acredita la revisión crítica.]{.todo}
 :::

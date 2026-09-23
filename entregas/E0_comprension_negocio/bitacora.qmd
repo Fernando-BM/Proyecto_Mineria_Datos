@@ -6,7 +6,7 @@ subtitle: "Entrega E0 - Comprensión del Negocio"
 ::: {.caja .caja-aviso}
 [Modalidad: stakeholder simulado con fuentes verificables]{.etiqueta}
 
-[Elegimos el caso de **Predicción de retrasos y saturación en el transporte público** debido al valor analítico que representan sus variables operativas y de demanda en tiempo real. Decidimos simular un stakeholder principal con el fin de estructurar adecuadamente la fase de Business Understanding, lo que nos brindó un marco claro para priorizar reglas de negocio, traducir prioridades operativas en objetivos de datos y orientar el diseño del modelo hacia la resolución de problemas reales.]{.todo}
+Elegimos el caso de **Predicción de retrasos y saturación en el transporte público** debido al valor analítico que representan sus variables operativas y de demanda en tiempo real. Decidimos simular un stakeholder principal con el fin de estructurar adecuadamente la fase de Business Understanding, lo que nos brindó un marco claro para priorizar reglas de negocio, traducir prioridades operativas en objetivos de datos y orientar el diseño del modelo hacia la resolución de problemas reales.
 
 **Nota:** Ninguna respuesta atribuida al stakeholder simulado es invención libre. Cada respuesta está anclada a una fuente verificable (el propio portal de datos abiertos de la CDMX, cifras oficiales del STC Metro o notas periodísticas fechadas) indicada con un superíndice que remite a [Fuentes consultadas](fuentes.qmd). Cuando la fuente no permite sostener una afirmación, el texto lo dice explícitamente en lugar de rellenar el hueco.
 :::
@@ -18,19 +18,19 @@ El rol simulado es el de un **Subdirector de Planeación del Servicio de la Dire
 | Campo | Valor |
 |-------|-------|
 | Fecha | 31 de agosto de 2026 |
-| Horario | [12:00 - 13:00]{.todo} ([60]{.todo} min) |
+| Horario | 12:00 - 13:00 (60 min) |
 | Modalidad | Ejercicio de rol documentado (stakeholder simulado con fuentes verificables) |
-| Lugar / medio | [Taller de Sistemas Simbólicos · Facultad de Ciencias, UNAM / videollamada]{.todo} |
+| Lugar / medio | Taller de Sistemas Simbólicos · Facultad de Ciencias, UNAM / videollamada |
 
 ## 1.1 Participantes y stakeholders
 
 | Nombre / Integrante | Rol en el proyecto | Cuadrante (Poder / Interés) |
 |---------------------|--------------------|-----------------------------|
-| **[Ing. Jorge Maximino Torres Benítez]{.todo}** - Subdirección de Planeación del Servicio, Dirección de Transportación, STC Metro *(rol simulado)* | Stakeholder principal / patrocinador. Decide refuerzo de trenes, intervalos y despliegue de personal de andén. | **Alto poder / Alto interés** - gestionar de cerca |
-| **[Humberto Antonio Ramírez Barajas]{.todo}** - Coordinación de Datos Abiertos, SEMOVI *(rol simulado)* | Proveedor de datos. Publica y mantiene las bases de afluencia del Metro y Metrobús.<sup class="f">[[1](fuentes.qmd#f1)][[2](fuentes.qmd#f2)]</sup> | **Alto poder / Bajo interés** - mantener satisfecho |
-| **[Aldair Coronel Ruiz]{.todo}** | Analista / traductor técnico - condujo la entrevista | Facilitador |
-| **[Fernando Bernal Martínez]{.todo}** | Relator - levantó la bitácora y verificó fuentes | Facilitador |
-| **[Luis Alberto Hernández Aguilar / Tania Ramírez Plascencia]{.todo}** | Exploración de datos y validación de factibilidad | Facilitador |
+| **Ing. Jorge Maximino Torres Benítez** - Subdirección de Planeación del Servicio, Dirección de Transportación, STC Metro *(rol simulado)* | Stakeholder principal / patrocinador. Decide refuerzo de trenes, intervalos y despliegue de personal de andén. | **Alto poder / Alto interés** - gestionar de cerca |
+| **Humberto Antonio Ramírez Barajas** - Coordinación de Datos Abiertos, SEMOVI *(rol simulado)* | Proveedor de datos. Publica y mantiene las bases de afluencia del Metro y Metrobús.<sup class="f">[[1](fuentes.qmd#f1)][[2](fuentes.qmd#f2)]</sup> | **Alto poder / Bajo interés** - mantener satisfecho |
+| **Aldair Coronel Ruiz** | Analista / traductor técnico - condujo la entrevista | Facilitador |
+| **Fernando Bernal Martínez** | Relator - levantó la bitácora y verificó fuentes | Facilitador |
+| **Luis Alberto Hernández Aguilar / Tania Ramírez Plascencia** | Exploración de datos y validación de factibilidad | Facilitador |
 | Personas usuarias del Metro y Metrobús | Beneficiario final del proyecto. No participa en la sesión. | **Bajo poder / Alto interés** - mantener informado |
 
 ## 1.2 Contexto y objetivos de la sesión
@@ -43,11 +43,11 @@ La sesión se convocó para entender **cómo vive el operador ese fenómeno**, q
 
 | Hora | Bloque | Puntos tratados |
 |------|--------|-----------------|
-| [12:00-12:08]{.todo} | **Apertura y alineación** | Presentación del equipo y del curso. Se acuerda que el propósito de la sesión es *levantar el problema*, no proponer solución técnica. Se confirma que el alcance del semestre es un estudio con datos públicos, sin acceso a sistemas internos. |
-| [12:08-12:22]{.todo} | **El problema en palabras del stakeholder** | Descripción del fenómeno de saturación: dónde duele, cuándo, y por qué las medidas actuales llegan tarde. Distinción entre *afluencia* (entradas registradas) y *saturación* (condición de andén y tren). |
-| [12:22-12:36]{.todo} | **Decisiones que hoy se toman sin datos** | Programación de trenes de refuerzo, apertura de accesos alternos, despliegue de personal y emisión de avisos. Ventana real de decisión y quién la ejecuta. |
-| [12:36-12:50]{.todo} | **Factibilidad de datos** | Revisión conjunta del portal de datos abiertos: cobertura, granularidad, periodicidad de actualización y licencia. **Hallazgo crítico de la sesión:** la base pública es diaria, no horaria.<sup class="f">[[1](fuentes.qmd#f1)][[3](fuentes.qmd#f3)]</sup> |
-| [12:50-13:00]{.todo} | **Cierre y compromisos** | Reformulación del alcance a un horizonte de anticipación de 24 h. Definición del criterio de éxito y de los próximos pasos. |
+| 12:00-12:08 | **Apertura y alineación** | Presentación del equipo y del curso. Se acuerda que el propósito de la sesión es *levantar el problema*, no proponer solución técnica. Se confirma que el alcance del semestre es un estudio con datos públicos, sin acceso a sistemas internos. |
+| 12:08-12:22 | **El problema en palabras del stakeholder** | Descripción del fenómeno de saturación: dónde duele, cuándo, y por qué las medidas actuales llegan tarde. Distinción entre *afluencia* (entradas registradas) y *saturación* (condición de andén y tren). |
+| 12:22-12:36 | **Decisiones que hoy se toman sin datos** | Programación de trenes de refuerzo, apertura de accesos alternos, despliegue de personal y emisión de avisos. Ventana real de decisión y quién la ejecuta. |
+| 12:36-12:50 | **Factibilidad de datos** | Revisión conjunta del portal de datos abiertos: cobertura, granularidad, periodicidad de actualización y licencia. **Hallazgo crítico de la sesión:** la base pública es diaria, no horaria.<sup class="f">[[1](fuentes.qmd#f1)][[3](fuentes.qmd#f3)]</sup> |
+| 12:50-13:00 | **Cierre y compromisos** | Reformulación del alcance a un horizonte de anticipación de 24 h. Definición del criterio de éxito y de los próximos pasos. |
 
 ## 1.4 Preguntas formuladas y respuestas clave
 
@@ -123,13 +123,13 @@ Las respuestas **P5, P6 y P8** son el componente propiamente simulado del ejerci
 
 ## 1.6 Pendientes y próximos pasos
 
-| Acción / entregable | Responsable | Fecha límite |
-|---------------------|-------------|--------------|
-| Descargar y congelar un *snapshot* fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga | [Integrante 3]{.todo} | [DD]{.todo} de septiembre, 2026 |
-| Enviar solicitud formal de la base horaria a `datosabiertos@cdmx.gob.mx` y documentar la respuesta<sup class="f">[[1](fuentes.qmd#f1)]</sup> | [Integrante 2]{.todo} | [DD]{.todo} de septiembre, 2026 |
-| Publicar el sitio Quarto con las páginas de E0 y la URL en el `README.md` | [Integrante 1]{.todo} | 11 de septiembre, 2026 |
-| Construir el calendario de eventos (cierres de línea, festivos, periodos vacacionales, sismos, eventos masivos) para explicar anomalías en E1 | [Integrante 4]{.todo} | Entrega E1 |
-| Validar con el stakeholder la definición *proxy* de saturación y el umbral de "alta demanda" | Equipo completo | Entrega E1 |
+| Acción / entregable | Fecha límite |
+|---------------------|--------------|
+| Descargar y congelar un *snapshot* fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga | 11 de septiembre, 2026 |
+| Enviar solicitud formal de la base horaria a `datosabiertos@cdmx.gob.mx` y documentar la respuesta<sup class="f">[[1](fuentes.qmd#f1)]</sup> | 11 de septiembre, 2026 |
+| Publicar el sitio Quarto con las páginas de E0 y la URL en el `README.md` | 11 de septiembre, 2026 |
+| Construir el calendario de eventos (cierres de línea, festivos, periodos vacacionales, sismos, eventos masivos) para explicar anomalías en E1 | Entrega E1 |
+| Validar con el stakeholder la definición *proxy* de saturación y el umbral de "alta demanda" | Entrega E1 |
 
 ## 1.6 Reflexión del equipo: qué cambió tras la entrevista
 
