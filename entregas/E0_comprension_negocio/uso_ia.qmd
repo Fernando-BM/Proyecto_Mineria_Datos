@@ -42,7 +42,7 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | Campo | Detalle |
 |-------|---------|
 | **Herramienta** | Claude (Anthropic) — modelo: Opus 5 |
-| **Fecha** | [DD de mes de 2026]{.todo} |
+| **Fecha** | 09 de septiembre de 2026 |
 | **Tarea** | Portar el contenido ya redactado y revisado a la infraestructura que exige la entrega: un sitio Quarto desplegable en GitHub Pages. Incluyó el andamiaje del repositorio (`_quarto.yml` con `output-dir: docs`, navbar y barra lateral), la conversión de cada entregable a su `.qmd`, y el `styles.css` que da forma al Canvas. |
 | **Prompt (resumen fiel)** | "Genera los archivos fuente del sitio Quarto a partir del contenido ya aprobado: `_quarto.yml`, `index.qmd` y las páginas de E0, respetando la estructura de carpetas que pide la rúbrica. No lo despliegues." |
 | **Decisión técnica relevante** | El Canvas debe leerse como **una sola lámina**. Se resolvió con una retícula CSS de seis bloques (`.canvas`), más una regla `@media print` que reduce tipografías y oculta el menú lateral para que la lámina **quepa en una hoja apaisada** al imprimirse, y una regla responsiva que la apila en pantallas angostas para no perder legibilidad. |
