@@ -33,7 +33,7 @@ Todas las fuentes fueron consultadas y verificadas por el equipo en **septiembre
 [**[7]**]{#f7} Milenio - *Línea del Metro de CdMx que registró más usuarios durante 2024* (Línea 2: 212,233,035 usuarios anuales, ~581,460 diarios). Cifra contrastada con Politico.mx e Infobae; ver [riesgo R8](riesgos_supuestos.qmd#r8).
 <https://www.milenio.com/politica/comunidad/linea-del-metro-de-cdmx-registro-mas-usuarios-durante-2024-cual-es>
 
-[**[8]**]{#f8} El Universal - *Caos en el Metro CDMX en hora pico; retrasos y saturación afectan al menos siete líneas*. Consultada el 11 de septiembre de 2026; el equipo debe registrar la fecha de publicación de la nota al citarla.
+[**[8]**]{#f8} El Universal - *Caos en el Metro CDMX en hora pico; retrasos y saturación afectan al menos siete líneas*. Consultada el 11 de septiembre de 2026.
 <https://www.eluniversal.com.mx/metropoli/caos-en-el-metro-cdmx-en-hora-pico-retrasos-y-saturacion-afectan-al-menos-siete-lineas/>
 
 [**[9]**]{#f9} El Gráfico - *¿Qué está pasando en la Línea 1 del Metro CDMX? Reportan estaciones colapsadas y trenes detenidos* (30 de julio de 2026).

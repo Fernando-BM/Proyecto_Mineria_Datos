@@ -37,6 +37,18 @@ El equipo utilizó un modelo de lenguaje como apoyo en esta entrega. **Ninguna s
 | **Prompt (resumen fiel)** | "Genera las respuestas del stakeholder a partir *únicamente* de las fuentes citadas; si una fuente no sostiene una afirmación, dilo explícitamente en lugar de rellenar." |
 | **Qué hizo el equipo con la salida** | El equipo verificó una por una que cada respuesta tuviera su superíndice de fuente, e identificó que P5, P6 y P8 son postura del rol y no hecho documentado; esa distinción se hizo explícita en la [bitácora](bitacora.qmd). |
 
+### Uso 4 — Conversión del documento a sitio Quarto
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) — modelo: Opus 5 |
+| **Fecha** | [DD de mes de 2026]{.todo} |
+| **Tarea** | Portar el contenido ya redactado y revisado a la infraestructura que exige la entrega: un sitio Quarto desplegable en GitHub Pages. Incluyó el andamiaje del repositorio (`_quarto.yml` con `output-dir: docs`, navbar y barra lateral), la conversión de cada entregable a su `.qmd`, y el `styles.css` que da forma al Canvas. |
+| **Prompt (resumen fiel)** | "Genera los archivos fuente del sitio Quarto a partir del contenido ya aprobado: `_quarto.yml`, `index.qmd` y las páginas de E0, respetando la estructura de carpetas que pide la rúbrica. No lo despliegues." |
+| **Decisión técnica relevante** | El Canvas debe leerse como **una sola lámina**. Se resolvió con una retícula CSS de seis bloques (`.canvas`), más una regla `@media print` que reduce tipografías y oculta el menú lateral para que la lámina **quepa en una hoja apaisada** al imprimirse, y una regla responsiva que la apila en pantallas angostas para no perder legibilidad. |
+| **Qué hizo el equipo con la salida** | El equipo **verificó el resultado antes de aceptarlo**, no solo la apariencia: (a) el YAML de los ocho `.qmd` y el de `_quarto.yml` parsean sin error; (b) cada página se procesó con Pandoc para confirmar que los bloques `:::` y los *spans* producen el HTML esperado; (c) se imprimió la página del Canvas y se comprobó que ocupa **exactamente una hoja**.
+| **Qué NO hizo la herramienta** | No se desplegó el sitio ni se ejecutó `git push`: la publicación en GitHub Pages y la verificación de que la URL carga son responsabilidad del equipo. |
+
 ## Verificación humana realizada por el equipo
 
 ::: {.caja}

@@ -3,73 +3,18 @@ title: "5. Supuestos y riesgos"
 subtitle: "Entrega E0 - Comprensión del Negocio"
 ---
 
-## 5.1 Riesgos del proyecto y mitigaciones
+## 5.1 Matriz de Gestión de Riesgos
 
-Ocho riesgos específicos de este proyecto, no genéricos, cada uno con mitigación propuesta.
-
-### R1 · La granularidad publicada es diaria, no horaria {#r1}
-
-**Impacto: Alto · Probabilidad: Alta (materializado)**
-
-Los campos de la base son `fecha, anio, mes, linea, estacion, afluencia`.<sup class="f">[[3](fuentes.qmd#f3)]</sup> El desglose por hora solo se publicó como índices durante la emergencia de COVID-19.<sup class="f">[[12](fuentes.qmd#f12)]</sup> El objetivo original (anticipar la hora pico) es **estructuralmente inalcanzable** con la fuente principal.
-
-> **Mitigación.** Ya mitigado en E0: el alcance se reformuló con el stakeholder a **día-estación con 24 h de antelación**, que además coincide con su ventana real de decisión. Se envía solicitud formal de la base horaria a `datosabiertos@cdmx.gob.mx`<sup class="f">[[1](fuentes.qmd#f1)]</sup>; el histórico COVID-19 se usa únicamente como referencia estructural del perfil intradía, nunca como insumo de entrenamiento.
-
-### R2 · Actualizaciones retroactivas de la fuente {#r2}
-
-**Impacto: Alto · Probabilidad: Media**
-
-El portal advierte explícitamente que "algunos conjuntos de datos pueden incluir actualizaciones retroactivas, por lo que la información histórica puede cambiar en actualizaciones posteriores".<sup class="f">[[1](fuentes.qmd#f1)]</sup> Un resultado obtenido en E2 podría no reproducirse en E5 con la misma consulta.
-
-> **Mitigación.** Congelar un *snapshot* fechado de cada base al inicio del proyecto, registrar su hash SHA-256 y la fecha de descarga, y versionarlo en el repositorio. Todo el *pipeline* se ejecuta contra la versión congelada. Antes de la entrega final se vuelve a descargar y se documenta la diferencia como hallazgo de calidad de datos.
-
-### R3 · Ruptura estructural por el cierre de la Línea 1 {#r3}
-
-**Impacto: Alto · Probabilidad: Alta**
-
-La línea estuvo parcial o totalmente fuera de servicio desde el 11 de julio de 2022 y se reabrió por completo hasta Observatorio el 16 de noviembre de 2025.<sup class="f">[[10](fuentes.qmd#f10)][[11](fuentes.qmd#f11)]</sup> Sus estaciones tienen ceros estructurales y la demanda migró a otras líneas. Un modelo entrenado a ciegas aprendería una obra pública como si fuera un patrón de comportamiento.
-
-> **Mitigación.** Construir una variable `estado_servicio` por estación-día a partir del calendario documentado de cierres y reaperturas. Excluir del entrenamiento los tramos suspendidos; segmentar la evaluación antes/después de noviembre de 2025; validación temporal con *test* exclusivamente posterior a la reapertura. Convertir el episodio en cuasiexperimento para [PI-5](preguntas.qmd).
-
-### R4 · El indicador disponible no es el fenómeno de interés {#r4}
-
-**Impacto: Alto · Probabilidad: Media**
-
-La afluencia mide *entradas registradas en torniquete*; la saturación es una condición de andén y de vagón. Dos estaciones con la misma afluencia pueden tener niveles de aglomeración muy distintos según transbordos, número de andenes y frecuencia de trenes. El riesgo es entregar un modelo correcto que responde a la pregunta equivocada.
-
-> **Mitigación.** Declarar formalmente la definición *proxy* de saturación en el [Canvas](canvas.qmd) y en el reporte, y validarla con el stakeholder en E1. Normalizar por estación en lugar de comparar niveles absolutos entre estaciones. Reportar el *score* como "riesgo relativo de alta demanda" y no como "nivel de ocupación".
-
-### R5 · Cambio de régimen en la serie histórica {#r5}
-
-**Impacto: Medio · Probabilidad: Alta**
-
-La base cubre desde 2010<sup class="f">[[1](fuentes.qmd#f1)]</sup> e incluye la caída de movilidad por la pandemia<sup class="f">[[12](fuentes.qmd#f12)]</sup>, la ampliación de la gratuidad y el cambio de medios de acceso; el desglose por medio de acceso solo existe a partir de 2022, y en Metrobús las actualizaciones posteriores a enero de 2022 se reflejan únicamente en la base desglosada.<sup class="f">[[1](fuentes.qmd#f1)][[2](fuentes.qmd#f2)]</sup> Entrenar sobre los 16 años completos mezclaría regímenes incomparables.
-
-> **Mitigación.** Acotar el modelo operativo a **2022 en adelante** y usar 2010-2021 solo para el estudio de estacionalidad estructural. Documentar los puntos de cambio de régimen. Verificar en E1 si el conteo total de la base desglosada reconcilia con la base simple en el periodo de traslape.
-
-### R6 · Llaves sucias entre línea y estación {#r6}
-
-**Impacto: Medio · Probabilidad: Alta**
-
-Los campos `linea` y `estacion` son de tipo texto<sup class="f">[[3](fuentes.qmd#f3)]</sup> a lo largo de más de quince años de captura. Variantes de acrónimo, acentuación o renombramiento de estaciones romperían silenciosamente cualquier agregación por estación.
-
-> **Mitigación.** Auditoría de cardinalidad y de valores distintos como primera tarea de E1; catálogo canónico de estaciones contrastado con la publicación oficial de afluencia por estación y línea del STC<sup class="f">[[5](fuentes.qmd#f5)]</sup>; pruebas automáticas que fallen si aparece una llave no catalogada.
-
-### R7 · Dependencia de fuentes externas inaccesibles {#r7}
-
-**Impacto: Medio · Probabilidad: Baja**
-
-La incorporación de datos de tráfico de Waze fue considerada y descartada: Waze no ofrece API pública; comparte un *feed* GeoRSS únicamente con socios gubernamentales del programa Waze for Cities, bajo términos que impiden republicar los datos.<sup class="f">[[13](fuentes.qmd#f13)]</sup> Diseñar el proyecto asumiendo esa fuente lo dejaría sin insumo a media ejecución - y hacer *scraping* violaría los términos de la plataforma.
-
-> **Mitigación.** Excluir formalmente cualquier dato de Waze del alcance de todas las entregas. Las variables de contexto vial, si se necesitan, se tomarán exclusivamente de fuentes abiertas del propio portal de la CDMX.<sup class="f">[[12](fuentes.qmd#f12)]</sup> La restricción queda registrada en el Canvas como requisito, no como preferencia.
-
-### R8 · Discrepancia entre cifras reportadas públicamente {#r8}
-
-**Impacto: Bajo · Probabilidad: Media**
-
-Distintas notas atribuyen al STC entre ~1,115 y ~1,171 millones de pasajeros en 2024 a partir de las mismas fuentes oficiales.<sup class="f">[[7](fuentes.qmd#f7)]</sup> Usar una cifra de prensa como validación externa podría llevar a "corregir" datos que están correctos.
-
-> **Mitigación.** Tratar la base de datos abiertos como **única fuente de verdad** para todo cálculo; las cifras de prensa se usan solo para contextualizar el problema de negocio, nunca para validar o ajustar los datos. La discrepancia se documenta como observación de calidad de la información pública.
+| Categoría | Riesgo Identificado | Impacto | Probabilidad | Plan de Mitigación |
+| :--- | :--- | :--- | :--- | :--- |
+| **Alcance y Requisitos** | **[R1]{#r1} · Granularidad publicada diaria (no horaria)**<br>Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico. | Alto | Alta *(Materializado)* | Reformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (`datosabiertos@cdmx.gob.mx`) y usar el histórico COVID-19 solo como referencia estructural intradía. |
+| **Calidad de Datos** | **[R2]{#r2} · Actualizaciones retroactivas de la fuente**<br>Cambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables. | Alto | Media | Congelar un *snapshot* fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el *pipeline* sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga. |
+| **Datos y Modelado** | **[R3]{#r3} · Ruptura estructural por cierre de Línea 1**<br>Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida. | Alto | Alta | Crear la variable `estado_servicio` por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura. |
+| **Definición de Negocio** | **[R4]{#r4} · El indicador no es el fenómeno de interés**<br>La afluencia mide entradas por torniquete, no la saturación real de andenes/vagones. | Alto | Media | Declarar formalmente la definición *proxy* en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como "riesgo relativo de alta demanda" en lugar de ocupación absoluta. |
+| **Datos y Modelado** | **[R5]{#r5} · Cambio de régimen en la serie histórica**<br>Mezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases. | Medio | Alta | Acotar el modelo operativo a datos de **2022 en adelante**; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1. |
+| **Calidad de Datos** | **[R6]{#r6} · Llaves sucias entre línea y estación**<br>Inconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones. | Medio | Alta | Realizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas. |
+| **Dependencias Externas** | **[R7]{#r7} · Inaccesibilidad de fuentes externas (Waze)**<br>Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer *scraping* generaría bloqueos legales o técnicos. | Medio | Baja | Excluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas. |
+| **Calidad de Datos** | **[R8]{#r8} · Discrepancia entre cifras reportadas públicamente**<br>Diferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas. | Bajo | Media | Definir la base de datos abiertos como la **única fuente de verdad** técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos. |
 
 ## 5.2 Supuestos que el equipo asume explícitamente
 
@@ -81,3 +26,8 @@ Distintas notas atribuyen al STC entre ~1,115 y ~1,171 millones de pasajeros en 
 | **S4** | El catálogo de estaciones y líneas es consistente a lo largo del histórico. | Auditoría de llaves en E1 (ver [R6](#r6)). Si no lo es, se construye una tabla de equivalencias documentada. |
 | **S5** | El operador puede efectivamente accionar un aviso emitido con 24 horas de antelación (disponibilidad de parque vehicular y de personal). | Supuesto tomado del propio stakeholder. Si la ventana real fuera más larga, el horizonte de pronóstico se extiende a 3-7 días, algo que el modelo ya contempla. |
 | **S6** | Los eventos que explican anomalías (cierres, festivos, eventos masivos) son documentables públicamente con fecha. | Construcción del calendario de eventos en E1. Los días sin explicación se reportan como anomalías no atribuidas, sin forzar una causa. |
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main

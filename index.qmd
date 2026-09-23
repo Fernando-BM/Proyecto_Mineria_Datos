@@ -1,53 +1,63 @@
----
-title: "Anticipación de saturación y recomendación de rutas alternas"
-subtitle: "Proyecto Integrador · Almacenes y Minería de Datos · Facultad de Ciencias, UNAM"
----
+# Proyecto Integrador - Almacenes y Minería de Datos
 
-## Introducción
+**Anticipación de saturación y recomendación de rutas alternas en la red del STC Metro y Metrobús de la CDMX**
 
-Una autoridad de movilidad de la Ciudad de México necesita **anticipar la saturación** de las líneas del Sistema de Transporte Colectivo (STC) Metro y **recomendar rutas alternas** antes de que la aglomeración ocurra, no durante.
+Facultad de Ciencias, UNAM · Profesora: Jessica Santizo Galicia
+Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio: Emma Alicia Jiménez Sánchez
 
-Este sitio documenta el desarrollo del proyecto de forma incremental, siguiendo las seis fases de **CRISP-DM**.
+## 🌐 Sitio desplegado
 
-::: {.caja .caja-clave}
-[El hallazgo que definió el alcance]{.etiqueta}
-La base pública de afluencia del Metro tiene granularidad **diaria**, no horaria: sus campos son `fecha, anio, mes, linea, estacion, afluencia`. El objetivo original (anticipar la hora pico en tiempo real) resultó **estructuralmente inalcanzable** con los datos disponibles. La entrevista con el stakeholder mostró además que el tiempo real le sirve menos que una alerta con 24 horas de antelación, porque los trenes de refuerzo y el personal se programan en la víspera. El proyecto se reformuló en consecuencia.
-:::
-
-## Estado de las entregas
-
-| # | Fase CRISP-DM | Entrega | Estado |
-|---|---------------|---------|--------|
-| 1 | Comprensión del negocio | **E0** | ✅ Publicada |
-| 2 | Comprensión de los datos | E1 | ⏳ Pendiente |
-| 3 | Preparación de los datos | E2 | ⏳ Pendiente |
-| 4 | Modelado | E3 | ⏳ Pendiente |
-| 5 | Evaluación | E4 | ⏳ Pendiente |
-| 6 | Despliegue | Reporte y presentación final | ⏳ Pendiente |
-
-## Entrega E0 - Comprensión del Negocio
-
-| Página | Contenido |
-|--------|-----------|
-| [1. Bitácora del stakeholder](entregas/E0_comprension_negocio/bitacora.qmd) | Reunión, preguntas, respuestas clave y reflexión del equipo |
-| [2. Business Understanding Canvas](entregas/E0_comprension_negocio/canvas.qmd) | Síntesis de una página, legible de forma autónoma |
-| [3. Preguntas de investigación](entregas/E0_comprension_negocio/preguntas.qmd) | Cuatro preguntas priorizadas, ligadas a tareas de minería |
-| [4. Criterio de éxito](entregas/E0_comprension_negocio/criterio_exito.qmd) | Enunciado de negocio y su traducción a métrica técnica |
-| [5. Supuestos y riesgos](entregas/E0_comprension_negocio/riesgos_supuestos.qmd) | Ocho riesgos con mitigación y seis supuestos explícitos |
-| [6. Uso de herramientas de IA](entregas/E0_comprension_negocio/uso_ia.qmd) | Registro explícito conforme a las instrucciones |
-| [7. Fuentes consultadas](entregas/E0_comprension_negocio/fuentes.qmd) | Las trece fuentes que sustentan el ejercicio de rol |
+**https://fernando-bm.github.io/Proyecto_Mineria_Datos**
 
 ## Equipo
 
-| Integrante | Rol en el proyecto |
-|------------|--------------------|
-| Aldair Coronel Ruiz | Analista / traductor técnico |
-| Fernando Bernal Martínez | Relator y verificación de fuentes |
-| Luis Alberto Hernández Aguilar | Exploración de datos |
-| Tania Ramírez Plascencia | Factibilidad y calendario de eventos |
+| Integrante |
+|------------|
+| Aldair Coronel Ruiz | 
+| Fernando Bernal Martínez |
+| Luis Alberto Hernández Aguilar | 
+| Tania Ramírez Plascencia |
 
-**Profesora:** Jessica Santizo Galicia · **Ayudante de teoría:** Diego Antonio Villalba González · **Ayudante de laboratorio:** Emma Alicia Jiménez Sánchez
+## Entregas
 
-## Datos y licencia
+| # | Fase CRISP-DM | Entrega | Estado |
+|---|---------------|---------|--------|
+| 1 | Comprensión del negocio | E0 | ✅ |
+| 2 | Comprensión de los datos | E1 | ⏳ |
+| 3 | Preparación de los datos | E2 | ⏳ |
+| 4 | Modelado | E3 | ⏳ |
+| 5 | Evaluación | E4 | ⏳ |
+| 6 | Despliegue | Reporte y presentación final | ⏳ |
 
-Los conjuntos de datos provienen del [Portal de Datos Abiertos de la Ciudad de México](https://datos.cdmx.gob.mx), publicados por la **Secretaría de Movilidad (SEMOVI)** bajo licencia **CC-BY-4.0-ESP**. La atribución es obligatoria y se mantiene en todas las páginas del sitio.
+### E0 - Comprensión del Negocio
+
+| Página | Archivo |
+|--------|---------|
+| Bitácora del stakeholder | `entregas/E0_comprension_negocio/bitacora.qmd` |
+| Business Understanding Canvas | `entregas/E0_comprension_negocio/canvas.qmd` |
+| Preguntas de investigación | `entregas/E0_comprension_negocio/preguntas.qmd` |
+| Criterio de éxito | `entregas/E0_comprension_negocio/criterio_exito.qmd` |
+| Supuestos y riesgos | `entregas/E0_comprension_negocio/riesgos_supuestos.qmd` |
+| Uso de herramientas de IA | `entregas/E0_comprension_negocio/uso_ia.qmd` |
+| Fuentes consultadas | `entregas/E0_comprension_negocio/fuentes.qmd` |
+
+## Estructura del repositorio
+
+```
+Proyecto_Mineria_Datos/
+├── _quarto.yml                    # configuración del sitio (output-dir: docs)
+├── index.qmd                      # portada
+├── styles.css                     # estilos, incluido el Canvas
+├── entregas/
+│   └── E0_comprension_negocio/
+│       ├── bitacora.qmd
+│       ├── canvas.qmd
+│       ├── preguntas.qmd
+│       ├── criterio_exito.qmd
+│       ├── riesgos_supuestos.qmd
+│       ├── uso_ia.qmd
+│       ├── fuentes.qmd
+│       └── fuentes/               # evidencia archivada del stakeholder simulado
+├── docs/                          # sitio compilado (lo genera Quarto)
+└── README.md
+```
