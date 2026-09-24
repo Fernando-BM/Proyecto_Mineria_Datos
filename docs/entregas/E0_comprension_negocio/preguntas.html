@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2872b74859edab0a5977011198608f8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3144656cb5138d699b5d8ef7c5b64b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -238,11 +267,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base" id="toc-prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base" class="nav-link active" data-scroll-target="#prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base"><span class="pill p-alta">Prioridad 1</span> PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?</a></li>
-  <li><a href="#prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda" id="toc-prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda" class="nav-link" data-scroll-target="#prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda"><span class="pill p-alta">Prioridad 2</span> PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?</a></li>
-  <li><a href="#prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil" id="toc-prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil" class="nav-link" data-scroll-target="#prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil"><span class="pill p-media">Prioridad 3</span> PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?</a></li>
-  <li><a href="#prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables" id="toc-prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables" class="nav-link" data-scroll-target="#prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables"><span class="pill p-media">Prioridad 4</span> PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?</a></li>
-  <li><a href="#reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio" id="toc-reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio" class="nav-link" data-scroll-target="#reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio"><span class="pill p-baja">Reserva</span> PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?</a></li>
+  <li><a href="#preguntas-priorizadas-por-alcance-analítico" id="toc-preguntas-priorizadas-por-alcance-analítico" class="nav-link active" data-scroll-target="#preguntas-priorizadas-por-alcance-analítico">Preguntas Priorizadas por Alcance Analítico</a>
+  <ul class="collapse">
+  <li><a href="#alcance-descriptivo-y-baseline" id="toc-alcance-descriptivo-y-baseline" class="nav-link" data-scroll-target="#alcance-descriptivo-y-baseline">1. Alcance Descriptivo y Baseline</a></li>
+  <li><a href="#alcance-predictivo" id="toc-alcance-predictivo" class="nav-link" data-scroll-target="#alcance-predictivo">2. Alcance Predictivo</a></li>
+  <li><a href="#alcance-de-segmentación-y-recomendación" id="toc-alcance-de-segmentación-y-recomendación" class="nav-link" data-scroll-target="#alcance-de-segmentación-y-recomendación">3. Alcance de Segmentación y Recomendación</a></li>
+  <li><a href="#alcance-diagnóstico-y-de-anomalías" id="toc-alcance-diagnóstico-y-de-anomalías" class="nav-link" data-scroll-target="#alcance-diagnóstico-y-de-anomalías">4. Alcance Diagnóstico y de Anomalías</a></li>
+  <li><a href="#pregunta-de-reserva" id="toc-pregunta-de-reserva" class="nav-link" data-scroll-target="#pregunta-de-reserva">5. Pregunta de Reserva</a></li>
+  </ul></li>
+  <li><a href="#matriz-de-trazabilidad-hacia-eda-y-feature-engineering" id="toc-matriz-de-trazabilidad-hacia-eda-y-feature-engineering" class="nav-link" data-scroll-target="#matriz-de-trazabilidad-hacia-eda-y-feature-engineering">Matriz de Trazabilidad hacia EDA y Feature Engineering</a></li>
   </ul>
 </nav>
     </div>
@@ -271,8 +304,13 @@ ul.task-list li input[type="checkbox"] {
 
 <p><strong>El conjunto priorizado son cuatro preguntas (PI-1 a PI-4)</strong>, conforme a lo solicitado; PI-5 se incluye únicamente como pregunta de reserva y no forma parte de la priorización.</p>
 <p>Las preguntas se ordenan por prioridad según dos criterios: (i) cuánto bloquean al resto del proyecto si no se responden, y (ii) qué tan directamente alimentan la decisión que el stakeholder debe tomar la víspera. Cada una se conecta explícitamente con una tarea de minería de datos.</p>
-<section id="prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base" class="level2">
-<h2 class="anchored" data-anchor-id="prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base"><span class="pill p-alta">Prioridad 1</span> PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?</h2>
+<hr>
+<section id="preguntas-priorizadas-por-alcance-analítico" class="level2">
+<h2 class="anchored" data-anchor-id="preguntas-priorizadas-por-alcance-analítico">Preguntas Priorizadas por Alcance Analítico</h2>
+<section id="alcance-descriptivo-y-baseline" class="level3">
+<h3 class="anchored" data-anchor-id="alcance-descriptivo-y-baseline">1. Alcance Descriptivo y Baseline</h3>
+<section id="prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base" class="level4">
+<h4 class="anchored" data-anchor-id="prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base"><span class="pill p-alta">Prioridad 1</span> PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?</h4>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -293,9 +331,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda" class="level2">
-<h2 class="anchored" data-anchor-id="prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda"><span class="pill p-alta">Prioridad 2</span> PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?</h2>
+</section>
+<section id="alcance-predictivo" class="level3">
+<h3 class="anchored" data-anchor-id="alcance-predictivo">2. Alcance Predictivo</h3>
+<section id="prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda" class="level4">
+<h4 class="anchored" data-anchor-id="prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda"><span class="pill p-alta">Prioridad 2</span> PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -316,13 +358,17 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>Evidencia de logro</strong></td>
-<td>Recall ≥ 0.70 y precision ≥ 0.70 en la clase de alta demanda, sobre un periodo de prueba posterior al de entrenamiento.</td>
+<td>Recall <span class="math inline">\(\ge 0.70\)</span> y precision <span class="math inline">\(\ge 0.70\)</span> en la clase de alta demanda, sobre un periodo de prueba posterior al de entrenamiento.</td>
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil" class="level2">
-<h2 class="anchored" data-anchor-id="prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil"><span class="pill p-media">Prioridad 3</span> PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?</h2>
+</section>
+<section id="alcance-de-segmentación-y-recomendación" class="level3">
+<h3 class="anchored" data-anchor-id="alcance-de-segmentación-y-recomendación">3. Alcance de Segmentación y Recomendación</h3>
+<section id="prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil" class="level4">
+<h4 class="anchored" data-anchor-id="prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil"><span class="pill p-media">Prioridad 3</span> PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?</h4>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -339,13 +385,17 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>Evidencia de logro</strong></td>
-<td>Catálogo de pares estación ↔︎ alternativa, con la justificación cuantitativa de cada par.</td>
+<td>Catálogo de pares estación <span class="math inline">\(\leftrightarrow\)</span> alternativa, con la justificación cuantitativa de cada par.</td>
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables" class="level2">
-<h2 class="anchored" data-anchor-id="prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables"><span class="pill p-media">Prioridad 4</span> PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?</h2>
+</section>
+<section id="alcance-diagnóstico-y-de-anomalías" class="level3">
+<h3 class="anchored" data-anchor-id="alcance-diagnóstico-y-de-anomalías">4. Alcance Diagnóstico y de Anomalías</h3>
+<section id="prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables" class="level4">
+<h4 class="anchored" data-anchor-id="prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables"><span class="pill p-media">Prioridad 4</span> PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?</h4>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -366,11 +416,72 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<hr>
 </section>
-<section id="reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio" class="level2">
-<h2 class="anchored" data-anchor-id="reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio"><span class="pill p-baja">Reserva</span> PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?</h2>
+</section>
+<section id="pregunta-de-reserva" class="level3">
+<h3 class="anchored" data-anchor-id="pregunta-de-reserva">5. Pregunta de Reserva</h3>
+<section id="reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio" class="level4">
+<h4 class="anchored" data-anchor-id="reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio"><span class="pill p-baja">Reserva</span> PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?</h4>
 <p>Pregunta de segundo orden que se abordará <strong>solo si PI-1 a PI-4 se resuelven con holgura</strong>. El cierre prolongado de la Línea 1 entre 2022 y 2025 ofrece un <strong>cuasiexperimento natural</strong> para medir el desplazamiento de demanda entre modos<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f10">10</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f11">11</a>]</sup>, lo que daría fundamento empírico -y no solo geográfico- a la recomendación de rutas alternas.</p>
-<p><em>Tarea asociada:</em> análisis de correlación y de cambio de nivel entre series de ambos sistemas.</p>
+<ul>
+<li><strong>Tarea asociada:</strong> Análisis de correlación y de cambio de nivel entre series de ambos sistemas.</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="matriz-de-trazabilidad-hacia-eda-y-feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-trazabilidad-hacia-eda-y-feature-engineering">Matriz de Trazabilidad hacia EDA y Feature Engineering</h2>
+<p>La siguiente tabla resume el paso directo desde cada pregunta priorizada hacia la ejecución técnica en las fases posteriores:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Alcance Analítico</th>
+<th style="text-align: left;">Tarea de Minería</th>
+<th style="text-align: left;">Entregable en EDA / Feature Engineering</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>PI-1</strong></td>
+<td style="text-align: left;">Descriptivo</td>
+<td style="text-align: left;">EDA / Descomposición de estacionalidad</td>
+<td style="text-align: left;">Mapas de calor (línea <span class="math inline">\(\times\)</span> día), percentiles de afluencia y definición cuantitativa del umbral de “Alta Demanda”.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PI-2</strong></td>
+<td style="text-align: left;">Predictivo</td>
+<td style="text-align: left;">Regresión (Series de tiempo) + Clasificación</td>
+<td style="text-align: left;">Lags temporales (<span class="math inline">\(t-7\)</span>, <span class="math inline">\(t-28\)</span>), variables de calendario (festivos, quincenas) e indicador binario objetivo.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PI-3</strong></td>
+<td style="text-align: left;">Clustering</td>
+<td style="text-align: left;">Agrupamiento de series + Análisis espacial</td>
+<td style="text-align: left;">Matriz de distancia entre perfiles de estación y catálogo de complementariedad con líneas de Metrobús.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PI-4</strong></td>
+<td style="text-align: left;">Diagnóstico</td>
+<td style="text-align: left;">Detección de anomalías sobre residuales</td>
+<td style="text-align: left;">Serie de residuales estandarizados, etiquetas de causa probable (cierres, clima) y dataset limpio de atípicos.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>PI-5</strong></td>
+<td style="text-align: left;">Causal (Reserva)</td>
+<td style="text-align: left;">Análisis de correlación / Cambio de nivel</td>
+<td style="text-align: left;">Estimación del coeficiente de absorción de demanda Metro <span class="math inline">\(\rightarrow\)</span> Metrobús en el periodo del cierre de L1.</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
