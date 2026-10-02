@@ -46,7 +46,15 @@ flowchart LR
 
 Los tres datasets están en la **misma ubicación (`US`)**, así que las consultas pueden cruzar capas. Se crearon con [`sql/00_datasets.sql`](sql/00_datasets.sql).
 
-![Los tres datasets en el explorador de BigQuery, con su ubicación](img/BQ_datasets.png)
+::: {layout-ncol=2}
+![Ejecución de `00_datasets.sql`: 3 sentencias, estado SUCCESS](img/BQ_creacion_datasets.png)
+
+![`metro_staging` · Data location: US](img/BQ_metro_staging.png)
+
+![`metro_dw` · Data location: US](img/BQ_datasets.png)
+
+![`metro_mart` · Data location: US](img/BQ_metro_mart.png)
+:::
 
 ## 2.2 Capa staging
 

@@ -73,7 +73,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **Pregunta(s) de E0** | P1, P2, P3, P4, P5 |
 
 ::: {layout-ncol=2}
-![Página del conjunto en el portal](img/F1_portal.png)
+![Página del conjunto en el portal](img/F1_portal.jpeg)
 
 ![Vista previa de los datos (API o BigQuery)](img/F1_vista_previa.png)
 :::
@@ -92,7 +92,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **Pregunta(s) de E0** | P3, P5 |
 
 ::: {layout-ncol=2}
-![Página del conjunto en el portal](img/F2_portal.png)
+![Página del conjunto en el portal](img/F2_portal.jpeg)
 
 ![Vista previa de los datos](img/F2_vista_previa.png)
 :::
@@ -111,7 +111,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **Pregunta(s) de E0** | P1, P3, P4 (catálogo de estaciones y líneas) |
 
 ::: {layout-ncol=2}
-![Página del conjunto en el portal](img/F3_portal.png)
+![Página del conjunto en el portal](img/F3_portal.jpeg)
 
 ![Vista previa de stops.txt](img/F3_vista_previa.png)
 :::
@@ -130,7 +130,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **Pregunta(s) de E0** | P1, P2, P4 |
 
 ::: {layout-ncol=2}
-![Respuesta de la API en el navegador](img/F4_api.png)
+![Respuesta de la API en el navegador](img/F4_api.jpeg)
 
 ![Vista previa en staging](img/F4_vista_previa.png)
 :::
@@ -149,7 +149,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **Pregunta(s) de E0** | P2, P4 |
 
 ::: {layout-ncol=2}
-![Respuesta de la API en el navegador](img/F5_api.png)
+![Respuesta de la API en el navegador](img/F5_api.jpeg)
 
 ![Vista previa en staging](img/F5_vista_previa.png)
 :::
