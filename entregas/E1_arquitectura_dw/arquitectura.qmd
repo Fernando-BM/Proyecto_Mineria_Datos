@@ -65,28 +65,47 @@ Cada tabla corresponde a una fuente del [catálogo](fuentes.qmd). Se cargó desd
 | `stg_metro_afluencia` | [F1](fuentes.qmd#f1) | CSV completo del portal (59.9 MB) | 1,180,920 | [AAAA-MM-DD]{.todo} |
 | `stg_metrobus_afluencia` | [F2](fuentes.qmd#f2) | CSV completo del portal (2.1 MB) | 53,732 | [AAAA-MM-DD]{.todo} |
 | `stg_gtfs_stops` | [F3](fuentes.qmd#f3) | `stops.txt` del ZIP GTFS | 11,362 | [AAAA-MM-DD]{.todo} |
-| `stg_gtfs_routes` | [F3](fuentes.qmd#f3) | `routes.txt` del ZIP GTFS | [N]{.todo} | [AAAA-MM-DD]{.todo} |
+| `stg_gtfs_routes` | [F3](fuentes.qmd#f3) | `routes.txt` del ZIP GTFS | 301 | [AAAA-MM-DD]{.todo} |
 | `stg_festivos_nager` | [F4](fuentes.qmd#f4) | JSONL generado por `staging/descargar_apis.py` | 156 | [AAAA-MM-DD]{.todo} |
 | `stg_clima_openmeteo` | [F5](fuentes.qmd#f5) | CSV generado por `staging/descargar_apis.py` | 6,056 | [AAAA-MM-DD]{.todo} |
 
-El único cambio respecto al original es de formato y está en F4: la API devuelve un arreglo JSON por año y BigQuery requiere un objeto por línea. El contenido no se toca.
+Los valores se cargan sin tocar. Hay solo dos ajustes de forma, ambos impuestos por BigQuery:
+
+- **F4:** la API devuelve un arreglo JSON por año y BigQuery requiere un objeto por línea (JSONL).
+- **F5:** los encabezados originales traen espacios, paréntesis y `°` (`precipitation_sum (mm)`, `temperature_2m_max (°C)`), que no son válidos en un nombre de columna. Se omite la fila de encabezado y las columnas se nombran por posición, conservando la unidad en el nombre: `precipitation_sum_mm`, `temperature_2m_max_c`.
 
 ### Evidencia de carga
 
+Cada tabla se muestra con su esquema (a la izquierda) y su vista previa (a la derecha). El contador de la vista previa confirma el número de filas del catálogo.
+
 ::: {layout-ncol=2}
-![Trabajo de carga de stg_metro_afluencia](img/STG_carga_metro.png)
+![Esquema de `stg_metro_afluencia`](img/STG_esquema_metro.png)
 
-![Esquema de stg_metro_afluencia](img/STG_esquema_metro.png)
+![Vista previa de `stg_metro_afluencia`](img/STG_preview_metro.png)
 
-![Vista previa de stg_metro_afluencia](img/STG_preview_metro.png)
+![Esquema de `stg_metrobus_afluencia`](img/STG_esquema_metrobus.png)
 
-![Vista previa de stg_metrobus_afluencia](img/STG_preview_metrobus.png)
+![Vista previa de `stg_metrobus_afluencia`](img/STG_preview_metrobus.png)
 
-![Vista previa de stg_gtfs_stops](img/STG_preview_gtfs.png)
+![Esquema de `stg_gtfs_stops`](img/STG_esquema_gtfs_stops.png)
 
-![Vista previa de stg_festivos_nager](img/STG_preview_festivos.png)
+![Vista previa de `stg_gtfs_stops`](img/STG_preview_gtfs_stops.png)
 
-![Vista previa de stg_clima_openmeteo](img/STG_preview_clima.png)
+![Esquema de `stg_gtfs_routes`](img/STG_esquema_gtfs_routes.png)
+
+![Vista previa de `stg_gtfs_routes`](img/STG_preview_gtfs_routes.png)
+
+![Esquema de `stg_festivos_nager`](img/STG_esquema_festivos.png)
+
+![Vista previa de `stg_festivos_nager`](img/STG_preview_festivos.png)
+
+![Esquema de `stg_clima_openmeteo`](img/STG_esquema_clima.png)
+
+![Vista previa de `stg_clima_openmeteo`](img/STG_preview_clima.png)
+:::
+
+::: {layout-ncol=2}
+![Los 6 trabajos de carga de staging, todos DONE y sin error (`INFORMATION_SCHEMA.JOBS_BY_USER`)](img/STG_carga_metro.png)
 
 ![Resultado del perfilado: 195 filas por día](img/STG_perfilado.png)
 :::

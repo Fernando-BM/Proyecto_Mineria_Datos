@@ -28,7 +28,7 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Tarea** | Abrir F1 y F2 completas y medir rango de fechas, filas por día, valores distintos de línea y estación, ceros y valores `'NaN'`; probar la unión estación ↔ GTFS |
 | **Prompt (resumen fiel)** | Consultas SQL al endpoint `datastore_search_sql` de la API CKAN del portal (p. ej. `SELECT MIN(fecha), MAX(fecha), COUNT(*), COUNT(DISTINCT linea) FROM "<resource_id>"`) |
 | **Qué produjo** | Los hallazgos de la [sección 1.4](fuentes.qmd#lo-que-encontramos-al-abrir-los-datos): 195 filas por día, 62,025 ceros, doble codificación en 2021–2023, 17,227 `'NaN'` en Metrobús y 187/195 estaciones unidas con GTFS |
-| **Revisión del equipo** | Las mismas cifras se reprodujeron en BigQuery con [`sql/01_perfilado_staging.sql`](sql/01_perfilado_staging.sql) sobre las tablas de staging cargadas por el equipo. [Confirmar que los resultados coinciden o anotar las diferencias]{.todo} |
+| **Revisión del equipo** | Las mismas cifras se reprodujeron en BigQuery con [`sql/01_perfilado_staging.sql`](sql/01_perfilado_staging.sql) sobre las tablas de staging cargadas por el equipo. El 2 de octubre de 2026 el equipo ejecutó las 8 consultas sobre su proyecto de BigQuery y **todas las cifras coincidieron**: 1,180,920 filas, 195 filas por día, 24 valores de línea, 53,732 filas y 17,227 `'NaN'` en Metrobús, 195 paradas del Metro en GTFS y 6,056 días de clima. Las capturas están en [Fuentes](fuentes.qmd#verificación-en-bigquery) |
 
 ### Uso 3 - Granos candidatos, esquema estrella y DDL
 

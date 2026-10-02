@@ -75,7 +75,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 ::: {layout-ncol=2}
 ![Página del conjunto en el portal](img/F1_portal.jpeg)
 
-![Vista previa de los datos (API o BigQuery)](img/F1_vista_previa.png)
+![Vista previa en staging (BigQuery)](img/STG_preview_metro.png)
 :::
 
 ### F2 · Afluencia diaria del Metrobús CDMX (simple) {#f2}
@@ -94,7 +94,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 ::: {layout-ncol=2}
 ![Página del conjunto en el portal](img/F2_portal.jpeg)
 
-![Vista previa de los datos](img/F2_vista_previa.png)
+![Vista previa en staging (BigQuery)](img/STG_preview_metrobus.png)
 :::
 
 ### F3 · GTFS estático de la Ciudad de México {#f3}
@@ -113,7 +113,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 ::: {layout-ncol=2}
 ![Página del conjunto en el portal](img/F3_portal.jpeg)
 
-![Vista previa de stops.txt](img/F3_vista_previa.png)
+![Vista previa de stops.txt en staging](img/STG_preview_gtfs_stops.png)
 :::
 
 ### F4 · Días festivos de México (Nager.Date) {#f4}
@@ -132,7 +132,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 ::: {layout-ncol=2}
 ![Respuesta de la API en el navegador](img/F4_api.jpeg)
 
-![Vista previa en staging](img/F4_vista_previa.png)
+![Vista previa en staging](img/STG_preview_festivos.png)
 :::
 
 ### F5 · Clima histórico diario (Open-Meteo) {#f5}
@@ -151,7 +151,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 ::: {layout-ncol=2}
 ![Respuesta de la API en el navegador](img/F5_api.jpeg)
 
-![Vista previa en staging](img/F5_vista_previa.png)
+![Vista previa en staging](img/STG_preview_clima.png)
 :::
 
 ## 1.4 Lo que encontramos al abrir los datos
@@ -165,6 +165,30 @@ Antes de diseñar el esquema perfilamos F1 y F2 completas con la API del portal.
   - Línea 1 durante la modernización de 2022–2025, el riesgo R3 de E0.
 - **Codificación inconsistente:** entre 2021-01-01 y 2023-05-31 el campo `linea` cambia de `Linea 1` a `LÃ­nea 1`. Es texto UTF-8 leído como Latin-1. Por eso hay **24 valores de línea para 12 líneas**. Lo mismo ocurre en nombres de estación (`PantitlÃ¡n`, `GÃ³mez FarÃ­as`), incluso fuera de ese periodo. El riesgo R6 de E0 se **confirmó**.
 - **F2 marca con el texto `'NaN'`** las fechas en que una línea aún no existía: 17,227 filas. En 2023 los nombres aparecen en minúsculas (`linea 1`).
+
+### Verificación en BigQuery
+
+Después de cargar staging, el equipo repitió el perfilado en BigQuery con [`sql/01_perfilado_staging.sql`](sql/01_perfilado_staging.sql). Las 8 consultas se ejecutaron sin error y cada cifra coincide con la que obtuvimos en el portal.
+
+![Ejecución de las 8 consultas de perfilado](img/PERF_resumen.png)
+
+::: {layout-ncol=2}
+![F1 · cobertura: 2010-01-01 a 2026-07-31, 1,180,920 filas, 6,056 días](img/PERF_f1_cobertura.png)
+
+![F1 · panel completo: 195 filas en cada uno de los 6,056 días](img/STG_perfilado.png)
+
+![F1 · 24 valores de `linea` para 12 líneas: `Linea` y `LÃ­nea` (2021-01-01 a 2023-05-31)](img/PERF_f1_lineas_codificacion.png)
+
+![F1 · ceros por línea y año: L12 antes de 2012 y desde 2021, L1 de 2022 a 2025](img/PERF_f1_ceros.png)
+
+![F2 · Metrobús: 53,732 filas, 14 valores de línea y 17,227 `'NaN'`](img/PERF_f2_metrobus.png)
+
+![F3 · GTFS: 195 paradas del Metro de 11,362 en total](img/PERF_f3_gtfs.png)
+
+![F4 · festivos desplazados respecto a la LFT (p. ej. 2010-04-30, 2016-05-02)](img/PERF_f4_festivos.png)
+
+![F5 · clima: 6,056 días, de 2010-01-01 a 2026-07-31](img/PERF_f5_clima.png)
+:::
 
 ## 1.5 Análisis de integración
 
