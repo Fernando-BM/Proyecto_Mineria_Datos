@@ -62,12 +62,12 @@ Cada tabla corresponde a una fuente del [catálogo](fuentes.qmd). Se cargó desd
 
 | Tabla | Fuente | Archivo cargado | Filas | Fecha de carga |
 |-------|--------|-----------------|-------|----------------|
-| `stg_metro_afluencia` | [F1](fuentes.qmd#f1) | CSV completo del portal (59.9 MB) | 1,180,920 | [AAAA-MM-DD]{.todo} |
-| `stg_metrobus_afluencia` | [F2](fuentes.qmd#f2) | CSV completo del portal (2.1 MB) | 53,732 | [AAAA-MM-DD]{.todo} |
-| `stg_gtfs_stops` | [F3](fuentes.qmd#f3) | `stops.txt` del ZIP GTFS | 11,362 | [AAAA-MM-DD]{.todo} |
-| `stg_gtfs_routes` | [F3](fuentes.qmd#f3) | `routes.txt` del ZIP GTFS | 301 | [AAAA-MM-DD]{.todo} |
-| `stg_festivos_nager` | [F4](fuentes.qmd#f4) | JSONL generado por `staging/descargar_apis.py` | 156 | [AAAA-MM-DD]{.todo} |
-| `stg_clima_openmeteo` | [F5](fuentes.qmd#f5) | CSV generado por `staging/descargar_apis.py` | 6,056 | [AAAA-MM-DD]{.todo} |
+| `stg_metro_afluencia` | [F1](fuentes.qmd#f1) | CSV completo del portal (59.9 MB) | 1,180,920 | 2026-10-02 |
+| `stg_metrobus_afluencia` | [F2](fuentes.qmd#f2) | CSV completo del portal (2.1 MB) | 53,732 | 2026-10-02 |
+| `stg_gtfs_stops` | [F3](fuentes.qmd#f3) | `stops.txt` del ZIP GTFS | 11,362 | 2026-10-02 |
+| `stg_gtfs_routes` | [F3](fuentes.qmd#f3) | `routes.txt` del ZIP GTFS | 301 | 2026-10-02 |
+| `stg_festivos_nager` | [F4](fuentes.qmd#f4) | JSONL generado por `staging/descargar_apis.py` | 156 | 2026-10-02 |
+| `stg_clima_openmeteo` | [F5](fuentes.qmd#f5) | CSV generado por `staging/descargar_apis.py` | 6,056 | 2026-10-02 |
 
 Los valores se cargan sin tocar. Hay solo dos ajustes de forma, ambos impuestos por BigQuery:
 
@@ -137,7 +137,7 @@ Hay una vista por pregunta de E0. P1 y P3 tienen dos vistas cada una porque comb
 ### Evidencia de validez en BigQuery
 
 ::: {layout-ncol=2}
-![Vistas creadas en metro_mart](img/MART_vistas.png)
+![`consultas_mart.sql` ejecutado: 7 sentencias, SUCCESS, y las 7 vistas en `metro_mart`](img/MART_vistas.png)
 
-![Editor de BigQuery: consulta válida (marca verde)](img/MART_validacion.png)
+![Cuerpo de `v_p5_absorcion_cierre_l1` ejecutado: corre sin error y devuelve 0 filas porque el DW todavía está vacío](img/MART_validacion.png)
 :::

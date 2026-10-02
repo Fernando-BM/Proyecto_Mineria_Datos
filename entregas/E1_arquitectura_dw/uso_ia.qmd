@@ -17,7 +17,7 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Prompt (resumen fiel)** | Se entregó el PDF de instrucciones de E1 y el repositorio con E0, con la petición: "Ayúdame a generar la entrega E1: evaluar al menos 5 fuentes candidatas, catalogar mínimo 3 verificadas de 2 tipos distintos, con evidencia de apertura y análisis de integración" |
 | **Qué propuso** | 12 candidatas (C1–C12 en [Fuentes](fuentes.qmd#candidatas-evaluadas-y-criterio-de-selección)). Las URL de la API del portal se obtuvieron con `package_search`, no de memoria |
 | **Qué se verificó y qué se descartó** | Se verificaron abriendo la fuente F1–F5, C6–C9 y C12. **C10 (NOAA GSOD en BigQuery) no se verificó** a nivel de estación y se descartó por duplicar F5. No se hizo búsqueda en Kaggle ni en Google Dataset Search: se priorizaron las fuentes primarias de SEMOVI |
-| **Revisión del equipo** | [Indicar quién abrió cada URL del catálogo, en qué fecha, y qué capturas de `img/` tomó]{.todo} |
+| **Revisión del equipo** | Luis Alberto Hernández Aguilar abrió las 5 URL del catálogo el 2 de octubre de 2026, comprobó que existieran y tuvieran la cobertura y la licencia indicadas, y tomó las capturas de las fuentes (`F1_portal`, `F2_portal`, `F3_portal`, `F4_api`, `F5_api`) |
 
 ### Uso 2 - Perfilado de las fuentes con la API del portal
 
@@ -39,7 +39,7 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Tarea** | Proponer granos candidatos, dimensiones con su tipo de SCD, el diagrama Mermaid y el DDL de BigQuery |
 | **Prompt (resumen fiel)** | "A partir de lo que muestran los datos, propone 2 o 3 granos, elige uno, y diseña un esquema estrella de 1 o 2 hechos y 3 a 5 dimensiones con llaves sustitutas y SCD, ligado a P1–P5" |
 | **Corrección hecha al verificar** | La primera propuesta justificaba la SCD tipo 2 de `dim_estacion` con **renombramientos** de estaciones. Al consultar F1 se vio que la fuente reescribe el nombre vigente hacia atrás: *Zócalo/Tenochtitlan* aparece desde 2010. Esa justificación se **descartó**: la SCD 2 se basa en el estado de servicio y el nombre pasa a tipo 1 |
-| **Revisión del equipo** | El DDL se ejecutó en BigQuery y se tomaron capturas del esquema de cada tabla. [Anotar errores encontrados al ejecutar y cómo se corrigieron]{.todo} |
+| **Revisión del equipo** | El DDL se ejecutó en BigQuery y se tomaron capturas del esquema de cada tabla. El 2 de octubre de 2026 el DDL se ejecutó sin errores al primer intento (6 sentencias, SUCCESS). El equipo revisó en la pestaña *Schema* de cada tabla que las llaves (`PK`, `FK`) y las descripciones coincidieran con el diagrama |
 
 ### Uso 4 - Consultas del DataMart
 
@@ -49,7 +49,7 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Fecha** | 1 de octubre de 2026 |
 | **Tarea** | Redactar una vista por pregunta con operadores OLAP (ROLLUP, CUBE, GROUPING SETS, PIVOT, ventanas) |
 | **Prompt (resumen fiel)** | "Escribe una consulta del DataMart por pregunta de E0, válida en BigQuery, con al menos una que use ROLLUP o funciones de ventana" |
-| **Revisión del equipo** | Cada vista se creó en `metro_mart`. Que BigQuery acepte el `CREATE VIEW` es la prueba de validez sintáctica y semántica. [Anotar ajustes hechos]{.todo} |
+| **Revisión del equipo** | Cada vista se creó en `metro_mart`. Que BigQuery acepte el `CREATE VIEW` es la prueba de validez sintáctica y semántica. El 2 de octubre de 2026 las 7 vistas se crearon sin errores al primer intento (7 sentencias, SUCCESS). Además, el equipo ejecutó directamente el cuerpo de `v_p5_absorcion_cierre_l1`: corrió sin error y devolvió 0 filas, como se espera mientras el DW esté vacío |
 
 ### Uso 5 - Redacción de las páginas del sitio
 
@@ -63,5 +63,6 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 ## Qué hizo la herramienta y qué no
 
 - **Sí** consultó directamente las fuentes por sus APIs públicas y reportó cifras verificables.
+- **Sí** generó una guía interna paso a paso para ejecutar los scripts en BigQuery (esquemas de carga, orden de ejecución y capturas a tomar). El equipo la siguió para hacer la implementación y la retiró del repositorio al terminar, por ser un documento de trabajo y no un entregable.
 - **No** creó datasets, no cargó tablas ni ejecutó SQL en BigQuery. No tuvo acceso al proyecto de Google Cloud del equipo, y ninguna credencial se compartió con ella.
 - **No** hizo commits ni publicó el sitio.

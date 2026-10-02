@@ -12,6 +12,7 @@ Las páginas del sitio ya hacen referencia a estos archivos. Guarden cada captur
 | `STG_carga_metro.png` | Consulta a `INFORMATION_SCHEMA.JOBS_BY_USER` con los 6 trabajos de carga | arquitectura |
 | `STG_perfilado.png` | Editor con la consulta de "195 filas por día" y su resultado | arquitectura, fuentes |
 | `PERF_resumen.png` y `PERF_f1_cobertura`, `PERF_f1_lineas_codificacion`, `PERF_f1_ceros`, `PERF_f2_metrobus`, `PERF_f3_gtfs`, `PERF_f4_festivos`, `PERF_f5_clima` (.png) | Resultados de `01_perfilado_staging.sql` | fuentes |
+| `DW_ddl_ejecucion.png` | Resultado de `ddl_dw.sql` (6 sentencias, SUCCESS) | estrella |
 | `DW_*.png` (6 tablas) | Pestaña Esquema de cada tabla del DW | estrella |
 | `MART_vistas.png`, `MART_validacion.png` | Vistas del mart y una consulta validada | arquitectura |
 

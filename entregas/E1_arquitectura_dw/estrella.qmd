@@ -127,7 +127,13 @@ El código completo está en [`sql/ddl_dw.sql`](sql/ddl_dw.sql). Las tablas qued
 {{< include sql/ddl_dw.sql >}}
 ```
 
+### Ejecución en BigQuery
+
+![`ddl_dw.sql` ejecutado: 6 sentencias, estado SUCCESS](img/DW_ddl_ejecucion.png)
+
 ### Esquema de cada tabla en BigQuery
+
+La columna **Key** muestra las llaves declaradas (`PK`, `FK`, y `PK/FK` en las llaves compuestas de los hechos), y **Description** muestra los textos del DDL. Ambas coinciden con el diagrama de la sección 3.5.
 
 ::: {layout-ncol=2}
 ![dim_fecha](img/DW_dim_fecha.png)
