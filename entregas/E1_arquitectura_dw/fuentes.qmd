@@ -105,7 +105,7 @@ El catálogo cumple el requisito de **dos tipos distintos**: archivos de portal 
 | **URL y acceso** | <https://datos.cdmx.gob.mx/dataset/gtfs> · descarga directa de ZIP; se cargan `stops.txt` y `routes.txt` |
 | **Formato y tamaño** | ZIP de 2.4 MB con 8 archivos CSV; `stops.txt` 1.0 MB (11,362 paradas de todos los sistemas), `routes.txt` 21.6 KB |
 | **Grano** | `stops.txt`: una fila por parada. El Metro (agencia `METRO`, prefijo `B_02`) tiene **195 paradas**, una por estación-línea. `routes.txt`: una fila por ruta |
-| **Cobertura** | Red vigente (catálogo estático, sin historia); incluye Metro, Metrobús y otros 8 sistemas; actualizado 2026-08-28 |
+| **Cobertura** | Foto de la red al **31 de octubre de 2022**, según la descripción del conjunto (el portal registra una modificación de metadatos el 2026-08-28, pero el contenido no cambió de versión). Es un catálogo estático, sin historia; incluye Metro, Metrobús y otros 8 sistemas |
 | **Licencia y restricciones** | CC-BY-4.0-ESP. Sin datos personales |
 | **Llaves de integración** | `stop_id` (p. ej. `B_0200L1-PANTITLAN` contiene la línea); `stop_name`; `route_short_name` (`1`…`9`, `A`, `B`, `L12`); coordenadas |
 | **Pregunta(s) de E0** | P1, P3, P4 (catálogo de estaciones y líneas) |
@@ -206,12 +206,13 @@ Se resolverán con una **tabla de equivalencias de 8 filas** en E2. El conteo po
 ### Problemas anticipados (se documentan, se resuelven en E2)
 
 1. **Doble codificación UTF-8/Latin-1** en `linea` y `estacion` de F1. Se repara antes de normalizar, porque si no se repara una misma estación genera dos llaves.
-2. **Nombres compuestos** (8 estaciones). Ninguna fuente conserva la historia de nombres: F3 describe solo la red vigente y F1 reescribe el nombre actual hacia atrás (*Zócalo/Tenochtitlan* aparece desde 2010-01-01). Por eso el nombre se trata como atributo sin historia y la SCD tipo 2 de `dim_estacion` se reserva para el estado de servicio.
+2. **Nombres compuestos** (8 estaciones). Ninguna fuente conserva la historia de nombres: F3 es una foto de la red a octubre de 2022 y F1 reescribe el nombre actual hacia atrás (*Zócalo/Tenochtitlan* aparece desde 2010-01-01). Por eso el nombre se trata como atributo sin historia y la SCD tipo 2 de `dim_estacion` se reserva para el estado de servicio.
 3. **Ceros estructurales frente a ceros operativos.** Un cero puede ser una línea no inaugurada, un cierre largo o un cierre de un día. Los cierres largos se modelan como estado de servicio en `dim_estacion`. Los de un día quedan marcados con `es_registro_cero` en el hecho.
 4. **`'NaN'` como texto en F2.** Se convierte a `NULL`, no a cero, porque no significa "nadie viajó" sino "la línea no existía".
 5. **Festivos desplazados en F4.** Nager.Date mueve el Día del Trabajo cuando cae en fin de semana (2010-04-30, 2011-05-02, 2016-05-02, 2021-04-30, 2022-05-02) y hace lo mismo con el Año Nuevo (2010-12-31, 2012-01-02, 2017-01-02, 2021-12-31, 2023-01-02). La Ley Federal del Trabajo (art. 74) no prevé ese desplazamiento, así que el festivo se valida contra la ley y se usa la fecha legal.
 6. **Clima de un solo punto.** F5 representa toda la ciudad con una celda de malla, y una tormenta local no aparece. Es una limitación para P4 que se declara en la [matriz de trazabilidad](trazabilidad.qmd).
-7. **Actualizaciones retroactivas** en F1 y F2 (riesgo R2) y reanálisis en F5. Cada carga a staging registra su fecha de descarga.
+7. **GTFS desactualizado.** F3 corresponde a la versión del 31 de octubre de 2022. El Metro no ha abierto estaciones desde 2012, así que la lista de 195 sigue completa, pero un cambio de nombre posterior a esa fecha no aparecería en F3. Por eso la tabla de equivalencias se revisa contra F1, que sí es reciente.
+8. **Actualizaciones retroactivas** en F1 y F2 (riesgo R2) y reanálisis en F5. Cada carga a staging registra su fecha de descarga.
 
 ## Referencias
 
