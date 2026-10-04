@@ -172,7 +172,7 @@ Después de cargar staging, el equipo repitió el perfilado en BigQuery con [`sq
 
 ![Ejecución de las 8 consultas de perfilado](img/PERF_resumen.png)
 
-::: {layout-ncol=2}
+::: {layout-ncol=1}
 ![F1 · cobertura: 2010-01-01 a 2026-07-31, 1,180,920 filas, 6,056 días](img/PERF_f1_cobertura.png)
 
 ![F1 · panel completo: 195 filas en cada uno de los 6,056 días](img/STG_perfilado.png)
