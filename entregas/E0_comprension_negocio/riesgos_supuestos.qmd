@@ -26,8 +26,5 @@ subtitle: "Entrega E0 - Comprensión del Negocio"
 | **S4** | El catálogo de estaciones y líneas es consistente a lo largo del histórico. | Auditoría de llaves en E1 (ver [R6](#r6)). Si no lo es, se construye una tabla de equivalencias documentada. |
 | **S5** | El operador puede efectivamente accionar un aviso emitido con 24 horas de antelación (disponibilidad de parque vehicular y de personal). | Supuesto tomado del propio stakeholder. Si la ventana real fuera más larga, el horizonte de pronóstico se extiende a 3-7 días, algo que el modelo ya contempla. |
 | **S6** | Los eventos que explican anomalías (cierres, festivos, eventos masivos) son documentables públicamente con fecha. | Construcción del calendario de eventos en E1. Los días sin explicación se reportan como anomalías no atribuidas, sin forzar una causa. |
-<<<<<<< HEAD
-=======
 
 
->>>>>>> main

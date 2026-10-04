@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2872b74859edab0a5977011198608f8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3144656cb5138d699b5d8ef7c5b64b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -238,18 +238,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#riesgos-del-proyecto-y-mitigaciones" id="toc-riesgos-del-proyecto-y-mitigaciones" class="nav-link active" data-scroll-target="#riesgos-del-proyecto-y-mitigaciones">5.1 Riesgos del proyecto y mitigaciones</a>
-  <ul class="collapse">
-  <li><a href="#r1" id="toc-r1" class="nav-link" data-scroll-target="#r1">R1 · La granularidad publicada es diaria, no horaria</a></li>
-  <li><a href="#r2" id="toc-r2" class="nav-link" data-scroll-target="#r2">R2 · Actualizaciones retroactivas de la fuente</a></li>
-  <li><a href="#r3" id="toc-r3" class="nav-link" data-scroll-target="#r3">R3 · Ruptura estructural por el cierre de la Línea 1</a></li>
-  <li><a href="#r4" id="toc-r4" class="nav-link" data-scroll-target="#r4">R4 · El indicador disponible no es el fenómeno de interés</a></li>
-  <li><a href="#r5" id="toc-r5" class="nav-link" data-scroll-target="#r5">R5 · Cambio de régimen en la serie histórica</a></li>
-  <li><a href="#r6" id="toc-r6" class="nav-link" data-scroll-target="#r6">R6 · Llaves sucias entre línea y estación</a></li>
-  <li><a href="#r7" id="toc-r7" class="nav-link" data-scroll-target="#r7">R7 · Dependencia de fuentes externas inaccesibles</a></li>
-  <li><a href="#r8" id="toc-r8" class="nav-link" data-scroll-target="#r8">R8 · Discrepancia entre cifras reportadas públicamente</a></li>
-  </ul></li>
+  <li><a href="#matriz-de-gestión-de-riesgos" id="toc-matriz-de-gestión-de-riesgos" class="nav-link active" data-scroll-target="#matriz-de-gestión-de-riesgos">5.1 Matriz de Gestión de Riesgos</a></li>
   <li><a href="#supuestos-que-el-equipo-asume-explícitamente" id="toc-supuestos-que-el-equipo-asume-explícitamente" class="nav-link" data-scroll-target="#supuestos-que-el-equipo-asume-explícitamente">5.2 Supuestos que el equipo asume explícitamente</a></li>
+  <li><a href="#head" id="toc-head" class="nav-link" data-scroll-target="#head">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</a></li>
   </ul>
 </nav>
     </div>
@@ -276,73 +267,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="riesgos-del-proyecto-y-mitigaciones" class="level2">
-<h2 class="anchored" data-anchor-id="riesgos-del-proyecto-y-mitigaciones">5.1 Riesgos del proyecto y mitigaciones</h2>
-<p>Ocho riesgos específicos de este proyecto, no genéricos, cada uno con mitigación propuesta.</p>
-<section id="r1" class="level3">
-<h3 class="anchored" data-anchor-id="r1">R1 · La granularidad publicada es diaria, no horaria</h3>
-<p><strong>Impacto: Alto · Probabilidad: Alta (materializado)</strong></p>
-<p>Los campos de la base son <code>fecha, anio, mes, linea, estacion, afluencia</code>.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>]</sup> El desglose por hora solo se publicó como índices durante la emergencia de COVID-19.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f12">12</a>]</sup> El objetivo original (anticipar la hora pico) es <strong>estructuralmente inalcanzable</strong> con la fuente principal.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Ya mitigado en E0: el alcance se reformuló con el stakeholder a <strong>día-estación con 24 h de antelación</strong>, que además coincide con su ventana real de decisión. Se envía solicitud formal de la base horaria a <code>datosabiertos@cdmx.gob.mx</code><sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup>; el histórico COVID-19 se usa únicamente como referencia estructural del perfil intradía, nunca como insumo de entrenamiento.</p>
-</blockquote>
-</section>
-<section id="r2" class="level3">
-<h3 class="anchored" data-anchor-id="r2">R2 · Actualizaciones retroactivas de la fuente</h3>
-<p><strong>Impacto: Alto · Probabilidad: Media</strong></p>
-<p>El portal advierte explícitamente que “algunos conjuntos de datos pueden incluir actualizaciones retroactivas, por lo que la información histórica puede cambiar en actualizaciones posteriores”.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup> Un resultado obtenido en E2 podría no reproducirse en E5 con la misma consulta.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Congelar un <em>snapshot</em> fechado de cada base al inicio del proyecto, registrar su hash SHA-256 y la fecha de descarga, y versionarlo en el repositorio. Todo el <em>pipeline</em> se ejecuta contra la versión congelada. Antes de la entrega final se vuelve a descargar y se documenta la diferencia como hallazgo de calidad de datos.</p>
-</blockquote>
-</section>
-<section id="r3" class="level3">
-<h3 class="anchored" data-anchor-id="r3">R3 · Ruptura estructural por el cierre de la Línea 1</h3>
-<p><strong>Impacto: Alto · Probabilidad: Alta</strong></p>
-<p>La línea estuvo parcial o totalmente fuera de servicio desde el 11 de julio de 2022 y se reabrió por completo hasta Observatorio el 16 de noviembre de 2025.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f10">10</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f11">11</a>]</sup> Sus estaciones tienen ceros estructurales y la demanda migró a otras líneas. Un modelo entrenado a ciegas aprendería una obra pública como si fuera un patrón de comportamiento.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Construir una variable <code>estado_servicio</code> por estación-día a partir del calendario documentado de cierres y reaperturas. Excluir del entrenamiento los tramos suspendidos; segmentar la evaluación antes/después de noviembre de 2025; validación temporal con <em>test</em> exclusivamente posterior a la reapertura. Convertir el episodio en cuasiexperimento para <a href="../../entregas/E0_comprension_negocio/preguntas.html">PI-5</a>.</p>
-</blockquote>
-</section>
-<section id="r4" class="level3">
-<h3 class="anchored" data-anchor-id="r4">R4 · El indicador disponible no es el fenómeno de interés</h3>
-<p><strong>Impacto: Alto · Probabilidad: Media</strong></p>
-<p>La afluencia mide <em>entradas registradas en torniquete</em>; la saturación es una condición de andén y de vagón. Dos estaciones con la misma afluencia pueden tener niveles de aglomeración muy distintos según transbordos, número de andenes y frecuencia de trenes. El riesgo es entregar un modelo correcto que responde a la pregunta equivocada.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Declarar formalmente la definición <em>proxy</em> de saturación en el <a href="../../entregas/E0_comprension_negocio/canvas.html">Canvas</a> y en el reporte, y validarla con el stakeholder en E1. Normalizar por estación en lugar de comparar niveles absolutos entre estaciones. Reportar el <em>score</em> como “riesgo relativo de alta demanda” y no como “nivel de ocupación”.</p>
-</blockquote>
-</section>
-<section id="r5" class="level3">
-<h3 class="anchored" data-anchor-id="r5">R5 · Cambio de régimen en la serie histórica</h3>
-<p><strong>Impacto: Medio · Probabilidad: Alta</strong></p>
-<p>La base cubre desde 2010<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup> e incluye la caída de movilidad por la pandemia<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f12">12</a>]</sup>, la ampliación de la gratuidad y el cambio de medios de acceso; el desglose por medio de acceso solo existe a partir de 2022, y en Metrobús las actualizaciones posteriores a enero de 2022 se reflejan únicamente en la base desglosada.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f2">2</a>]</sup> Entrenar sobre los 16 años completos mezclaría regímenes incomparables.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Acotar el modelo operativo a <strong>2022 en adelante</strong> y usar 2010-2021 solo para el estudio de estacionalidad estructural. Documentar los puntos de cambio de régimen. Verificar en E1 si el conteo total de la base desglosada reconcilia con la base simple en el periodo de traslape.</p>
-</blockquote>
-</section>
-<section id="r6" class="level3">
-<h3 class="anchored" data-anchor-id="r6">R6 · Llaves sucias entre línea y estación</h3>
-<p><strong>Impacto: Medio · Probabilidad: Alta</strong></p>
-<p>Los campos <code>linea</code> y <code>estacion</code> son de tipo texto<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>]</sup> a lo largo de más de quince años de captura. Variantes de acrónimo, acentuación o renombramiento de estaciones romperían silenciosamente cualquier agregación por estación.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Auditoría de cardinalidad y de valores distintos como primera tarea de E1; catálogo canónico de estaciones contrastado con la publicación oficial de afluencia por estación y línea del STC<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f5">5</a>]</sup>; pruebas automáticas que fallen si aparece una llave no catalogada.</p>
-</blockquote>
-</section>
-<section id="r7" class="level3">
-<h3 class="anchored" data-anchor-id="r7">R7 · Dependencia de fuentes externas inaccesibles</h3>
-<p><strong>Impacto: Medio · Probabilidad: Baja</strong></p>
-<p>La incorporación de datos de tráfico de Waze fue considerada y descartada: Waze no ofrece API pública; comparte un <em>feed</em> GeoRSS únicamente con socios gubernamentales del programa Waze for Cities, bajo términos que impiden republicar los datos.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f13">13</a>]</sup> Diseñar el proyecto asumiendo esa fuente lo dejaría sin insumo a media ejecución - y hacer <em>scraping</em> violaría los términos de la plataforma.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Excluir formalmente cualquier dato de Waze del alcance de todas las entregas. Las variables de contexto vial, si se necesitan, se tomarán exclusivamente de fuentes abiertas del propio portal de la CDMX.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f12">12</a>]</sup> La restricción queda registrada en el Canvas como requisito, no como preferencia.</p>
-</blockquote>
-</section>
-<section id="r8" class="level3">
-<h3 class="anchored" data-anchor-id="r8">R8 · Discrepancia entre cifras reportadas públicamente</h3>
-<p><strong>Impacto: Bajo · Probabilidad: Media</strong></p>
-<p>Distintas notas atribuyen al STC entre ~1,115 y ~1,171 millones de pasajeros en 2024 a partir de las mismas fuentes oficiales.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f7">7</a>]</sup> Usar una cifra de prensa como validación externa podría llevar a “corregir” datos que están correctos.</p>
-<blockquote class="blockquote">
-<p><strong>Mitigación.</strong> Tratar la base de datos abiertos como <strong>única fuente de verdad</strong> para todo cálculo; las cifras de prensa se usan solo para contextualizar el problema de negocio, nunca para validar o ajustar los datos. La discrepancia se documenta como observación de calidad de la información pública.</p>
-</blockquote>
-</section>
+<section id="matriz-de-gestión-de-riesgos" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-gestión-de-riesgos">5.1 Matriz de Gestión de Riesgos</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Categoría</th>
+<th style="text-align: left;">Riesgo Identificado</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Probabilidad</th>
+<th style="text-align: left;">Plan de Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Alcance y Requisitos</strong></td>
+<td style="text-align: left;"><strong><span id="r1">R1</span> · Granularidad publicada diaria (no horaria)</strong><br>Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico.</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Alta <em>(Materializado)</em></td>
+<td style="text-align: left;">Reformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (<code>datosabiertos@cdmx.gob.mx</code>) y usar el histórico COVID-19 solo como referencia estructural intradía.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Calidad de Datos</strong></td>
+<td style="text-align: left;"><strong><span id="r2">R2</span> · Actualizaciones retroactivas de la fuente</strong><br>Cambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables.</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Congelar un <em>snapshot</em> fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el <em>pipeline</em> sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Datos y Modelado</strong></td>
+<td style="text-align: left;"><strong><span id="r3">R3</span> · Ruptura estructural por cierre de Línea 1</strong><br>Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida.</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Crear la variable <code>estado_servicio</code> por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Definición de Negocio</strong></td>
+<td style="text-align: left;"><strong><span id="r4">R4</span> · El indicador no es el fenómeno de interés</strong><br>La afluencia mide entradas por torniquete, no la saturación real de andenes/vagones.</td>
+<td style="text-align: left;">Alto</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Declarar formalmente la definición <em>proxy</em> en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como “riesgo relativo de alta demanda” en lugar de ocupación absoluta.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Datos y Modelado</strong></td>
+<td style="text-align: left;"><strong><span id="r5">R5</span> · Cambio de régimen en la serie histórica</strong><br>Mezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases.</td>
+<td style="text-align: left;">Medio</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Acotar el modelo operativo a datos de <strong>2022 en adelante</strong>; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Calidad de Datos</strong></td>
+<td style="text-align: left;"><strong><span id="r6">R6</span> · Llaves sucias entre línea y estación</strong><br>Inconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones.</td>
+<td style="text-align: left;">Medio</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Realizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Dependencias Externas</strong></td>
+<td style="text-align: left;"><strong><span id="r7">R7</span> · Inaccesibilidad de fuentes externas (Waze)</strong><br>Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer <em>scraping</em> generaría bloqueos legales o técnicos.</td>
+<td style="text-align: left;">Medio</td>
+<td style="text-align: left;">Baja</td>
+<td style="text-align: left;">Excluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Calidad de Datos</strong></td>
+<td style="text-align: left;"><strong><span id="r8">R8</span> · Discrepancia entre cifras reportadas públicamente</strong><br>Diferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas.</td>
+<td style="text-align: left;">Bajo</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Definir la base de datos abiertos como la <strong>única fuente de verdad</strong> técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="supuestos-que-el-equipo-asume-explícitamente" class="level2">
 <h2 class="anchored" data-anchor-id="supuestos-que-el-equipo-asume-explícitamente">5.2 Supuestos que el equipo asume explícitamente</h2>
@@ -387,6 +389,24 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="head" class="level1">
+<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>main</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 
 </section>

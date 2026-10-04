@@ -23,3 +23,11 @@ venv/
 Thumbs.db
 
 **/*.quarto_ipynb
+
+# Credenciales: nunca al repositorio público
+*.json
+!**/package.json
+!docs/**
+*.pem
+*.p12
+.config/gcloud/
