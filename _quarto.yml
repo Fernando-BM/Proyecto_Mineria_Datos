@@ -33,6 +33,19 @@ website:
             href: entregas/E0_comprension_negocio/uso_ia.qmd
           - text: "7. Fuentes consultadas"
             href: entregas/E0_comprension_negocio/fuentes.qmd
+      - text: "E1 - Arquitectura del DW"
+        menu:
+          - text: "1. Fuentes de datos"
+            href: entregas/E1_arquitectura_dw/fuentes.qmd
+          - text: "2. Arquitectura de tres capas"
+            href: entregas/E1_arquitectura_dw/arquitectura.qmd
+          - text: "3. Esquema estrella"
+            href: entregas/E1_arquitectura_dw/estrella.qmd
+          - text: "4. Matriz de trazabilidad"
+            href: entregas/E1_arquitectura_dw/trazabilidad.qmd
+          - text: "---"
+          - text: "5. Uso de herramientas de IA"
+            href: entregas/E1_arquitectura_dw/uso_ia.qmd
 
   sidebar:
     style: "docked"
@@ -49,6 +62,13 @@ website:
           - entregas/E0_comprension_negocio/riesgos_supuestos.qmd
           - entregas/E0_comprension_negocio/uso_ia.qmd
           - entregas/E0_comprension_negocio/fuentes.qmd
+      - section: "E1 - Arquitectura del DW"
+        contents:
+          - entregas/E1_arquitectura_dw/fuentes.qmd
+          - entregas/E1_arquitectura_dw/arquitectura.qmd
+          - entregas/E1_arquitectura_dw/estrella.qmd
+          - entregas/E1_arquitectura_dw/trazabilidad.qmd
+          - entregas/E1_arquitectura_dw/uso_ia.qmd
 
   page-footer:
     background: light

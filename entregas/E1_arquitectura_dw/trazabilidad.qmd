@@ -1,0 +1,47 @@
+---
+title: "4. Matriz de trazabilidad"
+subtitle: "Entrega E1 - Arquitectura del Data Warehouse"
+---
+
+Cada pregunta de E0 se liga a una tarea de minería, a una métrica del hecho, a las dimensiones que la cortan, a sus fuentes y a su estado de cobertura. La verificación va en los dos sentidos: ninguna pregunta queda sin estado (4.1) y ninguna dimensión queda sin pregunta (4.2).
+
+## 4.1 Pregunta → métrica → dimensión → fuente
+
+| Pregunta | Tarea de minería | Métrica (hecho) | Dimensiones | Fuente(s) | Estado |
+|----------|------------------|-----------------|-------------|-----------|--------|
+| **P1** (E0): ¿qué combinaciones de línea, estación y día de la semana concentran los picos y qué tan lejos están de su base? | EDA / estacionalidad | `afluencia` (hechos_afluencia_metro) | `dim_fecha`, `dim_estacion`, `dim_linea` | F1, F3, F4 | **Cubierta.** Los periodos vacacionales escolares no están en ninguna fuente catalogada; se aproximan con mes, semana ISO y Semana Santa |
+| **P2** (E0): ¿se puede anticipar con 24 h la afluencia diaria por estación y clasificar los días de alta demanda? | Regresión + clasificación | `afluencia` (objetivo y rezagos) | `dim_fecha`, `dim_estacion`, `dim_clima` | F1, F3, F4, F5 | **Cubierta** a nivel día, que es el horizonte que ya fijó E0. La hora no existe en las fuentes (R1) |
+| **P3** (ajustada): ¿cuántos perfiles de demanda diaria hay entre las estaciones y qué **líneas** de Metrobús se comportan como alternativa para cada perfil? | Clustering | `afluencia` de ambos hechos | `dim_estacion`, `dim_fecha`, `dim_linea` | F1, F2, F3 | **Parcial.** El perfil por estación está completo. La alternativa de Metrobús solo puede proponerse por **línea**, porque F2 no publica estaciones, y por **día**, no por franja horaria. La cercanía física se tomará de las coordenadas de F3 |
+| **P4** (E0): ¿qué días son anomalías y qué proporción se explica por eventos identificables? | Detección de anomalías | `afluencia`, `es_registro_cero` | `dim_fecha`, `dim_estacion`, `dim_clima` | F1, F4, F5 | **Parcial.** Se explican festivos (F4), lluvia (F5) y cierres (estado de servicio en `dim_estacion`). Sismos, marchas y eventos masivos **no** tienen fuente catalogada: esas anomalías quedarán como "sin causa atribuida", como ya preveía el supuesto S6 de E0 |
+| **P5** (E0, reserva): ¿el Metrobús absorbe demanda cuando una línea del Metro suspende servicio? | Correlación / cambio de nivel | `afluencia` de ambos hechos | `dim_fecha`, `dim_linea` | F1, F2 | **Parcial.** Solo a nivel línea-día, y con un único cierre largo comparable (L1, 2022–2025) |
+
+**Por qué el ajuste de P3 no es un pivote.** No cambia el objetivo de minería, que sigue siendo segmentar estaciones y proponer alternativas, ni el criterio de éxito. El "≥ 2 de cada 3 avisos con ruta alterna" se sigue midiendo: la ruta alterna se expresa como línea de Metrobús en lugar de estación. Por eso **no hay `pivote.qmd`** en esta entrega.
+
+## 4.2 Verificación inversa: ninguna dimensión huérfana
+
+| Dimensión | Preguntas que responde | Atributo que la justifica |
+|-----------|------------------------|---------------------------|
+| `dim_fecha` | P1, P2, P3, P4, P5 | `dia_semana_num` (P1, P3), festivos y quincena (P2, P4), año y periodo (P5) |
+| `dim_estacion` | P1, P2, P3, P4, P5 | Llave del grano; `estado_servicio` (P2, P4, P5); coordenadas (P3) |
+| `dim_linea` | P1, P3, P5 | Sistema y línea: subtotales (P1) y cruce Metro ↔ Metrobús (P3, P5) |
+| `dim_clima` | P2, P4 | `precipitacion_mm` como variable (P2) y `categoria_lluvia` como causa (P4) |
+
+| Medida | Preguntas |
+|--------|-----------|
+| `hechos_afluencia_metro.afluencia` | P1, P2, P3, P4, P5 |
+| `hechos_afluencia_metro.es_registro_cero` | P1, P3 (filtro), P4 (causa) |
+| `hechos_afluencia_metrobus.afluencia` | P3, P5 |
+
+Se descartó una quinta dimensión, `dim_tipo_pago` (fuente C6), precisamente porque no respondía ninguna pregunta.
+
+## 4.3 Efecto sobre el criterio de éxito de E0
+
+| Elemento del criterio | ¿Lo permite el diseño? |
+|-----------------------|------------------------|
+| ≥ 70 % de días críticos anticipados la víspera (recall) | **Sí.** `v_p2_dataset_pronostico` produce la etiqueta y las variables a nivel estación-día |
+| ≤ 30 % de falsas alarmas (precisión) | **Sí**, con el mismo conjunto |
+| Superar la línea base ingenua de 4 semanas | **Sí.** La base se calcula en la vista con una ventana sobre el mismo día de la semana |
+| 2 de cada 3 avisos con ruta alterna | **Sí, ajustado:** la alternativa es una línea de Metrobús o una estación de Metro del mismo perfil |
+| Simulación retrospectiva de 3 meses | **Sí.** Hay datos diarios hasta 2026-07-31 |
+
+**Supuesto que sigue abierto.** El supuesto S5 de E0 dice que el operador puede accionar un aviso con 24 h de antelación. Fue atribuido al stakeholder simulado y **no se ha validado** con una fuente operativa. El diseño no depende de él: el mismo hecho diario soporta horizontes de 1 a 7 días cambiando solo el rezago en `v_p2_dataset_pronostico`.
