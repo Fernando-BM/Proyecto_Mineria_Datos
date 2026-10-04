@@ -60,8 +60,8 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Tarea** | Borrador de `fuentes.qmd`, `arquitectura.qmd`, `estrella.qmd`, `trazabilidad.qmd` y esta página |
 | **Revisión del equipo** | Revisiòn de fuentes.qmd Fernando Bernal, 
                             Revisiòn de arquitectura.qmd  Tania Rámirez
-                            Revisiòn de estrella.qmd 
-                            Revisiòn de trazabilidad.qmd  |
+                            Revisiòn de estrella.qmd Aldair Coronel 
+                            Revisiòn de trazabilidad.qmd  Luis Alberto  |
 
 ## Qué hizo la herramienta y qué no
 
