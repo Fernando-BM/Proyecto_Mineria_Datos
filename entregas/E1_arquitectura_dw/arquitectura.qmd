@@ -6,6 +6,7 @@ subtitle: "Entrega E1 - Arquitectura del Data Warehouse"
 ## 2.1 Las tres capas
 
 ```{mermaid}
+%%{init: {'theme': 'default'}}%%
 flowchart LR
     subgraph F["Fuentes"]
         F1["F1 · Afluencia Metro<br/>CSV portal"]
