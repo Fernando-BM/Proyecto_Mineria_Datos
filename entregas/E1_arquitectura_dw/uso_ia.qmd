@@ -58,7 +58,10 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5 |
 | **Fecha** | 1 de octubre de 2026 |
 | **Tarea** | Borrador de `fuentes.qmd`, `arquitectura.qmd`, `estrella.qmd`, `trazabilidad.qmd` y esta página |
-| **Revisión del equipo** | [Indicar qué secciones reescribió o corrigió cada integrante]{.todo} |
+| **Revisión del equipo** | Revisiòn de fuentes.qmd Fernando Bernal, 
+                            Revisiòn de arquitectura.qmd 
+                            Revisiòn de estrella.qmd 
+                            Revisiòn de trazabilidad.qmd  |
 
 ## Qué hizo la herramienta y qué no
 
