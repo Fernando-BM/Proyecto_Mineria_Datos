@@ -60,7 +60,19 @@ En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegad
 | **Tarea** | Borrador de `fuentes.qmd`, `arquitectura.qmd`, `estrella.qmd`, `trazabilidad.qmd` y esta página |
 | **Revisión del equipo** | Revisiòn de fuentes.qmd Fernando Bernal, Revisiòn de arquitectura.qmd  Tania Rámirez, Revisiòn de estrella.qmd Aldair Coronel, Revisiòn de trazabilidad.qmd  Luis Alberto  |
 
-## Qué hizo la herramienta y qué no
+### Uso 6 - Revisión de arquitectura y legibilidad del diagrama
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Codex (OpenAI), agente basado en GPT-6 |
+| **Fecha** | 5 de octubre de 2026 |
+| **Tarea** | Apoyar la revisión de `arquitectura.qmd`, mejorar el contraste del diagrama |
+| **Prompt (resumen fiel)** | «Revisa arquitectura.qmd para E1, ajusta los colores del diagrama que no se ve bien, y registra el uso de IA en uso_ia.qmd». Se proporcionó una captura |
+| **Material contrastado** | Referencias a capturas y configuración de publicación de Quarto del repositorio local |
+| **Qué se corrigió** | Paleta explícita de Mermaid con fondos claros, texto oscuro y colores por capa |
+| **Revisión del equipo** | Se revisó el contenido, redacción y presentación de la página, se aseguró que el diagrama sea legible.
+
+## Qué hizo la herramienta en los usos 1–6 y qué no
 
 - **Sí** consultó directamente las fuentes por sus APIs públicas y reportó cifras verificables.
 - **Sí** generó una guía interna paso a paso para ejecutar los scripts en BigQuery (esquemas de carga, orden de ejecución y capturas a tomar). El equipo la siguió para hacer la implementación y la retiró del repositorio al terminar, por ser un documento de trabajo y no un entregable.

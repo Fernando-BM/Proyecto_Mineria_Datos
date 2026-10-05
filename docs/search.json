@@ -1,5 +1,53 @@
 [
   {
+    "objectID": "entregas/E0_comprension_negocio/fuentes.html",
+    "href": "entregas/E0_comprension_negocio/fuentes.html",
+    "title": "7. Fuentes consultadas",
+    "section": "",
+    "text": "Todas las fuentes fueron consultadas y verificadas por el equipo en septiembre de 2026. Las bases de datos se publican bajo licencia CC-BY-4.0-ESP, con atribución a la Secretaría de Movilidad (SEMOVI) del Gobierno de la Ciudad de México.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "7. Fuentes consultadas"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/fuentes.html#datos-abiertos-y-fuentes-oficiales",
+    "href": "entregas/E0_comprension_negocio/fuentes.html#datos-abiertos-y-fuentes-oficiales",
+    "title": "7. Fuentes consultadas",
+    "section": "Datos abiertos y fuentes oficiales",
+    "text": "Datos abiertos y fuentes oficiales\n[1] SEMOVI - Afluencia diaria del Metro CDMX, Portal de Datos Abiertos de la CDMX. Datos desde enero de 2010, actualización mensual, licencia CC-BY-4.0-ESP; incluye el aviso de actualizaciones retroactivas y el correo de contacto datosabiertos@cdmx.gob.mx. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx\n[2] SEMOVI - Afluencia diaria de Metrobús CDMX, Portal de Datos Abiertos de la CDMX. Datos desde julio de 2005; actualizaciones posteriores a enero de 2022 reflejadas solo en la base desglosada. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx\n[3] SEMOVI - recurso Afluencia Diaria del Metro (Simple) y su diccionario de datos: campos fecha, anio, mes, linea, estacion, afluencia; formato CSV. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx/resource/0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb\n[4] SEMOVI - Afluencia preliminar en transporte público (histórico), Portal de Datos Abiertos de la CDMX. https://datos.cdmx.gob.mx/dataset/?q=afluencia+preliminar\n[5] STC Metro - Afluencia de estación por línea (publicación oficial de cifras de afluencia). https://metro.cdmx.gob.mx/operacion/mas-informacion/afluencia-de-estacion-por-linea\n[12] SEMOVI - Datos de Movilidad (histórico COVID-19), Portal de Datos Abiertos de la CDMX. Índices de afluencia de los organismos de transporte e índices de tránsito de Waze y TomTom durante la pandemia; es el único desglose horario publicado y se presenta como índice, no como conteo por estación. https://datos.cdmx.gob.mx/dataset/movilidad-historico-covid-19",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "7. Fuentes consultadas"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/fuentes.html#prensa",
+    "href": "entregas/E0_comprension_negocio/fuentes.html#prensa",
+    "title": "7. Fuentes consultadas",
+    "section": "Prensa",
+    "text": "Prensa\n[6] Infobae - Estas fueron las estaciones del metro más transcurridas [sic] durante 2024 (Pantitlán, 41,546,181 accesos anuales). https://www.infobae.com/mexico/2025/01/29/estas-fueron-las-estaciones-del-metro-mas-transcurridas-durante-2024/\n[7] Milenio - Línea del Metro de CdMx que registró más usuarios durante 2024 (Línea 2: 212,233,035 usuarios anuales, ~581,460 diarios). Cifra contrastada con Politico.mx e Infobae; ver riesgo R8. https://www.milenio.com/politica/comunidad/linea-del-metro-de-cdmx-registro-mas-usuarios-durante-2024-cual-es\n[8] El Universal - Caos en el Metro CDMX en hora pico; retrasos y saturación afectan al menos siete líneas. Consultada el 11 de septiembre de 2026. https://www.eluniversal.com.mx/metropoli/caos-en-el-metro-cdmx-en-hora-pico-retrasos-y-saturacion-afectan-al-menos-siete-lineas/\n[9] El Gráfico - ¿Qué está pasando en la Línea 1 del Metro CDMX? Reportan estaciones colapsadas y trenes detenidos (30 de julio de 2026). https://www.elgrafico.mx/al-dia/2026/07/30/que-esta-pasando-en-la-linea-1-del-metro-cdmx-reportan-estaciones-colapsadas-y-trenes-detenidos/\n[10] El Financiero - Línea 1 del Metro CDMX reabre en su totalidad: así fue su remodelación que tomó más de 3 años (cierre del Tramo I el 11 de julio de 2022; cierre Balderas-Observatorio el 9 de noviembre de 2023). https://www.elfinanciero.com.mx/cdmx/2025/11/16/metro-cdmx-reabre-tramo-juanacatlan-observatorio-asi-fueron-las-remodelaciones-de-la-linea-1-que-tomaron-mas-de-3-anos/\n[11] Infobae - Reapertura Línea 1 del Metro CDMX: a qué hora abrirá todo el servicio de Pantitlán hasta Observatorio (reapertura total el 16 de noviembre de 2025). https://www.infobae.com/mexico/2025/11/14/reapertura-linea-1-del-metro-cdmx-a-que-hora-abrira-todo-el-servicio-de-pantitlan-hasta-observatorio/",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "7. Fuentes consultadas"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/fuentes.html#términos-de-uso-de-terceros",
+    "href": "entregas/E0_comprension_negocio/fuentes.html#términos-de-uso-de-terceros",
+    "title": "7. Fuentes consultadas",
+    "section": "Términos de uso de terceros",
+    "text": "Términos de uso de terceros\n[13] Waze Partners Help - About the Waze for Cities program y Waze Data Feed specifications: el intercambio de datos ocurre mediante un feed GeoRSS con socios gubernamentales, bajo términos que impiden hacer públicos los datos; no existe API pública abierta. https://support.google.com/waze/partners/answer/10618477 · https://support.google.com/waze/partners/answer/13458165\n\nEvidencia archivada Las capturas y PDF de respaldo de estas fuentes se guardan en la carpeta fuentes/ de esta entrega, para que sigan siendo consultables aunque una URL cambie o desaparezca.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "7. Fuentes consultadas"
+    ]
+  },
+  {
     "objectID": "entregas/E0_comprension_negocio/canvas.html",
     "href": "entregas/E0_comprension_negocio/canvas.html",
     "title": "2. Business Understanding Canvas (CRISP-DM)",
@@ -9,210 +57,6 @@
       "Inicio",
       "E0 - Comprensión del Negocio",
       "2. Business Understanding Canvas (CRISP-DM)"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html",
-    "href": "entregas/E0_comprension_negocio/criterio_exito.html",
-    "title": "4. Criterio de éxito en términos de negocio",
-    "section": "",
-    "text": "Enunciado\n\n“Al cierre de un piloto de tres meses sobre las tres líneas de mayor afluencia, al menos 7 de cada 10 días-estación que resulten de alta demanda habrán sido identificados a más tardar a las 20:00 h de la víspera, es decir, dentro de la ventana en que todavía puede programarse un tren de refuerzo, con no más de 3 de cada 10 avisos que resulten falsas alarmas, y con al menos 2 de cada 3 avisos acompañados de una ruta alterna concreta y nombrada.”",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "4. Criterio de éxito en términos de negocio"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html#por-qué-este-enunciado-es-verificable",
-    "href": "entregas/E0_comprension_negocio/criterio_exito.html#por-qué-este-enunciado-es-verificable",
-    "title": "4. Criterio de éxito en términos de negocio",
-    "section": "4.1 Por qué este enunciado es verificable",
-    "text": "4.1 Por qué este enunciado es verificable\n\nTiene línea base declarada. El stakeholder describe la práctica actual como reactiva (la aglomeración se conoce por reportes de andén y redes sociales[8][9]), pero el equipo no dispone de una medición institucional de la anticipación actual. Por eso la línea base operativa que se usará para comparar es cuantificable y pública: la regla ingenua (media del mismo día de la semana en las 4 semanas previas), y el criterio se juzga como mejora sobre ella, no sobre un “0 %” que no podríamos acreditar.\nTiene unidad de medida y denominador. La unidad es el día-estación; el denominador son los días-estación que superan el umbral definido en PI-1, calculable a posteriori sobre la misma base pública.\nTiene ventana temporal y es computable sin datos internos. Tres meses continuos sobre tres líneas nombradas, evaluados por simulación retrospectiva: se reproduce qué habría anticipado el sistema cada víspera y se contrasta con la afluencia efectivamente publicada. No depende del registro operativo de refuerzos, al que el equipo no tiene acceso.\nTiene un contracriterio. El límite de falsas alarmas impide alcanzar el 70 % trivialmente marcando todo como alta demanda: obliga al sistema a discriminar.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "4. Criterio de éxito en términos de negocio"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html#vínculo-con-la-métrica-técnica",
-    "href": "entregas/E0_comprension_negocio/criterio_exito.html#vínculo-con-la-métrica-técnica",
-    "title": "4. Criterio de éxito en términos de negocio",
-    "section": "4.2 Vínculo con la métrica técnica",
-    "text": "4.2 Vínculo con la métrica técnica\nA cerrar en las fases de modelado y evaluación:\n\n\n\n\n\n\n\n\nCriterio de negocio\nMétrica técnica equivalente\nUmbral objetivo\n\n\n\n\n7 de cada 10 días de alta demanda identificados en la víspera\nRecall (sensibilidad) de la clase “alta demanda”\n≥ 0.70\n\n\nNo más de 3 de cada 10 avisos son falsa alarma\nPrecision de la clase “alta demanda”\n≥ 0.70\n\n\nEl pronóstico es suficientemente fino para dimensionar el refuerzo\nMAPE del pronóstico diario por estación\n≤ 12 %\n\n\nEl sistema aporta valor sobre “hacer lo de siempre”\nMejora relativa contra la línea base ingenua\n≥ 20 % de reducción de error\n\n\n2 de cada 3 avisos llevan una alternativa concreta\nCobertura del catálogo (PI-3) sobre las estaciones que generan avisos, no sobre todas las del piloto\n≥ 67 % de las estaciones con aviso\n\n\n\n\nAdvertencia declarada al stakeholder\nEl criterio mide anticipación, no reducción de aglomeración. Con datos públicos de afluencia no es posible acreditar que el andén estuvo menos lleno, porque el torniquete cuenta entradas y no ocupación.\nFormular el éxito como “reducir un 20 % la saturación” habría producido un enunciado atractivo pero no verificable con los datos disponibles. La reducción de aglomeración solo podría evaluarse en un despliegue real con datos operativos internos, lo que se documenta como trabajo futuro.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "4. Criterio de éxito en términos de negocio"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
-    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
-    "title": "5. Supuestos y riesgos",
-    "section": "",
-    "text": "Categoría\nRiesgo Identificado\nImpacto\nProbabilidad\nPlan de Mitigación\n\n\n\n\nAlcance y Requisitos\nR1 · Granularidad publicada diaria (no horaria)Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico.\nAlto\nAlta (Materializado)\nReformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (datosabiertos@cdmx.gob.mx) y usar el histórico COVID-19 solo como referencia estructural intradía.\n\n\nCalidad de Datos\nR2 · Actualizaciones retroactivas de la fuenteCambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables.\nAlto\nMedia\nCongelar un snapshot fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el pipeline sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga.\n\n\nDatos y Modelado\nR3 · Ruptura estructural por cierre de Línea 1Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida.\nAlto\nAlta\nCrear la variable estado_servicio por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura.\n\n\nDefinición de Negocio\nR4 · El indicador no es el fenómeno de interésLa afluencia mide entradas por torniquete, no la saturación real de andenes/vagones.\nAlto\nMedia\nDeclarar formalmente la definición proxy en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como “riesgo relativo de alta demanda” en lugar de ocupación absoluta.\n\n\nDatos y Modelado\nR5 · Cambio de régimen en la serie históricaMezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases.\nMedio\nAlta\nAcotar el modelo operativo a datos de 2022 en adelante; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1.\n\n\nCalidad de Datos\nR6 · Llaves sucias entre línea y estaciónInconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones.\nMedio\nAlta\nRealizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas.\n\n\nDependencias Externas\nR7 · Inaccesibilidad de fuentes externas (Waze)Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer scraping generaría bloqueos legales o técnicos.\nMedio\nBaja\nExcluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas.\n\n\nCalidad de Datos\nR8 · Discrepancia entre cifras reportadas públicamenteDiferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas.\nBajo\nMedia\nDefinir la base de datos abiertos como la única fuente de verdad técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "5. Supuestos y riesgos"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#riesgos-del-proyecto-y-mitigaciones",
-    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#riesgos-del-proyecto-y-mitigaciones",
-    "title": "5. Supuestos y riesgos",
-    "section": "",
-    "text": "Ocho riesgos específicos de este proyecto, no genéricos, cada uno con mitigación propuesta.\n\n\nImpacto: Alto · Probabilidad: Alta (materializado)\nLos campos de la base son fecha, anio, mes, linea, estacion, afluencia.[3] El desglose por hora solo se publicó como índices durante la emergencia de COVID-19.[12] El objetivo original (anticipar la hora pico) es estructuralmente inalcanzable con la fuente principal.\n\nMitigación. Ya mitigado en E0: el alcance se reformuló con el stakeholder a día-estación con 24 h de antelación, que además coincide con su ventana real de decisión. Se envía solicitud formal de la base horaria a datosabiertos@cdmx.gob.mx[1]; el histórico COVID-19 se usa únicamente como referencia estructural del perfil intradía, nunca como insumo de entrenamiento.\n\n\n\n\nImpacto: Alto · Probabilidad: Media\nEl portal advierte explícitamente que “algunos conjuntos de datos pueden incluir actualizaciones retroactivas, por lo que la información histórica puede cambiar en actualizaciones posteriores”.[1] Un resultado obtenido en E2 podría no reproducirse en E5 con la misma consulta.\n\nMitigación. Congelar un snapshot fechado de cada base al inicio del proyecto, registrar su hash SHA-256 y la fecha de descarga, y versionarlo en el repositorio. Todo el pipeline se ejecuta contra la versión congelada. Antes de la entrega final se vuelve a descargar y se documenta la diferencia como hallazgo de calidad de datos.\n\n\n\n\nImpacto: Alto · Probabilidad: Alta\nLa línea estuvo parcial o totalmente fuera de servicio desde el 11 de julio de 2022 y se reabrió por completo hasta Observatorio el 16 de noviembre de 2025.[10][11] Sus estaciones tienen ceros estructurales y la demanda migró a otras líneas. Un modelo entrenado a ciegas aprendería una obra pública como si fuera un patrón de comportamiento.\n\nMitigación. Construir una variable estado_servicio por estación-día a partir del calendario documentado de cierres y reaperturas. Excluir del entrenamiento los tramos suspendidos; segmentar la evaluación antes/después de noviembre de 2025; validación temporal con test exclusivamente posterior a la reapertura. Convertir el episodio en cuasiexperimento para PI-5.\n\n\n\n\nImpacto: Alto · Probabilidad: Media\nLa afluencia mide entradas registradas en torniquete; la saturación es una condición de andén y de vagón. Dos estaciones con la misma afluencia pueden tener niveles de aglomeración muy distintos según transbordos, número de andenes y frecuencia de trenes. El riesgo es entregar un modelo correcto que responde a la pregunta equivocada.\n\nMitigación. Declarar formalmente la definición proxy de saturación en el Canvas y en el reporte, y validarla con el stakeholder en E1. Normalizar por estación en lugar de comparar niveles absolutos entre estaciones. Reportar el score como “riesgo relativo de alta demanda” y no como “nivel de ocupación”.\n\n\n\n\nImpacto: Medio · Probabilidad: Alta\nLa base cubre desde 2010[1] e incluye la caída de movilidad por la pandemia[12], la ampliación de la gratuidad y el cambio de medios de acceso; el desglose por medio de acceso solo existe a partir de 2022, y en Metrobús las actualizaciones posteriores a enero de 2022 se reflejan únicamente en la base desglosada.[1][2] Entrenar sobre los 16 años completos mezclaría regímenes incomparables.\n\nMitigación. Acotar el modelo operativo a 2022 en adelante y usar 2010-2021 solo para el estudio de estacionalidad estructural. Documentar los puntos de cambio de régimen. Verificar en E1 si el conteo total de la base desglosada reconcilia con la base simple en el periodo de traslape.\n\n\n\n\nImpacto: Medio · Probabilidad: Alta\nLos campos linea y estacion son de tipo texto[3] a lo largo de más de quince años de captura. Variantes de acrónimo, acentuación o renombramiento de estaciones romperían silenciosamente cualquier agregación por estación.\n\nMitigación. Auditoría de cardinalidad y de valores distintos como primera tarea de E1; catálogo canónico de estaciones contrastado con la publicación oficial de afluencia por estación y línea del STC[5]; pruebas automáticas que fallen si aparece una llave no catalogada.\n\n\n\n\nImpacto: Medio · Probabilidad: Baja\nLa incorporación de datos de tráfico de Waze fue considerada y descartada: Waze no ofrece API pública; comparte un feed GeoRSS únicamente con socios gubernamentales del programa Waze for Cities, bajo términos que impiden republicar los datos.[13] Diseñar el proyecto asumiendo esa fuente lo dejaría sin insumo a media ejecución - y hacer scraping violaría los términos de la plataforma.\n\nMitigación. Excluir formalmente cualquier dato de Waze del alcance de todas las entregas. Las variables de contexto vial, si se necesitan, se tomarán exclusivamente de fuentes abiertas del propio portal de la CDMX.[12] La restricción queda registrada en el Canvas como requisito, no como preferencia.\n\n\n\n\nImpacto: Bajo · Probabilidad: Media\nDistintas notas atribuyen al STC entre ~1,115 y ~1,171 millones de pasajeros en 2024 a partir de las mismas fuentes oficiales.[7] Usar una cifra de prensa como validación externa podría llevar a “corregir” datos que están correctos.\n\nMitigación. Tratar la base de datos abiertos como única fuente de verdad para todo cálculo; las cifras de prensa se usan solo para contextualizar el problema de negocio, nunca para validar o ajustar los datos. La discrepancia se documenta como observación de calidad de la información pública.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "5. Supuestos y riesgos"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos-que-el-equipo-asume-explícitamente",
-    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos-que-el-equipo-asume-explícitamente",
-    "title": "5. Supuestos y riesgos",
-    "section": "5.2 Supuestos que el equipo asume explícitamente",
-    "text": "5.2 Supuestos que el equipo asume explícitamente\n\n\n\n#\nSupuesto\nCómo se verificará (o qué pasa si es falso)\n\n\n\n\nS1\nEl portal de datos abiertos mantendrá la publicación mensual de las bases de afluencia durante todo el semestre.[1]\nRegistro mensual de la fecha de última actualización. Si se interrumpe, el proyecto continúa con el snapshot congelado y se documenta el corte.\n\n\nS2\nLa afluencia registrada en torniquete es un proxy estable de la demanda relativa entre estaciones, aun sin medir ocupación.\nSe contrasta el ordenamiento de estaciones con la publicación oficial del STC.[5][6] Si el proxy no se sostiene, el alcance se restringe a pronóstico de afluencia sin interpretación de saturación.\n\n\nS3\nLos patrones de calendario (día de la semana, quincena, periodos vacacionales, días festivos) siguen vigentes tras la reapertura completa de la Línea 1 en noviembre de 2025.[11]\nPrueba de estabilidad comparando los perfiles semanales antes y después de la reapertura. Si difieren, se restringe el entrenamiento al periodo posterior.\n\n\nS4\nEl catálogo de estaciones y líneas es consistente a lo largo del histórico.\nAuditoría de llaves en E1 (ver R6). Si no lo es, se construye una tabla de equivalencias documentada.\n\n\nS5\nEl operador puede efectivamente accionar un aviso emitido con 24 horas de antelación (disponibilidad de parque vehicular y de personal).\nSupuesto tomado del propio stakeholder. Si la ventana real fuera más larga, el horizonte de pronóstico se extiende a 3-7 días, algo que el modelo ya contempla.\n\n\nS6\nLos eventos que explican anomalías (cierres, festivos, eventos masivos) son documentables públicamente con fecha.\nConstrucción del calendario de eventos en E1. Los días sin explicación se reportan como anomalías no atribuidas, sin forzar una causa.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "5. Supuestos y riesgos"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html",
-    "href": "entregas/E0_comprension_negocio/preguntas.html",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "",
-    "text": "El conjunto priorizado son cuatro preguntas (PI-1 a PI-4), conforme a lo solicitado; PI-5 se incluye únicamente como pregunta de reserva y no forma parte de la priorización.\nLas preguntas se ordenan por prioridad según dos criterios: (i) cuánto bloquean al resto del proyecto si no se responden, y (ii) qué tan directamente alimentan la decisión que el stakeholder debe tomar la víspera. Cada una se conecta explícitamente con una tarea de minería de datos.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#prioridad-1-pi-1.-qué-combinaciones-de-línea-estación-y-día-de-la-semana-concentran-los-picos-de-afluencia-y-qué-tan-grande-es-su-desviación-respecto-de-su-propio-nivel-base",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "Prioridad 1 PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?",
-    "text": "Prioridad 1 PI-1. ¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan grande es su desviación respecto de su propio nivel base?\n\n\n\nTarea de minería\nEDA con visualización temporal y descomposición de estacionalidad múltiple (día de la semana, quincena, mes, periodos vacacionales).\n\n\nPor qué es la primera\nDefine el umbral que separa “día normal” de “día de alta demanda”. Sin ese umbral no existe la variable objetivo de PI-2 y el criterio de éxito no es medible.\n\n\nCómo se responde\nSerie (fecha, linea, estacion, afluencia) desde 2010; normalización por estación; percentiles condicionados al día de la semana y al periodo del año.[3]\n\n\nEvidencia de logro\nUmbral documentado y justificado por estación, más el mapa de calor línea × día de la semana.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#prioridad-2-pi-2.-es-posible-anticipar-con-al-menos-24-horas-la-afluencia-diaria-por-estación-con-error-suficiente-para-clasificar-correctamente-los-días-de-alta-demanda",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "Prioridad 2 PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?",
-    "text": "Prioridad 2 PI-2. ¿Es posible anticipar con al menos 24 horas la afluencia diaria por estación con error suficiente para clasificar correctamente los días de alta demanda?\n\n\n\n\n\n\n\nTarea de minería\nRegresión / pronóstico de serie de tiempo, seguida de clasificación binaria por umbral sobre el valor pronosticado.\n\n\nPor qué importa\nEs la pregunta del proyecto: contiene el criterio de éxito completo. Su respuesta determina si el sistema es accionable o solo descriptivo.\n\n\nCómo se responde\nVariables de calendario y de estado de servicio; validación temporal estricta; comparación obligatoria contra la línea base ingenua (media del mismo día de la semana en las 4 semanas previas).\n\n\nEvidencia de logro\nRecall ≥ 0.70 y precision ≥ 0.70 en la clase de alta demanda, sobre un periodo de prueba posterior al de entrenamiento.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#prioridad-3-pi-3.-cuántos-perfiles-de-demanda-distintos-existen-entre-las-estaciones-de-la-red-y-qué-estaciones-o-corredores-de-metrobús-pueden-funcionar-como-alternativa-para-cada-perfil",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "Prioridad 3 PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?",
-    "text": "Prioridad 3 PI-3. ¿Cuántos perfiles de demanda distintos existen entre las estaciones de la red, y qué estaciones o corredores de Metrobús pueden funcionar como alternativa para cada perfil?\n\n\n\nTarea de minería\nClustering de patrones de demanda sobre series normalizadas, más análisis de complementariedad entre Metro y Metrobús.\n\n\nPor qué importa\nEs la mitad del enunciado que suele quedarse sin resolver: recomendar rutas alternas. Sin una segmentación de perfiles, la recomendación sería una lista fija hecha a mano.\n\n\nCómo se responde\nPerfiles semanales y anuales normalizados por estación; agrupamiento; cruce con la base de afluencia de Metrobús para identificar corredores con capacidad remanente en las mismas franjas.[2]\n\n\nEvidencia de logro\nCatálogo de pares estación ↔︎ alternativa, con la justificación cuantitativa de cada par.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#prioridad-4-pi-4.-qué-días-se-comportan-como-anomalías-respecto-del-patrón-esperado-y-qué-proporción-de-ellos-se-explica-por-eventos-identificables",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "Prioridad 4 PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?",
-    "text": "Prioridad 4 PI-4. ¿Qué días se comportan como anomalías respecto del patrón esperado, y qué proporción de ellos se explica por eventos identificables?\n\n\n\nTarea de minería\nDetección de anomalías sobre los residuales del modelo de PI-2.\n\n\nPor qué importa\nSepara el ruido explicable del incidente genuino. Si una fracción alta de anomalías se explica por el calendario, esas variables deben volver al modelo; si no, se han encontrado los incidentes operativos que interesan al stakeholder.\n\n\nCómo se responde\nResiduales estandarizados por estación, contrastados contra el calendario de eventos (cierres de línea, festivos, sismos, eventos masivos, clima), con especial atención al periodo de cierre de la Línea 1.[10][11]\n\n\nEvidencia de logro\nCatálogo de anomalías etiquetadas por causa probable y el porcentaje que queda sin explicación.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/preguntas.html#reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio",
-    "href": "entregas/E0_comprension_negocio/preguntas.html#reserva-pi-5.-la-afluencia-del-metrobús-absorbe-demanda-de-forma-medible-cuando-una-línea-del-metro-reduce-o-suspende-su-servicio",
-    "title": "3. Preguntas de investigación priorizadas",
-    "section": "Reserva PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?",
-    "text": "Reserva PI-5. ¿La afluencia del Metrobús absorbe demanda de forma medible cuando una línea del Metro reduce o suspende su servicio?\nPregunta de segundo orden que se abordará solo si PI-1 a PI-4 se resuelven con holgura. El cierre prolongado de la Línea 1 entre 2022 y 2025 ofrece un cuasiexperimento natural para medir el desplazamiento de demanda entre modos[10][11], lo que daría fundamento empírico -y no solo geográfico- a la recomendación de rutas alternas.\nTarea asociada: análisis de correlación y de cambio de nivel entre series de ambos sistemas.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "3. Preguntas de investigación priorizadas"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "",
-    "text": "Una autoridad de movilidad de la Ciudad de México necesita anticipar la saturación de las líneas del Sistema de Transporte Colectivo (STC) Metro y recomendar rutas alternas antes de que la aglomeración ocurra, no durante.\nEste sitio documenta el desarrollo del proyecto de forma incremental, siguiendo las seis fases de CRISP-DM.\n\nEl hallazgo que definió el alcance La base pública de afluencia del Metro tiene granularidad diaria, no horaria: sus campos son fecha, anio, mes, linea, estacion, afluencia. El objetivo original (anticipar la hora pico en tiempo real) resultó estructuralmente inalcanzable con los datos disponibles. La entrevista con el stakeholder mostró además que el tiempo real le sirve menos que una alerta con 24 horas de antelación, porque los trenes de refuerzo y el personal se programan en la víspera. El proyecto se reformuló en consecuencia.",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "index.html#introducción",
-    "href": "index.html#introducción",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "",
-    "text": "Una autoridad de movilidad de la Ciudad de México necesita anticipar la saturación de las líneas del Sistema de Transporte Colectivo (STC) Metro y recomendar rutas alternas antes de que la aglomeración ocurra, no durante.\nEste sitio documenta el desarrollo del proyecto de forma incremental, siguiendo las seis fases de CRISP-DM.\n\nEl hallazgo que definió el alcance La base pública de afluencia del Metro tiene granularidad diaria, no horaria: sus campos son fecha, anio, mes, linea, estacion, afluencia. El objetivo original (anticipar la hora pico en tiempo real) resultó estructuralmente inalcanzable con los datos disponibles. La entrevista con el stakeholder mostró además que el tiempo real le sirve menos que una alerta con 24 horas de antelación, porque los trenes de refuerzo y el personal se programan en la víspera. El proyecto se reformuló en consecuencia.",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "index.html#estado-de-las-entregas",
-    "href": "index.html#estado-de-las-entregas",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "Estado de las entregas",
-    "text": "Estado de las entregas\n\n\n\n#\nFase CRISP-DM\nEntrega\nEstado\n\n\n\n\n1\nComprensión del negocio\nE0\n✅ Publicada\n\n\n2\nComprensión de los datos\nE1\n⏳ Pendiente\n\n\n3\nPreparación de los datos\nE2\n⏳ Pendiente\n\n\n4\nModelado\nE3\n⏳ Pendiente\n\n\n5\nEvaluación\nE4\n⏳ Pendiente\n\n\n6\nDespliegue\nReporte y presentación final\n⏳ Pendiente",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "index.html#entrega-e0---comprensión-del-negocio",
-    "href": "index.html#entrega-e0---comprensión-del-negocio",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "Entrega E0 - Comprensión del Negocio",
-    "text": "Entrega E0 - Comprensión del Negocio\n\n\n\nPágina\nContenido\n\n\n\n\n1. Bitácora del stakeholder\nReunión, preguntas, respuestas clave y reflexión del equipo\n\n\n2. Business Understanding Canvas\nSíntesis de una página, legible de forma autónoma\n\n\n3. Preguntas de investigación\nCuatro preguntas priorizadas, ligadas a tareas de minería\n\n\n4. Criterio de éxito\nEnunciado de negocio y su traducción a métrica técnica\n\n\n5. Supuestos y riesgos\nOcho riesgos con mitigación y seis supuestos explícitos\n\n\n6. Uso de herramientas de IA\nRegistro explícito conforme a las instrucciones\n\n\n7. Fuentes consultadas\nLas trece fuentes que sustentan el ejercicio de rol",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "index.html#equipo",
-    "href": "index.html#equipo",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "Equipo",
-    "text": "Equipo\n\n\n\nIntegrante\nRol en el proyecto\n\n\n\n\nAldair Coronel Ruiz\nAnalista / traductor técnico\n\n\nFernando Bernal Martínez\nRelator y verificación de fuentes\n\n\nLuis Alberto Hernández Aguilar\nExploración de datos\n\n\nTania Ramírez Plascencia\nFactibilidad y calendario de eventos\n\n\n\nProfesora: Jessica Santizo Galicia · Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio: Emma Alicia Jiménez Sánchez",
-    "crumbs": [
-      "Inicio"
-    ]
-  },
-  {
-    "objectID": "index.html#datos-y-licencia",
-    "href": "index.html#datos-y-licencia",
-    "title": "Anticipación de saturación y recomendación de rutas alternas",
-    "section": "Datos y licencia",
-    "text": "Datos y licencia\nLos conjuntos de datos provienen del Portal de Datos Abiertos de la Ciudad de México, publicados por la Secretaría de Movilidad (SEMOVI) bajo licencia CC-BY-4.0-ESP. La atribución es obligatoria y se mantiene en todas las páginas del sitio.",
-    "crumbs": [
-      "Inicio"
     ]
   },
   {
@@ -324,54 +168,6 @@
     ]
   },
   {
-    "objectID": "entregas/E0_comprension_negocio/fuentes.html",
-    "href": "entregas/E0_comprension_negocio/fuentes.html",
-    "title": "7. Fuentes consultadas",
-    "section": "",
-    "text": "Todas las fuentes fueron consultadas y verificadas por el equipo en septiembre de 2026. Las bases de datos se publican bajo licencia CC-BY-4.0-ESP, con atribución a la Secretaría de Movilidad (SEMOVI) del Gobierno de la Ciudad de México.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "7. Fuentes consultadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/fuentes.html#datos-abiertos-y-fuentes-oficiales",
-    "href": "entregas/E0_comprension_negocio/fuentes.html#datos-abiertos-y-fuentes-oficiales",
-    "title": "7. Fuentes consultadas",
-    "section": "Datos abiertos y fuentes oficiales",
-    "text": "Datos abiertos y fuentes oficiales\n[1] SEMOVI - Afluencia diaria del Metro CDMX, Portal de Datos Abiertos de la CDMX. Datos desde enero de 2010, actualización mensual, licencia CC-BY-4.0-ESP; incluye el aviso de actualizaciones retroactivas y el correo de contacto datosabiertos@cdmx.gob.mx. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx\n[2] SEMOVI - Afluencia diaria de Metrobús CDMX, Portal de Datos Abiertos de la CDMX. Datos desde julio de 2005; actualizaciones posteriores a enero de 2022 reflejadas solo en la base desglosada. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx\n[3] SEMOVI - recurso Afluencia Diaria del Metro (Simple) y su diccionario de datos: campos fecha, anio, mes, linea, estacion, afluencia; formato CSV. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx/resource/0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb\n[4] SEMOVI - Afluencia preliminar en transporte público (histórico), Portal de Datos Abiertos de la CDMX. https://datos.cdmx.gob.mx/dataset/?q=afluencia+preliminar\n[5] STC Metro - Afluencia de estación por línea (publicación oficial de cifras de afluencia). https://metro.cdmx.gob.mx/operacion/mas-informacion/afluencia-de-estacion-por-linea\n[12] SEMOVI - Datos de Movilidad (histórico COVID-19), Portal de Datos Abiertos de la CDMX. Índices de afluencia de los organismos de transporte e índices de tránsito de Waze y TomTom durante la pandemia; es el único desglose horario publicado y se presenta como índice, no como conteo por estación. https://datos.cdmx.gob.mx/dataset/movilidad-historico-covid-19",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "7. Fuentes consultadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/fuentes.html#prensa",
-    "href": "entregas/E0_comprension_negocio/fuentes.html#prensa",
-    "title": "7. Fuentes consultadas",
-    "section": "Prensa",
-    "text": "Prensa\n[6] Infobae - Estas fueron las estaciones del metro más transcurridas [sic] durante 2024 (Pantitlán, 41,546,181 accesos anuales). https://www.infobae.com/mexico/2025/01/29/estas-fueron-las-estaciones-del-metro-mas-transcurridas-durante-2024/\n[7] Milenio - Línea del Metro de CdMx que registró más usuarios durante 2024 (Línea 2: 212,233,035 usuarios anuales, ~581,460 diarios). Cifra contrastada con Politico.mx e Infobae; ver riesgo R8. https://www.milenio.com/politica/comunidad/linea-del-metro-de-cdmx-registro-mas-usuarios-durante-2024-cual-es\n[8] El Universal - Caos en el Metro CDMX en hora pico; retrasos y saturación afectan al menos siete líneas. Consultada el 11 de septiembre de 2026. https://www.eluniversal.com.mx/metropoli/caos-en-el-metro-cdmx-en-hora-pico-retrasos-y-saturacion-afectan-al-menos-siete-lineas/\n[9] El Gráfico - ¿Qué está pasando en la Línea 1 del Metro CDMX? Reportan estaciones colapsadas y trenes detenidos (30 de julio de 2026). https://www.elgrafico.mx/al-dia/2026/07/30/que-esta-pasando-en-la-linea-1-del-metro-cdmx-reportan-estaciones-colapsadas-y-trenes-detenidos/\n[10] El Financiero - Línea 1 del Metro CDMX reabre en su totalidad: así fue su remodelación que tomó más de 3 años (cierre del Tramo I el 11 de julio de 2022; cierre Balderas-Observatorio el 9 de noviembre de 2023). https://www.elfinanciero.com.mx/cdmx/2025/11/16/metro-cdmx-reabre-tramo-juanacatlan-observatorio-asi-fueron-las-remodelaciones-de-la-linea-1-que-tomaron-mas-de-3-anos/\n[11] Infobae - Reapertura Línea 1 del Metro CDMX: a qué hora abrirá todo el servicio de Pantitlán hasta Observatorio (reapertura total el 16 de noviembre de 2025). https://www.infobae.com/mexico/2025/11/14/reapertura-linea-1-del-metro-cdmx-a-que-hora-abrira-todo-el-servicio-de-pantitlan-hasta-observatorio/",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "7. Fuentes consultadas"
-    ]
-  },
-  {
-    "objectID": "entregas/E0_comprension_negocio/fuentes.html#términos-de-uso-de-terceros",
-    "href": "entregas/E0_comprension_negocio/fuentes.html#términos-de-uso-de-terceros",
-    "title": "7. Fuentes consultadas",
-    "section": "Términos de uso de terceros",
-    "text": "Términos de uso de terceros\n[13] Waze Partners Help - About the Waze for Cities program y Waze Data Feed specifications: el intercambio de datos ocurre mediante un feed GeoRSS con socios gubernamentales, bajo términos que impiden hacer públicos los datos; no existe API pública abierta. https://support.google.com/waze/partners/answer/10618477 · https://support.google.com/waze/partners/answer/13458165\n\nEvidencia archivada Las capturas y PDF de respaldo de estas fuentes se guardan en la carpeta fuentes/ de esta entrega, para que sigan siendo consultables aunque una URL cambie o desaparezca.",
-    "crumbs": [
-      "Inicio",
-      "E0 - Comprensión del Negocio",
-      "7. Fuentes consultadas"
-    ]
-  },
-  {
     "objectID": "entregas/E0_comprension_negocio/uso_ia.html",
     "href": "entregas/E0_comprension_negocio/uso_ia.html",
     "title": "6. Documentación del uso de herramientas de IA",
@@ -408,6 +204,464 @@
     ]
   },
   {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html",
+    "href": "entregas/E1_arquitectura_dw/estrella.html",
+    "title": "3. Esquema estrella",
+    "section": "",
+    "text": "Los granos se listan a partir de lo que las fuentes realmente publican, revisado en la sección 1.4, no a partir de lo que imaginábamos en E0.\n\n\n\n\n\n\n\n\n\nGrano candidato\nLo sustenta\nPreguntas que permite\nPreguntas que pierde\n\n\n\n\nG1 · estación-línea × día\nF1: 195 filas por día, 2010–2026\nP1, P2, P3, P4 completas; P5 al agregar a línea\nNinguna de E0 (la hora ya se había descartado en E0, riesgo R1)\n\n\nG2 · estación-línea × día × tipo de pago\nMetro desglosada (C6): solo desde 2021\nLas mismas que G1, con menos historia\nNinguna pregunta usa el medio de pago: dim_tipo_pago sería huérfana\n\n\nG3 · línea × día\nComún denominador de F1 y F2\nP5\nP1, P2, P3 y P4, que son por estación",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#granos-candidatos",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#granos-candidatos",
+    "title": "3. Esquema estrella",
+    "section": "",
+    "text": "Los granos se listan a partir de lo que las fuentes realmente publican, revisado en la sección 1.4, no a partir de lo que imaginábamos en E0.\n\n\n\n\n\n\n\n\n\nGrano candidato\nLo sustenta\nPreguntas que permite\nPreguntas que pierde\n\n\n\n\nG1 · estación-línea × día\nF1: 195 filas por día, 2010–2026\nP1, P2, P3, P4 completas; P5 al agregar a línea\nNinguna de E0 (la hora ya se había descartado en E0, riesgo R1)\n\n\nG2 · estación-línea × día × tipo de pago\nMetro desglosada (C6): solo desde 2021\nLas mismas que G1, con menos historia\nNinguna pregunta usa el medio de pago: dim_tipo_pago sería huérfana\n\n\nG3 · línea × día\nComún denominador de F1 y F2\nP5\nP1, P2, P3 y P4, que son por estación",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#grano-elegido",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#grano-elegido",
+    "title": "3. Esquema estrella",
+    "section": "3.2 Grano elegido",
+    "text": "3.2 Grano elegido\n\nGrano del hecho principal Una fila por estación-línea del Metro por día.\nGrano del hecho secundario Una fila por línea de Metrobús por día.\n\nPor qué G1. Es el grano más fino que existe en las fuentes y coincide exactamente con el objetivo de minería de E0: un pronóstico diario por estación con 24 h de antelación. Por eso no hace falta pivote.\nPor qué un segundo hecho. Metrobús no publica afluencia por estación, solo por línea. Mezclar ambos sistemas en una sola tabla obligaría a bajar todo al grano G3 y a perder P1–P4. Con dos hechos que comparten dim_fecha, dim_linea y dim_clima conformadas, cada sistema conserva su grano nativo y P3 y P5 se responden cruzando por fecha y línea.\nQué ya no se puede responder, con honestidad:\n\nNada a nivel de hora: no existe en ninguna fuente pública (riesgo R1 de E0, ya asumido).\nLa alternativa de Metrobús por estación de P3: solo se puede proponer a nivel de línea (ver trazabilidad).\nLa ocupación del vagón: la afluencia cuenta entradas, no ocupación (riesgo R4 de E0).",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#tablas-de-hechos-y-medidas",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#tablas-de-hechos-y-medidas",
+    "title": "3. Esquema estrella",
+    "section": "3.3 Tablas de hechos y medidas",
+    "text": "3.3 Tablas de hechos y medidas\n\n\n\n\n\n\n\n\n\nHecho\nMedida\nTipo\nAditividad\n\n\n\n\nhechos_afluencia_metro\nafluencia\nINT64\nAditiva en todas las dimensiones: sumar entradas por estaciones, líneas o días da el total de entradas\n\n\nhechos_afluencia_metro\nes_registro_cero\nBOOL\nNo aditiva: bandera para filtrar ceros (cierres de un día)\n\n\nhechos_afluencia_metrobus\nafluencia\nINT64\nAditiva; NULL cuando la fuente reporta 'NaN', porque la línea aún no existía\n\n\n\nLos promedios, índices contra la base y z-scores no se guardan en el hecho: se calculan en el DataMart, porque no son aditivos.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#dimensiones",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#dimensiones",
+    "title": "3. Esquema estrella",
+    "section": "3.4 Dimensiones",
+    "text": "3.4 Dimensiones\n\n\n\n\n\n\n\n\n\n\nDimensión\nLlave sustituta\nAtributos principales\nSCD\nPor qué ese tipo\n\n\n\n\ndim_fecha\nfecha_key (INT64 AAAAMMDD)\nfecha, año, mes, día de la semana, semana ISO, fin de semana, quincena, festivo oficial, Semana Santa\nTipo 0\nLos atributos de un día del calendario no cambian. Los festivos se validan una vez contra la LFT al cargar\n\n\ndim_linea\nlinea_key\nsistema (Metro / Metrobús), código, nombre, terminales, color, gtfs_route_id\nTipo 1\nUn cambio de color o de nombre de terminal es una corrección; ninguna pregunta necesita su historia, así que se sobrescribe\n\n\ndim_estacion\nestacion_key (una por versión)\nllave natural, gtfs_stop_id, nombre oficial, nombre en la fuente, línea, coordenadas, correspondencia, estado de servicio, vigencia\nTipo 2 en estado_servicio; tipo 1 en el nombre\nLos periodos sin servicio son cambios reales que necesitan historia: L12 cerrada desde 2021-05-04 con reapertura parcial en 2023 y total en 2024, L1 en obra de 2022 a 2025 y L12 antes de su inauguración en 2012. Cada periodo es una versión con fechas de vigencia: P2 excluye tramos cerrados, P4 explica anomalías por cierre y P5 compara antes, durante y después. El nombre se sobrescribe (tipo 1) porque F1 reescribe hacia atrás el nombre vigente: Zócalo/Tenochtitlan aparece desde 2010, así que la fuente no permite reconstruir su historia\n\n\ndim_clima\nclima_key\nfecha, precipitación, lluvia, temperatura máxima y mínima, categoría de lluvia, fecha de descarga\nTipo 1\nOpen-Meteo es un reanálisis y puede corregir días recientes. Se sobrescribe con la descarga más nueva, registrando su fecha\n\n\n\ndim_linea, dim_fecha y dim_clima son dimensiones conformadas: las usan los dos hechos con el mismo significado.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#diagrama",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#diagrama",
+    "title": "3. Esquema estrella",
+    "section": "3.5 Diagrama",
+    "text": "3.5 Diagrama\n\n\n\n\n\nerDiagram\n    DIM_FECHA ||--o{ HECHOS_AFLUENCIA_METRO : fecha_key\n    DIM_ESTACION ||--o{ HECHOS_AFLUENCIA_METRO : estacion_key\n    DIM_LINEA ||--o{ HECHOS_AFLUENCIA_METRO : linea_key\n    DIM_CLIMA ||--o{ HECHOS_AFLUENCIA_METRO : clima_key\n    DIM_FECHA ||--o{ HECHOS_AFLUENCIA_METROBUS : fecha_key\n    DIM_LINEA ||--o{ HECHOS_AFLUENCIA_METROBUS : linea_key\n    DIM_CLIMA ||--o{ HECHOS_AFLUENCIA_METROBUS : clima_key\n\n    HECHOS_AFLUENCIA_METRO {\n        INT64 fecha_key FK\n        INT64 estacion_key FK\n        INT64 linea_key FK\n        INT64 clima_key FK\n        INT64 afluencia \"aditiva\"\n        BOOL es_registro_cero \"no aditiva\"\n    }\n    HECHOS_AFLUENCIA_METROBUS {\n        INT64 fecha_key FK\n        INT64 linea_key FK\n        INT64 clima_key FK\n        INT64 afluencia \"aditiva, NULL si NaN\"\n    }\n    DIM_FECHA {\n        INT64 fecha_key PK \"AAAAMMDD, SCD 0\"\n        DATE fecha\n        INT64 anio\n        INT64 mes\n        INT64 dia_semana_num\n        BOOL es_dia_quincena\n        BOOL es_festivo_oficial\n        BOOL es_semana_santa\n    }\n    DIM_LINEA {\n        INT64 linea_key PK \"SCD 1\"\n        STRING sistema \"Metro o Metrobus\"\n        STRING linea_codigo\n        STRING nombre_linea\n        STRING color_hex\n        STRING gtfs_route_id\n    }\n    DIM_ESTACION {\n        INT64 estacion_key PK \"SCD 2\"\n        STRING estacion_nk\n        STRING gtfs_stop_id\n        STRING nombre_oficial\n        STRING linea_codigo\n        FLOAT64 latitud\n        FLOAT64 longitud\n        STRING estado_servicio\n        DATE fecha_inicio_vigencia\n        DATE fecha_fin_vigencia\n    }\n    DIM_CLIMA {\n        INT64 clima_key PK \"SCD 1\"\n        DATE fecha\n        FLOAT64 precipitacion_mm\n        FLOAT64 temp_max_c\n        STRING categoria_lluvia\n    }",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/estrella.html#ddl-ejecutado-en-bigquery",
+    "href": "entregas/E1_arquitectura_dw/estrella.html#ddl-ejecutado-en-bigquery",
+    "title": "3. Esquema estrella",
+    "section": "3.6 DDL ejecutado en BigQuery",
+    "text": "3.6 DDL ejecutado en BigQuery\nEl código completo está en sql/ddl_dw.sql. Las tablas quedan vacías: poblarlas es trabajo de E2.\n-- =====================================================================\n-- E1 · Paso 4: DDL del esquema estrella en la capa DW (metro_dw).\n-- Dos tablas de hechos con dimensiones conformadas:\n--   hechos_afluencia_metro    -&gt; una fila por estación-línea por día\n--   hechos_afluencia_metrobus -&gt; una fila por línea de Metrobús por día\n-- Las tablas se crean VACÍAS: poblarlas es trabajo de E2.\n-- BigQuery no impone las llaves (NOT ENFORCED); se declaran para\n-- documentar el diseño. Ejecutar completo, en este orden.\n-- =====================================================================\n\n-- ---------------------------------------------------------------------\n-- dim_fecha · SCD tipo 0 (calendario fijo)\n-- Fuentes: F1 (rango de fechas) + F4 (festivos, validados contra LFT art. 74)\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.dim_fecha (\n  fecha_key          INT64   NOT NULL OPTIONS (description = 'Llave sustituta inteligente AAAAMMDD'),\n  fecha              DATE    NOT NULL,\n  anio               INT64,\n  mes                INT64,\n  nombre_mes         STRING,\n  dia                INT64,\n  dia_semana_num     INT64   OPTIONS (description = '1 = lunes ... 7 = domingo (ISO)'),\n  nombre_dia         STRING,\n  semana_iso         INT64,\n  es_fin_de_semana   BOOL,\n  es_dia_quincena    BOOL    OPTIONS (description = 'Día 15 o último día del mes'),\n  es_festivo_oficial BOOL    OPTIONS (description = 'Descanso obligatorio LFT art. 74'),\n  nombre_festivo     STRING,\n  es_semana_santa    BOOL    OPTIONS (description = 'Jueves o Viernes Santo (F4, tipo School/Bank)'),\n  PRIMARY KEY (fecha_key) NOT ENFORCED\n)\nOPTIONS (description = 'Dimensión de tiempo diaria, conformada. Responde: P1, P2, P3, P4, P5');\n\n-- ---------------------------------------------------------------------\n-- dim_linea · SCD tipo 1 (se sobrescribe: color y terminales sin historia)\n-- Conformada entre Metro y Metrobús. Fuentes: F1, F2, F3 (routes.txt)\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.dim_linea (\n  linea_key        INT64   NOT NULL OPTIONS (description = 'Llave sustituta'),\n  sistema          STRING  NOT NULL OPTIONS (description = 'Metro | Metrobús'),\n  linea_codigo     STRING  NOT NULL OPTIONS (description = 'Código normalizado: 1..12, A, B (Metro); 1..7 (Metrobús)'),\n  nombre_linea     STRING,\n  terminales       STRING  OPTIONS (description = 'route_long_name de GTFS'),\n  color_hex        STRING  OPTIONS (description = 'route_color de GTFS'),\n  gtfs_route_id    STRING  OPTIONS (description = 'Llave natural en F3'),\n  PRIMARY KEY (linea_key) NOT ENFORCED\n)\nOPTIONS (description = 'Líneas de Metro y Metrobús (conformada). Responde: P1, P3, P5');\n\n-- ---------------------------------------------------------------------\n-- dim_estacion · SCD tipo 2 en estado_servicio (periodos de cierre);\n--                el nombre se sobrescribe (tipo 1): F1 no conserva su historia\n-- Una fila por estación-línea y versión. Fuentes: F1 (nombres), F3 (stops.txt)\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.dim_estacion (\n  estacion_key            INT64   NOT NULL OPTIONS (description = 'Llave sustituta (una por versión)'),\n  estacion_nk             STRING  NOT NULL OPTIONS (description = 'Llave natural: linea_codigo + nombre normalizado'),\n  gtfs_stop_id            STRING  OPTIONS (description = 'stop_id de F3, p. ej. B_0200L1-PANTITLAN'),\n  nombre_oficial          STRING,\n  nombre_en_fuente        STRING  OPTIONS (description = 'Texto tal como aparece en F1, para trazabilidad'),\n  linea_codigo            STRING  NOT NULL,\n  latitud                 FLOAT64,\n  longitud                FLOAT64,\n  es_correspondencia      BOOL    OPTIONS (description = 'La estación existe en más de una línea'),\n  estado_servicio         STRING  OPTIONS (description = 'operando | cerrada_obra | cerrada_incidente | no_inaugurada'),\n  fecha_inicio_vigencia   DATE    NOT NULL,\n  fecha_fin_vigencia      DATE    OPTIONS (description = 'NULL o 9999-12-31 para la versión vigente'),\n  es_version_vigente      BOOL,\n  PRIMARY KEY (estacion_key) NOT ENFORCED\n)\nOPTIONS (description = 'Estaciones del Metro por línea, con historia. Responde: P1, P2, P3, P4, P5');\n\n-- ---------------------------------------------------------------------\n-- dim_clima · SCD tipo 1 (se sobrescribe si la fuente reprocesa el día)\n-- Un registro por día para la ciudad. Fuente: F5\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.dim_clima (\n  clima_key           INT64   NOT NULL OPTIONS (description = 'Llave sustituta'),\n  fecha               DATE    NOT NULL,\n  precipitacion_mm    FLOAT64,\n  lluvia_mm           FLOAT64,\n  temp_max_c          FLOAT64,\n  temp_min_c          FLOAT64,\n  categoria_lluvia    STRING  OPTIONS (description = 'sin_lluvia | ligera | moderada | fuerte (umbrales a fijar en E2)'),\n  fecha_descarga      DATE    OPTIONS (description = 'Fecha de la descarga de F5 que originó el registro'),\n  PRIMARY KEY (clima_key) NOT ENFORCED\n)\nOPTIONS (description = 'Clima diario de la CDMX (un punto de malla). Responde: P2, P4');\n\n-- ---------------------------------------------------------------------\n-- HECHO 1 · Grano: una fila por estación-línea del Metro por día.\n-- Fuente: F1. Medida aditiva: afluencia.\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.hechos_afluencia_metro (\n  fecha_key          INT64  NOT NULL,\n  estacion_key       INT64  NOT NULL,\n  linea_key          INT64  NOT NULL,\n  clima_key          INT64,\n  afluencia          INT64  OPTIONS (description = 'Entradas registradas en el día. Aditiva en todas las dimensiones'),\n  es_registro_cero   BOOL   OPTIONS (description = 'Bandera no aditiva: la fuente reporta 0 (cierre o sin servicio)'),\n  PRIMARY KEY (fecha_key, estacion_key) NOT ENFORCED,\n  FOREIGN KEY (fecha_key)    REFERENCES metro_dw.dim_fecha (fecha_key)       NOT ENFORCED,\n  FOREIGN KEY (estacion_key) REFERENCES metro_dw.dim_estacion (estacion_key) NOT ENFORCED,\n  FOREIGN KEY (linea_key)    REFERENCES metro_dw.dim_linea (linea_key)       NOT ENFORCED,\n  FOREIGN KEY (clima_key)    REFERENCES metro_dw.dim_clima (clima_key)       NOT ENFORCED\n)\nCLUSTER BY estacion_key, fecha_key\nOPTIONS (description = 'Grano: una fila por estación-línea del Metro por día. Responde: P1, P2, P3, P4, P5');\n\n-- ---------------------------------------------------------------------\n-- HECHO 2 · Grano: una fila por línea de Metrobús por día.\n-- Fuente: F2. Medida aditiva: afluencia (NULL cuando la fuente dice 'NaN').\n-- ---------------------------------------------------------------------\nCREATE TABLE IF NOT EXISTS metro_dw.hechos_afluencia_metrobus (\n  fecha_key   INT64  NOT NULL,\n  linea_key   INT64  NOT NULL,\n  clima_key   INT64,\n  afluencia   INT64  OPTIONS (description = 'Entradas del día en la línea. Aditiva; NULL antes de la inauguración'),\n  PRIMARY KEY (fecha_key, linea_key) NOT ENFORCED,\n  FOREIGN KEY (fecha_key) REFERENCES metro_dw.dim_fecha (fecha_key) NOT ENFORCED,\n  FOREIGN KEY (linea_key) REFERENCES metro_dw.dim_linea (linea_key) NOT ENFORCED,\n  FOREIGN KEY (clima_key) REFERENCES metro_dw.dim_clima (clima_key) NOT ENFORCED\n)\nCLUSTER BY linea_key, fecha_key\nOPTIONS (description = 'Grano: una fila por línea de Metrobús por día. Responde: P3, P5');\n\nEjecución en BigQuery\n\n\n\nddl_dw.sql ejecutado: 6 sentencias, estado SUCCESS\n\n\n\n\nEsquema de cada tabla en BigQuery\nLa columna Key muestra las llaves declaradas (PK, FK, y PK/FK en las llaves compuestas de los hechos), y Description muestra los textos del DDL. Ambas coinciden con el diagrama de la sección 3.5.\n\n\n\n\n\n\ndim_fecha\n\n\n\n\n\n\n\ndim_linea\n\n\n\n\n\n\n\n\n\ndim_estacion\n\n\n\n\n\n\n\ndim_clima\n\n\n\n\n\n\n\n\n\nhechos_afluencia_metro\n\n\n\n\n\n\n\nhechos_afluencia_metrobus",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "3. Esquema estrella"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html",
+    "title": "2. Arquitectura de tres capas en BigQuery",
+    "section": "",
+    "text": "%%{init: {\"theme\": \"base\", \"themeVariables\": {\"primaryColor\": \"#eef4fb\", \"primaryTextColor\": \"#0f2c52\", \"primaryBorderColor\": \"#40658c\", \"lineColor\": \"#475569\", \"textColor\": \"#0f2c52\", \"clusterBkg\": \"#f8fafc\", \"clusterBorder\": \"#94a3b8\", \"edgeLabelBackground\": \"#ffffff\", \"fontFamily\": \"Arial, sans-serif\"}}}%%\nflowchart LR\n    subgraph F[\"Fuentes\"]\n        F1[\"F1 · Afluencia Metro&lt;br/&gt;CSV portal\"]\n        F2[\"F2 · Afluencia Metrobús&lt;br/&gt;CSV portal\"]\n        F3[\"F3 · GTFS&lt;br/&gt;ZIP portal\"]\n        F4[\"F4 · Festivos&lt;br/&gt;API REST\"]\n        F5[\"F5 · Clima&lt;br/&gt;API REST\"]\n    end\n    subgraph S[\"metro_staging · datos crudos\"]\n        S1[stg_metro_afluencia]\n        S2[stg_metrobus_afluencia]\n        S3[stg_gtfs_stops&lt;br/&gt;stg_gtfs_routes]\n        S4[stg_festivos_nager]\n        S5[stg_clima_openmeteo]\n    end\n    subgraph D[\"metro_dw · esquema estrella\"]\n        H1[(hechos_afluencia_metro)]\n        H2[(hechos_afluencia_metrobus)]\n        DIM[\"dim_fecha · dim_linea&lt;br/&gt;dim_estacion · dim_clima\"]\n    end\n    subgraph M[\"metro_mart · vistas OLAP\"]\n        V[\"v_p1 … v_p5\"]\n    end\n    F1 --&gt; S1\n    F2 --&gt; S2\n    F3 --&gt; S3\n    F4 --&gt; S4\n    F5 --&gt; S5\n    S1 & S2 & S3 & S4 & S5 -. \"ETL en E2\" .-&gt; D\n    D --&gt; M\n\n    classDef fuente fill:#f1f5f9,stroke:#64748b,color:#0f2c52\n    classDef staging fill:#e8f1fc,stroke:#40658c,color:#0f2c52\n    classDef dw fill:#e8f5ee,stroke:#397454,color:#163d2a\n    classDef mart fill:#fff4d9,stroke:#98701d,color:#59420f\n    class F1,F2,F3,F4,F5 fuente\n    class S1,S2,S3,S4,S5 staging\n    class H1,H2,DIM dw\n    class V mart\n    style F fill:#f8fafc,stroke:#94a3b8,color:#0f2c52\n    style S fill:#f3f7fd,stroke:#40658c,color:#0f2c52\n    style D fill:#f2f9f5,stroke:#397454,color:#163d2a\n    style M fill:#fffaf0,stroke:#98701d,color:#59420f\n\n\n\n\n\n\nLas flechas continuas indican la carga cruda y la dependencia de las vistas; las discontinuas representan el ETL pendiente de E2. En E1 el DW está vacío y las vistas consultan ese esquema, sin implicar que ya existan datos transformados.\n\n\n\n\n\n\n\n\n\nCapa\nDataset\nContenido\nEstado en E1\n\n\n\n\nStaging\nmetro_staging\nDatos crudos, tal como vienen de cada fuente. Todas las columnas de los CSV se cargan como STRING para no perder nada: los ceros, los 'NaN' y el texto mal codificado se conservan\nCargado\n\n\nDW\nmetro_dw\nEsquema estrella: 2 hechos y 4 dimensiones, creados con DDL\nCreado y vacío (se puebla en E2)\n\n\nDataMart\nmetro_mart\nUna vista por pregunta de E0, con lógica OLAP, sobre el esquema estrella\nVistas creadas; devuelven 0 filas hasta poblar el DW\n\n\n\nLos tres datasets están en la misma ubicación (US), así que las consultas pueden cruzar capas. Se crearon con sql/00_datasets.sql.\n\n\n\n\n\n\nEjecución de 00_datasets.sql: 3 sentencias, estado SUCCESS\n\n\n\n\n\n\n\nmetro_staging · Data location: US\n\n\n\n\n\n\n\n\n\nmetro_dw · Data location: US\n\n\n\n\n\n\n\nmetro_mart · Data location: US",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "2. Arquitectura de tres capas en BigQuery"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#las-tres-capas",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#las-tres-capas",
+    "title": "2. Arquitectura de tres capas en BigQuery",
+    "section": "",
+    "text": "%%{init: {\"theme\": \"base\", \"themeVariables\": {\"primaryColor\": \"#eef4fb\", \"primaryTextColor\": \"#0f2c52\", \"primaryBorderColor\": \"#40658c\", \"lineColor\": \"#475569\", \"textColor\": \"#0f2c52\", \"clusterBkg\": \"#f8fafc\", \"clusterBorder\": \"#94a3b8\", \"edgeLabelBackground\": \"#ffffff\", \"fontFamily\": \"Arial, sans-serif\"}}}%%\nflowchart LR\n    subgraph F[\"Fuentes\"]\n        F1[\"F1 · Afluencia Metro&lt;br/&gt;CSV portal\"]\n        F2[\"F2 · Afluencia Metrobús&lt;br/&gt;CSV portal\"]\n        F3[\"F3 · GTFS&lt;br/&gt;ZIP portal\"]\n        F4[\"F4 · Festivos&lt;br/&gt;API REST\"]\n        F5[\"F5 · Clima&lt;br/&gt;API REST\"]\n    end\n    subgraph S[\"metro_staging · datos crudos\"]\n        S1[stg_metro_afluencia]\n        S2[stg_metrobus_afluencia]\n        S3[stg_gtfs_stops&lt;br/&gt;stg_gtfs_routes]\n        S4[stg_festivos_nager]\n        S5[stg_clima_openmeteo]\n    end\n    subgraph D[\"metro_dw · esquema estrella\"]\n        H1[(hechos_afluencia_metro)]\n        H2[(hechos_afluencia_metrobus)]\n        DIM[\"dim_fecha · dim_linea&lt;br/&gt;dim_estacion · dim_clima\"]\n    end\n    subgraph M[\"metro_mart · vistas OLAP\"]\n        V[\"v_p1 … v_p5\"]\n    end\n    F1 --&gt; S1\n    F2 --&gt; S2\n    F3 --&gt; S3\n    F4 --&gt; S4\n    F5 --&gt; S5\n    S1 & S2 & S3 & S4 & S5 -. \"ETL en E2\" .-&gt; D\n    D --&gt; M\n\n    classDef fuente fill:#f1f5f9,stroke:#64748b,color:#0f2c52\n    classDef staging fill:#e8f1fc,stroke:#40658c,color:#0f2c52\n    classDef dw fill:#e8f5ee,stroke:#397454,color:#163d2a\n    classDef mart fill:#fff4d9,stroke:#98701d,color:#59420f\n    class F1,F2,F3,F4,F5 fuente\n    class S1,S2,S3,S4,S5 staging\n    class H1,H2,DIM dw\n    class V mart\n    style F fill:#f8fafc,stroke:#94a3b8,color:#0f2c52\n    style S fill:#f3f7fd,stroke:#40658c,color:#0f2c52\n    style D fill:#f2f9f5,stroke:#397454,color:#163d2a\n    style M fill:#fffaf0,stroke:#98701d,color:#59420f\n\n\n\n\n\n\nLas flechas continuas indican la carga cruda y la dependencia de las vistas; las discontinuas representan el ETL pendiente de E2. En E1 el DW está vacío y las vistas consultan ese esquema, sin implicar que ya existan datos transformados.\n\n\n\n\n\n\n\n\n\nCapa\nDataset\nContenido\nEstado en E1\n\n\n\n\nStaging\nmetro_staging\nDatos crudos, tal como vienen de cada fuente. Todas las columnas de los CSV se cargan como STRING para no perder nada: los ceros, los 'NaN' y el texto mal codificado se conservan\nCargado\n\n\nDW\nmetro_dw\nEsquema estrella: 2 hechos y 4 dimensiones, creados con DDL\nCreado y vacío (se puebla en E2)\n\n\nDataMart\nmetro_mart\nUna vista por pregunta de E0, con lógica OLAP, sobre el esquema estrella\nVistas creadas; devuelven 0 filas hasta poblar el DW\n\n\n\nLos tres datasets están en la misma ubicación (US), así que las consultas pueden cruzar capas. Se crearon con sql/00_datasets.sql.\n\n\n\n\n\n\nEjecución de 00_datasets.sql: 3 sentencias, estado SUCCESS\n\n\n\n\n\n\n\nmetro_staging · Data location: US\n\n\n\n\n\n\n\n\n\nmetro_dw · Data location: US\n\n\n\n\n\n\n\nmetro_mart · Data location: US",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "2. Arquitectura de tres capas en BigQuery"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#capa-staging",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#capa-staging",
+    "title": "2. Arquitectura de tres capas en BigQuery",
+    "section": "2.2 Capa staging",
+    "text": "2.2 Capa staging\nCada tabla corresponde a una fuente del catálogo. Se cargó desde la consola de BigQuery (Crear tabla → Subir) con el esquema escrito a mano en lugar de autodetectado.\n\n\n\nTabla\nFuente\nArchivo cargado\nFilas\nFecha de carga\n\n\n\n\nstg_metro_afluencia\nF1\nCSV completo del portal (59.9 MB)\n1,180,920\n2026-10-02\n\n\nstg_metrobus_afluencia\nF2\nCSV completo del portal (2.1 MB)\n53,732\n2026-10-02\n\n\nstg_gtfs_stops\nF3\nstops.txt del ZIP GTFS\n11,362\n2026-10-02\n\n\nstg_gtfs_routes\nF3\nroutes.txt del ZIP GTFS\n301\n2026-10-02\n\n\nstg_festivos_nager\nF4\nJSONL generado por staging/descargar_apis.py\n156\n2026-10-02\n\n\nstg_clima_openmeteo\nF5\nCSV generado por staging/descargar_apis.py\n6,056\n2026-10-02\n\n\n\nLos valores se cargan sin tocar. Hay solo dos ajustes de forma, ambos impuestos por BigQuery:\n\nF4: la API devuelve un arreglo JSON por año y BigQuery requiere un objeto por línea (JSONL).\nF5: los encabezados originales traen espacios, paréntesis y ° (precipitation_sum (mm), temperature_2m_max (°C)), que no son válidos en un nombre de columna. Se omite la fila de encabezado y las columnas se nombran por posición, conservando la unidad en el nombre: precipitation_sum_mm, temperature_2m_max_c.\n\n\nEvidencia de carga\nCada tabla se muestra con su esquema (a la izquierda) y su vista previa (a la derecha). El contador de la vista previa confirma el número de filas del catálogo.\n\n\n\n\n\n\nEsquema de stg_metro_afluencia\n\n\n\n\n\n\n\nVista previa de stg_metro_afluencia\n\n\n\n\n\n\n\n\n\nEsquema de stg_metrobus_afluencia\n\n\n\n\n\n\n\nVista previa de stg_metrobus_afluencia\n\n\n\n\n\n\n\n\n\nEsquema de stg_gtfs_stops\n\n\n\n\n\n\n\nVista previa de stg_gtfs_stops\n\n\n\n\n\n\n\n\n\nEsquema de stg_gtfs_routes\n\n\n\n\n\n\n\nVista previa de stg_gtfs_routes\n\n\n\n\n\n\n\n\n\nEsquema de stg_festivos_nager\n\n\n\n\n\n\n\nVista previa de stg_festivos_nager\n\n\n\n\n\n\n\n\n\nEsquema de stg_clima_openmeteo\n\n\n\n\n\n\n\nVista previa de stg_clima_openmeteo\n\n\n\n\n\n\n\n\n\n\n\nLos 6 trabajos de carga de staging, todos DONE y sin error (INFORMATION_SCHEMA.JOBS_BY_USER)\n\n\n\n\n\n\n\nResultado del perfilado: 195 filas por día\n\n\n\n\n\nLas consultas de perfilado, que confirman en BigQuery lo que encontramos en el portal, están en sql/01_perfilado_staging.sql.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "2. Arquitectura de tres capas en BigQuery"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#capa-dw",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#capa-dw",
+    "title": "2. Arquitectura de tres capas en BigQuery",
+    "section": "2.3 Capa DW",
+    "text": "2.3 Capa DW\nEl esquema estrella, su grano y el DDL completo están en Esquema estrella. Las tablas se crearon con sql/ddl_dw.sql y quedaron vacías, como pide el alcance de E1.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "2. Arquitectura de tres capas en BigQuery"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/arquitectura.html#capa-datamart",
+    "href": "entregas/E1_arquitectura_dw/arquitectura.html#capa-datamart",
+    "title": "2. Arquitectura de tres capas en BigQuery",
+    "section": "2.4 Capa DataMart",
+    "text": "2.4 Capa DataMart\nHay una vista por pregunta de E0. P1 y P3 tienen dos vistas cada una porque combinan dos lecturas distintas. El código completo está en sql/consultas_mart.sql.\n\n\n\n\n\n\n\n\n\nVista\nPregunta\nOperador OLAP\nQué devuelve\n\n\n\n\nv_p1_rollup_linea_dia\nP1\nROLLUP\nAfluencia media por línea y día de la semana, con subtotal por línea y total de la red\n\n\nv_p1_picos_vs_base\nP1\nVentanas (AVG OVER, RANK)\nÍndice del promedio de cada estación por día de la semana contra su base y estaciones con rango ≤ 20 para cada día de la semana (puede haber más de 20 por empates)\n\n\nv_p2_dataset_pronostico\nP2\nVentanas (LAG, AVG … ROWS BETWEEN)\nConjunto de entrenamiento: rezagos t−1 y t−7, línea base ingenua de 4 semanas (la del criterio de éxito) y etiqueta de alta demanda\n\n\nv_p3_perfil_semanal_estacion\nP3\nPIVOT + ventana\nPerfil semanal normalizado por estación: la matriz de entrada del clustering\n\n\nv_p3_correlacion_metro_metrobus\nP3\nAgregación CORR\nCorrelación diaria entre cada línea del Metro y cada línea del Metrobús\n\n\nv_p4_anomalias_por_causa\nP4\nVentanas + GROUPING SETS\nEstación-días con |z| ≥ 3 contra las 8 semanas previas, contados por festivo, lluvia y estado de servicio\n\n\nv_p5_absorcion_cierre_l1\nP5\nCUBE\nAfluencia media diaria por sistema, línea y periodo (antes, durante y después del cierre de L1)\n\n\n\n-- =====================================================================\n-- E1 · Paso 5: DataMart (metro_mart). Una vista por pregunta de E0,\n-- construidas sobre el esquema estrella de metro_dw.\n-- Las tablas del DW están vacías en E1: las vistas devuelven 0 filas,\n-- pero deben crearse sin error (validez sintáctica y semántica).\n-- Operadores OLAP usados: ROLLUP (P1), funciones de ventana (P1, P2, P4),\n-- PIVOT (P3), GROUPING SETS (P4) y CUBE (P5).\n-- =====================================================================\n\n\n-- ---------------------------------------------------------------------\n-- P1 · ¿Qué combinaciones de línea, estación y día de la semana concentran\n--      los picos de afluencia y qué tan lejos están de su nivel base?\n-- (a) ROLLUP: afluencia media diaria por línea y día de la semana,\n--     con subtotales por línea y total de la red.\n-- ---------------------------------------------------------------------\nCREATE OR REPLACE VIEW metro_mart.v_p1_rollup_linea_dia AS\n-- Las filas con nombre_linea NULL son el total de la red; las filas con\n-- dia_semana_num NULL son el subtotal de cada línea.\nSELECT\n  l.nombre_linea,\n  f.dia_semana_num,\n  SUM(h.afluencia)                          AS afluencia_total,\n  COUNT(DISTINCT h.fecha_key)               AS dias_observados,\n  SAFE_DIVIDE(SUM(h.afluencia),\n              COUNT(DISTINCT h.fecha_key))  AS afluencia_media_diaria\nFROM metro_dw.hechos_afluencia_metro AS h\nJOIN metro_dw.dim_linea  AS l ON l.linea_key = h.linea_key\nJOIN metro_dw.dim_fecha  AS f ON f.fecha_key = h.fecha_key\nWHERE f.anio &gt;= 2022\n  AND NOT h.es_registro_cero\nGROUP BY ROLLUP (l.nombre_linea, f.dia_semana_num);\n\n-- (b) Ventanas: índice de cada estación-día contra su propia base\n--     (media de la estación en todos los días) y ranking por día.\nCREATE OR REPLACE VIEW metro_mart.v_p1_picos_vs_base AS\nWITH media_por_dia AS (\n  SELECT\n    l.nombre_linea,\n    e.estacion_nk,\n    e.nombre_oficial,\n    f.dia_semana_num,\n    f.nombre_dia,\n    AVG(h.afluencia) AS media_dia\n  FROM metro_dw.hechos_afluencia_metro AS h\n  JOIN metro_dw.dim_estacion AS e ON e.estacion_key = h.estacion_key\n  JOIN metro_dw.dim_linea    AS l ON l.linea_key    = h.linea_key\n  JOIN metro_dw.dim_fecha    AS f ON f.fecha_key    = h.fecha_key\n  WHERE f.anio &gt;= 2022\n    AND NOT h.es_registro_cero\n  GROUP BY l.nombre_linea, e.estacion_nk, e.nombre_oficial, f.dia_semana_num, f.nombre_dia\n),\ncon_indices AS (\n  SELECT\n    *,\n    SAFE_DIVIDE(media_dia,\n                AVG(media_dia) OVER (PARTITION BY estacion_nk))           AS indice_vs_base,\n    RANK() OVER (PARTITION BY dia_semana_num ORDER BY media_dia DESC)     AS rank_en_el_dia\n  FROM media_por_dia\n)\nSELECT *\nFROM con_indices\nWHERE rank_en_el_dia &lt;= 20;\n\n\n-- ---------------------------------------------------------------------\n-- P2 · ¿Es posible anticipar con 24 h la afluencia diaria por estación y\n--      clasificar los días de alta demanda?\n-- Conjunto de entrenamiento: rezagos (ventanas LAG), línea base ingenua\n-- (media del mismo día de la semana en las 4 semanas previas, requerida\n-- por el criterio de éxito de E0) y etiqueta de alta demanda.\n-- Umbral provisional 1.20 x base: se fija con el resultado de P1 en E2.\n-- ---------------------------------------------------------------------\nCREATE OR REPLACE VIEW metro_mart.v_p2_dataset_pronostico AS\nWITH serie AS (\n  SELECT\n    h.estacion_key,\n    e.estacion_nk,\n    f.fecha,\n    f.dia_semana_num,\n    f.es_festivo_oficial,\n    f.es_dia_quincena,\n    f.es_semana_santa,\n    c.precipitacion_mm,\n    e.estado_servicio,\n    h.afluencia\n  FROM metro_dw.hechos_afluencia_metro AS h\n  JOIN metro_dw.dim_estacion AS e ON e.estacion_key = h.estacion_key\n  JOIN metro_dw.dim_fecha    AS f ON f.fecha_key    = h.fecha_key\n  LEFT JOIN metro_dw.dim_clima AS c ON c.clima_key  = h.clima_key\n),\ncon_rezagos AS (\n  SELECT\n    *,\n    LAG(afluencia, 1) OVER (PARTITION BY estacion_nk ORDER BY fecha)     AS afluencia_t_menos_1,\n    LAG(afluencia, 7) OVER (PARTITION BY estacion_nk ORDER BY fecha)     AS afluencia_t_menos_7,\n    AVG(afluencia) OVER (\n      PARTITION BY estacion_nk, dia_semana_num\n      ORDER BY fecha\n      ROWS BETWEEN 4 PRECEDING AND 1 PRECEDING\n    )                                                                     AS base_ingenua_4sem\n  FROM serie\n)\nSELECT\n  *,\n  SAFE_DIVIDE(ABS(afluencia - base_ingenua_4sem), afluencia)              AS error_abs_pct_base,\n  afluencia &gt; 1.20 * base_ingenua_4sem                                    AS es_alta_demanda\nFROM con_rezagos\nWHERE estado_servicio = 'operando';\n\n\n-- ---------------------------------------------------------------------\n-- P3 · ¿Cuántos perfiles de demanda hay y qué alternativas existen?\n-- (a) PIVOT: perfil semanal de cada estación (participación de cada día\n--     de la semana en su demanda); es la matriz de entrada del clustering.\n-- ---------------------------------------------------------------------\nCREATE OR REPLACE VIEW metro_mart.v_p3_perfil_semanal_estacion AS\nWITH media AS (\n  SELECT\n    e.estacion_nk,\n    e.linea_codigo,\n    f.dia_semana_num,\n    AVG(h.afluencia) AS media_dia\n  FROM metro_dw.hechos_afluencia_metro AS h\n  JOIN metro_dw.dim_estacion AS e ON e.estacion_key = h.estacion_key\n  JOIN metro_dw.dim_fecha    AS f ON f.fecha_key    = h.fecha_key\n  WHERE f.anio &gt;= 2022\n    AND NOT h.es_registro_cero\n  GROUP BY e.estacion_nk, e.linea_codigo, f.dia_semana_num\n),\nparticipacion AS (\n  SELECT\n    estacion_nk,\n    linea_codigo,\n    dia_semana_num,\n    SAFE_DIVIDE(media_dia, SUM(media_dia) OVER (PARTITION BY estacion_nk)) AS part\n  FROM media\n)\nSELECT *\nFROM participacion\nPIVOT (ANY_VALUE(part) FOR dia_semana_num IN\n  (1 AS lun, 2 AS mar, 3 AS mie, 4 AS jue, 5 AS vie, 6 AS sab, 7 AS dom));\n\n-- (b) Complementariedad Metro ↔ Metrobús a nivel línea-día (ajuste de P3:\n--     Metrobús solo publica afluencia por línea). Correlación diaria.\nCREATE OR REPLACE VIEW metro_mart.v_p3_correlacion_metro_metrobus AS\nWITH metro AS (\n  SELECT fecha_key, linea_key, SUM(afluencia) AS afluencia\n  FROM metro_dw.hechos_afluencia_metro\n  GROUP BY fecha_key, linea_key\n),\nmetrobus AS (\n  SELECT fecha_key, linea_key, afluencia\n  FROM metro_dw.hechos_afluencia_metrobus\n  WHERE afluencia IS NOT NULL\n)\nSELECT\n  lm.nombre_linea                  AS linea_metro,\n  lb.nombre_linea                  AS linea_metrobus,\n  CORR(m.afluencia, b.afluencia)   AS correlacion_diaria,\n  COUNT(*)                         AS dias_en_comun\nFROM metro    AS m\nJOIN metrobus AS b  ON b.fecha_key  = m.fecha_key\nJOIN metro_dw.dim_linea AS lm ON lm.linea_key = m.linea_key\nJOIN metro_dw.dim_linea AS lb ON lb.linea_key = b.linea_key\nJOIN metro_dw.dim_fecha AS f  ON f.fecha_key  = m.fecha_key\nWHERE f.anio &gt;= 2022\nGROUP BY lm.nombre_linea, lb.nombre_linea;\n\n\n-- ---------------------------------------------------------------------\n-- P4 · ¿Qué días son anomalías y qué proporción se explica por eventos\n--      identificables (festivos, lluvia, cierres)?\n-- Ventana: z-score contra el mismo día de la semana en las 8 semanas\n-- previas. GROUPING SETS: conteo de anomalías por cada posible causa.\n-- ---------------------------------------------------------------------\nCREATE OR REPLACE VIEW metro_mart.v_p4_anomalias_por_causa AS\nWITH serie AS (\n  SELECT\n    h.estacion_key,\n    f.fecha,\n    f.dia_semana_num,\n    f.es_festivo_oficial,\n    c.categoria_lluvia,\n    e.estado_servicio,\n    h.afluencia,\n    AVG(h.afluencia)         OVER ventana AS media_ref,\n    STDDEV_SAMP(h.afluencia) OVER ventana AS sd_ref\n  FROM metro_dw.hechos_afluencia_metro AS h\n  JOIN metro_dw.dim_fecha    AS f ON f.fecha_key    = h.fecha_key\n  JOIN metro_dw.dim_estacion AS e ON e.estacion_key = h.estacion_key\n  LEFT JOIN metro_dw.dim_clima AS c ON c.clima_key  = h.clima_key\n  WINDOW ventana AS (\n    PARTITION BY h.estacion_key, f.dia_semana_num\n    ORDER BY f.fecha\n    ROWS BETWEEN 8 PRECEDING AND 1 PRECEDING\n  )\n),\nanomalias AS (\n  SELECT *, SAFE_DIVIDE(afluencia - media_ref, sd_ref) AS z\n  FROM serie\n)\nSELECT\n  es_festivo_oficial,\n  categoria_lluvia,\n  estado_servicio,\n  COUNT(*) AS estacion_dias_anomalos\nFROM anomalias\nWHERE ABS(z) &gt;= 3\nGROUP BY GROUPING SETS (\n  (es_festivo_oficial),\n  (categoria_lluvia),\n  (estado_servicio),\n  ()\n);\n\n\n-- ---------------------------------------------------------------------\n-- P5 (reserva) · ¿El Metrobús absorbe demanda cuando una línea del Metro\n--      suspende servicio? Cuasiexperimento: cierre de L1 (jul-2022 a nov-2025).\n-- CUBE: afluencia media diaria por sistema, línea y periodo.\n-- ---------------------------------------------------------------------\nCREATE OR REPLACE VIEW metro_mart.v_p5_absorcion_cierre_l1 AS\nWITH diario AS (\n  SELECT h.fecha_key, h.linea_key, SUM(h.afluencia) AS afluencia\n  FROM metro_dw.hechos_afluencia_metro AS h\n  GROUP BY h.fecha_key, h.linea_key\n  UNION ALL\n  SELECT fecha_key, linea_key, afluencia\n  FROM metro_dw.hechos_afluencia_metrobus\n  WHERE afluencia IS NOT NULL\n),\netiquetado AS (\n  SELECT\n    l.sistema,\n    l.nombre_linea,\n    CASE\n      WHEN f.fecha &lt;  DATE '2022-07-11' THEN '1_antes_del_cierre'\n      WHEN f.fecha &lt;  DATE '2025-11-16' THEN '2_durante_el_cierre'\n      ELSE                                   '3_despues_de_reabrir'\n    END AS periodo,\n    d.afluencia\n  FROM diario AS d\n  JOIN metro_dw.dim_linea AS l ON l.linea_key = d.linea_key\n  JOIN metro_dw.dim_fecha AS f ON f.fecha_key = d.fecha_key\n  WHERE f.anio &gt;= 2019\n)\nSELECT\n  sistema,\n  nombre_linea,\n  periodo,\n  AVG(afluencia)  AS afluencia_media_diaria,\n  COUNT(*)        AS linea_dias\nFROM etiquetado\nGROUP BY CUBE (sistema, nombre_linea, periodo);\n\nEvidencia de validez en BigQuery\n\n\n\n\n\n\nconsultas_mart.sql ejecutado: 7 sentencias, SUCCESS, y las 7 vistas en metro_mart\n\n\n\n\n\n\n\nCuerpo de v_p5_absorcion_cierre_l1 ejecutado: corre sin error y devuelve 0 filas porque el DW todavía está vacío\n\n\n\n\n\nLas capturas muestran que BigQuery acepta las consultas y reconoce las tablas y columnas que usan. Como el DW todavía está vacío, falta comprobar que los cálculos den los resultados esperados. Eso se revisará en E2, cuando se carguen los datos.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "2. Arquitectura de tres capas en BigQuery"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Proyecto Integrador - Almacenes y Minería de Datos",
+    "section": "",
+    "text": "Anticipación de saturación y recomendación de rutas alternas en la red del STC Metro y Metrobús de la CDMX\nFacultad de Ciencias, UNAM · Profesora: Jessica Santizo Galicia Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio: Emma Alicia Jiménez Sánchez\n\n\nhttps://fernando-bm.github.io/Proyecto_Mineria_Datos\n\n\n\n\n\n\nIntegrante\n\n\n\n\nAldair Coronel Ruiz\n\n\nFernando Bernal Martínez\n\n\nLuis Alberto Hernández Aguilar\n\n\nTania Ramírez Plascencia\n\n\n\n\n\n\n\n\n\n#\nFase CRISP-DM\nEntrega\nEstado\n\n\n\n\n1\nComprensión del negocio\nE0\n✅\n\n\n2\nComprensión de los datos\nE1\n✅\n\n\n3\nPreparación de los datos\nE2\n⏳\n\n\n4\nModelado\nE3\n⏳\n\n\n5\nEvaluación\nE4\n⏳\n\n\n6\nDespliegue\nReporte y presentación final\n⏳\n\n\n\n\n\n\n\n\n\n\n\n\nPágina\nArchivo\n\n\n\n\nBitácora del stakeholder\nentregas/E0_comprension_negocio/bitacora.qmd\n\n\nBusiness Understanding Canvas\nentregas/E0_comprension_negocio/canvas.qmd\n\n\nPreguntas de investigación\nentregas/E0_comprension_negocio/preguntas.qmd\n\n\nCriterio de éxito\nentregas/E0_comprension_negocio/criterio_exito.qmd\n\n\nSupuestos y riesgos\nentregas/E0_comprension_negocio/riesgos_supuestos.qmd\n\n\nUso de herramientas de IA\nentregas/E0_comprension_negocio/uso_ia.qmd\n\n\nFuentes consultadas\nentregas/E0_comprension_negocio/fuentes.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nPágina\nArchivo\n\n\n\n\nFuentes de datos (búsqueda, catálogo e integración)\nentregas/E1_arquitectura_dw/fuentes.qmd\n\n\nArquitectura de tres capas (staging → DW → DataMart)\nentregas/E1_arquitectura_dw/arquitectura.qmd\n\n\nEsquema estrella (grano, diagrama y DDL)\nentregas/E1_arquitectura_dw/estrella.qmd\n\n\nMatriz de trazabilidad\nentregas/E1_arquitectura_dw/trazabilidad.qmd\n\n\nUso de herramientas de IA\nentregas/E1_arquitectura_dw/uso_ia.qmd\n\n\nSQL (datasets, perfilado, DDL, DataMart)\nentregas/E1_arquitectura_dw/sql/\n\n\n\nNo hubo pivote: el grano disponible (estación-línea × día) coincide con el objetivo de minería de E0.\n\n\n\n\nProyecto_Mineria_Datos/\n├── _quarto.yml                    # configuración del sitio (output-dir: docs)\n├── index.qmd                      # portada\n├── styles.css                     # estilos, incluido el Canvas\n├── entregas/\n│   ├── E0_comprension_negocio/\n│   │   ├── bitacora.qmd\n│   │   ├── canvas.qmd\n│   │   ├── preguntas.qmd\n│   │   ├── criterio_exito.qmd\n│   │   ├── riesgos_supuestos.qmd\n│   │   ├── uso_ia.qmd\n│   │   ├── fuentes.qmd\n│   │   └── fuentes/               # evidencia archivada del stakeholder simulado\n│   └── E1_arquitectura_dw/\n│       ├── fuentes.qmd            # búsqueda, catálogo e integración\n│       ├── arquitectura.qmd       # 3 capas, evidencia BigQuery, DataMart\n│       ├── estrella.qmd           # grano, diagrama Mermaid y DDL\n│       ├── trazabilidad.qmd       # matriz pregunta-métrica-dimensión-fuente\n│       ├── uso_ia.qmd\n│       ├── sql/                   # 00_datasets, 01_perfilado, ddl_dw, consultas_mart\n│       ├── staging/               # descarga reproducible de las fuentes API\n│       └── img/                   # capturas de BigQuery\n├── docs/                          # sitio compilado (lo genera Quarto)\n└── README.md",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#sitio-desplegado",
+    "href": "index.html#sitio-desplegado",
+    "title": "Proyecto Integrador - Almacenes y Minería de Datos",
+    "section": "",
+    "text": "https://fernando-bm.github.io/Proyecto_Mineria_Datos",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#equipo",
+    "href": "index.html#equipo",
+    "title": "Proyecto Integrador - Almacenes y Minería de Datos",
+    "section": "",
+    "text": "Integrante\n\n\n\n\nAldair Coronel Ruiz\n\n\nFernando Bernal Martínez\n\n\nLuis Alberto Hernández Aguilar\n\n\nTania Ramírez Plascencia",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#entregas",
+    "href": "index.html#entregas",
+    "title": "Proyecto Integrador - Almacenes y Minería de Datos",
+    "section": "",
+    "text": "#\nFase CRISP-DM\nEntrega\nEstado\n\n\n\n\n1\nComprensión del negocio\nE0\n✅\n\n\n2\nComprensión de los datos\nE1\n✅\n\n\n3\nPreparación de los datos\nE2\n⏳\n\n\n4\nModelado\nE3\n⏳\n\n\n5\nEvaluación\nE4\n⏳\n\n\n6\nDespliegue\nReporte y presentación final\n⏳\n\n\n\n\n\n\n\n\n\n\n\n\nPágina\nArchivo\n\n\n\n\nBitácora del stakeholder\nentregas/E0_comprension_negocio/bitacora.qmd\n\n\nBusiness Understanding Canvas\nentregas/E0_comprension_negocio/canvas.qmd\n\n\nPreguntas de investigación\nentregas/E0_comprension_negocio/preguntas.qmd\n\n\nCriterio de éxito\nentregas/E0_comprension_negocio/criterio_exito.qmd\n\n\nSupuestos y riesgos\nentregas/E0_comprension_negocio/riesgos_supuestos.qmd\n\n\nUso de herramientas de IA\nentregas/E0_comprension_negocio/uso_ia.qmd\n\n\nFuentes consultadas\nentregas/E0_comprension_negocio/fuentes.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nPágina\nArchivo\n\n\n\n\nFuentes de datos (búsqueda, catálogo e integración)\nentregas/E1_arquitectura_dw/fuentes.qmd\n\n\nArquitectura de tres capas (staging → DW → DataMart)\nentregas/E1_arquitectura_dw/arquitectura.qmd\n\n\nEsquema estrella (grano, diagrama y DDL)\nentregas/E1_arquitectura_dw/estrella.qmd\n\n\nMatriz de trazabilidad\nentregas/E1_arquitectura_dw/trazabilidad.qmd\n\n\nUso de herramientas de IA\nentregas/E1_arquitectura_dw/uso_ia.qmd\n\n\nSQL (datasets, perfilado, DDL, DataMart)\nentregas/E1_arquitectura_dw/sql/\n\n\n\nNo hubo pivote: el grano disponible (estación-línea × día) coincide con el objetivo de minería de E0.",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "index.html#estructura-del-repositorio",
+    "href": "index.html#estructura-del-repositorio",
+    "title": "Proyecto Integrador - Almacenes y Minería de Datos",
+    "section": "",
+    "text": "Proyecto_Mineria_Datos/\n├── _quarto.yml                    # configuración del sitio (output-dir: docs)\n├── index.qmd                      # portada\n├── styles.css                     # estilos, incluido el Canvas\n├── entregas/\n│   ├── E0_comprension_negocio/\n│   │   ├── bitacora.qmd\n│   │   ├── canvas.qmd\n│   │   ├── preguntas.qmd\n│   │   ├── criterio_exito.qmd\n│   │   ├── riesgos_supuestos.qmd\n│   │   ├── uso_ia.qmd\n│   │   ├── fuentes.qmd\n│   │   └── fuentes/               # evidencia archivada del stakeholder simulado\n│   └── E1_arquitectura_dw/\n│       ├── fuentes.qmd            # búsqueda, catálogo e integración\n│       ├── arquitectura.qmd       # 3 capas, evidencia BigQuery, DataMart\n│       ├── estrella.qmd           # grano, diagrama Mermaid y DDL\n│       ├── trazabilidad.qmd       # matriz pregunta-métrica-dimensión-fuente\n│       ├── uso_ia.qmd\n│       ├── sql/                   # 00_datasets, 01_perfilado, ddl_dw, consultas_mart\n│       ├── staging/               # descarga reproducible de las fuentes API\n│       └── img/                   # capturas de BigQuery\n├── docs/                          # sitio compilado (lo genera Quarto)\n└── README.md",
+    "crumbs": [
+      "Inicio"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html",
+    "title": "5. Documentación del uso de herramientas de IA",
+    "section": "",
+    "text": "En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegador como herramienta de deep research y de apoyo al diseño. Ninguna fuente entró al catálogo solo porque la herramienta la propusiera: cada una se abrió en su sitio original. Ninguna consulta SQL se dio por válida hasta ejecutarla en BigQuery.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "5. Documentación del uso de herramientas de IA"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html#registro-de-usos",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html#registro-de-usos",
+    "title": "5. Documentación del uso de herramientas de IA",
+    "section": "Registro de usos",
+    "text": "Registro de usos\n\nUso 1 - Búsqueda de fuentes (deep research)\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nClaude (Anthropic) - modelo: Opus 5.5, con búsqueda web y navegador\n\n\nFecha\n1 de octubre de 2026\n\n\nTarea\nBuscar fuentes de datos para el problema de E0 en portales de datos abiertos, APIs públicas y bigquery-public-data, y proponer cuáles catalogar\n\n\nPrompt (resumen fiel)\nSe entregó el PDF de instrucciones de E1 y el repositorio con E0, con la petición: “Ayúdame a generar la entrega E1: evaluar al menos 5 fuentes candidatas, catalogar mínimo 3 verificadas de 2 tipos distintos, con evidencia de apertura y análisis de integración”\n\n\nQué propuso\n12 candidatas (C1–C12 en Fuentes). Las URL de la API del portal se obtuvieron con package_search, no de memoria\n\n\nQué se verificó y qué se descartó\nSe verificaron abriendo la fuente F1–F5, C6–C9 y C12. C10 (NOAA GSOD en BigQuery) no se verificó a nivel de estación y se descartó por duplicar F5. No se hizo búsqueda en Kaggle ni en Google Dataset Search: se priorizaron las fuentes primarias de SEMOVI\n\n\nRevisión del equipo\nLuis Alberto Hernández Aguilar abrió las 5 URL del catálogo el 2 de octubre de 2026, comprobó que existieran y tuvieran la cobertura y la licencia indicadas, y tomó las capturas de las fuentes (F1_portal, F2_portal, F3_portal, F4_api, F5_api)\n\n\n\n\n\nUso 2 - Perfilado de las fuentes con la API del portal\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nClaude (Anthropic) - modelo: Opus 5.5, con navegador\n\n\nFecha\n1 de octubre de 2026\n\n\nTarea\nAbrir F1 y F2 completas y medir rango de fechas, filas por día, valores distintos de línea y estación, ceros y valores 'NaN'; probar la unión estación ↔︎ GTFS\n\n\nPrompt (resumen fiel)\nConsultas SQL al endpoint datastore_search_sql de la API CKAN del portal (p. ej. SELECT MIN(fecha), MAX(fecha), COUNT(*), COUNT(DISTINCT linea) FROM \"&lt;resource_id&gt;\")\n\n\nQué produjo\nLos hallazgos de la sección 1.4: 195 filas por día, 62,025 ceros, doble codificación en 2021–2023, 17,227 'NaN' en Metrobús y 187/195 estaciones unidas con GTFS\n\n\nRevisión del equipo\nLas mismas cifras se reprodujeron en BigQuery con sql/01_perfilado_staging.sql sobre las tablas de staging cargadas por el equipo. El 2 de octubre de 2026 el equipo ejecutó las 8 consultas sobre su proyecto de BigQuery y todas las cifras coincidieron: 1,180,920 filas, 195 filas por día, 24 valores de línea, 53,732 filas y 17,227 'NaN' en Metrobús, 195 paradas del Metro en GTFS y 6,056 días de clima. Las capturas están en Fuentes\n\n\n\n\n\nUso 3 - Granos candidatos, esquema estrella y DDL\n\n\n\n\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nClaude (Anthropic) - modelo: Opus 5.5\n\n\nFecha\n1 de octubre de 2026\n\n\nTarea\nProponer granos candidatos, dimensiones con su tipo de SCD, el diagrama Mermaid y el DDL de BigQuery\n\n\nPrompt (resumen fiel)\n“A partir de lo que muestran los datos, propone 2 o 3 granos, elige uno, y diseña un esquema estrella de 1 o 2 hechos y 3 a 5 dimensiones con llaves sustitutas y SCD, ligado a P1–P5”\n\n\nCorrección hecha al verificar\nLa primera propuesta justificaba la SCD tipo 2 de dim_estacion con renombramientos de estaciones. Al consultar F1 se vio que la fuente reescribe el nombre vigente hacia atrás: Zócalo/Tenochtitlan aparece desde 2010. Esa justificación se descartó: la SCD 2 se basa en el estado de servicio y el nombre pasa a tipo 1\n\n\nRevisión del equipo\nEl DDL se ejecutó en BigQuery y se tomaron capturas del esquema de cada tabla. El 2 de octubre de 2026 el DDL se ejecutó sin errores al primer intento (6 sentencias, SUCCESS). El equipo revisó en la pestaña Schema de cada tabla que las llaves (PK, FK) y las descripciones coincidieran con el diagrama\n\n\n\n\n\nUso 4 - Consultas del DataMart\n\n\n\n\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nClaude (Anthropic) - modelo: Opus 5.5\n\n\nFecha\n1 de octubre de 2026\n\n\nTarea\nRedactar una vista por pregunta con operadores OLAP (ROLLUP, CUBE, GROUPING SETS, PIVOT, ventanas)\n\n\nPrompt (resumen fiel)\n“Escribe una consulta del DataMart por pregunta de E0, válida en BigQuery, con al menos una que use ROLLUP o funciones de ventana”\n\n\nRevisión del equipo\nCada vista se creó en metro_mart. Que BigQuery acepte el CREATE VIEW es la prueba de validez sintáctica y semántica. El 2 de octubre de 2026 las 7 vistas se crearon sin errores al primer intento (7 sentencias, SUCCESS). Además, el equipo ejecutó directamente el cuerpo de v_p5_absorcion_cierre_l1: corrió sin error y devolvió 0 filas, como se espera mientras el DW esté vacío\n\n\n\n\n\nUso 5 - Redacción de las páginas del sitio\n\n\n\n\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nClaude (Anthropic) - modelo: Opus 5.5\n\n\nFecha\n1 de octubre de 2026\n\n\nTarea\nBorrador de fuentes.qmd, arquitectura.qmd, estrella.qmd, trazabilidad.qmd y esta página\n\n\nRevisión del equipo\nRevisiòn de fuentes.qmd Fernando Bernal, Revisiòn de arquitectura.qmd Tania Rámirez, Revisiòn de estrella.qmd Aldair Coronel, Revisiòn de trazabilidad.qmd Luis Alberto\n\n\n\n\n\nUso 6 - Revisión de arquitectura y legibilidad del diagrama\n\n\n\n\n\n\n\nCampo\nDetalle\n\n\n\n\nHerramienta\nCodex (OpenAI), agente basado en GPT-6\n\n\nFecha\n5 de octubre de 2026\n\n\nTarea\nApoyar la revisión de arquitectura.qmd, mejorar el contraste del diagrama\n\n\nPrompt (resumen fiel)\n«Revisa arquitectura.qmd para E1, ajusta los colores del diagrama que no se ve bien, y registra el uso de IA en uso_ia.qmd». Se proporcionó una captura\n\n\nMaterial contrastado\nReferencias a capturas y configuración de publicación de Quarto del repositorio local\n\n\nQué se corrigió\nPaleta explícita de Mermaid con fondos claros, texto oscuro y colores por capa\n\n\nRevisión del equipo\nSe revisó el contenido, redacción y presentación de la página, se aseguró que el diagrama sea legible.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "5. Documentación del uso de herramientas de IA"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html#qué-hizo-la-herramienta-en-los-usos-15-y-qué-no",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html#qué-hizo-la-herramienta-en-los-usos-15-y-qué-no",
+    "title": "5. Documentación del uso de herramientas de IA",
+    "section": "Qué hizo la herramienta en los usos 1–5 y qué no",
+    "text": "Qué hizo la herramienta en los usos 1–5 y qué no\n\nSí consultó directamente las fuentes por sus APIs públicas y reportó cifras verificables.\nSí generó una guía interna paso a paso para ejecutar los scripts en BigQuery (esquemas de carga, orden de ejecución y capturas a tomar). El equipo la siguió para hacer la implementación y la retiró del repositorio al terminar, por ser un documento de trabajo y no un entregable.\nNo creó datasets, no cargó tablas ni ejecutó SQL en BigQuery. No tuvo acceso al proyecto de Google Cloud del equipo, y ninguna credencial se compartió con ella.\nNo hizo commits ni publicó el sitio.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "5. Documentación del uso de herramientas de IA"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html",
+    "title": "4. Matriz de trazabilidad",
+    "section": "",
+    "text": "Cada pregunta de E0 se liga a una tarea de minería, a una métrica del hecho, a las dimensiones que la cortan, a sus fuentes y a su estado de cobertura. La verificación va en los dos sentidos: ninguna pregunta queda sin estado (4.1) y ninguna dimensión queda sin pregunta (4.2).",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "4. Matriz de trazabilidad"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#pregunta-métrica-dimensión-fuente",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#pregunta-métrica-dimensión-fuente",
+    "title": "4. Matriz de trazabilidad",
+    "section": "4.1 Pregunta → métrica → dimensión → fuente",
+    "text": "4.1 Pregunta → métrica → dimensión → fuente\n\n\n\n\n\n\n\n\n\n\n\nPregunta\nTarea de minería\nMétrica (hecho)\nDimensiones\nFuente(s)\nEstado\n\n\n\n\nP1 (E0): ¿qué combinaciones de línea, estación y día de la semana concentran los picos y qué tan lejos están de su base?\nEDA / estacionalidad\nafluencia (hechos_afluencia_metro)\ndim_fecha, dim_estacion, dim_linea\nF1, F3, F4\nCubierta. Los periodos vacacionales escolares no están en ninguna fuente catalogada; se aproximan con mes, semana ISO y Semana Santa\n\n\nP2 (E0): ¿se puede anticipar con 24 h la afluencia diaria por estación y clasificar los días de alta demanda?\nRegresión + clasificación\nafluencia (objetivo y rezagos)\ndim_fecha, dim_estacion, dim_clima\nF1, F3, F4, F5\nCubierta a nivel día, que es el horizonte que ya fijó E0. La hora no existe en las fuentes (R1)\n\n\nP3 (ajustada): ¿cuántos perfiles de demanda diaria hay entre las estaciones y qué líneas de Metrobús se comportan como alternativa para cada perfil?\nClustering\nafluencia de ambos hechos\ndim_estacion, dim_fecha, dim_linea\nF1, F2, F3\nParcial. El perfil por estación está completo. La alternativa de Metrobús solo puede proponerse por línea, porque F2 no publica estaciones, y por día, no por franja horaria. La cercanía física se tomará de las coordenadas de F3\n\n\nP4 (E0): ¿qué días son anomalías y qué proporción se explica por eventos identificables?\nDetección de anomalías\nafluencia, es_registro_cero\ndim_fecha, dim_estacion, dim_clima\nF1, F4, F5\nParcial. Se explican festivos (F4), lluvia (F5) y cierres (estado de servicio en dim_estacion). Sismos, marchas y eventos masivos no tienen fuente catalogada: esas anomalías quedarán como “sin causa atribuida”, como ya preveía el supuesto S6 de E0\n\n\nP5 (E0, reserva): ¿el Metrobús absorbe demanda cuando una línea del Metro suspende servicio?\nCorrelación / cambio de nivel\nafluencia de ambos hechos\ndim_fecha, dim_linea\nF1, F2\nParcial. Solo a nivel línea-día, y con un único cierre largo comparable (L1, 2022–2025)\n\n\n\nPor qué el ajuste de P3 no es un pivote. No cambia el objetivo de minería, que sigue siendo segmentar estaciones y proponer alternativas, ni el criterio de éxito. El “≥ 2 de cada 3 avisos con ruta alterna” se sigue midiendo: la ruta alterna se expresa como línea de Metrobús en lugar de estación. Por eso no hay pivote.qmd en esta entrega.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "4. Matriz de trazabilidad"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-inversa-ninguna-dimensión-huérfana",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#verificación-inversa-ninguna-dimensión-huérfana",
+    "title": "4. Matriz de trazabilidad",
+    "section": "4.2 Verificación inversa: ninguna dimensión huérfana",
+    "text": "4.2 Verificación inversa: ninguna dimensión huérfana\n\n\n\n\n\n\n\n\nDimensión\nPreguntas que responde\nAtributo que la justifica\n\n\n\n\ndim_fecha\nP1, P2, P3, P4, P5\ndia_semana_num (P1, P3), festivos y quincena (P2, P4), año y periodo (P5)\n\n\ndim_estacion\nP1, P2, P3, P4, P5\nLlave del grano; estado_servicio (P2, P4, P5); coordenadas (P3)\n\n\ndim_linea\nP1, P3, P5\nSistema y línea: subtotales (P1) y cruce Metro ↔︎ Metrobús (P3, P5)\n\n\ndim_clima\nP2, P4\nprecipitacion_mm como variable (P2) y categoria_lluvia como causa (P4)\n\n\n\n\n\n\n\n\n\n\nMedida\nPreguntas\n\n\n\n\nhechos_afluencia_metro.afluencia\nP1, P2, P3, P4, P5\n\n\nhechos_afluencia_metro.es_registro_cero\nP1, P3 (filtro), P4 (causa)\n\n\nhechos_afluencia_metrobus.afluencia\nP3, P5\n\n\n\nSe descartó una quinta dimensión, dim_tipo_pago (fuente C6), precisamente porque no respondía ninguna pregunta.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "4. Matriz de trazabilidad"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/trazabilidad.html#efecto-sobre-el-criterio-de-éxito-de-e0",
+    "href": "entregas/E1_arquitectura_dw/trazabilidad.html#efecto-sobre-el-criterio-de-éxito-de-e0",
+    "title": "4. Matriz de trazabilidad",
+    "section": "4.3 Efecto sobre el criterio de éxito de E0",
+    "text": "4.3 Efecto sobre el criterio de éxito de E0\n\n\n\n\n\n\n\nElemento del criterio\n¿Lo permite el diseño?\n\n\n\n\n≥ 70 % de días críticos anticipados la víspera (recall)\nSí. v_p2_dataset_pronostico produce la etiqueta y las variables a nivel estación-día\n\n\n≤ 30 % de falsas alarmas (precisión)\nSí, con el mismo conjunto\n\n\nSuperar la línea base ingenua de 4 semanas\nSí. La base se calcula en la vista con una ventana sobre el mismo día de la semana\n\n\n2 de cada 3 avisos con ruta alterna\nSí, ajustado: la alternativa es una línea de Metrobús o una estación de Metro del mismo perfil\n\n\nSimulación retrospectiva de 3 meses\nSí. Hay datos diarios hasta 2026-07-31\n\n\n\nSupuesto que sigue abierto. El supuesto S5 de E0 dice que el operador puede accionar un aviso con 24 h de antelación. Fue atribuido al stakeholder simulado y no se ha validado con una fuente operativa. El diseño no depende de él: el mismo hecho diario soporta horizontes de 1 a 7 días cambiando solo el rezago en v_p2_dataset_pronostico.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "4. Matriz de trazabilidad"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "",
+    "text": "Las preguntas priorizadas en E0 reciben un identificador que se usa en toda la entrega.\n\n\n\n\n\n\n\n\nID\nPregunta de E0\nTarea de minería\n\n\n\n\nP1\n¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan lejos están de su nivel base?\nEDA / estacionalidad\n\n\nP2\n¿Es posible anticipar con al menos 24 h la afluencia diaria por estación y clasificar los días de alta demanda?\nRegresión + clasificación\n\n\nP3\n¿Cuántos perfiles de demanda existen entre las estaciones y qué alternativas (Metro o Metrobús) hay para cada perfil?\nClustering\n\n\nP4\n¿Qué días son anomalías y qué proporción se explica por eventos identificables?\nDetección de anomalías\n\n\nP5 (reserva)\n¿El Metrobús absorbe demanda cuando una línea del Metro suspende servicio?\nCorrelación / cambio de nivel",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#punto-de-partida-preguntas-de-e0",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#punto-de-partida-preguntas-de-e0",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "",
+    "text": "Las preguntas priorizadas en E0 reciben un identificador que se usa en toda la entrega.\n\n\n\n\n\n\n\n\nID\nPregunta de E0\nTarea de minería\n\n\n\n\nP1\n¿Qué combinaciones de línea, estación y día de la semana concentran los picos de afluencia, y qué tan lejos están de su nivel base?\nEDA / estacionalidad\n\n\nP2\n¿Es posible anticipar con al menos 24 h la afluencia diaria por estación y clasificar los días de alta demanda?\nRegresión + clasificación\n\n\nP3\n¿Cuántos perfiles de demanda existen entre las estaciones y qué alternativas (Metro o Metrobús) hay para cada perfil?\nClustering\n\n\nP4\n¿Qué días son anomalías y qué proporción se explica por eventos identificables?\nDetección de anomalías\n\n\nP5 (reserva)\n¿El Metrobús absorbe demanda cuando una línea del Metro suspende servicio?\nCorrelación / cambio de nivel",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#proceso-de-búsqueda",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#proceso-de-búsqueda",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "1.1 Proceso de búsqueda",
+    "text": "1.1 Proceso de búsqueda\nLa búsqueda combinó una herramienta de investigación con IA (documentada en Uso de IA) con consultas directas a los portales. Todo lo que propuso la herramienta se abrió y se comprobó en la fuente original antes de entrar al catálogo.\n\n\n\n\n\n\n\n\n\nFecha\nHerramienta o portal\nConsulta\nResultado\n\n\n\n\n2026-10-01\nAPI CKAN del Portal de Datos Abiertos CDMX (package_search)\nafluencia metrobus, estaciones metro, gtfs\n6 conjuntos de SEMOVI relevantes (C1–C6, C12)\n\n\n2026-10-01\nAPI CKAN (datastore_search_sql)\nPerfilado de F1 y F2: rango de fechas, filas por día, valores distintos de línea y estación, ceros\nHallazgos de la sección 1.4\n\n\n2026-10-01\nBúsqueda web\nINEGI Estadística de Transporte Urbano de Pasajeros mensual Metro\nETUP de INEGI (C9)\n\n\n2026-10-01\nNager.Date (API REST)\n/api/v3/PublicHolidays/{año}/MX, 2010–2026\n156 registros de festivos (F4)\n\n\n2026-10-01\nOpen-Meteo Historical Weather API\nPrecipitación y temperatura diaria, CDMX, 2010–2026\n6,056 días sin huecos (F5)\n\n\n2026-10-01\nCatálogo bigquery-public-data\nClima diario con estaciones en México\nNOAA GSOD (C10), no incorporado\n\n\n2026-10-01\nDocumentación de Waze for Cities\nAcceso a datos de tráfico\nSin API pública (C11), descartado desde E0",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#candidatas-evaluadas-y-criterio-de-selección",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#candidatas-evaluadas-y-criterio-de-selección",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "1.2 Candidatas evaluadas y criterio de selección",
+    "text": "1.2 Candidatas evaluadas y criterio de selección\nUna fuente entra al catálogo solo si cumple los seis criterios:\n\nGrano compatible: diario, y por estación o por línea.\nCobertura: incluye 2022–2026, que es la ventana del modelo operativo definida en E0 (riesgo R5).\nLicencia abierta que permita el uso y la redistribución académica.\nAcceso reproducible sin credenciales: descarga directa o API sin llave.\nLlave de integración con las demás fuentes (fecha, línea o estación).\nResponde al menos una pregunta P1–P5.\n\n\n\n\n\n\n\n\n\n\n\n\n#\nCandidata\nDueño\nTipo\nDecisión\nMotivo\n\n\n\n\nC1\nAfluencia diaria del Metro (simple)\nSEMOVI\nCSV en portal\n✅ F1\nÚnica fuente con grano estación-día; núcleo del DW\n\n\nC2\nAfluencia diaria del Metrobús (simple)\nSEMOVI\nCSV en portal\n✅ F2\nÚnico dato de demanda del modo alterno (P3, P5)\n\n\nC3\nGTFS estático de la CDMX\nSEMOVI\nZIP de CSV (estándar GTFS)\n✅ F3\nCatálogo canónico de estaciones y líneas con identificador y coordenadas\n\n\nC4\nDías festivos de México (Nager.Date)\nProyecto Nager.Date\nAPI REST JSON\n✅ F4\nFestivos para dim_fecha (P1, P2, P4)\n\n\nC5\nClima histórico diario (Open-Meteo)\nOpen-Meteo\nAPI REST CSV/JSON\n✅ F5\nLluvia y temperatura para explicar anomalías (P4) y como variable de P2\n\n\nC6\nAfluencia diaria del Metro (desglosada por tipo de pago)\nSEMOVI\nCSV en portal\n❌\nMismo grano que F1 más tipo_pago, pero solo desde 2021 y ninguna pregunta usa el medio de pago: crearía una dimensión huérfana\n\n\nC7\nAfluencia preliminar en transporte público\nSEMOVI\nCSV en portal\n❌\nCifras preliminares, agregadas por organismo, con números como texto (\"11,238\") y solo desde 2020-03; redundante con F1 y F2\n\n\nC8\nDatos de movilidad (histórico COVID-19)\nSEMOVI\nCSV en portal\n❌\nÍndices relativos, no conteos, y solo para el periodo de pandemia\n\n\nC9\nEstadística de Transporte Urbano de Pasajeros (ETUP)\nINEGI\nTabulados / PDF mensual\n❌\nGrano mensual por sistema, no por estación; útil en E2 solo para validar totales\n\n\nC10\nNOAA GSOD (bigquery-public-data.noaa_gsod)\nNOAA\nDataset público de BigQuery\n❌\nDuplica la necesidad que cubre F5 y su consulta consume créditos; no se verificó la cobertura de la estación de la CDMX\n\n\nC11\nWaze for Cities\nGoogle / Waze\nFeed para socios\n❌\nSin API pública y con prohibición de republicar (riesgo R7 de E0)\n\n\nC12\nUbicación de líneas y estaciones del Metro\nSEMOVI\nSHP / KMZ\n❌\nMismo contenido geográfico que F3, pero en un formato que BigQuery no carga directamente y sin identificador de parada\n\n\n\nEl catálogo cumple el requisito de dos tipos distintos: archivos de portal abierto (F1, F2, F3) y API REST (F4, F5).",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#catálogo-de-fuentes-verificadas",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#catálogo-de-fuentes-verificadas",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "1.3 Catálogo de fuentes verificadas",
+    "text": "1.3 Catálogo de fuentes verificadas\n\nF1 · Afluencia diaria del Metro CDMX (simple)\n\n\n\nCampo\nValor\n\n\n\n\nNombre y dueño\nAfluencia Diaria del Metro (Simple) · Secretaría de Movilidad (SEMOVI)\n\n\nURL y acceso\nhttps://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx · descarga directa de CSV; también por API CKAN (resource_id 0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb)\n\n\nFormato y tamaño\nCSV, 59.9 MB, 1,180,920 filas; columnas fecha, anio, mes, linea, estacion, afluencia\n\n\nGrano\nUna fila por estación-línea por día (195 filas exactas cada día)\n\n\nCobertura\n2010-01-01 a 2026-07-31 (6,056 días); 12 líneas, 195 estaciones-línea; actualización mensual (última: 2026-08-28)\n\n\nLicencia y restricciones\nCC-BY-4.0-ESP, con atribución. Sin datos personales. El portal advierte actualizaciones retroactivas\n\n\nLlaves de integración\nfecha (ISO); linea + estacion (texto, requiere normalización)\n\n\nPregunta(s) de E0\nP1, P2, P3, P4, P5\n\n\n\n\n\n\n\n\n\nPágina del conjunto en el portal\n\n\n\n\n\n\n\nVista previa en staging (BigQuery)\n\n\n\n\n\n\n\nF2 · Afluencia diaria del Metrobús CDMX (simple)\n\n\n\nCampo\nValor\n\n\n\n\nNombre y dueño\nAfluencia Diaria del Metrobús (Simple) · SEMOVI\n\n\nURL y acceso\nhttps://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx · descarga directa de CSV; API CKAN (resource_id f7943c47-835d-4078-93ea-906f64b72f3b)\n\n\nFormato y tamaño\nCSV, 2.1 MB, 53,732 filas; columnas fecha, anio, mes, linea, afluencia\n\n\nGrano\nUna fila por línea de Metrobús por día. No hay detalle por estación\n\n\nCobertura\n2005-07-26 a 2026-07-31; 7 líneas; actualización mensual\n\n\nLicencia y restricciones\nCC-BY-4.0-ESP. Sin datos personales\n\n\nLlaves de integración\nfecha; linea (texto, con variantes de mayúsculas)\n\n\nPregunta(s) de E0\nP3, P5\n\n\n\n\n\n\n\n\n\nPágina del conjunto en el portal\n\n\n\n\n\n\n\nVista previa en staging (BigQuery)\n\n\n\n\n\n\n\nF3 · GTFS estático de la Ciudad de México\n\n\n\nCampo\nValor\n\n\n\n\nNombre y dueño\nGTFS estático (General Transit Feed Specification) de la Ciudad de México · SEMOVI\n\n\nURL y acceso\nhttps://datos.cdmx.gob.mx/dataset/gtfs · descarga directa de ZIP; se cargan stops.txt y routes.txt\n\n\nFormato y tamaño\nZIP de 2.4 MB con 8 archivos CSV; stops.txt 1.0 MB (11,362 paradas de todos los sistemas), routes.txt 21.6 KB\n\n\nGrano\nstops.txt: una fila por parada. El Metro (agencia METRO, prefijo B_02) tiene 195 paradas, una por estación-línea. routes.txt: una fila por ruta\n\n\nCobertura\nFoto de la red al 31 de octubre de 2022, según la descripción del conjunto (el portal registra una modificación de metadatos el 2026-08-28, pero el contenido no cambió de versión). Es un catálogo estático, sin historia; incluye Metro, Metrobús y otros 8 sistemas\n\n\nLicencia y restricciones\nCC-BY-4.0-ESP. Sin datos personales\n\n\nLlaves de integración\nstop_id (p. ej. B_0200L1-PANTITLAN contiene la línea); stop_name; route_short_name (1…9, A, B, L12); coordenadas\n\n\nPregunta(s) de E0\nP1, P3, P4 (catálogo de estaciones y líneas)\n\n\n\n\n\n\n\n\n\nPágina del conjunto en el portal\n\n\n\n\n\n\n\nVista previa de stops.txt en staging\n\n\n\n\n\n\n\nF4 · Días festivos de México (Nager.Date)\n\n\n\nCampo\nValor\n\n\n\n\nNombre y dueño\nPublic Holidays API · proyecto Nager.Date (código abierto, licencia MIT)\n\n\nURL y acceso\nhttps://date.nager.at/api/v3/PublicHolidays/2025/MX · API REST sin llave, una llamada por año\n\n\nFormato y tamaño\nJSON; 156 registros para 2010–2026 (≈ 29 KB); campos date, localName, name, global, types\n\n\nGrano\nUna fila por día festivo\n\n\nCobertura\nCualquier año; México a nivel nacional\n\n\nLicencia y restricciones\nUso libre de la API. Incluye días que no son de descanso obligatorio (Jueves y Viernes Santo con tipo Bank/School) y algunos festivos desplazados que no corresponden a la ley (ver 1.5)\n\n\nLlaves de integración\ndate (ISO)\n\n\nPregunta(s) de E0\nP1, P2, P4\n\n\n\n\n\n\n\n\n\nRespuesta de la API en el navegador\n\n\n\n\n\n\n\nVista previa en staging\n\n\n\n\n\n\n\nF5 · Clima histórico diario (Open-Meteo)\n\n\n\nCampo\nValor\n\n\n\n\nNombre y dueño\nHistorical Weather API · Open-Meteo\n\n\nURL y acceso\nhttps://archive-api.open-meteo.com/v1/archive · API REST sin llave; parámetros latitude=19.4326&longitude=-99.1332&daily=precipitation_sum,rain_sum,temperature_2m_max,temperature_2m_min&timezone=America/Mexico_City&format=csv\n\n\nFormato y tamaño\nCSV, 187 KB, 6,056 filas para 2010-01-01 → 2026-07-31; 4 líneas iniciales de metadatos\n\n\nGrano\nUna fila por día para un punto de malla (19.4376 N, −99.1072 O, 2,230 m)\n\n\nCobertura\nDesde 1940 hasta hace pocos días; reanálisis, por lo que valores recientes pueden revisarse\n\n\nLicencia y restricciones\nCC BY 4.0, con atribución a Open-Meteo\n\n\nLlaves de integración\ntime (fecha ISO en hora local de la CDMX)\n\n\nPregunta(s) de E0\nP2, P4\n\n\n\n\n\n\n\n\n\nRespuesta de la API en el navegador\n\n\n\n\n\n\n\nVista previa en staging",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#lo-que-encontramos-al-abrir-los-datos",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#lo-que-encontramos-al-abrir-los-datos",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "1.4 Lo que encontramos al abrir los datos",
+    "text": "1.4 Lo que encontramos al abrir los datos\nAntes de diseñar el esquema perfilamos F1 y F2 completas con la API del portal. La consulta para repetir cada hallazgo en BigQuery está en sql/01_perfilado_staging.sql.\n\nF1 es un panel completo: exactamente 195 filas por día durante los 6,056 días. No faltan estación-días: lo que hay son ceros.\n62,025 registros en cero (5.3 %), casi todos estructurales:\n\nLínea 12 antes de su inauguración: primer valor distinto de cero el 2012-11-05.\nLínea 12 cerrada desde el 2021-05-04, día siguiente al colapso, con reapertura escalonada en 2023 y enero de 2024.\nLínea 1 durante la modernización de 2022–2025, el riesgo R3 de E0.\n\nCodificación inconsistente: entre 2021-01-01 y 2023-05-31 el campo linea cambia de Linea 1 a LÃ­nea 1. Es texto UTF-8 leído como Latin-1. Por eso hay 24 valores de línea para 12 líneas. Lo mismo ocurre en nombres de estación (PantitlÃ¡n, GÃ³mez FarÃ­as), incluso fuera de ese periodo. El riesgo R6 de E0 se confirmó.\nF2 marca con el texto 'NaN' las fechas en que una línea aún no existía: 17,227 filas. En 2023 los nombres aparecen en minúsculas (linea 1).\n\n\nVerificación en BigQuery\nDespués de cargar staging, el equipo repitió el perfilado en BigQuery con sql/01_perfilado_staging.sql. Las 8 consultas se ejecutaron sin error y cada cifra coincide con la que obtuvimos en el portal.\n\n\n\nEjecución de las 8 consultas de perfilado\n\n\n\n\n\n\n\n\nF1 · cobertura: 2010-01-01 a 2026-07-31, 1,180,920 filas, 6,056 días\n\n\n\n\n\n\n\n\n\nF1 · panel completo: 195 filas en cada uno de los 6,056 días\n\n\n\n\n\n\n\n\n\nF1 · 24 valores de linea para 12 líneas: Linea y LÃ­nea (2021-01-01 a 2023-05-31)\n\n\n\n\n\n\n\n\n\nF1 · ceros por línea y año: L12 antes de 2012 y desde 2021, L1 de 2022 a 2025\n\n\n\n\n\n\n\n\n\nF2 · Metrobús: 53,732 filas, 14 valores de línea y 17,227 'NaN'\n\n\n\n\n\n\n\n\n\nF3 · GTFS: 195 paradas del Metro de 11,362 en total\n\n\n\n\n\n\n\n\n\nF4 · festivos desplazados respecto a la LFT (p. ej. 2010-04-30, 2016-05-02)\n\n\n\n\n\n\n\n\n\nF5 · clima: 6,056 días, de 2010-01-01 a 2026-07-31",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#análisis-de-integración",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#análisis-de-integración",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "1.5 Análisis de integración",
+    "text": "1.5 Análisis de integración\n\nLlaves de unión\n\n\n\n\n\n\n\n\n\n\n\nLlave\nF1 Metro\nF2 Metrobús\nF3 GTFS\nF4 Festivos\nF5 Clima\n\n\n\n\nFecha\nfecha (texto ISO)\nfecha (texto ISO)\n— (catálogo estático)\ndate (ISO)\ntime (ISO, hora local)\n\n\nLínea\nlinea: Linea 1 / LÃ­nea 1\nlinea: Línea 1 / linea 1\nroute_short_name + agency_id\n—\n—\n\n\nEstación\nlinea + estacion (texto)\n—\nstop_id, stop_name\n—\n—\n\n\n\nLa fecha une las cinco fuentes sin conversión de zona horaria, porque F5 se pide en America/Mexico_City. La línea se normaliza a un código (1…12, A, B) que conforma dim_linea para los dos sistemas.\nPrueba de unión estación ↔︎ GTFS. Probamos la unión de F1 con F3 tomando el 2026-07-31. Primero corregimos la doble codificación y luego normalizamos acentos y mayúsculas. Con eso, 187 de 195 estaciones (95.9 %) coinciden exactamente con una parada de F3 en la misma línea. Las 8 restantes son nombres compuestos que cada fuente escribe distinto:\n\n\n\n\n\n\n\n\nLínea\nF1 (afluencia)\nF3 (GTFS)\n\n\n\n\n2\nZócalo/Tenochtitlan\nZócalo\n\n\n3\nEtiopía/Plaza de la Transparencia\nEtiopía y Plaza de la Transparencia\n\n\n3\nNiños Héroes\nNiños Héroes y Poder Judicial CDMX\n\n\n3\nViveros/Derechos Humanos\nViveros y Derechos Humanos\n\n\n6\nFerrería/Arena Ciudad de México\nFerrería y Arena Ciudad de México\n\n\n6\nLa Villa/Basílica\nLa Villa y Basílica\n\n\n8\nGaribaldi/Lagunilla\nGaribaldi y Lagunilla\n\n\nB\nGaribaldi/Lagunilla\nGaribaldi y Lagunilla\n\n\n\nSe resolverán con una tabla de equivalencias de 8 filas en E2. El conteo por línea coincide: F1 y F3 tienen las mismas estaciones por línea (L1: 20, L2: 24, L3: 21, L4: 10, L5: 13, L6: 11, L7: 14, L8: 19, L9: 12, L12: 20, A: 10, B: 21).\n\n\nDiferencias de granularidad\n\n\n\n\n\n\n\n\nFuente\nGrano nativo\nCómo entra al DW\n\n\n\n\nF1\nestación-línea × día\nDirecto al hecho principal\n\n\nF2\nlínea × día\nSegundo hecho, con dim_fecha y dim_linea conformadas\n\n\nF3\nparada (sin tiempo)\nAtributos de dim_estacion y dim_linea\n\n\nF4\nevento (solo días festivos)\nAtributos de dim_fecha; los demás días quedan como no festivos\n\n\nF5\ndía, un punto para toda la ciudad\ndim_clima, un registro por día\n\n\n\n\n\nProblemas anticipados (se documentan, se resuelven en E2)\n\nDoble codificación UTF-8/Latin-1 en linea y estacion de F1. Se repara antes de normalizar, porque si no se repara una misma estación genera dos llaves.\nNombres compuestos (8 estaciones). Ninguna fuente conserva la historia de nombres: F3 es una foto de la red a octubre de 2022 y F1 reescribe el nombre actual hacia atrás (Zócalo/Tenochtitlan aparece desde 2010-01-01). Por eso el nombre se trata como atributo sin historia y la SCD tipo 2 de dim_estacion se reserva para el estado de servicio.\nCeros estructurales frente a ceros operativos. Un cero puede ser una línea no inaugurada, un cierre largo o un cierre de un día. Los cierres largos se modelan como estado de servicio en dim_estacion. Los de un día quedan marcados con es_registro_cero en el hecho.\n'NaN' como texto en F2. Se convierte a NULL, no a cero, porque no significa “nadie viajó” sino “la línea no existía”.\nFestivos desplazados en F4. Nager.Date mueve el Día del Trabajo cuando cae en fin de semana (2010-04-30, 2011-05-02, 2016-05-02, 2021-04-30, 2022-05-02) y hace lo mismo con el Año Nuevo (2010-12-31, 2012-01-02, 2017-01-02, 2021-12-31, 2023-01-02). La Ley Federal del Trabajo (art. 74) no prevé ese desplazamiento, así que el festivo se valida contra la ley y se usa la fecha legal.\nClima de un solo punto. F5 representa toda la ciudad con una celda de malla, y una tormenta local no aparece. Es una limitación para P4 que se declara en la matriz de trazabilidad.\nGTFS desactualizado. F3 corresponde a la versión del 31 de octubre de 2022. El Metro no ha abierto estaciones desde 2012, así que la lista de 195 sigue completa, pero un cambio de nombre posterior a esa fecha no aparecería en F3. Por eso la tabla de equivalencias se revisa contra F1, que sí es reciente.\nActualizaciones retroactivas en F1 y F2 (riesgo R2) y reanálisis en F5. Cada carga a staging registra su fecha de descarga.",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E1_arquitectura_dw/fuentes.html#referencias",
+    "href": "entregas/E1_arquitectura_dw/fuentes.html#referencias",
+    "title": "1. Fuentes de datos: búsqueda, catálogo e integración",
+    "section": "Referencias",
+    "text": "Referencias\n\nSEMOVI. Afluencia diaria del Metro CDMX. Portal de Datos Abiertos de la CDMX. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx\nSEMOVI. Afluencia diaria de Metrobús CDMX. https://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx\nSEMOVI. GTFS estático de la Ciudad de México. https://datos.cdmx.gob.mx/dataset/gtfs\nNager.Date. Public Holidays API. https://date.nager.at · repositorio: https://github.com/nager/Nager.Date\nOpen-Meteo. Historical Weather API y licencia. https://open-meteo.com/en/licence\nINEGI. Estadística de Transporte Urbano de Pasajeros (ETUP). https://www.inegi.org.mx/rnm/index.php/catalog/741\nLey Federal del Trabajo, art. 74 (días de descanso obligatorio).",
+    "crumbs": [
+      "Inicio",
+      "E1 - Arquitectura del DW",
+      "1. Fuentes de datos: búsqueda, catálogo e integración"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html",
+    "href": "entregas/E0_comprension_negocio/criterio_exito.html",
+    "title": "4. Criterio de éxito en términos de negocio",
+    "section": "",
+    "text": "Enunciado\n\n“Al cierre de un piloto de tres meses sobre las tres líneas de mayor afluencia, al menos 7 de cada 10 días-estación que resulten de alta demanda habrán sido identificados a más tardar a las 20:00 h de la víspera, es decir, dentro de la ventana en que todavía puede programarse un tren de refuerzo, con no más de 3 de cada 10 avisos que resulten falsas alarmas, y con al menos 2 de cada 3 avisos acompañados de una ruta alterna concreta y nombrada.”",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "4. Criterio de éxito en términos de negocio"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html#por-qué-este-enunciado-es-verificable",
+    "href": "entregas/E0_comprension_negocio/criterio_exito.html#por-qué-este-enunciado-es-verificable",
+    "title": "4. Criterio de éxito en términos de negocio",
+    "section": "4.1 Por qué este enunciado es verificable",
+    "text": "4.1 Por qué este enunciado es verificable\n\nTiene línea base declarada. El stakeholder describe la práctica actual como reactiva (la aglomeración se conoce por reportes de andén y redes sociales[8][9]), pero el equipo no dispone de una medición institucional de la anticipación actual. Por eso la línea base operativa que se usará para comparar es cuantificable y pública: la regla ingenua (media del mismo día de la semana en las 4 semanas previas), y el criterio se juzga como mejora sobre ella, no sobre un “0 %” que no podríamos acreditar.\nTiene unidad de medida y denominador. La unidad es el día-estación; el denominador son los días-estación que superan el umbral definido en PI-1, calculable a posteriori sobre la misma base pública.\nTiene ventana temporal y es computable sin datos internos. Tres meses continuos sobre tres líneas nombradas, evaluados por simulación retrospectiva: se reproduce qué habría anticipado el sistema cada víspera y se contrasta con la afluencia efectivamente publicada. No depende del registro operativo de refuerzos, al que el equipo no tiene acceso.\nTiene un contracriterio. El límite de falsas alarmas impide alcanzar el 70 % trivialmente marcando todo como alta demanda: obliga al sistema a discriminar.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "4. Criterio de éxito en términos de negocio"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/criterio_exito.html#vínculo-con-la-métrica-técnica",
+    "href": "entregas/E0_comprension_negocio/criterio_exito.html#vínculo-con-la-métrica-técnica",
+    "title": "4. Criterio de éxito en términos de negocio",
+    "section": "4.2 Vínculo con la métrica técnica",
+    "text": "4.2 Vínculo con la métrica técnica\nA cerrar en las fases de modelado y evaluación:\n\n\n\n\n\n\n\n\nCriterio de negocio\nMétrica técnica equivalente\nUmbral objetivo\n\n\n\n\n7 de cada 10 días de alta demanda identificados en la víspera\nRecall (sensibilidad) de la clase “alta demanda”\n≥ 0.70\n\n\nNo más de 3 de cada 10 avisos son falsa alarma\nPrecision de la clase “alta demanda”\n≥ 0.70\n\n\nEl pronóstico es suficientemente fino para dimensionar el refuerzo\nMAPE del pronóstico diario por estación\n≤ 12 %\n\n\nEl sistema aporta valor sobre “hacer lo de siempre”\nMejora relativa contra la línea base ingenua\n≥ 20 % de reducción de error\n\n\n2 de cada 3 avisos llevan una alternativa concreta\nCobertura del catálogo (PI-3) sobre las estaciones que generan avisos, no sobre todas las del piloto\n≥ 67 % de las estaciones con aviso\n\n\n\n\nAdvertencia declarada al stakeholder\nEl criterio mide anticipación, no reducción de aglomeración. Con datos públicos de afluencia no es posible acreditar que el andén estuvo menos lleno, porque el torniquete cuenta entradas y no ocupación.\nFormular el éxito como “reducir un 20 % la saturación” habría producido un enunciado atractivo pero no verificable con los datos disponibles. La reducción de aglomeración solo podría evaluarse en un despliegue real con datos operativos internos, lo que se documenta como trabajo futuro.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "4. Criterio de éxito en términos de negocio"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html",
+    "title": "5. Supuestos y riesgos",
+    "section": "",
+    "text": "Categoría\nRiesgo Identificado\nImpacto\nProbabilidad\nPlan de Mitigación\n\n\n\n\nAlcance y Requisitos\nR1 · Granularidad publicada diaria (no horaria)Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico.\nAlto\nAlta (Materializado)\nReformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (datosabiertos@cdmx.gob.mx) y usar el histórico COVID-19 solo como referencia estructural intradía.\n\n\nCalidad de Datos\nR2 · Actualizaciones retroactivas de la fuenteCambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables.\nAlto\nMedia\nCongelar un snapshot fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el pipeline sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga.\n\n\nDatos y Modelado\nR3 · Ruptura estructural por cierre de Línea 1Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida.\nAlto\nAlta\nCrear la variable estado_servicio por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura.\n\n\nDefinición de Negocio\nR4 · El indicador no es el fenómeno de interésLa afluencia mide entradas por torniquete, no la saturación real de andenes/vagones.\nAlto\nMedia\nDeclarar formalmente la definición proxy en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como “riesgo relativo de alta demanda” en lugar de ocupación absoluta.\n\n\nDatos y Modelado\nR5 · Cambio de régimen en la serie históricaMezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases.\nMedio\nAlta\nAcotar el modelo operativo a datos de 2022 en adelante; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1.\n\n\nCalidad de Datos\nR6 · Llaves sucias entre línea y estaciónInconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones.\nMedio\nAlta\nRealizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas.\n\n\nDependencias Externas\nR7 · Inaccesibilidad de fuentes externas (Waze)Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer scraping generaría bloqueos legales o técnicos.\nMedio\nBaja\nExcluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas.\n\n\nCalidad de Datos\nR8 · Discrepancia entre cifras reportadas públicamenteDiferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas.\nBajo\nMedia\nDefinir la base de datos abiertos como la única fuente de verdad técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "5. Supuestos y riesgos"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#matriz-de-gestión-de-riesgos",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#matriz-de-gestión-de-riesgos",
+    "title": "5. Supuestos y riesgos",
+    "section": "",
+    "text": "Categoría\nRiesgo Identificado\nImpacto\nProbabilidad\nPlan de Mitigación\n\n\n\n\nAlcance y Requisitos\nR1 · Granularidad publicada diaria (no horaria)Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico.\nAlto\nAlta (Materializado)\nReformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (datosabiertos@cdmx.gob.mx) y usar el histórico COVID-19 solo como referencia estructural intradía.\n\n\nCalidad de Datos\nR2 · Actualizaciones retroactivas de la fuenteCambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables.\nAlto\nMedia\nCongelar un snapshot fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el pipeline sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga.\n\n\nDatos y Modelado\nR3 · Ruptura estructural por cierre de Línea 1Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida.\nAlto\nAlta\nCrear la variable estado_servicio por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura.\n\n\nDefinición de Negocio\nR4 · El indicador no es el fenómeno de interésLa afluencia mide entradas por torniquete, no la saturación real de andenes/vagones.\nAlto\nMedia\nDeclarar formalmente la definición proxy en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como “riesgo relativo de alta demanda” en lugar de ocupación absoluta.\n\n\nDatos y Modelado\nR5 · Cambio de régimen en la serie históricaMezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases.\nMedio\nAlta\nAcotar el modelo operativo a datos de 2022 en adelante; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1.\n\n\nCalidad de Datos\nR6 · Llaves sucias entre línea y estaciónInconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones.\nMedio\nAlta\nRealizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas.\n\n\nDependencias Externas\nR7 · Inaccesibilidad de fuentes externas (Waze)Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer scraping generaría bloqueos legales o técnicos.\nMedio\nBaja\nExcluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas.\n\n\nCalidad de Datos\nR8 · Discrepancia entre cifras reportadas públicamenteDiferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas.\nBajo\nMedia\nDefinir la base de datos abiertos como la única fuente de verdad técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "5. Supuestos y riesgos"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos-que-el-equipo-asume-explícitamente",
+    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#supuestos-que-el-equipo-asume-explícitamente",
+    "title": "5. Supuestos y riesgos",
+    "section": "5.2 Supuestos que el equipo asume explícitamente",
+    "text": "5.2 Supuestos que el equipo asume explícitamente\n\n\n\n#\nSupuesto\nCómo se verificará (o qué pasa si es falso)\n\n\n\n\nS1\nEl portal de datos abiertos mantendrá la publicación mensual de las bases de afluencia durante todo el semestre.[1]\nRegistro mensual de la fecha de última actualización. Si se interrumpe, el proyecto continúa con el snapshot congelado y se documenta el corte.\n\n\nS2\nLa afluencia registrada en torniquete es un proxy estable de la demanda relativa entre estaciones, aun sin medir ocupación.\nSe contrasta el ordenamiento de estaciones con la publicación oficial del STC.[5][6] Si el proxy no se sostiene, el alcance se restringe a pronóstico de afluencia sin interpretación de saturación.\n\n\nS3\nLos patrones de calendario (día de la semana, quincena, periodos vacacionales, días festivos) siguen vigentes tras la reapertura completa de la Línea 1 en noviembre de 2025.[11]\nPrueba de estabilidad comparando los perfiles semanales antes y después de la reapertura. Si difieren, se restringe el entrenamiento al periodo posterior.\n\n\nS4\nEl catálogo de estaciones y líneas es consistente a lo largo del histórico.\nAuditoría de llaves en E1 (ver R6). Si no lo es, se construye una tabla de equivalencias documentada.\n\n\nS5\nEl operador puede efectivamente accionar un aviso emitido con 24 horas de antelación (disponibilidad de parque vehicular y de personal).\nSupuesto tomado del propio stakeholder. Si la ventana real fuera más larga, el horizonte de pronóstico se extiende a 3-7 días, algo que el modelo ya contempla.\n\n\nS6\nLos eventos que explican anomalías (cierres, festivos, eventos masivos) son documentables públicamente con fecha.\nConstrucción del calendario de eventos en E1. Los días sin explicación se reportan como anomalías no atribuidas, sin forzar una causa.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "5. Supuestos y riesgos"
+    ]
+  },
+  {
+    "objectID": "entregas/E0_comprension_negocio/preguntas.html",
+    "href": "entregas/E0_comprension_negocio/preguntas.html",
+    "title": "3. Preguntas de investigación priorizadas",
+    "section": "",
+    "text": "El conjunto priorizado son cuatro preguntas (PI-1 a PI-4), conforme a lo solicitado; PI-5 se incluye únicamente como pregunta de reserva y no forma parte de la priorización.\nLas preguntas se ordenan por prioridad según dos criterios: (i) cuánto bloquean al resto del proyecto si no se responden, y (ii) qué tan directamente alimentan la decisión que el stakeholder debe tomar la víspera. Cada una se conecta explícitamente con una tarea de minería de datos.",
+    "crumbs": [
+      "Inicio",
+      "E0 - Comprensión del Negocio",
+      "3. Preguntas de investigación priorizadas"
+    ]
+  },
+  {
     "objectID": "entregas/E0_comprension_negocio/preguntas.html#preguntas-priorizadas-por-alcance-analítico",
     "href": "entregas/E0_comprension_negocio/preguntas.html#preguntas-priorizadas-por-alcance-analítico",
     "title": "3. Preguntas de investigación priorizadas",
@@ -432,15 +686,15 @@
     ]
   },
   {
-    "objectID": "entregas/E0_comprension_negocio/riesgos_supuestos.html#matriz-de-gestión-de-riesgos",
-    "href": "entregas/E0_comprension_negocio/riesgos_supuestos.html#matriz-de-gestión-de-riesgos",
-    "title": "5. Supuestos y riesgos",
-    "section": "",
-    "text": "Categoría\nRiesgo Identificado\nImpacto\nProbabilidad\nPlan de Mitigación\n\n\n\n\nAlcance y Requisitos\nR1 · Granularidad publicada diaria (no horaria)Los datos oficiales se publican por día, haciendo inalcanzable el objetivo original de predecir la hora pico.\nAlto\nAlta (Materializado)\nReformular el alcance a predicción día-estación con 24 h de antelación. Enviar solicitud formal para obtener datos horarios (datosabiertos@cdmx.gob.mx) y usar el histórico COVID-19 solo como referencia estructural intradía.\n\n\nCalidad de Datos\nR2 · Actualizaciones retroactivas de la fuenteCambios o correcciones posteriores en el portal oficial impiden la reproducibilidad entre entregables.\nAlto\nMedia\nCongelar un snapshot fechado de la base al inicio del proyecto, registrar su hash SHA-256 y versionarlo. Ejecutar el pipeline sobre esta versión y documentar diferencias en la entrega final tras una nueva descarga.\n\n\nDatos y Modelado\nR3 · Ruptura estructural por cierre de Línea 1Cierres parciales o totales por remodelación (2022-2025) introducen ceros estructurales y distorsionan la demanda aprendida.\nAlto\nAlta\nCrear la variable estado_servicio por estación-día según el calendario de cierres. Excluir del entrenamiento los tramos suspendidos, segmentar la evaluación pre/post noviembre 2025 y validar exclusivamente con datos posteriores a la reapertura.\n\n\nDefinición de Negocio\nR4 · El indicador no es el fenómeno de interésLa afluencia mide entradas por torniquete, no la saturación real de andenes/vagones.\nAlto\nMedia\nDeclarar formalmente la definición proxy en el Canvas y validarla en E1. Normalizar métricas por estación y reportar el resultado como “riesgo relativo de alta demanda” en lugar de ocupación absoluta.\n\n\nDatos y Modelado\nR5 · Cambio de régimen en la serie históricaMezclar 16 años de datos (2010-2026) incluye pandemia, cambios de tarifa y modificaciones en la estructura de las bases.\nMedio\nAlta\nAcotar el modelo operativo a datos de 2022 en adelante; reservar el periodo 2010-2021 únicamente para análisis de estacionalidad estructural. Validar la consistencia entre bases en E1.\n\n\nCalidad de Datos\nR6 · Llaves sucias entre línea y estaciónInconsistencias de texto (acentos, acrónimos, renombramientos) en 15+ años rompen las agregaciones.\nMedio\nAlta\nRealizar auditoría de cardinalidad en E1, construir un catálogo canónico contrastado con la publicación oficial del STC y programar pruebas automáticas que detecten llaves no catalogadas.\n\n\nDependencias Externas\nR7 · Inaccesibilidad de fuentes externas (Waze)Waze no ofrece API pública ni permite republicación; intentar usarlo o hacer scraping generaría bloqueos legales o técnicos.\nMedio\nBaja\nExcluir formalmente cualquier dato de Waze del alcance. Utilizar únicamente fuentes de contexto vial abiertas del portal de la CDMX y registrar la restricción en el Canvas.\n\n\nCalidad de Datos\nR8 · Discrepancia entre cifras reportadas públicamenteDiferencias entre cifras de prensa y bases oficiales pueden llevar a validaciones erróneas.\nBajo\nMedia\nDefinir la base de datos abiertos como la única fuente de verdad técnica. Usar cifras de medios solo para contexto de negocio, nunca para ajustar o validar datos.",
+    "objectID": "entregas/E1_arquitectura_dw/uso_ia.html#qué-hizo-la-herramienta-en-los-usos-16-y-qué-no",
+    "href": "entregas/E1_arquitectura_dw/uso_ia.html#qué-hizo-la-herramienta-en-los-usos-16-y-qué-no",
+    "title": "5. Documentación del uso de herramientas de IA",
+    "section": "Qué hizo la herramienta en los usos 1–6 y qué no",
+    "text": "Qué hizo la herramienta en los usos 1–6 y qué no\n\nSí consultó directamente las fuentes por sus APIs públicas y reportó cifras verificables.\nSí generó una guía interna paso a paso para ejecutar los scripts en BigQuery (esquemas de carga, orden de ejecución y capturas a tomar). El equipo la siguió para hacer la implementación y la retiró del repositorio al terminar, por ser un documento de trabajo y no un entregable.\nNo creó datasets, no cargó tablas ni ejecutó SQL en BigQuery. No tuvo acceso al proyecto de Google Cloud del equipo, y ninguna credencial se compartió con ella.\nNo hizo commits ni publicó el sitio.",
     "crumbs": [
       "Inicio",
-      "E0 - Comprensión del Negocio",
-      "5. Supuestos y riesgos"
+      "E1 - Arquitectura del DW",
+      "5. Documentación del uso de herramientas de IA"
     ]
   }
 ]
