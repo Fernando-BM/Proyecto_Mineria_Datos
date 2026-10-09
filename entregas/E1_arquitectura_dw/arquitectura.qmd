@@ -6,6 +6,7 @@ subtitle: "Entrega E1 - Arquitectura del Data Warehouse"
 ## 2.1 Las tres capas
 
 ```{mermaid}
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#eef4fb", "primaryTextColor": "#0f2c52", "primaryBorderColor": "#40658c", "lineColor": "#475569", "textColor": "#0f2c52", "clusterBkg": "#f8fafc", "clusterBorder": "#94a3b8", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial, sans-serif"}}}%%
 flowchart LR
     subgraph F["Fuentes"]
         F1["F1 · Afluencia Metro<br/>CSV portal"]
@@ -36,7 +37,22 @@ flowchart LR
     F5 --> S5
     S1 & S2 & S3 & S4 & S5 -. "ETL en E2" .-> D
     D --> M
+
+    classDef fuente fill:#f1f5f9,stroke:#64748b,color:#0f2c52
+    classDef staging fill:#e8f1fc,stroke:#40658c,color:#0f2c52
+    classDef dw fill:#e8f5ee,stroke:#397454,color:#163d2a
+    classDef mart fill:#fff4d9,stroke:#98701d,color:#59420f
+    class F1,F2,F3,F4,F5 fuente
+    class S1,S2,S3,S4,S5 staging
+    class H1,H2,DIM dw
+    class V mart
+    style F fill:#f8fafc,stroke:#94a3b8,color:#0f2c52
+    style S fill:#f3f7fd,stroke:#40658c,color:#0f2c52
+    style D fill:#f2f9f5,stroke:#397454,color:#163d2a
+    style M fill:#fffaf0,stroke:#98701d,color:#59420f
 ```
+
+Las flechas continuas indican la carga cruda y la dependencia de las vistas; las discontinuas representan el ETL pendiente de E2. En E1 el DW está vacío y las vistas consultan ese esquema, sin implicar que ya existan datos transformados.
 
 | Capa | Dataset | Contenido | Estado en E1 |
 |------|---------|-----------|--------------|
@@ -123,7 +139,7 @@ Hay una vista por pregunta de E0. P1 y P3 tienen dos vistas cada una porque comb
 | Vista | Pregunta | Operador OLAP | Qué devuelve |
 |-------|----------|---------------|--------------|
 | `v_p1_rollup_linea_dia` | P1 | **ROLLUP** | Afluencia media por línea y día de la semana, con subtotal por línea y total de la red |
-| `v_p1_picos_vs_base` | P1 | **Ventanas** (`AVG OVER`, `RANK`) | Índice de cada estación-día contra su propia base y las 20 estaciones más cargadas por día |
+| `v_p1_picos_vs_base` | P1 | **Ventanas** (`AVG OVER`, `RANK`) | Índice del promedio de cada estación por día de la semana contra su base y estaciones con rango ≤ 20 para cada día de la semana (puede haber más de 20 por empates) |
 | `v_p2_dataset_pronostico` | P2 | **Ventanas** (`LAG`, `AVG … ROWS BETWEEN`) | Conjunto de entrenamiento: rezagos t−1 y t−7, línea base ingenua de 4 semanas (la del criterio de éxito) y etiqueta de alta demanda |
 | `v_p3_perfil_semanal_estacion` | P3 | **PIVOT** + ventana | Perfil semanal normalizado por estación: la matriz de entrada del clustering |
 | `v_p3_correlacion_metro_metrobus` | P3 | Agregación `CORR` | Correlación diaria entre cada línea del Metro y cada línea del Metrobús |
@@ -141,3 +157,5 @@ Hay una vista por pregunta de E0. P1 y P3 tienen dos vistas cada una porque comb
 
 ![Cuerpo de `v_p5_absorcion_cierre_l1` ejecutado: corre sin error y devuelve 0 filas porque el DW todavía está vacío](img/MART_validacion.png)
 :::
+
+Las capturas muestran que BigQuery acepta las consultas y reconoce las tablas y columnas que usan. Como el DW todavía está vacío, falta comprobar que los cálculos den los resultados esperados. Eso se revisará en E2, cuando se carguen los datos.

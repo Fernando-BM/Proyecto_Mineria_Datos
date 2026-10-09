@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Anticipación de saturación y recomendación de rutas alternas – Proyecto Integrador - Almacenes y Minería de Datos</title>
+<title>Proyecto Integrador - Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -137,6 +137,34 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e1---arquitectura-del-dw" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E1 - Arquitectura del DW</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e1---arquitectura-del-dw">    
+        <li>
+    <a class="dropdown-item" href="./entregas/E1_arquitectura_dw/fuentes.html">
+ <span class="dropdown-text">1. Fuentes de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./entregas/E1_arquitectura_dw/arquitectura.html">
+ <span class="dropdown-text">2. Arquitectura de tres capas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./entregas/E1_arquitectura_dw/estrella.html">
+ <span class="dropdown-text">3. Esquema estrella</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./entregas/E1_arquitectura_dw/trazabilidad.html">
+ <span class="dropdown-text">4. Matriz de trazabilidad</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./entregas/E1_arquitectura_dw/uso_ia.html">
+ <span class="dropdown-text">5. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -227,6 +255,47 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">E1 - Arquitectura del DW</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./entregas/E1_arquitectura_dw/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Fuentes de datos: búsqueda, catálogo e integración</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Arquitectura de tres capas en BigQuery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./entregas/E1_arquitectura_dw/estrella.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Esquema estrella</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./entregas/E1_arquitectura_dw/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Matriz de trazabilidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -237,47 +306,60 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#estado-de-las-entregas" id="toc-estado-de-las-entregas" class="nav-link" data-scroll-target="#estado-de-las-entregas">Estado de las entregas</a></li>
-  <li><a href="#entrega-e0---comprensión-del-negocio" id="toc-entrega-e0---comprensión-del-negocio" class="nav-link" data-scroll-target="#entrega-e0---comprensión-del-negocio">Entrega E0 - Comprensión del Negocio</a></li>
+  <li><a href="#proyecto-integrador---almacenes-y-minería-de-datos" id="toc-proyecto-integrador---almacenes-y-minería-de-datos" class="nav-link active" data-scroll-target="#proyecto-integrador---almacenes-y-minería-de-datos">Proyecto Integrador - Almacenes y Minería de Datos</a>
+  <ul class="collapse">
+  <li><a href="#sitio-desplegado" id="toc-sitio-desplegado" class="nav-link" data-scroll-target="#sitio-desplegado">🌐 Sitio desplegado</a></li>
   <li><a href="#equipo" id="toc-equipo" class="nav-link" data-scroll-target="#equipo">Equipo</a></li>
-  <li><a href="#datos-y-licencia" id="toc-datos-y-licencia" class="nav-link" data-scroll-target="#datos-y-licencia">Datos y licencia</a></li>
+  <li><a href="#entregas" id="toc-entregas" class="nav-link" data-scroll-target="#entregas">Entregas</a>
+  <ul class="collapse">
+  <li><a href="#e0---comprensión-del-negocio" id="toc-e0---comprensión-del-negocio" class="nav-link" data-scroll-target="#e0---comprensión-del-negocio">E0 - Comprensión del Negocio</a></li>
+  <li><a href="#e1---arquitectura-del-data-warehouse" id="toc-e1---arquitectura-del-data-warehouse" class="nav-link" data-scroll-target="#e1---arquitectura-del-data-warehouse">E1 - Arquitectura del Data Warehouse</a></li>
+  </ul></li>
+  <li><a href="#estructura-del-repositorio" id="toc-estructura-del-repositorio" class="nav-link" data-scroll-target="#estructura-del-repositorio">Estructura del repositorio</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Anticipación de saturación y recomendación de rutas alternas</h1>
-<p class="subtitle lead">Proyecto Integrador · Almacenes y Minería de Datos · Facultad de Ciencias, UNAM</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Una autoridad de movilidad de la Ciudad de México necesita <strong>anticipar la saturación</strong> de las líneas del Sistema de Transporte Colectivo (STC) Metro y <strong>recomendar rutas alternas</strong> antes de que la aglomeración ocurra, no durante.</p>
-<p>Este sitio documenta el desarrollo del proyecto de forma incremental, siguiendo las seis fases de <strong>CRISP-DM</strong>.</p>
-<div class="caja caja-clave">
-<p><span class="etiqueta">El hallazgo que definió el alcance</span> La base pública de afluencia del Metro tiene granularidad <strong>diaria</strong>, no horaria: sus campos son <code>fecha, anio, mes, linea, estacion, afluencia</code>. El objetivo original (anticipar la hora pico en tiempo real) resultó <strong>estructuralmente inalcanzable</strong> con los datos disponibles. La entrevista con el stakeholder mostró además que el tiempo real le sirve menos que una alerta con 24 horas de antelación, porque los trenes de refuerzo y el personal se programan en la víspera. El proyecto se reformuló en consecuencia.</p>
-</div>
+<section id="proyecto-integrador---almacenes-y-minería-de-datos" class="level1">
+<h1>Proyecto Integrador - Almacenes y Minería de Datos</h1>
+<p><strong>Anticipación de saturación y recomendación de rutas alternas en la red del STC Metro y Metrobús de la CDMX</strong></p>
+<p>Facultad de Ciencias, UNAM · Profesora: Jessica Santizo Galicia Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio: Emma Alicia Jiménez Sánchez</p>
+<section id="sitio-desplegado" class="level2">
+<h2 class="anchored" data-anchor-id="sitio-desplegado">🌐 Sitio desplegado</h2>
+<p><strong>https://fernando-bm.github.io/Proyecto_Mineria_Datos</strong></p>
 </section>
-<section id="estado-de-las-entregas" class="level2">
-<h2 class="anchored" data-anchor-id="estado-de-las-entregas">Estado de las entregas</h2>
+<section id="equipo" class="level2">
+<h2 class="anchored" data-anchor-id="equipo">Equipo</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Integrante</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aldair Coronel Ruiz</td>
+</tr>
+<tr class="even">
+<td>Fernando Bernal Martínez</td>
+</tr>
+<tr class="odd">
+<td>Luis Alberto Hernández Aguilar</td>
+</tr>
+<tr class="even">
+<td>Tania Ramírez Plascencia</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entregas" class="level2">
+<h2 class="anchored" data-anchor-id="entregas">Entregas</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -291,118 +373,159 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>1</td>
 <td>Comprensión del negocio</td>
-<td><strong>E0</strong></td>
-<td>✅ Publicada</td>
+<td>E0</td>
+<td>✅</td>
 </tr>
 <tr class="even">
 <td>2</td>
 <td>Comprensión de los datos</td>
 <td>E1</td>
-<td>⏳ Pendiente</td>
+<td>✅</td>
 </tr>
 <tr class="odd">
 <td>3</td>
 <td>Preparación de los datos</td>
 <td>E2</td>
-<td>⏳ Pendiente</td>
+<td>⏳</td>
 </tr>
 <tr class="even">
 <td>4</td>
 <td>Modelado</td>
 <td>E3</td>
-<td>⏳ Pendiente</td>
+<td>⏳</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>Evaluación</td>
 <td>E4</td>
-<td>⏳ Pendiente</td>
+<td>⏳</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>Despliegue</td>
 <td>Reporte y presentación final</td>
-<td>⏳ Pendiente</td>
+<td>⏳</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="entrega-e0---comprensión-del-negocio" class="level2">
-<h2 class="anchored" data-anchor-id="entrega-e0---comprensión-del-negocio">Entrega E0 - Comprensión del Negocio</h2>
+<section id="e0---comprensión-del-negocio" class="level3">
+<h3 class="anchored" data-anchor-id="e0---comprensión-del-negocio">E0 - Comprensión del Negocio</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Página</th>
-<th>Contenido</th>
+<th>Archivo</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="./entregas/E0_comprension_negocio/bitacora.html">1. Bitácora del stakeholder</a></td>
-<td>Reunión, preguntas, respuestas clave y reflexión del equipo</td>
+<td>Bitácora del stakeholder</td>
+<td><code>entregas/E0_comprension_negocio/bitacora.qmd</code></td>
 </tr>
 <tr class="even">
-<td><a href="./entregas/E0_comprension_negocio/canvas.html">2. Business Understanding Canvas</a></td>
-<td>Síntesis de una página, legible de forma autónoma</td>
+<td>Business Understanding Canvas</td>
+<td><code>entregas/E0_comprension_negocio/canvas.qmd</code></td>
 </tr>
 <tr class="odd">
-<td><a href="./entregas/E0_comprension_negocio/preguntas.html">3. Preguntas de investigación</a></td>
-<td>Cuatro preguntas priorizadas, ligadas a tareas de minería</td>
+<td>Preguntas de investigación</td>
+<td><code>entregas/E0_comprension_negocio/preguntas.qmd</code></td>
 </tr>
 <tr class="even">
-<td><a href="./entregas/E0_comprension_negocio/criterio_exito.html">4. Criterio de éxito</a></td>
-<td>Enunciado de negocio y su traducción a métrica técnica</td>
+<td>Criterio de éxito</td>
+<td><code>entregas/E0_comprension_negocio/criterio_exito.qmd</code></td>
 </tr>
 <tr class="odd">
-<td><a href="./entregas/E0_comprension_negocio/riesgos_supuestos.html">5. Supuestos y riesgos</a></td>
-<td>Ocho riesgos con mitigación y seis supuestos explícitos</td>
+<td>Supuestos y riesgos</td>
+<td><code>entregas/E0_comprension_negocio/riesgos_supuestos.qmd</code></td>
 </tr>
 <tr class="even">
-<td><a href="./entregas/E0_comprension_negocio/uso_ia.html">6. Uso de herramientas de IA</a></td>
-<td>Registro explícito conforme a las instrucciones</td>
+<td>Uso de herramientas de IA</td>
+<td><code>entregas/E0_comprension_negocio/uso_ia.qmd</code></td>
 </tr>
 <tr class="odd">
-<td><a href="./entregas/E0_comprension_negocio/fuentes.html">7. Fuentes consultadas</a></td>
-<td>Las trece fuentes que sustentan el ejercicio de rol</td>
+<td>Fuentes consultadas</td>
+<td><code>entregas/E0_comprension_negocio/fuentes.qmd</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="equipo" class="level2">
-<h2 class="anchored" data-anchor-id="equipo">Equipo</h2>
+<section id="e1---arquitectura-del-data-warehouse" class="level3">
+<h3 class="anchored" data-anchor-id="e1---arquitectura-del-data-warehouse">E1 - Arquitectura del Data Warehouse</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Integrante</th>
-<th>Rol en el proyecto</th>
+<th>Página</th>
+<th>Archivo</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Aldair Coronel Ruiz</td>
-<td>Analista / traductor técnico</td>
+<td>Fuentes de datos (búsqueda, catálogo e integración)</td>
+<td><code>entregas/E1_arquitectura_dw/fuentes.qmd</code></td>
 </tr>
 <tr class="even">
-<td>Fernando Bernal Martínez</td>
-<td>Relator y verificación de fuentes</td>
+<td>Arquitectura de tres capas (staging → DW → DataMart)</td>
+<td><code>entregas/E1_arquitectura_dw/arquitectura.qmd</code></td>
 </tr>
 <tr class="odd">
-<td>Luis Alberto Hernández Aguilar</td>
-<td>Exploración de datos</td>
+<td>Esquema estrella (grano, diagrama y DDL)</td>
+<td><code>entregas/E1_arquitectura_dw/estrella.qmd</code></td>
 </tr>
 <tr class="even">
-<td>Tania Ramírez Plascencia</td>
-<td>Factibilidad y calendario de eventos</td>
+<td>Matriz de trazabilidad</td>
+<td><code>entregas/E1_arquitectura_dw/trazabilidad.qmd</code></td>
+</tr>
+<tr class="odd">
+<td>Uso de herramientas de IA</td>
+<td><code>entregas/E1_arquitectura_dw/uso_ia.qmd</code></td>
+</tr>
+<tr class="even">
+<td>SQL (datasets, perfilado, DDL, DataMart)</td>
+<td><code>entregas/E1_arquitectura_dw/sql/</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Profesora:</strong> Jessica Santizo Galicia · <strong>Ayudante de teoría:</strong> Diego Antonio Villalba González · <strong>Ayudante de laboratorio:</strong> Emma Alicia Jiménez Sánchez</p>
+<p>No hubo pivote: el grano disponible (estación-línea × día) coincide con el objetivo de minería de E0.</p>
 </section>
-<section id="datos-y-licencia" class="level2">
-<h2 class="anchored" data-anchor-id="datos-y-licencia">Datos y licencia</h2>
-<p>Los conjuntos de datos provienen del <a href="https://datos.cdmx.gob.mx">Portal de Datos Abiertos de la Ciudad de México</a>, publicados por la <strong>Secretaría de Movilidad (SEMOVI)</strong> bajo licencia <strong>CC-BY-4.0-ESP</strong>. La atribución es obligatoria y se mantiene en todas las páginas del sitio.</p>
+</section>
+<section id="estructura-del-repositorio" class="level2">
+<h2 class="anchored" data-anchor-id="estructura-del-repositorio">Estructura del repositorio</h2>
+<pre><code>Proyecto_Mineria_Datos/
+├── _quarto.yml                    # configuración del sitio (output-dir: docs)
+├── index.qmd                      # portada
+├── styles.css                     # estilos, incluido el Canvas
+├── entregas/
+│   ├── E0_comprension_negocio/
+│   │   ├── bitacora.qmd
+│   │   ├── canvas.qmd
+│   │   ├── preguntas.qmd
+│   │   ├── criterio_exito.qmd
+│   │   ├── riesgos_supuestos.qmd
+│   │   ├── uso_ia.qmd
+│   │   ├── fuentes.qmd
+│   │   └── fuentes/               # evidencia archivada del stakeholder simulado
+│   └── E1_arquitectura_dw/
+│       ├── fuentes.qmd            # búsqueda, catálogo e integración
+│       ├── arquitectura.qmd       # 3 capas, evidencia BigQuery, DataMart
+│       ├── estrella.qmd           # grano, diagrama Mermaid y DDL
+│       ├── trazabilidad.qmd       # matriz pregunta-métrica-dimensión-fuente
+│       ├── uso_ia.qmd
+│       ├── sql/                   # 00_datasets, 01_perfilado, ddl_dw, consultas_mart
+│       ├── staging/               # descarga reproducible de las fuentes API
+│       └── img/                   # capturas de BigQuery
+├── docs/                          # sitio compilado (lo genera Quarto)
+└── README.md</code></pre>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->

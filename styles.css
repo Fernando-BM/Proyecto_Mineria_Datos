@@ -28,6 +28,11 @@ h2 { border-bottom: 2px solid var(--oro); padding-bottom: .3rem; margin-top: 2.2
   text-transform: uppercase; color: var(--azul); display: block; margin-bottom: .35rem;
 }
 
+/* Tablas de medidas y preguntas */
+.tabla-medidas {
+  margin-top: 1.5rem !important;
+}
+
 /* Preguntas y respuestas de la bitácora */
 .pregunta { font-weight: 700; color: #143a66; margin: 1.4rem 0 .4rem 0; }
 .respuesta {

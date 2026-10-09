@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Bitácora de la reunión con el stakeholder – Proyecto Integrador - Almacenes y Minería de Datos</title>
+<title>5. Documentación del uso de herramientas de IA – Proyecto Integrador - Almacenes y Minería de Datos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../entregas/E0_comprension_negocio/canvas.html" rel="next">
-<link href="../../index.html" rel="prev">
+<link href="../../entregas/E1_arquitectura_dw/trazabilidad.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -47,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-386f47455dee9819add0e62fdb7410f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e3144656cb5138d699b5d8ef7c5b64b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -177,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">E0 - Comprensión del Negocio</a></li><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">1. Bitácora de la reunión con el stakeholder</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/uso_ia.html">5. Documentación del uso de herramientas de IA</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -214,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../entregas/E0_comprension_negocio/bitacora.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../entregas/E0_comprension_negocio/bitacora.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Bitácora de la reunión con el stakeholder</span></a>
   </div>
 </li>
@@ -291,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
+  <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">5. Documentación del uso de herramientas de IA</span></a>
   </div>
 </li>
@@ -307,24 +306,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#datos-de-la-sesión" id="toc-datos-de-la-sesión" class="nav-link active" data-scroll-target="#datos-de-la-sesión">Datos de la sesión</a></li>
-  <li><a href="#participantes-y-stakeholders" id="toc-participantes-y-stakeholders" class="nav-link" data-scroll-target="#participantes-y-stakeholders">1.1 Participantes y stakeholders</a></li>
-  <li><a href="#contexto-y-objetivos-de-la-sesión" id="toc-contexto-y-objetivos-de-la-sesión" class="nav-link" data-scroll-target="#contexto-y-objetivos-de-la-sesión">1.2 Contexto y objetivos de la sesión</a></li>
-  <li><a href="#desarrollo-cronológico" id="toc-desarrollo-cronológico" class="nav-link" data-scroll-target="#desarrollo-cronológico">1.3 Desarrollo cronológico</a></li>
-  <li><a href="#preguntas-formuladas-y-respuestas-clave" id="toc-preguntas-formuladas-y-respuestas-clave" class="nav-link" data-scroll-target="#preguntas-formuladas-y-respuestas-clave">1.4 Preguntas formuladas y respuestas clave</a></li>
-  <li><a href="#decisiones-y-acuerdos" id="toc-decisiones-y-acuerdos" class="nav-link" data-scroll-target="#decisiones-y-acuerdos">1.5 Decisiones y acuerdos</a></li>
-  <li><a href="#pendientes-y-próximos-pasos" id="toc-pendientes-y-próximos-pasos" class="nav-link" data-scroll-target="#pendientes-y-próximos-pasos">1.6 Pendientes y próximos pasos</a></li>
-  <li><a href="#reflexión-del-equipo-qué-cambió-tras-la-entrevista" id="toc-reflexión-del-equipo-qué-cambió-tras-la-entrevista" class="nav-link" data-scroll-target="#reflexión-del-equipo-qué-cambió-tras-la-entrevista">1.6 Reflexión del equipo: qué cambió tras la entrevista</a></li>
+  <li><a href="#registro-de-usos" id="toc-registro-de-usos" class="nav-link active" data-scroll-target="#registro-de-usos">Registro de usos</a>
+  <ul class="collapse">
+  <li><a href="#uso-1---búsqueda-de-fuentes-deep-research" id="toc-uso-1---búsqueda-de-fuentes-deep-research" class="nav-link" data-scroll-target="#uso-1---búsqueda-de-fuentes-deep-research">Uso 1 - Búsqueda de fuentes (deep research)</a></li>
+  <li><a href="#uso-2---perfilado-de-las-fuentes-con-la-api-del-portal" id="toc-uso-2---perfilado-de-las-fuentes-con-la-api-del-portal" class="nav-link" data-scroll-target="#uso-2---perfilado-de-las-fuentes-con-la-api-del-portal">Uso 2 - Perfilado de las fuentes con la API del portal</a></li>
+  <li><a href="#uso-3---granos-candidatos-esquema-estrella-y-ddl" id="toc-uso-3---granos-candidatos-esquema-estrella-y-ddl" class="nav-link" data-scroll-target="#uso-3---granos-candidatos-esquema-estrella-y-ddl">Uso 3 - Granos candidatos, esquema estrella y DDL</a></li>
+  <li><a href="#uso-4---consultas-del-datamart" id="toc-uso-4---consultas-del-datamart" class="nav-link" data-scroll-target="#uso-4---consultas-del-datamart">Uso 4 - Consultas del DataMart</a></li>
+  <li><a href="#uso-5---redacción-de-las-páginas-del-sitio" id="toc-uso-5---redacción-de-las-páginas-del-sitio" class="nav-link" data-scroll-target="#uso-5---redacción-de-las-páginas-del-sitio">Uso 5 - Redacción de las páginas del sitio</a></li>
+  <li><a href="#uso-6---revisión-de-arquitectura-y-legibilidad-del-diagrama" id="toc-uso-6---revisión-de-arquitectura-y-legibilidad-del-diagrama" class="nav-link" data-scroll-target="#uso-6---revisión-de-arquitectura-y-legibilidad-del-diagrama">Uso 6 - Revisión de arquitectura y legibilidad del diagrama</a></li>
+  </ul></li>
+  <li><a href="#qué-hizo-la-herramienta-en-los-usos-16-y-qué-no" id="toc-qué-hizo-la-herramienta-en-los-usos-16-y-qué-no" class="nav-link" data-scroll-target="#qué-hizo-la-herramienta-en-los-usos-16-y-qué-no">Qué hizo la herramienta en los usos 1–6 y qué no</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">E0 - Comprensión del Negocio</a></li><li class="breadcrumb-item"><a href="../../entregas/E0_comprension_negocio/bitacora.html">1. Bitácora de la reunión con el stakeholder</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/fuentes.html">E1 - Arquitectura del DW</a></li><li class="breadcrumb-item"><a href="../../entregas/E1_arquitectura_dw/uso_ia.html">5. Documentación del uso de herramientas de IA</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">1. Bitácora de la reunión con el stakeholder</h1>
-<p class="subtitle lead">Entrega E0 - Comprensión del Negocio</p>
+<h1 class="title">5. Documentación del uso de herramientas de IA</h1>
+<p class="subtitle lead">Entrega E1 - Arquitectura del Data Warehouse</p>
 </div>
 
 
@@ -341,240 +342,252 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="caja caja-aviso">
-<p><span class="etiqueta">Modalidad: stakeholder simulado con fuentes verificables</span></p>
-<p>Elegimos el caso de <strong>Predicción de retrasos y saturación en el transporte público</strong> debido al valor analítico que representan sus variables operativas y de demanda en tiempo real. Decidimos simular un stakeholder principal con el fin de estructurar adecuadamente la fase de Business Understanding, lo que nos brindó un marco claro para priorizar reglas de negocio, traducir prioridades operativas en objetivos de datos y orientar el diseño del modelo hacia la resolución de problemas reales.</p>
-<p><strong>Nota:</strong> Ninguna respuesta atribuida al stakeholder simulado es invención libre. Cada respuesta está anclada a una fuente verificable (el propio portal de datos abiertos de la CDMX, cifras oficiales del STC Metro o notas periodísticas fechadas) indicada con un superíndice que remite a <a href="../../entregas/E0_comprension_negocio/fuentes.html">Fuentes consultadas</a>. Cuando la fuente no permite sostener una afirmación, el texto lo dice explícitamente en lugar de rellenar el hueco.</p>
-</div>
-<p>El rol simulado es el de un <strong>Subdirector de Planeación del Servicio de la Dirección de Transportación del STC Metro</strong>: perfil con conocimiento directo de la programación de trenes y personal de andén, y por tanto con autoridad sobre las decisiones que este proyecto pretende apoyar. Se simula también un segundo interlocutor técnico, la <strong>Coordinación de Datos Abiertos de SEMOVI</strong>, que es la organización que efectivamente publica y mantiene los conjuntos de datos utilizados.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup></p>
-<section id="datos-de-la-sesión" class="level2">
-<h2 class="anchored" data-anchor-id="datos-de-la-sesión">Datos de la sesión</h2>
+<p>En esta entrega el equipo usó un modelo de lenguaje con búsqueda web y navegador como herramienta de <em>deep research</em> y de apoyo al diseño. Ninguna fuente entró al catálogo solo porque la herramienta la propusiera: cada una se abrió en su sitio original. Ninguna consulta SQL se dio por válida hasta ejecutarla en BigQuery.</p>
+<section id="registro-de-usos" class="level2">
+<h2 class="anchored" data-anchor-id="registro-de-usos">Registro de usos</h2>
+<section id="uso-1---búsqueda-de-fuentes-deep-research" class="level3">
+<h3 class="anchored" data-anchor-id="uso-1---búsqueda-de-fuentes-deep-research">Uso 1 - Búsqueda de fuentes (deep research)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Herramienta</strong></td>
+<td>Claude (Anthropic) - modelo: Opus 5.5, con búsqueda web y navegador</td>
+</tr>
+<tr class="even">
+<td><strong>Fecha</strong></td>
+<td>1 de octubre de 2026</td>
+</tr>
+<tr class="odd">
+<td><strong>Tarea</strong></td>
+<td>Buscar fuentes de datos para el problema de E0 en portales de datos abiertos, APIs públicas y <code>bigquery-public-data</code>, y proponer cuáles catalogar</td>
+</tr>
+<tr class="even">
+<td><strong>Prompt (resumen fiel)</strong></td>
+<td>Se entregó el PDF de instrucciones de E1 y el repositorio con E0, con la petición: “Ayúdame a generar la entrega E1: evaluar al menos 5 fuentes candidatas, catalogar mínimo 3 verificadas de 2 tipos distintos, con evidencia de apertura y análisis de integración”</td>
+</tr>
+<tr class="odd">
+<td><strong>Qué propuso</strong></td>
+<td>12 candidatas (C1–C12 en <a href="../../entregas/E1_arquitectura_dw/fuentes.html#candidatas-evaluadas-y-criterio-de-selección">Fuentes</a>). Las URL de la API del portal se obtuvieron con <code>package_search</code>, no de memoria</td>
+</tr>
+<tr class="even">
+<td><strong>Qué se verificó y qué se descartó</strong></td>
+<td>Se verificaron abriendo la fuente F1–F5, C6–C9 y C12. <strong>C10 (NOAA GSOD en BigQuery) no se verificó</strong> a nivel de estación y se descartó por duplicar F5. No se hizo búsqueda en Kaggle ni en Google Dataset Search: se priorizaron las fuentes primarias de SEMOVI</td>
+</tr>
+<tr class="odd">
+<td><strong>Revisión del equipo</strong></td>
+<td>Luis Alberto Hernández Aguilar abrió las 5 URL del catálogo el 2 de octubre de 2026, comprobó que existieran y tuvieran la cobertura y la licencia indicadas, y tomó las capturas de las fuentes (<code>F1_portal</code>, <code>F2_portal</code>, <code>F3_portal</code>, <code>F4_api</code>, <code>F5_api</code>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uso-2---perfilado-de-las-fuentes-con-la-api-del-portal" class="level3">
+<h3 class="anchored" data-anchor-id="uso-2---perfilado-de-las-fuentes-con-la-api-del-portal">Uso 2 - Perfilado de las fuentes con la API del portal</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Herramienta</strong></td>
+<td>Claude (Anthropic) - modelo: Opus 5.5, con navegador</td>
+</tr>
+<tr class="even">
+<td><strong>Fecha</strong></td>
+<td>1 de octubre de 2026</td>
+</tr>
+<tr class="odd">
+<td><strong>Tarea</strong></td>
+<td>Abrir F1 y F2 completas y medir rango de fechas, filas por día, valores distintos de línea y estación, ceros y valores <code>'NaN'</code>; probar la unión estación ↔︎ GTFS</td>
+</tr>
+<tr class="even">
+<td><strong>Prompt (resumen fiel)</strong></td>
+<td>Consultas SQL al endpoint <code>datastore_search_sql</code> de la API CKAN del portal (p.&nbsp;ej. <code>SELECT MIN(fecha), MAX(fecha), COUNT(*), COUNT(DISTINCT linea) FROM "&lt;resource_id&gt;"</code>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Qué produjo</strong></td>
+<td>Los hallazgos de la <a href="../../entregas/E1_arquitectura_dw/fuentes.html#lo-que-encontramos-al-abrir-los-datos">sección 1.4</a>: 195 filas por día, 62,025 ceros, doble codificación en 2021–2023, 17,227 <code>'NaN'</code> en Metrobús y 187/195 estaciones unidas con GTFS</td>
+</tr>
+<tr class="even">
+<td><strong>Revisión del equipo</strong></td>
+<td>Las mismas cifras se reprodujeron en BigQuery con <a href="sql/01_perfilado_staging.sql"><code>sql/01_perfilado_staging.sql</code></a> sobre las tablas de staging cargadas por el equipo. El 2 de octubre de 2026 el equipo ejecutó las 8 consultas sobre su proyecto de BigQuery y <strong>todas las cifras coincidieron</strong>: 1,180,920 filas, 195 filas por día, 24 valores de línea, 53,732 filas y 17,227 <code>'NaN'</code> en Metrobús, 195 paradas del Metro en GTFS y 6,056 días de clima. Las capturas están en <a href="../../entregas/E1_arquitectura_dw/fuentes.html#verificación-en-bigquery">Fuentes</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uso-3---granos-candidatos-esquema-estrella-y-ddl" class="level3">
+<h3 class="anchored" data-anchor-id="uso-3---granos-candidatos-esquema-estrella-y-ddl">Uso 3 - Granos candidatos, esquema estrella y DDL</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 43%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Campo</th>
-<th>Valor</th>
+<th>Detalle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Fecha</td>
-<td>31 de agosto de 2026</td>
+<td><strong>Herramienta</strong></td>
+<td>Claude (Anthropic) - modelo: Opus 5.5</td>
 </tr>
 <tr class="even">
-<td>Horario</td>
-<td>12:00 - 13:00 (60 min)</td>
+<td><strong>Fecha</strong></td>
+<td>1 de octubre de 2026</td>
 </tr>
 <tr class="odd">
-<td>Modalidad</td>
-<td>Ejercicio de rol documentado (stakeholder simulado con fuentes verificables)</td>
+<td><strong>Tarea</strong></td>
+<td>Proponer granos candidatos, dimensiones con su tipo de SCD, el diagrama Mermaid y el DDL de BigQuery</td>
 </tr>
 <tr class="even">
-<td>Lugar / medio</td>
-<td>Taller de Sistemas Simbólicos · Facultad de Ciencias, UNAM / videollamada</td>
+<td><strong>Prompt (resumen fiel)</strong></td>
+<td>“A partir de lo que muestran los datos, propone 2 o 3 granos, elige uno, y diseña un esquema estrella de 1 o 2 hechos y 3 a 5 dimensiones con llaves sustitutas y SCD, ligado a P1–P5”</td>
+</tr>
+<tr class="odd">
+<td><strong>Corrección hecha al verificar</strong></td>
+<td>La primera propuesta justificaba la SCD tipo 2 de <code>dim_estacion</code> con <strong>renombramientos</strong> de estaciones. Al consultar F1 se vio que la fuente reescribe el nombre vigente hacia atrás: <em>Zócalo/Tenochtitlan</em> aparece desde 2010. Esa justificación se <strong>descartó</strong>: la SCD 2 se basa en el estado de servicio y el nombre pasa a tipo 1</td>
+</tr>
+<tr class="even">
+<td><strong>Revisión del equipo</strong></td>
+<td>El DDL se ejecutó en BigQuery y se tomaron capturas del esquema de cada tabla. El 2 de octubre de 2026 el DDL se ejecutó sin errores al primer intento (6 sentencias, SUCCESS). El equipo revisó en la pestaña <em>Schema</em> de cada tabla que las llaves (<code>PK</code>, <code>FK</code>) y las descripciones coincidieran con el diagrama</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="participantes-y-stakeholders" class="level2">
-<h2 class="anchored" data-anchor-id="participantes-y-stakeholders">1.1 Participantes y stakeholders</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Nombre / Integrante</th>
-<th>Rol en el proyecto</th>
-<th>Cuadrante (Poder / Interés)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Ing. Jorge Maximino Torres Benítez</strong> - Subdirección de Planeación del Servicio, Dirección de Transportación, STC Metro <em>(rol simulado)</em></td>
-<td>Stakeholder principal / patrocinador. Decide refuerzo de trenes, intervalos y despliegue de personal de andén.</td>
-<td><strong>Alto poder / Alto interés</strong> - gestionar de cerca</td>
-</tr>
-<tr class="even">
-<td><strong>Humberto Antonio Ramírez Barajas</strong> - Coordinación de Datos Abiertos, SEMOVI <em>(rol simulado)</em></td>
-<td>Proveedor de datos. Publica y mantiene las bases de afluencia del Metro y Metrobús.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f2">2</a>]</sup></td>
-<td><strong>Alto poder / Bajo interés</strong> - mantener satisfecho</td>
-</tr>
-<tr class="odd">
-<td><strong>Aldair Coronel Ruiz</strong></td>
-<td>Analista / traductor técnico - condujo la entrevista</td>
-<td>Facilitador</td>
-</tr>
-<tr class="even">
-<td><strong>Fernando Bernal Martínez</strong></td>
-<td>Relator - levantó la bitácora y verificó fuentes</td>
-<td>Facilitador</td>
-</tr>
-<tr class="odd">
-<td><strong>Luis Alberto Hernández Aguilar / Tania Ramírez Plascencia</strong></td>
-<td>Exploración de datos y validación de factibilidad</td>
-<td>Facilitador</td>
-</tr>
-<tr class="even">
-<td>Personas usuarias del Metro y Metrobús</td>
-<td>Beneficiario final del proyecto. No participa en la sesión.</td>
-<td><strong>Bajo poder / Alto interés</strong> - mantener informado</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="contexto-y-objetivos-de-la-sesión" class="level2">
-<h2 class="anchored" data-anchor-id="contexto-y-objetivos-de-la-sesión">1.2 Contexto y objetivos de la sesión</h2>
-<p>El STC Metro moviliza del orden de <strong>mil cien millones de pasajeros al año</strong>; solo la Línea 2 (Cuatro Caminos-Taxqueña) registró <strong>212.2 millones de usuarios en 2024</strong>, un promedio de unos <strong>581 mil pasajeros diarios</strong>, y la estación Pantitlán -nodo de las líneas 1, 5, 9 y A- concentró <strong>41.5 millones de accesos anuales</strong>.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f5">5</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f6">6</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f7">7</a>]</sup> Sobre esa escala, la prensa documenta con regularidad episodios de saturación simultánea en varias líneas durante la hora pico matutina, con trenes llenos, avance lento en andén y retrasos<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f8">8</a>]</sup>, así como episodios acotados a una sola línea.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f9">9</a>]</sup></p>
-<p>La sesión se convocó para entender <strong>cómo vive el operador ese fenómeno</strong>, qué decisiones toma hoy sin apoyo de datos y qué significaría “éxito” desde su perspectiva, antes de comprometer cualquier objetivo técnico. El equipo llegó con una hipótesis previa (“predecir saturación por hora y en tiempo real”) que se puso deliberadamente a prueba durante la conversación.</p>
-</section>
-<section id="desarrollo-cronológico" class="level2">
-<h2 class="anchored" data-anchor-id="desarrollo-cronológico">1.3 Desarrollo cronológico</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Hora</th>
-<th>Bloque</th>
-<th>Puntos tratados</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>12:00-12:08</td>
-<td><strong>Apertura y alineación</strong></td>
-<td>Presentación del equipo y del curso. Se acuerda que el propósito de la sesión es <em>levantar el problema</em>, no proponer solución técnica. Se confirma que el alcance del semestre es un estudio con datos públicos, sin acceso a sistemas internos.</td>
-</tr>
-<tr class="even">
-<td>12:08-12:22</td>
-<td><strong>El problema en palabras del stakeholder</strong></td>
-<td>Descripción del fenómeno de saturación: dónde duele, cuándo, y por qué las medidas actuales llegan tarde. Distinción entre <em>afluencia</em> (entradas registradas) y <em>saturación</em> (condición de andén y tren).</td>
-</tr>
-<tr class="odd">
-<td>12:22-12:36</td>
-<td><strong>Decisiones que hoy se toman sin datos</strong></td>
-<td>Programación de trenes de refuerzo, apertura de accesos alternos, despliegue de personal y emisión de avisos. Ventana real de decisión y quién la ejecuta.</td>
-</tr>
-<tr class="even">
-<td>12:36-12:50</td>
-<td><strong>Factibilidad de datos</strong></td>
-<td>Revisión conjunta del portal de datos abiertos: cobertura, granularidad, periodicidad de actualización y licencia. <strong>Hallazgo crítico de la sesión:</strong> la base pública es diaria, no horaria.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>]</sup></td>
-</tr>
-<tr class="odd">
-<td>12:50-13:00</td>
-<td><strong>Cierre y compromisos</strong></td>
-<td>Reformulación del alcance a un horizonte de anticipación de 24 h. Definición del criterio de éxito y de los próximos pasos.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="preguntas-formuladas-y-respuestas-clave" class="level2">
-<h2 class="anchored" data-anchor-id="preguntas-formuladas-y-respuestas-clave">1.4 Preguntas formuladas y respuestas clave</h2>
-<div class="pregunta">
-<p>P1. ¿Cómo describiría el problema de saturación tal como lo vive el área, y no como lo cuenta la prensa?</p>
-</div>
-<div class="respuesta">
-<p>“El problema no es que haya mucha gente: eso ya lo sabemos, para eso está el sistema. El problema es que la aglomeración se concentra en un puñado de nodos y en franjas muy estrechas. Pantitlán sola movió más de 41 millones de accesos en 2024 y la Línea 2 más de 212 millones; cuando eso coincide con un incidente en otra línea, el andén se satura en minutos.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f6">6</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f7">7</a>]</sup> Y cuando la prensa reporta ‘caos en siete líneas en hora pico’, nosotros ya llevamos veinte minutos operando en emergencia.”<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f8">8</a>]</sup></p>
-</div>
-<div class="pregunta">
-<p>P2. ¿Qué decisiones toma hoy sin apoyo de datos, y con qué información las toma?</p>
-</div>
-<div class="respuesta">
-<p>“Trenes de refuerzo, intervalos, apertura de torniquetes adicionales y ubicación del personal de andén. Hoy eso se decide con la experiencia del jefe de estación y con reportes que llegan cuando la aglomeración ya existe. Es reacción, no anticipación. Lo que publicamos como dato abierto sirve para rendir cuentas y para planeación anual, pero se actualiza mensualmente<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup> - no es una herramienta de operación diaria.”</p>
-</div>
-<div class="pregunta">
-<p>P3. ¿Qué restricciones operativas debemos conocer antes de proponer algo?</p>
-</div>
-<div class="respuesta">
-<p>“Tres. Primera: el parque vehicular y el personal no son elásticos; un tren de refuerzo se programa la víspera, no en el momento. Segunda: no podemos entregar información interna de ocupación ni de conteo por hora; lo que hay disponible es lo que está en el portal. Tercera: la red no ha estado estable. La Línea 1 estuvo parcial o totalmente cerrada desde julio de 2022 y solo se reabrió completa hasta Observatorio el 16 de noviembre de 2025, más de tres años después.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f10">10</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f11">11</a>]</sup> Cualquier análisis histórico que ignore eso va a estar leyendo obras como si fueran comportamiento de la gente.”</p>
-</div>
-<div class="pregunta">
-<p>P4. ¿Qué datos existen realmente, con qué cobertura y con qué granularidad?</p>
-</div>
-<div class="respuesta">
-<p>“La base de <em>Afluencia diaria del Metro</em> la publica SEMOVI en el portal de datos abiertos con licencia CC-BY-4.0. Cubre desde enero de 2010, se actualiza mensualmente y sus campos son <code>fecha, anio, mes, linea, estacion, afluencia</code>. Existe además una versión desglosada por medio de acceso -tarjeta, boleto y gratuidad- a partir del Plan de Apertura de 2022.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>]</sup> Metrobús tiene su equivalente, con datos desde julio de 2005, y desde enero de 2022 las actualizaciones se reflejan únicamente en la base desglosada.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f2">2</a>]</sup> Hay también una base preliminar de afluencia en transporte público.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f4">4</a>]</sup> <strong>Lo que no existe públicamente es el desglose por hora</strong>: solo se publicó durante la emergencia de COVID-19, y como índices, no como conteo por estación.”<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f12">12</a>]</sup></p>
-</div>
-<div class="pregunta">
-<p>P5. Entonces, ¿el objetivo de “predecir la hora pico en tiempo real” es viable con estos datos?</p>
-</div>
-<div class="respuesta">
-<p>“No con lo que está publicado, y prefiero decirlo ahora a decirlo en diciembre. Pero les voy a dar la vuelta: <strong>a mí el tiempo real me sirve menos de lo que ustedes creen</strong>, porque las palancas que puedo mover -refuerzo, personal, avisos- se programan la noche anterior. Si ustedes me dicen con 24 horas de anticipación ‘mañana estas ocho estaciones van a estar por encima de su nivel normal’, eso sí lo puedo accionar. El tiempo real, sin trenes disponibles, solo me sirve para confirmar el problema.”</p>
-</div>
-<div class="pregunta">
-<p>P6. ¿Qué significaría “éxito” para usted, en sus términos?</p>
-</div>
-<div class="respuesta">
-<p>“Que dejemos de enterarnos por Twitter. Concretamente: que la mayoría de los días de alta demanda estén identificados <em>antes</em> de que empiece el servicio, que el aviso llegue con una alternativa concreta -‘si va a Pantitlán, considere esta línea de Metrobús’- y que podamos medir en cuántos de esos días efectivamente se reforzó el servicio. No necesito un modelo perfecto: necesito uno en el que se pueda confiar lo suficiente como para mover trenes.”</p>
-</div>
-<div class="pregunta">
-<p>P7. ¿Hay algo que debamos evitar hacer?</p>
-</div>
-<div class="respuesta">
-<p>“Dos cosas. No confundan afluencia con ocupación: el torniquete cuenta entradas, no cuántas personas van paradas en el vagón ni dónde se bajan. Y no se metan a raspar datos de aplicaciones de tráfico. Waze no tiene una API pública abierta; comparte un <em>feed</em> con gobiernos dentro del programa Waze for Cities y bajo términos que impiden republicar esos datos.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f13">13</a>]</sup> Si alguna vez lo necesitan, se tramita institucionalmente.”</p>
-</div>
-<div class="pregunta">
-<p>P8. ¿Cuál es la fecha o el hito crítico?</p>
-</div>
-<div class="respuesta">
-<p>“Para ustedes, el semestre. Para nosotros, cualquier ventana de alta demanda previsible: regreso a clases, periodos vacacionales, quincenas, eventos masivos. Un piloto de tres meses sobre las líneas de mayor afluencia sería suficiente para saber si esto sirve.”</p>
-</div>
-<div class="caja caja-aviso">
-<p><span class="etiqueta">Nota de honestidad metodológica</span> Las respuestas <strong>P5, P6 y P8</strong> son el componente propiamente simulado del ejercicio: expresan una postura del rol, no un hecho documentado, y por eso no llevan superíndice de fuente. Lo que sí está respaldado son las restricciones materiales sobre las que se apoyan (la granularidad diaria de la base<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f12">12</a>]</sup> y la inestabilidad de la red durante el periodo histórico<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f10">10</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f11">11</a>]</sup>). El equipo distingue explícitamente ambos planos en lugar de presentar la simulación como evidencia.</p>
-</div>
-</section>
-<section id="decisiones-y-acuerdos" class="level2">
-<h2 class="anchored" data-anchor-id="decisiones-y-acuerdos">1.5 Decisiones y acuerdos</h2>
-<ul>
-<li><strong>Alcance acordado.</strong> Anticipación con <strong>24 horas</strong> de antelación de días de <em>alta demanda</em> a nivel <strong>línea-estación</strong>, más detección de días atípicos. Se descarta explícitamente el pronóstico intradía por inexistencia de datos horarios públicos.</li>
-<li><strong>Unidad de análisis.</strong> El par <code>(fecha, línea, estación)</code> con la variable <code>afluencia</code> de la base simple; la base desglosada se reserva para explicar cambios de composición (tarjeta / boleto / gratuidad) a partir de 2022.</li>
-<li><strong>Métrica primaria de negocio.</strong> Proporción de días-estación de alta demanda anticipados a más tardar a las 20:00 h de la víspera, dentro de la ventana en que puede programarse refuerzo (ver <a href="../../entregas/E0_comprension_negocio/criterio_exito.html">Criterio de éxito</a>).</li>
-<li><strong>Definición operativa de “saturación”.</strong> Se adopta un <em>proxy</em> declarado: afluencia diaria de una estación que supera de forma significativa su nivel esperado para ese día de la semana y periodo del año. Se documenta que <strong>no equivale a ocupación del tren</strong>.</li>
-<li><strong>Fuera de alcance para todo el proyecto.</strong> Datos de Waze o de cualquier proveedor sin API abierta; cualquier forma de <em>scraping</em> de plataformas que lo prohíben.<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f13">13</a>]</sup></li>
-<li><strong>Alcance del piloto.</strong> Tres líneas de mayor afluencia y una ventana de tres meses, evaluada por simulación retrospectiva sobre la base pública.</li>
-</ul>
-</section>
-<section id="pendientes-y-próximos-pasos" class="level2">
-<h2 class="anchored" data-anchor-id="pendientes-y-próximos-pasos">1.6 Pendientes y próximos pasos</h2>
+<section id="uso-4---consultas-del-datamart" class="level3">
+<h3 class="anchored" data-anchor-id="uso-4---consultas-del-datamart">Uso 4 - Consultas del DataMart</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
+<col style="width: 43%">
+<col style="width: 56%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Acción / entregable</th>
-<th>Fecha límite</th>
+<th>Campo</th>
+<th>Detalle</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Descargar y congelar un <em>snapshot</em> fechado de las bases de afluencia de Metro y Metrobús, con registro del hash y de la fecha de descarga</td>
-<td>11 de septiembre, 2026</td>
+<td><strong>Herramienta</strong></td>
+<td>Claude (Anthropic) - modelo: Opus 5.5</td>
 </tr>
 <tr class="even">
-<td>Publicar el sitio Quarto con las páginas de E0 y la URL en el <code>README.md</code></td>
-<td>11 de septiembre, 2026</td>
+<td><strong>Fecha</strong></td>
+<td>1 de octubre de 2026</td>
 </tr>
 <tr class="odd">
-<td>Construir el calendario de eventos (cierres de línea, festivos, periodos vacacionales, sismos, eventos masivos) para explicar anomalías en E1</td>
-<td>Entrega E1</td>
+<td><strong>Tarea</strong></td>
+<td>Redactar una vista por pregunta con operadores OLAP (ROLLUP, CUBE, GROUPING SETS, PIVOT, ventanas)</td>
 </tr>
 <tr class="even">
-<td>Validar con el stakeholder la definición <em>proxy</em> de saturación y el umbral de “alta demanda”</td>
-<td>Entrega E1</td>
+<td><strong>Prompt (resumen fiel)</strong></td>
+<td>“Escribe una consulta del DataMart por pregunta de E0, válida en BigQuery, con al menos una que use ROLLUP o funciones de ventana”</td>
+</tr>
+<tr class="odd">
+<td><strong>Revisión del equipo</strong></td>
+<td>Cada vista se creó en <code>metro_mart</code>. Que BigQuery acepte el <code>CREATE VIEW</code> es la prueba de validez sintáctica y semántica. El 2 de octubre de 2026 las 7 vistas se crearon sin errores al primer intento (7 sentencias, SUCCESS). Además, el equipo ejecutó directamente el cuerpo de <code>v_p5_absorcion_cierre_l1</code>: corrió sin error y devolvió 0 filas, como se espera mientras el DW esté vacío</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="reflexión-del-equipo-qué-cambió-tras-la-entrevista" class="level2">
-<h2 class="anchored" data-anchor-id="reflexión-del-equipo-qué-cambió-tras-la-entrevista">1.6 Reflexión del equipo: qué cambió tras la entrevista</h2>
-<div class="caja caja-clave">
-<p><strong>1. El problema no era el que traíamos.</strong> Llegamos con la idea de “predecir saturación en tiempo real por hora”. Salimos con algo distinto y más honesto: la fuente pública es <strong>diaria</strong><sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f3">3</a>]</sup>, de modo que el objetivo original no era alcanzable. Detectarlo en E0 (y no en la fase de modelado) es probablemente el resultado más valioso de esta entrega.</p>
-<p><strong>2. El tiempo real era una preferencia nuestra, no una necesidad del operador.</strong> El hallazgo que reordenó todo el proyecto fue que las palancas del stakeholder (refuerzo de trenes, personal, avisos) se programan la víspera. Una alerta a 24 horas es <em>más</em> accionable que una alerta instantánea, porque coincide con la ventana en que él puede decidir. La restricción de datos y la necesidad real terminaron apuntando al mismo lugar.</p>
-<p><strong>3. “Saturación” y “afluencia” no son lo mismo.</strong> El torniquete cuenta entradas; no mide ocupación del vagón ni destinos. Esto nos obliga a declarar un <em>proxy</em> explícito y a no prometer lo que el dato no puede sostener. Es también la razón por la que el criterio de éxito se formuló sobre <em>anticipación</em> y no sobre <em>reducción de aglomeración</em>: lo segundo no podríamos medirlo.</p>
-<p><strong>4. La historia de la red está dentro de los datos.</strong> El cierre y la modernización de la Línea 1 entre julio de 2022 y noviembre de 2025<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f10">10</a>][<a href="../../entregas/E0_comprension_negocio/fuentes.html#f11">11</a>]</sup> deja ceros estructurales y demanda desplazada. Antes de la entrevista lo habríamos leído como estacionalidad; ahora es una variable de control obligatoria.</p>
-<p><strong>5. Aprendimos a leer el aviso legal del portal.</strong> La advertencia de que los conjuntos “pueden incluir actualizaciones retroactivas, por lo que la información histórica puede cambiar”<sup class="f">[<a href="../../entregas/E0_comprension_negocio/fuentes.html#f1">1</a>]</sup> convierte la reproducibilidad en un requisito de diseño, no en una buena intención.</p>
-</div>
+<section id="uso-5---redacción-de-las-páginas-del-sitio" class="level3">
+<h3 class="anchored" data-anchor-id="uso-5---redacción-de-las-páginas-del-sitio">Uso 5 - Redacción de las páginas del sitio</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Herramienta</strong></td>
+<td>Claude (Anthropic) - modelo: Opus 5.5</td>
+</tr>
+<tr class="even">
+<td><strong>Fecha</strong></td>
+<td>1 de octubre de 2026</td>
+</tr>
+<tr class="odd">
+<td><strong>Tarea</strong></td>
+<td>Borrador de <code>fuentes.qmd</code>, <code>arquitectura.qmd</code>, <code>estrella.qmd</code>, <code>trazabilidad.qmd</code> y esta página</td>
+</tr>
+<tr class="even">
+<td><strong>Revisión del equipo</strong></td>
+<td>Revisión de fuentes.qmd Fernando Bernal, Revisión de arquitectura.qmd Tania Rámirez, Revisión de estrella.qmd Aldair Coronel, Revisión de trazabilidad.qmd Luis Hernández</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="uso-6---revisión-de-arquitectura-y-legibilidad-del-diagrama" class="level3">
+<h3 class="anchored" data-anchor-id="uso-6---revisión-de-arquitectura-y-legibilidad-del-diagrama">Uso 6 - Revisión de arquitectura y legibilidad del diagrama</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Herramienta</strong></td>
+<td>Codex (OpenAI), agente basado en GPT-6</td>
+</tr>
+<tr class="even">
+<td><strong>Fecha</strong></td>
+<td>5 de octubre de 2026</td>
+</tr>
+<tr class="odd">
+<td><strong>Tarea</strong></td>
+<td>Apoyar la revisión de <code>arquitectura.qmd</code>, mejorar el contraste del diagrama</td>
+</tr>
+<tr class="even">
+<td><strong>Prompt (resumen fiel)</strong></td>
+<td>«Revisa arquitectura.qmd para E1, ajusta los colores del diagrama que no se ve bien, y registra el uso de IA en uso_ia.qmd». Se proporcionó una captura</td>
+</tr>
+<tr class="odd">
+<td><strong>Material contrastado</strong></td>
+<td>Referencias a capturas y configuración de publicación de Quarto del repositorio local</td>
+</tr>
+<tr class="even">
+<td><strong>Qué se corrigió</strong></td>
+<td>Paleta explícita de Mermaid con fondos claros, texto oscuro y colores por capa</td>
+</tr>
+<tr class="odd">
+<td><strong>Revisión del equipo</strong></td>
+<td>Se revisó el contenido, redacción y presentación de la página, se aseguró que el diagrama sea legible.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="qué-hizo-la-herramienta-en-los-usos-16-y-qué-no" class="level2">
+<h2 class="anchored" data-anchor-id="qué-hizo-la-herramienta-en-los-usos-16-y-qué-no">Qué hizo la herramienta en los usos 1–6 y qué no</h2>
+<ul>
+<li><strong>Sí</strong> consultó directamente las fuentes por sus APIs públicas y reportó cifras verificables.</li>
+<li><strong>Sí</strong> generó una guía interna paso a paso para ejecutar los scripts en BigQuery (esquemas de carga, orden de ejecución y capturas a tomar). El equipo la siguió para hacer la implementación y la retiró del repositorio al terminar, por ser un documento de trabajo y no un entregable.</li>
+<li><strong>No</strong> creó datasets, no cargó tablas ni ejecutó SQL en BigQuery. No tuvo acceso al proyecto de Google Cloud del equipo, y ninguna credencial se compartió con ella.</li>
+<li><strong>No</strong> hizo commits ni publicó el sitio.</li>
+</ul>
 
 
 </section>
@@ -987,14 +1000,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../index.html" class="pagination-link" aria-label="Inicio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Inicio</span>
+      <a href="../../entregas/E1_arquitectura_dw/trazabilidad.html" class="pagination-link" aria-label="4. Matriz de trazabilidad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. Matriz de trazabilidad</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../entregas/E0_comprension_negocio/canvas.html" class="pagination-link" aria-label="2. Business Understanding Canvas (CRISP-DM)">
-        <span class="nav-page-text">2. Business Understanding Canvas (CRISP-DM)</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
