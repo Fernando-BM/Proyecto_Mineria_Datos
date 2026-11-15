@@ -1,0 +1,8 @@
+causa_probable,estacion_dias_anomalos,anomalias_altas,anomalias_bajas,proporcion
+TOTAL,70209,25943.0,44266.0,1.0
+sin_causa_atribuida,53811,24945.0,28866.0,0.7664
+festivo_o_semana_santa,14076,198.0,13878.0,0.2005
+evento_masivo,1139,357.0,782.0,0.0162
+lluvia_fuerte,644,350.0,294.0,0.0092
+cierre_puntual,273,0.0,273.0,0.0039
+sismo,266,93.0,173.0,0.0038

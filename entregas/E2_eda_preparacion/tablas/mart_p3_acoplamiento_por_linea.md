@@ -1,0 +1,14 @@
+| linea_metro | dias | bruta_min | bruta_max | metrobus_mas_acoplada | sin_ciclo_max | metrobus_menos_acoplada | sin_ciclo_min |
+|---|---|---|---|---|---|---|---|
+| Metro Línea 1 | 433 | 0.601 | 0.868 | Metrobús Línea 2 | 0.608 | Metrobús Línea 4 | 0.117 |
+| Metro Línea 12 | 895 | 0.508 | 0.939 | Metrobús Línea 2 | 0.709 | Metrobús Línea 4 | 0.177 |
+| Metro Línea 2 | 1,495 | 0.745 | 0.897 | Metrobús Línea 2 | 0.680 | Metrobús Línea 4 | 0.318 |
+| Metro Línea 3 | 1,630 | 0.701 | 0.932 | Metrobús Línea 2 | 0.779 | Metrobús Línea 4 | 0.211 |
+| Metro Línea 4 | 1,630 | 0.713 | 0.824 | Metrobús Línea 2 | 0.652 | Metrobús Línea 4 | 0.228 |
+| Metro Línea 5 | 1,630 | 0.693 | 0.920 | Metrobús Línea 2 | 0.716 | Metrobús Línea 4 | 0.178 |
+| Metro Línea 6 | 1,630 | 0.677 | 0.947 | Metrobús Línea 2 | 0.766 | Metrobús Línea 4 | 0.227 |
+| Metro Línea 7 | 1,495 | 0.634 | 0.963 | Metrobús Línea 2 | 0.724 | Metrobús Línea 4 | 0.200 |
+| Metro Línea 8 | 1,630 | 0.779 | 0.903 | Metrobús Línea 2 | 0.704 | Metrobús Línea 4 | 0.195 |
+| Metro Línea 9 | 1,369 | 0.757 | 0.927 | Metrobús Línea 2 | 0.709 | Metrobús Línea 4 | 0.243 |
+| Metro Línea A | 1,630 | 0.652 | 0.898 | Metrobús Línea 2 | 0.689 | Metrobús Línea 4 | 0.223 |
+| Metro Línea B | 1,630 | 0.763 | 0.888 | Metrobús Línea 2 | 0.670 | Metrobús Línea 4 | 0.222 |

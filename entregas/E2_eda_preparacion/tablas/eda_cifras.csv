@@ -1,0 +1,27 @@
+cifra,valor
+filas dataset analítico,1180920
+variables dataset analítico,13
+días,6056
+estaciones-línea por día,195
+primera fecha,2010-01-01
+última fecha,2026-07-31
+ceros Metro,62025
+porcentaje de ceros Metro,0.0525226094909054
+llave natural duplicada (filas extra),31
+NaN Metrobús,17227
+días con la red < 10 % de su nivel habitual,"2016-03-16, 2016-03-17, 2017-09-20, 2017-09-21, 2017-09-22, 2017-09-23, 2017-09-24, 2017-09-25, 2017-09-26, 2017-09-27"
+días con 0 en las 195 estaciones,8
+Gini lluvia 2010-2026 (días),0.7715796846915013
+top 10 % días lluvia,0.5636510948825726
+días sin lluvia (%),0.4247027741083223
+H normalizada perfil semanal: mínima,0.9616846411086822
+máxima,0.9987231932283284
+mediana,0.9891639570955728
+correlación Spearman H vs media diaria,-0.05155407802253343
+cociente vs base: mediana,1.0128581077408265
+P90,1.1813600788819747
+P95,1.2605321630680884
+P99,1.5341316222914279
+% estación-días > 1.2 x base (2022+),0.08427355502771179
+Spearman lluvia vs cociente,-0.061673011419044806
+p-valor,3.453705830854886e-253

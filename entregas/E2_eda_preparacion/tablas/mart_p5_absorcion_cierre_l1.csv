@@ -1,0 +1,40 @@
+sistema,linea,periodo,afluencia_media_diaria,linea_dias
+Metro,Metro Línea 1,1_antes_del_cierre,425939.0,191
+Metro,Metro Línea 1,2_durante_el_cierre,209771.0,1224
+Metro,Metro Línea 1,3_despues_de_reabrir,450337.0,258
+Metro,Metro Línea 12,1_antes_del_cierre,0.0,191
+Metro,Metro Línea 12,2_durante_el_cierre,207722.0,1224
+Metro,Metro Línea 12,3_despues_de_reabrir,328607.0,258
+Metro,Metro Línea 2,1_antes_del_cierre,438869.0,191
+Metro,Metro Línea 2,2_durante_el_cierre,567104.0,1224
+Metro,Metro Línea 2,3_despues_de_reabrir,525250.0,258
+Metro,TODAS,1_antes_del_cierre,226881.0,2292
+Metro,TODAS,2_durante_el_cierre,264581.0,14688
+Metro,TODAS,3_despues_de_reabrir,285194.0,3096
+Metrobús,Metrobús Línea 1,1_antes_del_cierre,301627.0,191
+Metrobús,Metrobús Línea 1,2_durante_el_cierre,398758.0,1224
+Metrobús,Metrobús Línea 1,3_despues_de_reabrir,412221.0,258
+Metrobús,Metrobús Línea 2,1_antes_del_cierre,146994.0,191
+Metrobús,Metrobús Línea 2,2_durante_el_cierre,197907.0,1224
+Metrobús,Metrobús Línea 2,3_despues_de_reabrir,183355.0,258
+Metrobús,Metrobús Línea 3,1_antes_del_cierre,122491.0,191
+Metrobús,Metrobús Línea 3,2_durante_el_cierre,162598.0,1224
+Metrobús,Metrobús Línea 3,3_despues_de_reabrir,166817.0,258
+Metrobús,Metrobús Línea 4,1_antes_del_cierre,73404.0,191
+Metrobús,Metrobús Línea 4,2_durante_el_cierre,97628.0,1224
+Metrobús,Metrobús Línea 4,3_despues_de_reabrir,77878.0,258
+Metrobús,Metrobús Línea 5,1_antes_del_cierre,187727.0,191
+Metrobús,Metrobús Línea 5,2_durante_el_cierre,231731.0,1224
+Metrobús,Metrobús Línea 5,3_despues_de_reabrir,235993.0,258
+Metrobús,Metrobús Línea 6,1_antes_del_cierre,138162.0,191
+Metrobús,Metrobús Línea 6,2_durante_el_cierre,172688.0,1224
+Metrobús,Metrobús Línea 6,3_despues_de_reabrir,176273.0,258
+Metrobús,Metrobús Línea 7,1_antes_del_cierre,123188.0,191
+Metrobús,Metrobús Línea 7,2_durante_el_cierre,135282.0,1224
+Metrobús,Metrobús Línea 7,3_despues_de_reabrir,109604.0,258
+Metrobús,TODAS,1_antes_del_cierre,156228.0,1337
+Metrobús,TODAS,2_durante_el_cierre,199513.0,8568
+Metrobús,TODAS,3_despues_de_reabrir,194592.0,1806
+TODOS,TODAS,1_antes_del_cierre,200851.0,3629
+TODOS,TODAS,2_durante_el_cierre,240609.0,23256
+TODOS,TODAS,3_despues_de_reabrir,251814.0,4902

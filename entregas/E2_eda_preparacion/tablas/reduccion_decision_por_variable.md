@@ -1,0 +1,36 @@
+| variable | tipo | técnica(s) | decisión | justificación |
+|---|---|---|---|---|
+| fecha | fecha | — | Conservar (llave) | Llave temporal del grano; de ella se derivan las variables de calendario. |
+| anio | numérica discreta | correlación | Conservar | ρ(anio, afluencia) = 0.02; no es redundante con ninguna otra y marca el régimen posterior a la pandemia (riesgo R5). |
+| mes | categórica ordinal | χ² + correlación | Conservar | V = 0.154: única variable que pasa los dos umbrales (p ajustada < 0.01 y V ≥ 0.1). ρ(mes, semana_iso) = 0.97: de la pareja se queda mes, más interpretable. |
+| semana_iso | numérica discreta | correlación | Descartar | ρ(mes, semana_iso) = 0.97 ≥ 0.9: redundante con mes. |
+| dia (del mes) | numérica discreta | correlación | Transformar | ρ(dia, cociente) = 0.018 con el cociente contra la base: sin relación útil como número; su único efecto esperado (pago de quincena) ya está en es_dia_quincena. |
+| nombre_mes, nombre_dia | texto | no aplica (etiqueta) | Conservar en el DW (descriptiva) | Etiquetas para reportes; repiten mes y dia_semana_num, no entran al modelo. |
+| dia_semana_num | categórica (7) | χ² + PCA del perfil | Conservar (dominio) | V = 0.089 < 0.1, pero la etiqueta ya compara contra el mismo día de la semana, así que su efecto queda absorbido por construcción. Es el eje de la línea base, de P1 y del perfil semanal de P3. |
+| es_fin_de_semana | binaria | χ² | Combinar | V = 0.036; se deriva de dia_semana_num sin pérdida. |
+| es_dia_quincena | binaria | χ² | Conservar (dominio) | V = 0.029; efecto pequeño, pero la quincena es variable de calendario pedida en P2 desde E0. |
+| es_festivo_oficial, nombre_festivo | binaria / texto | χ² | Conservar (dominio) | V = 0.034; poco frecuente (119 días), pero es la causa que más anomalías explica en P4. |
+| es_semana_santa | binaria | χ² | Conservar (dominio) | V = 0.022; causa conocida de caídas de demanda (P4). |
+| evento_masivo | categórica (6) | χ² | Conservar (dominio) | V = 0.019; nueva en E2 por la retroalimentación de E1; explica cierres puntuales y picos (P4). |
+| es_dia_sismo, sismo_magnitud_max | binaria / numérica | χ² + correlación | Descartar como predictor; conservar en el DW | χ² no significativo (p ajustada = 1.00, V = 0.003) y ρ(sismo_magnitud_max, cociente) = -0.017: un sismo no cambia la demanda del día. Se queda en dim_fecha como causa candidata de P4 (retroalimentación de E1). |
+| es_dia_sin_medicion | binaria | no aplica (filtro) | Conservar en el DW | Marca los 10 días sin conteo; dentro del dataset analítico vale siempre falso. |
+| linea_codigo | categórica (12) | χ² | Conservar (dominio) | V = 0.046; es la dimensión de P1, P3 y P5. |
+| estacion_nk, nombre_oficial, nombre_en_fuente, gtfs_stop_id | identificadores | no aplica (llave) | Conservar (llave / descriptiva) | Identifican la unidad de análisis; no son predictores. |
+| sistema, nombre_linea, terminales, color_hex, gtfs_route_id | texto (dim_linea) | no aplica (etiqueta) | Conservar en el DW (descriptiva) | Atributos de la línea para reportes y para cruzar Metro con Metrobús (P3, P5); no son predictores. |
+| llaves sustitutas y metadatos (fecha_key, estacion_key, vigencias, es_version_vigente, fecha_descarga) | llaves | no aplica | Conservar en el DW | Estructura del esquema estrella y de la SCD tipo 2; no son variables de análisis. |
+| latitud, longitud | numéricas | correlación | Conservar | ρ(latitud, afluencia) = -0.14; no son redundantes y dan la cercanía Metro ↔ Metrobús de P3. |
+| es_correspondencia | binaria | χ² | Combinar | V = 0.017; es un atributo fijo de cada estación, así que en un modelo por estación ya está implícito. Se queda en dim_estacion para describir P1 y P3. |
+| estado_servicio | categórica (3) | no aplica (filtro) | Conservar en el DW | Decide qué días entran al entrenamiento (solo 'operando', riesgo R3); dentro del dataset es constante. |
+| precipitacion_mm | numérica | correlación + PCA | Conservar (dominio) | ρ(precipitacion_mm, cociente) = -0.029: relación débil (Fig. 10, resultado negativo), pero es la hipótesis de clima de P2 y una causa candidata de P4; E3 medirá si aporta. |
+| lluvia_mm | numérica | correlación + PCA | Descartar | ρ(precipitacion_mm, lluvia_mm) = 1.00: idéntica a la precipitación los 6,056 días (CP4 del PCA con varianza 0). Se quita también del DW. |
+| categoria_lluvia | categórica (4) | χ² | Conservar (dominio) | V = 0.048; versión discreta de la precipitación para atribuir anomalías en P4. |
+| temp_max_c, temp_min_c | numéricas | χ² (cuartiles) + correlación + PCA | Descartar como predictor; conservar en el DW | V = 0.026, ρ(temp_max_c, cociente) = 0.057 y ρ(temp_min_c, cociente) = -0.026: efecto mínimo y ninguna pregunta de E0 lo pide. No son redundantes entre sí (ρ(temp_max_c, temp_min_c) = 0.26), por eso quedan en dim_clima como contexto de los días anómalos (P4). |
+| afluencia | numérica (objetivo) | — | Conservar (medida) | Medida del hecho y objetivo de la regresión de P2. |
+| afluencia_t_menos_1 | numérica | correlación | Conservar | ρ(t-1 / base, cociente) = 0.288; es el dato más reciente disponible a las 20:00 h de la víspera. ρ(afluencia_t_menos_1, base_ingenua_4sem) = 0.86 < 0.9: no es redundante con la base. |
+| afluencia_t_menos_7 | numérica | correlación | Combinar | ρ(afluencia_t_menos_7, base_ingenua_4sem) = 0.97 ≥ 0.9: redundante; ya es uno de los 4 valores que promedia la base. |
+| base_ingenua_4sem | numérica | correlación | Conservar | Línea base obligatoria del criterio de éxito de E0; define la etiqueta de alta demanda. |
+| es_alta_demanda | binaria (objetivo) | — | Conservar (objetivo) | Etiqueta de la clasificación de P2 (umbral 1.2 × base, Fig. 13). |
+| es_registro_cero | binaria | no aplica (medida no aditiva) | Conservar en el DW | Separa cierres de un día (P4). |
+| es_atipico | binaria | χ² | Descartar como predictor (fuga); conservar en el DW | V = 0.051. Se calcula con semanas posteriores al día (ventana centrada): usarla para pronosticar filtraría el futuro. En el DW sirve para describir P4. |
+| perfil semanal (7 participaciones por estación) | numéricas derivadas | PCA | Conservar originales | CP1 explica 81% (entre semana vs. fin de semana) y CP1+CP2 93%; 2 componentes alcanzan 90%. Para el clustering de P3 (E3) se probarán las 7 participaciones y las 2 componentes. |
+| clima (4 numéricas) | numéricas | PCA | Conservar originales | 2 componentes alcanzan 90%; al quitar lluvia_mm quedan 3 variables, así que las componentes no ahorran casi nada y se pierde la interpretación. |

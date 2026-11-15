@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"        # solo páginas .qmd: las tablas .md de E2 se incluyen, no son páginas
 
 website:
   title: "Proyecto Integrador - Almacenes y Minería de Datos"
@@ -46,6 +48,23 @@ website:
           - text: "---"
           - text: "5. Uso de herramientas de IA"
             href: entregas/E1_arquitectura_dw/uso_ia.qmd
+      - text: "E2 - EDA y Preparación"
+        menu:
+          - text: "1. Análisis exploratorio (EDA)"
+            href: entregas/E2_eda_preparacion/eda.qmd
+          - text: "2. Preparación de los datos"
+            href: entregas/E2_eda_preparacion/preparacion.qmd
+          - text: "3. Pipeline y DW poblado"
+            href: entregas/E2_eda_preparacion/pipeline.qmd
+          - text: "4. Decisiones (no técnico)"
+            href: entregas/E2_eda_preparacion/decisiones.qmd
+          - text: "5. Matriz de trazabilidad"
+            href: entregas/E2_eda_preparacion/trazabilidad.qmd
+          - text: "6. Ajustes a E1 (E1 v2)"
+            href: entregas/E2_eda_preparacion/ajustes.qmd
+          - text: "---"
+          - text: "7. Uso de herramientas de IA"
+            href: entregas/E2_eda_preparacion/uso_ia.qmd
 
   sidebar:
     style: "docked"
@@ -69,6 +88,15 @@ website:
           - entregas/E1_arquitectura_dw/estrella.qmd
           - entregas/E1_arquitectura_dw/trazabilidad.qmd
           - entregas/E1_arquitectura_dw/uso_ia.qmd
+      - section: "E2 - EDA y Preparación"
+        contents:
+          - entregas/E2_eda_preparacion/eda.qmd
+          - entregas/E2_eda_preparacion/preparacion.qmd
+          - entregas/E2_eda_preparacion/pipeline.qmd
+          - entregas/E2_eda_preparacion/decisiones.qmd
+          - entregas/E2_eda_preparacion/trazabilidad.qmd
+          - entregas/E2_eda_preparacion/ajustes.qmd
+          - entregas/E2_eda_preparacion/uso_ia.qmd
 
   page-footer:
     background: light

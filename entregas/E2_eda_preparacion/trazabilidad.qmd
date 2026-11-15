@@ -1,0 +1,53 @@
+---
+title: "5. Matriz de trazabilidad (extendida en E2)"
+subtitle: "Entrega E2 - EDA y Preparación de Datos"
+---
+
+La matriz de [E1](../E1_arquitectura_dw/trazabilidad.qmd) se extiende con lo que aprendimos en E2. La verificación sigue en los dos sentidos: cada pregunta tiene un estado respaldado por evidencia (5.1) y cada variable conservada responde a una pregunta (5.2).
+
+## 5.1 Pregunta → variables → hallazgo → decisión → estado
+
+| Pregunta | Variables y métrica | Hallazgo del EDA | Decisión de preparación | Estado actualizado |
+|----------|---------------------|------------------|-------------------------|--------------------|
+| **P1** (E0): ¿qué combinaciones de línea, estación y día de la semana concentran los picos y qué tan lejos están de su base? | `afluencia`; `dim_estacion`, `dim_linea`, `dim_fecha.dia_semana_num` | **H1:** concentración moderada y estable (Gini 0.377, top 10 % = 28.6 %, Fig. 5). **H5:** domingo = 51 % de un día laboral (Fig. 12) | Conservar atípicos (picos legítimos); umbral relativo a cada estación (1.20 × base, Fig. 13); ROLLUP y ventanas ejecutados con resultados | **Cubierta** |
+| **P2** (E0): ¿se puede anticipar con 24 h la afluencia diaria por estación y clasificar los días de alta demanda? | `afluencia`, `afluencia_t_menos_1`, `base_ingenua_4sem`, `mes`, `dia_semana_num`, festivos, quincena, `precipitacion_mm`; etiqueta `es_alta_demanda` | **H2:** 10 días sin medición disfrazados de cero. **H3:** la lluvia casi no influye (ρ = −0.06). **H4:** régimen nuevo tras la pandemia (−30 %). La alta demanda es el 8.4 % de los días y se concentra en los regresos de vacaciones (enero 19 %) | NULL en días sin medición; entrenar solo con `operando` desde 2022; transformaciones ajustadas solo con entrenamiento; `es_atipico` fuera del modelo por fuga; vara de comparación: WAPE de la base ingenua = 10.7 % | **Cubierta**, con una limitación: falta un calendario escolar diario (ninguna fuente abierta lo trae) |
+| **P3** (ajustada en E1): ¿cuántos perfiles de demanda hay y qué **líneas** de Metrobús funcionan como alternativa? | Participación por día de la semana (PIVOT), `latitud`, `longitud`, `afluencia` del Metrobús | **H5:** perfiles de trabajo vs. paseo (entropía 0.962 a 0.999; CP1 del PCA = 81 %). La correlación de niveles (0.5-0.96) no distingue alternativas; la correlación sin ciclo sí: Metrobús L4 es la menos acoplada a todas las líneas del Metro (0.12-0.32) y L2 la más acoplada (0.61-0.78) | Conservar las 7 participaciones y probar también 2 componentes en E3; coordenadas completas con la tabla de equivalencias (195/195); nueva columna `correlacion_sin_ciclo` en la vista (ajuste por la retroalimentación de E1) | **Parcial.** Perfiles listos y una alternativa con evidencia (Metrobús L4, sobre todo para la L1). Para las demás líneas falta cruzar la cercanía geográfica en E3 |
+| **P4** (E0): ¿qué días son anomalías y qué proporción se explica por eventos identificables? | `es_atipico`, `es_registro_cero`, `es_festivo_oficial`, `es_semana_santa`, **`evento_masivo`**, **`es_dia_sismo`**, `categoria_lluvia`, `estado_servicio` | **H6:** marchas y peregrinaciones en fechas fijas. DataMart: 70,209 anomalías; 20 % por festivos, 1.6 % por eventos, 0.9 % por lluvia, 0.4 % por sismos; **77 % sin causa** | Nuevas fuentes por la retroalimentación de E1: sismos (F6) y calendario de eventos; conservar todos los atípicos con marca | **Parcial**, ahora cuantificada: falta una fuente abierta de manifestaciones no recurrentes y de vacaciones escolares |
+| **P5** (E0, reserva): ¿el Metrobús absorbe demanda cuando una línea del Metro suspende servicio? | `afluencia` de ambos hechos por línea y periodo (CUBE) | La pandemia sesgaba la comparación (ajuste: el periodo de referencia empieza en 2022). Contra el control (10 líneas del Metro abiertas, +20.1 % durante el cierre), Metrobús L4 queda +12.9 pp durante y −16.1 pp al reabrir; L2, +14.6 y −3.2 pp; las demás siguen creciendo al reabrir | Excluir el Metrobús anterior a 2010 y los días previos a cada inauguración; un dato imposible a NULL; nueva vista con grupo de control | **Cubierta con una limitación:** hay absorción medible en Metrobús L4 (y parcial en L2); la estacionalidad del periodo de referencia (solo un semestre) no se corrige del todo |
+
+## 5.2 Verificación inversa: ninguna variable huérfana
+
+Toda variable que queda en el DW o en el dataset de modelado responde al menos a una pregunta. Las variables descartadas están en la [tabla de decisión](preparacion.qmd#tabla-de-decisión-por-variable).
+
+| Tabla | Variable conservada | Pregunta(s) |
+|-------|---------------------|-------------|
+| `dim_fecha` | `dia_semana_num`, `nombre_dia` | P1, P2, P3 |
+| `dim_fecha` | `mes`, `anio`, `nombre_mes`, `dia` | P2 (estacionalidad y régimen), P5 (periodos) |
+| `dim_fecha` | `es_dia_quincena` | P2 |
+| `dim_fecha` | `es_festivo_oficial`, `nombre_festivo`, `es_semana_santa` | P2, P4 |
+| `dim_fecha` | `evento_masivo`, `es_dia_sismo`, `sismo_magnitud_max` | P4 |
+| `dim_fecha` | `es_dia_sin_medicion` | P2 (filtro), P4 (excluye falsos ceros) |
+| `dim_fecha` | `semana_iso`, `es_fin_de_semana` | Atributos de calendario para reportes; **no entran al modelo** (redundantes con `mes` y `dia_semana_num`) |
+| `dim_linea` | `sistema`, `linea_codigo`, `nombre_linea` | P1, P3, P5 |
+| `dim_linea` | `terminales`, `color_hex`, `gtfs_route_id` | P3 (cruce con GTFS y reportes) |
+| `dim_estacion` | `estacion_nk`, `nombre_oficial`, `nombre_en_fuente`, `gtfs_stop_id` | P1-P5 (unidad de análisis) |
+| `dim_estacion` | `latitud`, `longitud` | P3 |
+| `dim_estacion` | `es_correspondencia` | P1, P3 |
+| `dim_estacion` | `estado_servicio` y vigencias | P2 (filtro), P4, P5 |
+| `dim_clima` | `precipitacion_mm`, `categoria_lluvia` | P2, P4 |
+| `dim_clima` | `temp_max_c`, `temp_min_c` | P4 (contexto de los días anómalos) |
+| `hechos_afluencia_metro` | `afluencia` | P1-P5 |
+| `hechos_afluencia_metro` | `es_registro_cero`, `es_atipico` | P4 |
+| `hechos_afluencia_metrobus` | `afluencia` | P3, P5 |
+
+**Variables que salieron:** `lluvia_mm` (idéntica a la precipitación, también se quitó del DW), `anio` y `mes` de texto de staging (redundantes con la fecha), y las filas del Metrobús anteriores a 2010 o a cada inauguración.
+
+## 5.3 Efecto sobre el criterio de éxito de E0
+
+| Elemento del criterio | Estado tras E2 |
+|-----------------------|----------------|
+| ≥ 70 % de los días de alta demanda anticipados la víspera (recall) | Medible: la etiqueta existe (8.4 % de los estación-días desde 2022) |
+| ≤ 30 % de falsas alarmas (precisión) | Medible con la misma etiqueta |
+| Mejorar en ≥ 20 % a la línea base ingenua | Vara fijada: WAPE de la base = 10.7 % (2025), así que el modelo debe llegar a ≈ 8.6 % o menos |
+| 2 de cada 3 avisos con ruta alterna | Depende de P3 (parcial): la alternativa será una línea de Metrobús o una estación de Metro con el mismo perfil |
+| Simulación retrospectiva de 3 meses | Posible: hay datos medidos hasta 2026-07-31 |

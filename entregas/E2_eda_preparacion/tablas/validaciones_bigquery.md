@@ -1,0 +1,1 @@
+*Esta tabla la escribe el pipeline al terminar la corrida oficial en BigQuery (`--fuente bigquery --destino bigquery`). Mientras tanto, las mismas 20 pruebas corridas en DuckDB sobre el DW local dieron 20 de 20 OK.*

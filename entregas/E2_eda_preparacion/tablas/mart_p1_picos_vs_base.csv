@@ -1,0 +1,36 @@
+nombre_dia,rank_en_el_dia,nombre_linea,nombre_oficial,media_dia,indice_vs_base
+lunes,1,Metro Línea 8,Constitución de 1917,96379.0,1.056
+lunes,2,Metro Línea 3,Indios Verdes,90365.0,1.068
+lunes,3,Metro Línea 2,Cuatro Caminos,78251.0,1.042
+lunes,4,Metro Línea 2,Tasqueña,55638.0,1.062
+lunes,5,Metro Línea 12,Tláhuac,55577.0,1.116
+martes,1,Metro Línea 8,Constitución de 1917,102078.0,1.119
+martes,2,Metro Línea 3,Indios Verdes,91633.0,1.083
+martes,3,Metro Línea 2,Cuatro Caminos,81881.0,1.091
+martes,4,Metro Línea 12,Tláhuac,57500.0,1.155
+martes,5,Metro Línea 3,Universidad,57486.0,1.179
+miércoles,1,Metro Línea 8,Constitución de 1917,102856.0,1.127
+miércoles,2,Metro Línea 3,Indios Verdes,92290.0,1.091
+miércoles,3,Metro Línea 2,Cuatro Caminos,82997.0,1.106
+miércoles,4,Metro Línea 9,Tacubaya,58396.0,1.131
+miércoles,5,Metro Línea 3,Universidad,57785.0,1.185
+jueves,1,Metro Línea 8,Constitución de 1917,102954.0,1.128
+jueves,2,Metro Línea 3,Indios Verdes,92123.0,1.089
+jueves,3,Metro Línea 2,Cuatro Caminos,82516.0,1.099
+jueves,4,Metro Línea 9,Tacubaya,57842.0,1.12
+jueves,5,Metro Línea 3,Universidad,57511.0,1.179
+viernes,1,Metro Línea 8,Constitución de 1917,103977.0,1.139
+viernes,2,Metro Línea 3,Indios Verdes,94863.0,1.121
+viernes,3,Metro Línea 2,Cuatro Caminos,85722.0,1.142
+viernes,4,Metro Línea 2,Tasqueña,58779.0,1.122
+viernes,5,Metro Línea 3,Universidad,58520.0,1.2
+sábado,1,Metro Línea 8,Constitución de 1917,80926.0,0.887
+sábado,2,Metro Línea 3,Indios Verdes,77402.0,0.915
+sábado,3,Metro Línea 2,Cuatro Caminos,71294.0,0.95
+sábado,4,Metro Línea 2,Tasqueña,49327.0,0.942
+sábado,5,Metro Línea 2,Zócalo,47916.0,1.169
+domingo,1,Metro Línea 3,Indios Verdes,53474.0,0.632
+domingo,2,Metro Línea 8,Constitución de 1917,49580.0,0.543
+domingo,3,Metro Línea 2,Cuatro Caminos,42782.0,0.57
+domingo,4,Metro Línea 2,Tasqueña,32006.0,0.611
+domingo,5,Metro Línea 2,Zócalo,31499.0,0.769

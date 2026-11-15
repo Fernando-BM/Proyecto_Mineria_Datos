@@ -1,0 +1,115 @@
+---
+title: "4. Qué hicimos con los datos y por qué"
+subtitle: "Entrega E2 - Documento de decisiones en lenguaje no técnico"
+---
+
+*Este documento está escrito para la Subdirección de Planeación del Servicio del Metro (el stakeholder de E0) o para cualquier persona sin formación técnica. Explica qué encontramos en los datos, qué hicimos con ellos, por qué, y qué significa para las preguntas del proyecto. Las palabras técnicas que no pudimos evitar están en el glosario al final.*
+
+## De dónde partimos
+
+Trabajamos con el registro público de **cuántas personas entran cada día a cada estación del Metro**, de enero de 2010 a julio de 2026: 1,180,920 registros, uno por estación y día. Lo acompañamos con las entradas diarias del Metrobús por línea, el clima de cada día, los días festivos, los sismos fuertes y el catálogo oficial de estaciones con su ubicación.
+
+El objetivo de esta etapa no es predecir nada todavía. Es **conocer bien los datos y dejarlos listos y confiables** para la siguiente etapa, sin borrar justamente lo que queremos estudiar: los días en que una estación se llena más de lo normal.
+
+## Las decisiones importantes
+
+### 1. Los "ceros" no siempre significan que nadie viajó
+
+**Qué encontramos.** El 5.3 % de los registros (62,025) dicen que en una estación entraron **cero** personas ese día. Al revisarlos vimos que mezclan cuatro situaciones distintas:
+
+- **20,780** son de la Línea 12 antes de su inauguración en 2012: la estación todavía no existía.
+- **39,190** son cierres de una semana o más, por obras, accidentes o la pandemia (por ejemplo, la Línea 12 tras el colapso de 2021 y la Línea 1 durante su modernización).
+- **477** son cierres de un solo día, casi siempre por marchas o eventos (la estación Zócalo en varios 8 de marzo, por ejemplo).
+- En **10 días** toda la red marcó cero o casi cero. Eran días en que **el transporte fue gratuito**: tras el sismo del 19 de septiembre de 2017 y durante la contingencia ambiental de marzo de 2016. Las personas sí viajaron, pero los torniquetes no las contaron.
+
+**Qué hicimos.** Tratamos cada caso por separado. Los 10 días de gratuidad quedaron como **"sin dato"**, no como cero, y quedaron marcados en el calendario. Los cierres se conservaron y se anotaron en el historial de cada estación: abierta, cerrada o todavía no inaugurada, con sus fechas. Los cierres de un día se conservaron con una marca.
+
+**Por qué así.** Si dejáramos los ceros de la gratuidad, el sistema aprendería que después de un sismo nadie usa el Metro, y eso es falso. Si borráramos los cierres, perderíamos justo los episodios que sirven para estudiar a dónde se va la gente cuando una línea cierra. Tampoco "rellenamos" ningún día con un número inventado, porque nadie sabe cuántas personas viajaron en esos días.
+
+**Qué cambia.** Para anticipar la demanda (P2) solo se usarán días en que la estación operó normalmente. Se pierde la información de esos 10 días, que de todos modos no existía.
+
+### 2. Los días "raros" se quedan
+
+**Qué encontramos.** 18,553 registros (1.7 % de los días con servicio) se alejan mucho de lo normal para esa estación y ese día de la semana. Por ejemplo, las estaciones junto a la Basílica cada 12 de diciembre, o casi cualquier estación en Navidad.
+
+**Qué hicimos.** **No borramos ninguno.** Solo les pusimos una marca para poder identificarlos.
+
+**Por qué así.** Esos días raros son exactamente lo que el operador quiere anticipar: los picos y las caídas. Borrarlos dejaría unos datos más "bonitos" pero inútiles para el proyecto. Comprobamos que, después de toda la preparación, la concentración de la demanda y el patrón semanal siguen idénticos a los de los datos originales.
+
+**Qué cambia.** Nada se pierde. La marca **no** se usará para predecir, porque se calcula viendo también las semanas posteriores, y eso sería hacer trampa con información del futuro. Sirve para describir anomalías (P4).
+
+### 3. Corregimos textos mal escritos y unimos las fuentes
+
+**Qué encontramos.** Un problema de formato hacía que la base del Metro tuviera "Línea 1" escrita de tres formas distintas (24 nombres para 12 líneas). Además, 379,245 nombres de estación tenían caracteres dañados ("CatÃ³lica" en lugar de "Católica"), dos estaciones aparecían con dos escrituras ("Gómez Farías" y "Gómez Farias") y, en diciembre de 2020, la Línea B reportaba "Oceanía" dos veces y nunca "Deportivo Oceanía".
+
+**Qué hicimos.** Reparamos los caracteres, unificamos los nombres y asignamos el dato que faltaba de Deportivo Oceanía usando cómo se comportaron ambas estaciones en los meses de alrededor. Además unimos cada estación con el catálogo oficial de ubicaciones: 187 coincidieron solas y 8 necesitaron una tabla de equivalencias, porque cada fuente escribe distinto los nombres compuestos.
+
+**Por qué así.** Sin estas correcciones, una misma estación se contaría como dos, o una línea se partiría en tres. Las reglas son automáticas y solo tocan los textos dañados.
+
+**Qué cambia.** Las 195 estaciones quedaron completas, con su ubicación, todos los días.
+
+### 4. El calendario legal manda sobre la fuente de festivos
+
+**Qué encontramos.** La fuente de festivos mueve 10 fechas cuando caen en fin de semana (por ejemplo, pone el Día del Trabajo de 2022 el lunes 2 de mayo).
+
+**Qué hicimos.** Usamos las fechas que marca la Ley Federal del Trabajo y la fuente solo como comprobación.
+
+**Por qué así.** Ese lunes no fue día de descanso obligatorio: marcarlo como festivo haría creer que la gente faltó por el festivo.
+
+### 5. Agregamos sismos y eventos masivos, como se nos pidió
+
+**Qué encontramos.** En la revisión de E1 nos sugirieron incluir sismos y manifestaciones. Encontramos una fuente pública de sismos (el servicio geológico de EE. UU.: 27 sismos de magnitud 6 o más a menos de 800 km entre 2010 y 2026). Para las marchas **no existe una base pública descargable**: la Secretaría de Seguridad Ciudadana publica una agenda diaria en PDF, sin histórico. Sí vimos en los datos fechas fijas que, año con año, cierran estaciones o las saturan: 8 de marzo, 16 de septiembre, 2 de octubre, 25 de noviembre y 12 de diciembre.
+
+**Qué hicimos.** Agregamos al calendario los días con sismo y esas cinco fechas de eventos masivos.
+
+**Por qué así y qué cambia.** Los sismos casi no cambian la demanda del día, así que no servirán para pronosticar, pero sí para explicar anomalías. Las marchas que no caen en fechas fijas seguirán sin explicación. Es un riesgo que ya declarábamos en E0.
+
+### 6. Nos quedamos con las variables útiles y quitamos las repetidas
+
+**Qué encontramos.** Revisamos más de 30 variables con tres pruebas estadísticas (ver glosario). La variable "lluvia" era **idéntica** a "precipitación" todos los días (en la Ciudad de México no nieva). "Semana del año" decía lo mismo que "mes". La afluencia de hace 7 días ya estaba incluida en el promedio de las 4 semanas previas. Además, la lluvia y la temperatura casi no cambian cuánta gente entra al Metro.
+
+**Qué hicimos.** Quitamos las repetidas. Conservamos el clima solo como posible explicación de días raros, y dejamos escrita la razón de cada variable en una tabla.
+
+**Por qué así.** Las variables repetidas no agregan información y vuelven más difícil explicar un modelo. Las variables con poco efecto se quedaron cuando alguna pregunta del proyecto las necesitaba, por ejemplo los festivos para explicar anomalías.
+
+### 7. No recortamos los datos
+
+**Qué encontramos.** Todos los datos caben sin problema en la computadora y en BigQuery, dentro de la capa gratuita.
+
+**Qué hicimos.** Trabajamos con **todos** los registros. Solo guardamos en el repositorio una muestra pequeña (una semana por cada trimestre de cada año) para que cualquiera pueda probar el proceso sin conectarse a BigQuery. Comprobamos que esa muestra se parece a los datos completos.
+
+### 8. Definimos qué es un "día de alta demanda"
+
+**Qué encontramos.** Comparamos las entradas de cada estación con el promedio del mismo día de la semana en las 4 semanas anteriores (lo que hoy "haría cualquiera"). El 8.4 % de los días-estación superan ese promedio en más de 20 %.
+
+**Qué hicimos.** Dejamos el umbral en **20 % por encima de lo habitual de esa misma estación**.
+
+**Por qué así.** Un umbral fijo en número de personas solo marcaría siempre las mismas estaciones grandes. Un umbral más alto dejaría tan pocos casos que no se podría evaluar si el sistema acierta.
+
+**Qué cambia.** El criterio de éxito de E0 ya se puede medir. La regla "de siempre" se equivoca hoy en un 10.7 % de las entradas; el sistema tendrá que equivocarse al menos un 20 % menos.
+
+## Lo que se perdió y los riesgos que quedan
+
+- **10 días sin dato** (2016 y 2017): no se pueden recuperar.
+- **Los datos son por día, no por hora**: no se puede hablar de la hora pico (ya se sabía desde E0).
+- **El Metrobús solo informa por línea**: la ruta alterna en Metrobús se propondrá por línea, no por estación.
+- **Las marchas fuera de fechas fijas y las vacaciones escolares** no tienen fuente abierta: tres de cada cuatro días raros quedan hoy sin causa atribuida.
+- **Desde la pandemia la red recibe 30 % menos gente** que antes: el pronóstico se basará en datos de 2022 en adelante.
+
+## Glosario
+
+| Término | Qué significa aquí |
+|---------|--------------------|
+| **Atípico** | Un día cuyo valor se aleja mucho de lo normal para esa estación y ese día de la semana. No es lo mismo que un error. |
+| **Imputar** | Rellenar un dato faltante con un valor estimado. Aquí **no** imputamos nada. |
+| **Valor faltante ("sin dato")** | Un registro sin número porque no se midió, distinto de un cero real. |
+| **Grano** | Qué representa cada fila: aquí, una estación de una línea en un día. |
+| **Historial de la estación (SCD tipo 2)** | En lugar de sobrescribir el estado de una estación, se guarda cada periodo (abierta, cerrada, no inaugurada) con sus fechas. |
+| **Línea base ingenua** | El promedio del mismo día de la semana en las 4 semanas previas: lo que se esperaría sin ningún modelo. |
+| **Coeficiente de Gini** | Mide qué tan repartida está la demanda: 0 = todas las estaciones reciben lo mismo; cerca de 1 = una sola recibe casi todo. Hoy vale 0.38. |
+| **Entropía** | Mide qué tan parejo es un reparto entre categorías: 1 = perfectamente parejo; 0 = todo en una sola. |
+| **Chi-cuadrada y V de Cramér** | Prueba si una característica de tipo categoría (mes, festivo…) se relaciona con los días de alta demanda, y qué tan fuerte es esa relación. |
+| **Correlación** | Mide si dos números suben y bajan juntos. Si dos variables casi siempre se mueven igual, una sobra. |
+| **Componentes principales (PCA)** | Una forma de resumir varias variables relacionadas en unas pocas combinaciones. Aquí mostró que la mayor diferencia entre estaciones es "estación de trabajo vs. estación de paseo". |
+| **Muestra** | Una parte de los datos elegida para representar al todo. |
+| **Fuga de información** | Usar, sin darse cuenta, datos del futuro para "predecir" el pasado. Hace que un modelo parezca mejor de lo que es. |
