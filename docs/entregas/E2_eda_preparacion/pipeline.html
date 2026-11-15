@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="mermaid mermaid-js">flowchart LR
     S[("metro_staging&lt;br/&gt;7 tablas crudas")] --&gt; I["1 · ingesta"]
     I --&gt; C["2 · calidad&lt;br/&gt;diagnóstico y EDA"]
-    C --&gt; L["3 · limpieza&lt;br/&gt;registro L01-L25"]
+    C --&gt; L["3 · limpieza&lt;br/&gt;registro L01-L26"]
     L --&gt; R["4 · reducción&lt;br/&gt;χ², Spearman, PCA"]
     R --&gt; M["5 · muestreo&lt;br/&gt;muestra del repo"]
     M --&gt; V["6 · verificación&lt;br/&gt;antes vs. después"]
@@ -539,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>limpieza</td>
 <td><code>src/limpieza.py</code></td>
 <td>crudo → limpio</td>
-<td><code>registro_limpieza</code> (25 entradas), versiones SCD2, marcas de atípicos</td>
+<td><code>registro_limpieza</code> (26 entradas), versiones SCD2, marcas de atípicos</td>
 </tr>
 <tr class="even">
 <td>reducción</td>
@@ -657,21 +657,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>calidad</td>
 <td>1,180,920</td>
 <td>1,180,920</td>
-<td>6.100</td>
+<td>6.200</td>
 <td>dataset analítico crudo: 1,180,920 × 13</td>
 </tr>
 <tr class="odd">
 <td>limpieza</td>
 <td>1,252,554</td>
 <td>1,227,751</td>
-<td>7.300</td>
+<td>8.100</td>
 <td>metro 1,180,920 · metrobús 34,505 · estaciones 195</td>
 </tr>
 <tr class="even">
 <td>reduccion</td>
 <td>1,180,920</td>
 <td>303,385</td>
-<td>3.000</td>
+<td>2.800</td>
 <td>dataset analítico 2022+ en operación: 303,385 filas × 36 columnas</td>
 </tr>
 <tr class="odd">
@@ -685,14 +685,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>verificacion</td>
 <td>1,180,920</td>
 <td>1,119,000</td>
-<td>2.600</td>
+<td>2.800</td>
 <td>estación-días en operación y medidos</td>
 </tr>
 <tr class="odd">
 <td>modelo</td>
 <td>1,227,751</td>
 <td>1,228,159</td>
-<td>1.300</td>
+<td>1.100</td>
 <td>esquema estrella E1 v2</td>
 </tr>
 <tr class="even">
@@ -958,9 +958,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p><strong>Tabla 28.</strong> Validaciones en BigQuery después de cargar (<code>sql/validaciones_dw.sql</code>): conteo de filas por tabla, unicidad del grano, llaves nulas, llaves huérfanas, vigencia SCD2 y rangos.</p>
 <p><em>Esta tabla la escribe el pipeline al terminar la corrida oficial en BigQuery (<code>--fuente bigquery --destino bigquery</code>). Mientras tanto, las mismas 20 pruebas corridas en DuckDB sobre el DW local dieron 20 de 20 OK.</em></p>
-<div class="caja caja-aviso">
-<p><span class="etiqueta">Pendiente</span> <span class="todo">Agregar la fecha de la corrida oficial en BigQuery y las capturas <code>img/BQ_E2_*.png</code> (ver la guía del equipo).</span></p>
+<p><strong>Corrida oficial.</strong> El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida <code>--fuente bigquery --destino bigquery</code> tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (55 s). Las 20 validaciones dieron OK.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_colab_corrida.png" class="img-fluid figure-img"></p>
+<figcaption>Final de la corrida en Colab: 6 tablas cargadas, 20 de 20 validaciones OK y 9 consultas del DataMart</figcaption>
+</figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_staging_sismos.png" class="img-fluid figure-img"></p>
+<figcaption><code>metro_staging</code> con la tabla nueva <code>stg_sismos_usgs</code> (F6), que sube el propio pipeline</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_hechos_detalles.png" class="img-fluid figure-img"></p>
+<figcaption><code>hechos_afluencia_metro</code> en BigQuery: 1,180,920 filas, llave primaria (fecha_key, estacion_key) y clúster</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_validaciones_1.png" class="img-fluid figure-img"></p>
+<figcaption><code>sql/validaciones_dw.sql</code> en la consola: pruebas 01-08</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_validaciones_2.png" class="img-fluid figure-img"></p>
+<figcaption>Pruebas 08-14: grano único, sin llaves nulas ni huérfanas</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_validaciones_3.png" class="img-fluid figure-img"></p>
+<figcaption>Pruebas 14-20: vigencia SCD2 y rangos válidos</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Verificación cruzada local ↔︎ BigQuery.</strong> El pipeline corre igual con los archivos del portal (<code>--fuente local</code>) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: <code>dim_estacion</code> tenía <strong>604</strong> versiones, contra 603 en local. La causa fue el nombre “Miguel Ángel de Quevedo” de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. Ahora ambas salidas coinciden en todas las tablas, salvo la columna de segundos del registro de pasos.</p>
 </section>
 </section>
 <section id="resultados-del-datamart" class="level2">
@@ -1139,6 +1194,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p1_1.png" class="img-fluid figure-img"></p>
+<figcaption>La misma consulta ROLLUP en la consola de BigQuery (columnas lun-vie)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p1_2.png" class="img-fluid figure-img"></p>
+<figcaption>Filas 7-13</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p1_3.png" class="img-fluid figure-img"></p>
+<figcaption>Columnas sáb-dom y <code>todos_los_dias</code>; la fila 1 es el total de la red que agrega ROLLUP</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p1_4.png" class="img-fluid figure-img"></p>
+<figcaption>Filas 7-13, columnas sáb-dom</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p><strong>Lectura.</strong> Desde 2022 la red recibe en promedio <strong>3.16 millones de entradas al día</strong> (fila TOTAL RED, que agrega el ROLLUP). La Línea 2 es la más cargada (546 mil por día) y la 4 la más ligera (68 mil). Todas las líneas bajan el domingo, pero con distinta intensidad: la Línea 3 cae al 46 % de su viernes y la Línea 4 solo al 59 %. Ese dato sirve para P3.</p>
 </section>
 <section id="p1-ventanas-estaciones-pico-contra-su-propia-base" class="level3">
@@ -1941,6 +2034,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p4_consulta.png" class="img-fluid figure-img"></p>
+<figcaption>Las dos consultas de P4 en BigQuery (SUCCESS)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p4_causa.png" class="img-fluid figure-img"></p>
+<figcaption>Resultado por causa probable (GROUPING SETS)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/BQ_E2_mart_p4_evento.png" class="img-fluid figure-img"></p>
+<figcaption>Resultado por evento masivo</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <p><strong>Lectura.</strong> Con |z| ≥ 3 contra las 8 semanas previas, 70 mil estación-días (6 % de los días en operación) son anómalos. Los <strong>festivos y Semana Santa explican el 20 %</strong>, casi todos a la baja. Los <strong>eventos masivos</strong> nuevos explican 1.6 %; el desfile del 16 de septiembre es el que más pesa, aunque también es festivo. La lluvia fuerte explica 0.9 % y los sismos 0.4 %. El <strong>77 % queda sin causa atribuida</strong>. Buena parte son semanas de vacaciones escolares y de fin de año que no son festivos, así que el calendario escolar es la siguiente fuente a buscar para E3. P4 sigue <strong>parcial</strong>, ahora con números.</p>
 </section>
 <section id="p5-cierre-de-la-línea-1-cube" class="level3">

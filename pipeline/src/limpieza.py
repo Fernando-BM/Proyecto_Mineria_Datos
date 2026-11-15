@@ -203,6 +203,29 @@ def _metro(cfg: dict, raw: pd.DataFrame, gtfs: pd.DataFrame, reg) -> tuple[pd.Da
                 "Unificar al nombre canónico", "; ".join(f"'{k}' -> '{v}'" for k, v in canon.items()) +
                 " (la fuente cambió la escritura en junio de 2023)")
     df["estacion"] = est.replace(canon)
+    # Regla general: dentro de una línea, dos textos con la misma clave normalizada
+    # (sin acentos, mayúsculas ni signos) son la misma estación y se unifican a la
+    # escritura más frecuente. Cubre caracteres dañados que la reparación no puede
+    # revertir: el cargador CSV de BigQuery reemplaza el carácter de control U+0081
+    # de "Miguel Ã\x81ngel de Quevedo" (L3, julio de 2026), y sin esta regla esa
+    # estación aparecería dos veces.
+    tmp = pd.DataFrame({"l": df["linea_codigo"], "k": df["estacion"].map(clave_texto), "e": df["estacion"]})
+    moda = (tmp.groupby(["l", "k", "e"]).size().reset_index(name="n")
+               .sort_values(["l", "k", "n", "e"], ascending=[True, True, False, True])
+               .drop_duplicates(["l", "k"]))
+    mapa = dict(zip(zip(moda["l"], moda["k"]), moda["e"]))
+    unificado = pd.Series([mapa[(l, k)] for l, k in zip(tmp["l"], tmp["k"])], index=df.index)
+    distinto = unificado != df["estacion"]
+    # Se registra al final (L26) para no mover la numeración L01-L25 que citan las páginas.
+    diferido = ("metro (F1)", "Variantes de escritura con la misma clave normalizada", "estacion",
+                int(distinto.sum()), n, "Unificar a la escritura más frecuente de esa estación en su línea",
+                "Mismo nombre salvo acentos, mayúsculas o un carácter dañado: "
+                + ("; ".join(sorted({f"'{a}' -> '{b}'" for a, b in zip(df.loc[distinto, 'estacion'],
+                                                                     unificado[distinto])}))
+                   if distinto.any() else "ninguna variante adicional en esta fuente (en la copia de "
+                   "BigQuery son 31 filas de 'Miguel Ángel de Quevedo' de julio de 2026)"))
+    reg.diferidos = getattr(reg, "diferidos", []) + [diferido]
+    df["estacion"] = unificado
     df["afluencia"] = afl.astype("int64")
 
     # --- Duplicados
@@ -401,6 +424,9 @@ def ejecutar(cfg: dict, crudos: dict, reg) -> dict:
     gtfs, lineas = _gtfs(cfg, crudos, reg)
     metro, estaciones = _metro(cfg, crudos["metro"], gtfs, reg)
     metrobus = _metrobus(cfg, crudos["metrobus"], reg)
+    for d in getattr(reg, "diferidos", []):
+        reg.limpiar(*d)
+    reg.diferidos = []
 
     sin_med = set(metro.loc[metro["tipo_cero"] == "sin_medicion", "fecha"])
     cal["es_dia_sin_medicion"] = cal["fecha"].isin(sin_med)

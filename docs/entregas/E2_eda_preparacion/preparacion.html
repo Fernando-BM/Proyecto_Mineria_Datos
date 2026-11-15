@@ -744,19 +744,23 @@ ul.task-list li input[type="checkbox"] {
 <td>Dejar NULL (no imputar)</td>
 <td>2017-09-20 línea 2: 9 entradas frente a una mediana de ~100 mil</td>
 </tr>
+<tr class="even">
+<td>L26</td>
+<td>metro (F1)</td>
+<td>Variantes de escritura con la misma clave normalizada</td>
+<td>estacion</td>
+<td>0</td>
+<td>1,180,920</td>
+<td>0</td>
+<td>Unificar a la escritura más frecuente de esa estación en su línea</td>
+<td>Mismo nombre salvo acentos, mayúsculas o un carácter dañado: ninguna variante adicional en esta fuente (en la copia de BigQuery son 31 filas de ‘Miguel Ángel de Quevedo’ de julio de 2026)</td>
+</tr>
 </tbody>
 </table>
 </section>
 <section id="criterios-por-tipo-de-problema" class="level3">
 <h3 class="anchored" data-anchor-id="criterios-por-tipo-de-problema">Criterios por tipo de problema</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 40%">
-<col style="width: 21%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Problema</th>
@@ -825,9 +829,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><strong>Inconsistencias de categorías</strong></td>
-<td>24 textos de línea, 14 del Metrobús, 2 estaciones escritas de dos formas (L10-L13, L22)</td>
-<td>Reparar la codificación y mapear a un catálogo canónico (<code>config.yaml</code>)</td>
-<td>La regla latin-1 → utf-8 solo se aplica a textos con la marca de doble codificación (‘Ã’), así que no puede dañar un nombre correcto</td>
+<td>24 textos de línea, 14 del Metrobús, 2 estaciones escritas de dos formas (L10-L13, L22) y, en la copia de BigQuery, 31 filas de “Miguel Ángel de Quevedo” con un carácter dañado (L26)</td>
+<td>Reparar la codificación, mapear a un catálogo canónico (<code>config.yaml</code>) y unificar en cada línea los nombres con la misma clave normalizada</td>
+<td>La regla latin-1 → utf-8 solo se aplica a textos con la marca de doble codificación (‘Ã’), así que no puede dañar un nombre correcto. La unificación por clave atrapa lo que la reparación no puede revertir; la detectó la comparación local ↔︎ BigQuery (<a href="../../entregas/E2_eda_preparacion/pipeline.html#evidencia-de-consistencia">pipeline</a>)</td>
 <td>Las agregaciones por línea y estación de P1 a P5 se vuelven confiables</td>
 </tr>
 <tr class="even">

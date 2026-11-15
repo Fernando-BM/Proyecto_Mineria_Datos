@@ -1,9 +1,9 @@
 paso,filas_entrada,filas_salida,segundos,nota
 ingesta,1252554,1252554,0.7,origen=local
-calidad,1180920,1180920,6.1,"dataset analítico crudo: 1,180,920 × 13"
-limpieza,1252554,1227751,7.3,"metro 1,180,920 · metrobús 34,505 · estaciones 195"
-reduccion,1180920,303385,3.0,"dataset analítico 2022+ en operación: 303,385 filas × 36 columnas"
+calidad,1180920,1180920,6.2,"dataset analítico crudo: 1,180,920 × 13"
+limpieza,1252554,1227751,8.1,"metro 1,180,920 · metrobús 34,505 · estaciones 195"
+reduccion,1180920,303385,2.8,"dataset analítico 2022+ en operación: 303,385 filas × 36 columnas"
 muestreo,1180920,1180920,1.2,población completa; muestra solo para el repositorio
-verificacion,1180920,1119000,2.6,estación-días en operación y medidos
-modelo,1227751,1228159,1.3,esquema estrella E1 v2
+verificacion,1180920,1119000,2.8,estación-días en operación y medidos
+modelo,1227751,1228159,1.1,esquema estrella E1 v2
 carga,1228159,1228159,1.5,destino=local

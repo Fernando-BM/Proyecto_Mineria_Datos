@@ -11,7 +11,7 @@ Un solo punto de entrada lleva los datos de la capa **staging** (intacta desde E
 flowchart LR
     S[("metro_staging<br/>7 tablas crudas")] --> I["1 · ingesta"]
     I --> C["2 · calidad<br/>diagnóstico y EDA"]
-    C --> L["3 · limpieza<br/>registro L01-L25"]
+    C --> L["3 · limpieza<br/>registro L01-L26"]
     L --> R["4 · reducción<br/>χ², Spearman, PCA"]
     R --> M["5 · muestreo<br/>muestra del repo"]
     M --> V["6 · verificación<br/>antes vs. después"]
@@ -26,7 +26,7 @@ flowchart LR
 |------|--------|------------------|-------------|
 | ingesta | `src/ingesta.py` | staging → dataframes de texto | Lee las 7 tablas con `list_rows`, que no cobra bytes escaneados. Sube a staging la fuente nueva de sismos (F6) |
 | calidad | `src/calidad.py` | crudo → dataset analítico crudo | Tablas `eda_*`, figuras 1-14 |
-| limpieza | `src/limpieza.py` | crudo → limpio | `registro_limpieza` (25 entradas), versiones SCD2, marcas de atípicos |
+| limpieza | `src/limpieza.py` | crudo → limpio | `registro_limpieza` (26 entradas), versiones SCD2, marcas de atípicos |
 | reducción | `src/reduccion.py` | limpio → dataset de modelado 2022+ | χ², Spearman, PCA (solo con entrenamiento), tabla de decisión |
 | muestreo | `src/muestreo.py` | población → muestra del repo | `data/sample/` y prueba de representatividad |
 | verificación | `src/verificacion.py` | crudo vs. limpio | Tablas antes/después, Fig. 17 |
@@ -91,10 +91,23 @@ El modelo es el de E1 con los ajustes documentados en [Ajustes a E1](ajustes.qmd
 
 {{< include tablas/validaciones_bigquery.md >}}
 
-::: {.caja .caja-aviso}
-[Pendiente]{.etiqueta}
-[Agregar la fecha de la corrida oficial en BigQuery y las capturas `img/BQ_E2_*.png` (ver la guía del equipo).]{.todo}
+**Corrida oficial.** El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida `--fuente bigquery --destino bigquery` tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (55 s). Las 20 validaciones dieron OK.
+
+::: {layout-ncol=2}
+![Final de la corrida en Colab: 6 tablas cargadas, 20 de 20 validaciones OK y 9 consultas del DataMart](img/BQ_E2_colab_corrida.png)
+
+![`metro_staging` con la tabla nueva `stg_sismos_usgs` (F6), que sube el propio pipeline](img/BQ_E2_staging_sismos.png)
+
+![`hechos_afluencia_metro` en BigQuery: 1,180,920 filas, llave primaria (fecha_key, estacion_key) y clúster](img/BQ_E2_hechos_detalles.png)
+
+![`sql/validaciones_dw.sql` en la consola: pruebas 01-08](img/BQ_E2_validaciones_1.png)
+
+![Pruebas 08-14: grano único, sin llaves nulas ni huérfanas](img/BQ_E2_validaciones_2.png)
+
+![Pruebas 14-20: vigencia SCD2 y rangos válidos](img/BQ_E2_validaciones_3.png)
 :::
+
+**Verificación cruzada local ↔ BigQuery.** El pipeline corre igual con los archivos del portal (`--fuente local`) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: `dim_estacion` tenía **604** versiones, contra 603 en local. La causa fue el nombre "Miguel Ángel de Quevedo" de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. Ahora ambas salidas coinciden en todas las tablas, salvo la columna de segundos del registro de pasos.
 
 ## 3.4 Resultados del DataMart
 
@@ -103,6 +116,16 @@ Las 8 vistas del DataMart (las 7 de E1, ajustadas, más una nueva para P5) se ej
 ### P1 · ROLLUP por línea y día de la semana
 
 {{< include tablas/mart_p1_rollup_linea_dia.md >}}
+
+::: {layout-ncol=2}
+![La misma consulta ROLLUP en la consola de BigQuery (columnas lun-vie)](img/BQ_E2_mart_p1_1.png)
+
+![Filas 7-13](img/BQ_E2_mart_p1_2.png)
+
+![Columnas sáb-dom y `todos_los_dias`; la fila 1 es el total de la red que agrega ROLLUP](img/BQ_E2_mart_p1_3.png)
+
+![Filas 7-13, columnas sáb-dom](img/BQ_E2_mart_p1_4.png)
+:::
 
 **Lectura.** Desde 2022 la red recibe en promedio **3.16 millones de entradas al día** (fila TOTAL RED, que agrega el ROLLUP). La Línea 2 es la más cargada (546 mil por día) y la 4 la más ligera (68 mil). Todas las líneas bajan el domingo, pero con distinta intensidad: la Línea 3 cae al 46 % de su viernes y la Línea 4 solo al 59 %. Ese dato sirve para P3.
 
@@ -144,6 +167,14 @@ Su menor acoplamiento es con la **Línea 1** (0.117), que también conecta San L
 {{< include tablas/mart_p4_anomalias_por_causa.md >}}
 
 {{< include tablas/mart_p4_anomalias_por_evento.md >}}
+
+::: {layout-ncol=3}
+![Las dos consultas de P4 en BigQuery (SUCCESS)](img/BQ_E2_mart_p4_consulta.png)
+
+![Resultado por causa probable (GROUPING SETS)](img/BQ_E2_mart_p4_causa.png)
+
+![Resultado por evento masivo](img/BQ_E2_mart_p4_evento.png)
+:::
 
 **Lectura.** Con |z| ≥ 3 contra las 8 semanas previas, 70 mil estación-días (6 % de los días en operación) son anómalos. Los **festivos y Semana Santa explican el 20 %**, casi todos a la baja. Los **eventos masivos** nuevos explican 1.6 %; el desfile del 16 de septiembre es el que más pesa, aunque también es festivo. La lluvia fuerte explica 0.9 % y los sismos 0.4 %. El **77 % queda sin causa atribuida**. Buena parte son semanas de vacaciones escolares y de fin de año que no son festivos, así que el calendario escolar es la siguiente fuente a buscar para E3. P4 sigue **parcial**, ahora con números.
 
