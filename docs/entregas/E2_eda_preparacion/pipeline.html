@@ -650,57 +650,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>ingesta</td>
 <td>1,252,554</td>
 <td>1,252,554</td>
-<td>0.700</td>
-<td>origen=local</td>
+<td>55.4</td>
+<td>origen=bigquery</td>
 </tr>
 <tr class="even">
 <td>calidad</td>
 <td>1,180,920</td>
 <td>1,180,920</td>
-<td>6.200</td>
+<td>21</td>
 <td>dataset analítico crudo: 1,180,920 × 13</td>
 </tr>
 <tr class="odd">
 <td>limpieza</td>
 <td>1,252,554</td>
 <td>1,227,751</td>
-<td>8.100</td>
+<td>23.4</td>
 <td>metro 1,180,920 · metrobús 34,505 · estaciones 195</td>
 </tr>
 <tr class="even">
 <td>reduccion</td>
 <td>1,180,920</td>
 <td>303,385</td>
-<td>2.800</td>
+<td>7.900</td>
 <td>dataset analítico 2022+ en operación: 303,385 filas × 36 columnas</td>
 </tr>
 <tr class="odd">
 <td>muestreo</td>
 <td>1,180,920</td>
 <td>1,180,920</td>
-<td>1.200</td>
+<td>3.600</td>
 <td>población completa; muestra solo para el repositorio</td>
 </tr>
 <tr class="even">
 <td>verificacion</td>
 <td>1,180,920</td>
 <td>1,119,000</td>
-<td>2.800</td>
+<td>7.800</td>
 <td>estación-días en operación y medidos</td>
 </tr>
 <tr class="odd">
 <td>modelo</td>
 <td>1,227,751</td>
 <td>1,228,159</td>
-<td>1.100</td>
+<td>2.900</td>
 <td>esquema estrella E1 v2</td>
 </tr>
 <tr class="even">
 <td>carga</td>
 <td>1,228,159</td>
 <td>1,228,159</td>
-<td>1.500</td>
-<td>destino=local</td>
+<td>53.3</td>
+<td>destino=bigquery</td>
 </tr>
 </tbody>
 </table>
@@ -721,33 +721,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>metro</td>
-<td>datos/crudos/0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb.csv</td>
-<td>2d328ec615ae1249f3f6fa2896d66647409225b7d4419e78c6f78cccd4b9f78a</td>
+<td>mineria-metro-cdmx.metro_staging.stg_metro_afluencia</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>metrobus</td>
-<td>datos/crudos/f7943c47-835d-4078-93ea-906f64b72f3b.csv</td>
-<td>82f10aec775d06c40f942c4f83a811a921627bc454e0552c2385284654d8aa77</td>
+<td>mineria-metro-cdmx.metro_staging.stg_metrobus_afluencia</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>gtfs_stops</td>
+<td>mineria-metro-cdmx.metro_staging.stg_gtfs_stops</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>gtfs_routes</td>
+<td>mineria-metro-cdmx.metro_staging.stg_gtfs_routes</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>festivos</td>
-<td>entregas/E1_arquitectura_dw/staging/festivos_mx_nager_2010_2026.jsonl</td>
-<td>a5a3f7dc0d1a090c3b52b63f9f6c564459e0e3934ee10bc7eae93d5189d14db0</td>
+<td>mineria-metro-cdmx.metro_staging.stg_festivos_nager</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>clima</td>
-<td>entregas/E1_arquitectura_dw/staging/clima_cdmx_openmeteo_2010_2026.csv</td>
-<td>55a4b087c203db69bba3e6eda108ba52dcf31e5cf1cbbfba948316e81c52ec46</td>
+<td>mineria-metro-cdmx.metro_staging.stg_clima_openmeteo</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>sismos</td>
-<td>pipeline/data/fuentes/sismos_usgs_2010_2026.csv</td>
-<td>3895a06243f0f12d76932283ff9229abc99e5f668f453e8f9d395cdb4fa8ad9a</td>
-</tr>
-<tr class="even">
-<td>gtfs_zip</td>
-<td>datos/crudos/32ed1b6b-41cd-49b3-b7f0-b57acb0eb819.zip</td>
-<td>a2ecd0fbdf56e787b8eee3a6a3719043667b022a849f7f510812054677225384</td>
+<td>mineria-metro-cdmx.metro_staging.stg_sismos_usgs</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -957,8 +962,145 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p><strong>Tabla 28.</strong> Validaciones en BigQuery después de cargar (<code>sql/validaciones_dw.sql</code>): conteo de filas por tabla, unicidad del grano, llaves nulas, llaves huérfanas, vigencia SCD2 y rangos.</p>
-<p><em>Esta tabla la escribe el pipeline al terminar la corrida oficial en BigQuery (<code>--fuente bigquery --destino bigquery</code>). Mientras tanto, las mismas 20 pruebas corridas en DuckDB sobre el DW local dieron 20 de 20 OK.</em></p>
-<p><strong>Corrida oficial.</strong> El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida <code>--fuente bigquery --destino bigquery</code> tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (55 s). Las 20 validaciones dieron OK.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>prueba</th>
+<th>valor</th>
+<th>esperado</th>
+<th>resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>01 filas dim_fecha</td>
+<td>6,056</td>
+<td>6,056</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>02 filas dim_linea</td>
+<td>19</td>
+<td>19</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>03 filas dim_estacion</td>
+<td>603</td>
+<td>603</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>04 filas dim_clima</td>
+<td>6,056</td>
+<td>6,056</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>05 filas hechos_afluencia_metro</td>
+<td>1,180,920</td>
+<td>1,180,920</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>06 filas hechos_afluencia_metrobus</td>
+<td>34,505</td>
+<td>34,505</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>07 grano metro (fecha_key, estacion_key): filas repetidas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>08 grano metro (fecha, estación-línea natural): filas repetidas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>09 grano metrobús (fecha_key, linea_key): filas repetidas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>10 metro: llaves nulas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>11 metro: fecha_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>12 metro: estacion_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>13 metro: linea_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>14 metro: clima_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>15 metrobús: fecha_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>16 metrobús: linea_key huérfanas</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>17 metro: hechos fuera de la vigencia de su versión</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>18 dim_estacion: estaciones sin exactamente una versión vigente</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="odd">
+<td>19 metro: afluencia negativa</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+<tr class="even">
+<td>20 metrobús: afluencia negativa</td>
+<td>0</td>
+<td>0</td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Corrida oficial.</strong> El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida <code>--fuente bigquery --destino bigquery</code> tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (53 s). Las 20 validaciones dieron OK y el DW quedó con 603 versiones de estación, igual que en la corrida local.</p>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -1001,7 +1143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/BQ_E2_validaciones_2.png" class="img-fluid figure-img"></p>
-<figcaption>Pruebas 08-14: grano único, sin llaves nulas ni huérfanas</figcaption>
+<figcaption>Pruebas 09-17: grano único, sin llaves nulas ni huérfanas</figcaption>
 </figure>
 </div>
 </div>
@@ -1015,7 +1157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><strong>Verificación cruzada local ↔︎ BigQuery.</strong> El pipeline corre igual con los archivos del portal (<code>--fuente local</code>) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: <code>dim_estacion</code> tenía <strong>604</strong> versiones, contra 603 en local. La causa fue el nombre “Miguel Ángel de Quevedo” de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. Ahora ambas salidas coinciden en todas las tablas, salvo la columna de segundos del registro de pasos.</p>
+<p><strong>Verificación cruzada local ↔︎ BigQuery.</strong> El pipeline corre igual con los archivos del portal (<code>--fuente local</code>) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: <code>dim_estacion</code> tenía <strong>604</strong> versiones, contra 603 en local. La causa fue el nombre “Miguel Ángel de Quevedo” de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. En la segunda corrida la regla unificó esas 31 filas, y <strong>el DW, las validaciones y los 9 resultados del DataMart salen idénticos a los de la corrida local</strong>. Solo cambian, como se espera, las tablas del EDA sobre datos <em>crudos</em>, que se calculan antes de limpiar: en BigQuery muestran esa estación repetida en 2026 (por ejemplo, 196 estaciones con entradas en la Tabla 6). Las tablas publicadas en el sitio son las de BigQuery.</p>
 </section>
 </section>
 <section id="resultados-del-datamart" class="level2">
@@ -2005,7 +2147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td>desfile_16_septiembre</td>
 <td>2,244</td>
-<td>9.000</td>
+<td>9</td>
 <td>2,235</td>
 </tr>
 <tr class="odd">

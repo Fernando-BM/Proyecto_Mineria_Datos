@@ -176,7 +176,7 @@ La proporción baja de 10.7 % (2022) a 7.0 % (2025): mientras la red se recupera
 
 {{< include tablas/eda_lluvia_vs_alta_demanda.md >}}
 
-**Resultado negativo: la lluvia casi no mueve la demanda diaria.** La correlación de Spearman entre la precipitación y el cociente contra la base es de **−0.06**. Es significativa solo por el tamaño de la muestra (n = 303,120): la nube de la **Fig. 10** es horizontal. Lo único visible es que con lluvia fuerte hay **menos** días de alta demanda (3.8 % contra 10.1 % en días secos): la lluvia, si acaso, resta pasajeros.
+**Resultado negativo: la lluvia casi no mueve la demanda diaria.** La correlación de Spearman entre la precipitación y el cociente contra la base es de **−0.06**. Es significativa solo por el tamaño de la muestra (n = 303,092): la nube de la **Fig. 10** es horizontal. Lo único visible es que con lluvia fuerte hay **menos** días de alta demanda (3.8 % contra 10.1 % en días secos): la lluvia, si acaso, resta pasajeros.
 
 ![](img/fig14_metrobus_cierre_l1.png)
 

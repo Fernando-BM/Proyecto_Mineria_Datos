@@ -1,7 +1,7 @@
 evento_masivo,estacion_dias_anomalos,anomalias_altas,anomalias_bajas
-ninguno,66818,25577.0,41241.0
-desfile_16_septiembre,2244,9.0,2235.0
-peregrinacion_basilica,507,84.0,423.0
-marcha_2_octubre,359,138.0,221.0
-marcha_8M,176,81.0,95.0
-marcha_25N,105,54.0,51.0
+ninguno,66818,25577,41241
+desfile_16_septiembre,2244,9,2235
+peregrinacion_basilica,507,84,423
+marcha_2_octubre,359,138,221
+marcha_8M,176,81,95
+marcha_25N,105,54,51

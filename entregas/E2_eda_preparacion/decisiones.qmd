@@ -40,7 +40,7 @@ El objetivo de esta etapa no es predecir nada todavía. Es **conocer bien los da
 
 ### 3. Corregimos textos mal escritos y unimos las fuentes
 
-**Qué encontramos.** Un problema de formato hacía que la base del Metro tuviera "Línea 1" escrita de tres formas distintas (24 nombres para 12 líneas). Además, 379,245 nombres de estación tenían caracteres dañados ("CatÃ³lica" en lugar de "Católica"), dos estaciones aparecían con dos escrituras ("Gómez Farías" y "Gómez Farias") y, en diciembre de 2020, la Línea B reportaba "Oceanía" dos veces y nunca "Deportivo Oceanía".
+**Qué encontramos.** Un problema de formato hacía que la base del Metro tuviera "Línea 1" escrita de tres formas distintas (24 nombres para 12 líneas). Además, 379,214 nombres de estación tenían caracteres dañados ("CatÃ³lica" en lugar de "Católica"), dos estaciones aparecían con dos escrituras ("Gómez Farías" y "Gómez Farias") y, en diciembre de 2020, la Línea B reportaba "Oceanía" dos veces y nunca "Deportivo Oceanía".
 
 **Qué hicimos.** Reparamos los caracteres, unificamos los nombres y asignamos el dato que faltaba de Deportivo Oceanía usando cómo se comportaron ambas estaciones en los meses de alrededor. Además unimos cada estación con el catálogo oficial de ubicaciones: 187 coincidieron solas y 8 necesitaron una tabla de equivalencias, porque cada fuente escribe distinto los nombres compuestos.
 

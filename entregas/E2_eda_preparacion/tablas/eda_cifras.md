@@ -18,11 +18,11 @@
 | H normalizada perfil semanal: mínima | 0.962 |
 | máxima | 0.999 |
 | mediana | 0.989 |
-| correlación Spearman H vs media diaria | -0.052 |
+| correlación Spearman H vs media diaria | -0.053 |
 | cociente vs base: mediana | 1.013 |
 | P90 | 1.181 |
 | P95 | 1.261 |
 | P99 | 1.534 |
 | % estación-días > 1.2 x base (2022+) | 0.084 |
 | Spearman lluvia vs cociente | -0.062 |
-| p-valor | 3.45e-253 |
+| p-valor | 6.29e-253 |

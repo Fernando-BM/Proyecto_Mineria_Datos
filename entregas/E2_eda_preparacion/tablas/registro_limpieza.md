@@ -10,7 +10,7 @@
 | L08 | metro (F1) | Afluencia negativa | afluencia | 0 | 1,180,920 | 0 | Ninguna acción | No hay valores negativos |
 | L09 | metro (F1) | Columnas redundantes con la fecha | anio, mes | 0 | 1,180,920 | 0 | Descartar anio y mes; se derivan de la fecha en dim_fecha | Coinciden con la fecha en todas las filas; mantenerlas duplica información |
 | L10 | metro (F1) | Doble codificación de texto | linea | 171,795 | 1,180,920 | 14.5 | Reparar (latin-1 -> utf-8) | 'LÃ­nea 1' es 'Línea 1' mal leído; no cambia el significado |
-| L11 | metro (F1) | Doble codificación de texto | estacion | 379,245 | 1,180,920 | 32.1 | Reparar (latin-1 -> utf-8) | 'CatÃ³lica' es 'Católica' mal leído; afecta a toda la serie |
+| L11 | metro (F1) | Doble codificación de texto | estacion | 379,214 | 1,180,920 | 32.1 | Reparar (latin-1 -> utf-8) | 'CatÃ³lica' es 'Católica' mal leído; afecta a toda la serie |
 | L12 | metro (F1) | Categorías inconsistentes | linea | 24 | 24 | 100 | Mapear a código de línea: 24 textos -> 12 líneas | 'Linea 1', 'Línea 1' y 'LÃ­nea 1' son la misma línea |
 | L13 | metro (F1) | Variantes de escritura de una estación | estacion | 2,314 | 1,180,920 | 0.196 | Unificar al nombre canónico | 'Gómez Farias' -> 'Gómez Farías'; 'Peñón viejo' -> 'Peñón Viejo' (la fuente cambió la escritura en junio de 2023) |
 | L14 | metro (F1) | Duplicados exactos | todas | 0 | 1,180,920 | 0 | Ninguna acción | No hay filas idénticas |
@@ -25,4 +25,4 @@
 | L23 | metrobús (F2) | Fuera del periodo común | fecha | 11,340 | 53,732 | 21.1 | Excluir días anteriores a 2010-01-01 | Metro, clima y dim_fecha empiezan en 2010; P3 y P5 solo comparan días en común. Incluye el primer día de la serie (2005-07-26), que trae 3 millones en una línea |
 | L24 | metrobús (F2) | Texto 'NaN' antes de inaugurar la línea | afluencia | 7,887 | 42,392 | 18.6 | Excluir la fila (la línea no existía) | Ausencia estructural, no un dato perdido: todos los 'NaN' son anteriores al primer valor de su línea. Imputarlos inventaría demanda |
 | L25 | metrobús (F2) | Valor imposible en día de servicio | afluencia | 1 | 34,505 | 0.003 | Dejar NULL (no imputar) | 2017-09-20 línea 2: 9 entradas frente a una mediana de ~100 mil |
-| L26 | metro (F1) | Variantes de escritura con la misma clave normalizada | estacion | 0 | 1,180,920 | 0 | Unificar a la escritura más frecuente de esa estación en su línea | Mismo nombre salvo acentos, mayúsculas o un carácter dañado: ninguna variante adicional en esta fuente (en la copia de BigQuery son 31 filas de 'Miguel Ángel de Quevedo' de julio de 2026) |
+| L26 | metro (F1) | Variantes de escritura con la misma clave normalizada | estacion | 31 | 1,180,920 | 0.003 | Unificar a la escritura más frecuente de esa estación en su línea | Mismo nombre salvo acentos, mayúsculas o un carácter dañado: 'Miguel Ã ngel de Quevedo' -> 'Miguel Ángel de Quevedo' |

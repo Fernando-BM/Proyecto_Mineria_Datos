@@ -1,7 +1,7 @@
 | aspecto | valor |
 |---|---|
 | Población | 1,180,920 estación-días del Metro (2010-01-01 a 2026-07-31) y 34,505 línea-días del Metrobús |
-| Volumen | 478 MB en memoria; la tabla staging del Metro pesa ~60 MB en BigQuery (la capa gratuita permite 1 TB de consultas al mes) |
+| Volumen | 417 MB en memoria; la tabla staging del Metro pesa ~60 MB en BigQuery (la capa gratuita permite 1 TB de consultas al mes) |
 | Desbalance | No aplica: no se entrena ningún modelo en E2 |
 | Redundancia | Cada fila es un estación-día distinto; no hay registros repetidos que resumir |
 | Decisión | No se muestrea: EDA, reducción y carga al DW usan la población completa |

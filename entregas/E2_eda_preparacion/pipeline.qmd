@@ -91,7 +91,7 @@ El modelo es el de E1 con los ajustes documentados en [Ajustes a E1](ajustes.qmd
 
 {{< include tablas/validaciones_bigquery.md >}}
 
-**Corrida oficial.** El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida `--fuente bigquery --destino bigquery` tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (55 s). Las 20 validaciones dieron OK.
+**Corrida oficial.** El 15 de noviembre de 2026, en Google Colab (Python 3.13), la corrida `--fuente bigquery --destino bigquery` tardó unos 3 minutos: casi todo se va en la ingesta (55 s) y en la carga (53 s). Las 20 validaciones dieron OK y el DW quedó con 603 versiones de estación, igual que en la corrida local.
 
 ::: {layout-ncol=2}
 ![Final de la corrida en Colab: 6 tablas cargadas, 20 de 20 validaciones OK y 9 consultas del DataMart](img/BQ_E2_colab_corrida.png)
@@ -102,12 +102,12 @@ El modelo es el de E1 con los ajustes documentados en [Ajustes a E1](ajustes.qmd
 
 ![`sql/validaciones_dw.sql` en la consola: pruebas 01-08](img/BQ_E2_validaciones_1.png)
 
-![Pruebas 08-14: grano único, sin llaves nulas ni huérfanas](img/BQ_E2_validaciones_2.png)
+![Pruebas 09-17: grano único, sin llaves nulas ni huérfanas](img/BQ_E2_validaciones_2.png)
 
 ![Pruebas 14-20: vigencia SCD2 y rangos válidos](img/BQ_E2_validaciones_3.png)
 :::
 
-**Verificación cruzada local ↔ BigQuery.** El pipeline corre igual con los archivos del portal (`--fuente local`) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: `dim_estacion` tenía **604** versiones, contra 603 en local. La causa fue el nombre "Miguel Ángel de Quevedo" de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. Ahora ambas salidas coinciden en todas las tablas, salvo la columna de segundos del registro de pasos.
+**Verificación cruzada local ↔ BigQuery.** El pipeline corre igual con los archivos del portal (`--fuente local`) y con la capa staging de BigQuery, así que comparamos las dos salidas tabla por tabla. En la primera corrida en BigQuery apareció una diferencia: `dim_estacion` tenía **604** versiones, contra 603 en local. La causa fue el nombre "Miguel Ángel de Quevedo" de julio de 2026 (31 filas). En el CSV original trae la doble codificación con un carácter de control (U+0081). Al cargar el CSV en staging (E1), BigQuery alteró ese carácter (reemplazarlo en la copia local reproduce exactamente las 31 filas y la versión de más), la reparación de codificación ya no pudo revertirlo, y la estación quedó repetida con otro nombre. Las 20 validaciones habían pasado, porque cada día seguía teniendo 195 filas únicas. Se agregó una regla general (registro L26: unificar dentro de cada línea los nombres con la misma clave normalizada) y se volvió a correr. En la segunda corrida la regla unificó esas 31 filas, y **el DW, las validaciones y los 9 resultados del DataMart salen idénticos a los de la corrida local**. Solo cambian, como se espera, las tablas del EDA sobre datos *crudos*, que se calculan antes de limpiar: en BigQuery muestran esa estación repetida en 2026 (por ejemplo, 196 estaciones con entradas en la Tabla 6). Las tablas publicadas en el sitio son las de BigQuery.
 
 ## 3.4 Resultados del DataMart
 
