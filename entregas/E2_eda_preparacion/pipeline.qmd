@@ -205,7 +205,6 @@ Su menor acoplamiento es con la **Línea 1** (0.117), que también conecta San L
 
 Un integrante que **no** escribió el pipeline lo ejecuta desde un clon limpio y registra el resultado.
 
-| Fecha | Integrante | Entorno | Comando | Tiempo | Resultado | Observaciones |
-|-------|------------|---------|---------|--------|-----------|---------------|
-| [por llenar]{.todo} | [por llenar]{.todo} | [Colab / Mac / Windows]{.todo} | `--fuente muestra` | [ ]{.todo} | [ ]{.todo} | [ ]{.todo} |
-| [por llenar]{.todo} | [por llenar]{.todo} | [Colab]{.todo} | `--fuente bigquery --destino bigquery` | [ ]{.todo} | [ ]{.todo} | [ ]{.todo} |
+| Fecha | Integrante | Entorno | Comando | Tiempo | Resultado |
+|-------|------------|---------|---------|--------|-----------|
+| 16-11-26 | Luis Alberto Hernández Aguilar | Colab | `--fuente muestra` | 18s | validaciones del modelo: 25 de 25 OK  Pipeline terminado en 0.3 min. Registro completo en pipeline/salidas/ultima_ejecucion.log |
