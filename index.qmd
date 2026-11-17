@@ -24,7 +24,7 @@ Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio
 |---|---------------|---------|--------|
 | 1 | Comprensión del negocio | E0 | ✅ |
 | 2 | Comprensión de los datos | E1 | ✅ |
-| 3 | Preparación de los datos | E2 | ⏳ |
+| 3 | Comprensión (cierre) y preparación de los datos | E2 | ✅ |
 | 4 | Modelado | E3 | ⏳ |
 | 5 | Evaluación | E4 | ⏳ |
 | 6 | Despliegue | Reporte y presentación final | ⏳ |
@@ -54,6 +54,24 @@ Ayudante de teoría: Diego Antonio Villalba González · Ayudante de laboratorio
 
 No hubo pivote: el grano disponible (estación-línea × día) coincide con el objetivo de minería de E0.
 
+### E2 - EDA y Preparación de Datos
+
+| Página | Archivo |
+|--------|---------|
+| Análisis exploratorio (descriptiva, Gini, entropía, hallazgos) | `entregas/E2_eda_preparacion/eda.qmd` |
+| Preparación (limpieza, reducción, muestreo, antes/después) | `entregas/E2_eda_preparacion/preparacion.qmd` |
+| Pipeline reproducible, DW poblado y DataMart | `entregas/E2_eda_preparacion/pipeline.qmd` |
+| Decisiones en lenguaje no técnico | `entregas/E2_eda_preparacion/decisiones.qmd` |
+| Matriz de trazabilidad extendida | `entregas/E2_eda_preparacion/trazabilidad.qmd` |
+| Ajustes a E1 (E1 v2) | `entregas/E2_eda_preparacion/ajustes.qmd` |
+| Uso de herramientas de IA | `entregas/E2_eda_preparacion/uso_ia.qmd` |
+| Pipeline (punto de entrada, configuración, código, muestra) | `pipeline/` |
+| SQL v2 (DDL, DataMart, validaciones, resultados) | `sql/` |
+
+**Reproducir E2:** `pip install -r pipeline/requirements.txt` y `python pipeline/run_pipeline.py` (BigQuery), o `python pipeline/run_pipeline.py --fuente muestra` (sin credenciales, ~10 s). Instrucciones completas en [`pipeline/README.md`](https://github.com/Fernando-BM/Proyecto_Mineria_Datos/blob/main/pipeline/README.md); también se puede correr en Google Colab con `pipeline/ejecutar_en_colab.ipynb`.
+
+Sin pivote: los ajustes (E1 v2) agregan sismos y eventos masivos, quitan una variable redundante y corrigen el tratamiento de los ceros; el objetivo y el criterio de éxito de E0 no cambian.
+
 ## Estructura del repositorio
 
 ```
@@ -71,15 +89,35 @@ Proyecto_Mineria_Datos/
 │   │   ├── uso_ia.qmd
 │   │   ├── fuentes.qmd
 │   │   └── fuentes/               # evidencia archivada del stakeholder simulado
-│   └── E1_arquitectura_dw/
-│       ├── fuentes.qmd            # búsqueda, catálogo e integración
-│       ├── arquitectura.qmd       # 3 capas, evidencia BigQuery, DataMart
-│       ├── estrella.qmd           # grano, diagrama Mermaid y DDL
-│       ├── trazabilidad.qmd       # matriz pregunta-métrica-dimensión-fuente
+│   ├── E1_arquitectura_dw/
+│   │   ├── fuentes.qmd            # búsqueda, catálogo e integración
+│   │   ├── arquitectura.qmd       # 3 capas, evidencia BigQuery, DataMart
+│   │   ├── estrella.qmd           # grano, diagrama Mermaid y DDL
+│   │   ├── trazabilidad.qmd       # matriz pregunta-métrica-dimensión-fuente
+│   │   ├── uso_ia.qmd
+│   │   ├── sql/                   # versión original de E1 (sin cambios)
+│   │   ├── staging/               # descarga reproducible de las fuentes API
+│   │   └── img/                   # capturas de BigQuery
+│   └── E2_eda_preparacion/
+│       ├── eda.qmd                # estadística, Gini/entropía, figuras, hallazgos
+│       ├── preparacion.qmd        # calidad, reducción, muestreo, antes/después
+│       ├── pipeline.qmd           # arquitectura del pipeline y carga al DW
+│       ├── decisiones.qmd         # documento no técnico
+│       ├── trazabilidad.qmd       # matriz extendida
+│       ├── ajustes.qmd            # E1 v2
 │       ├── uso_ia.qmd
-│       ├── sql/                   # 00_datasets, 01_perfilado, ddl_dw, consultas_mart
-│       ├── staging/               # descarga reproducible de las fuentes API
-│       └── img/                   # capturas de BigQuery
+│       ├── tablas/                # tablas que genera el pipeline (.md y .csv)
+│       └── img/                   # figuras que genera el pipeline
+├── pipeline/
+│   ├── README.md                  # instalación, autenticación y ejecución
+│   ├── run_pipeline.py            # punto de entrada
+│   ├── config.yaml                # parámetros: umbrales, semilla, datasets
+│   ├── requirements.txt           # versiones fijadas
+│   ├── ejecutar_en_colab.ipynb    # corrida en Google Colab
+│   ├── src/                       # ingesta, calidad, limpieza, reducción, muestreo, verificación, carga
+│   └── data/                      # sample/ (muestra pequeña) y fuentes/ (sismos USGS)
+├── sql/                           # E1 v2: ddl_dw, consultas_mart, validaciones_dw, resultados_mart
+├── datos/crudos/                  # CSV/ZIP del portal (no se versionan)
 ├── docs/                          # sitio compilado (lo genera Quarto)
 └── README.md
 ```

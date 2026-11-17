@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4. Qué hicimos con los datos y por qué – Proyecto Integrador - Almacenes y Minería de Datos</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../entregas/E2_eda_preparacion/trazabilidad.html" rel="next">
+<link href="../../entregas/E2_eda_preparacion/pipeline.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a0b5e2e85ec7fb1d5bf63db1008f0e2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Proyecto Integrador - Almacenes y Minería de Datos</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e0---comprensión-del-negocio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E0 - Comprensión del Negocio</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e0---comprensión-del-negocio">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/bitacora.html">
+ <span class="dropdown-text">1. Bitácora del stakeholder</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/canvas.html">
+ <span class="dropdown-text">2. Business Understanding Canvas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/preguntas.html">
+ <span class="dropdown-text">3. Preguntas de investigación</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/criterio_exito.html">
+ <span class="dropdown-text">4. Criterio de éxito</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html">
+ <span class="dropdown-text">5. Supuestos y riesgos</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/uso_ia.html">
+ <span class="dropdown-text">6. Uso de herramientas de IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/fuentes.html">
+ <span class="dropdown-text">7. Fuentes consultadas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e1---arquitectura-del-dw" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E1 - Arquitectura del DW</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e1---arquitectura-del-dw">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/fuentes.html">
+ <span class="dropdown-text">1. Fuentes de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/arquitectura.html">
+ <span class="dropdown-text">2. Arquitectura de tres capas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/estrella.html">
+ <span class="dropdown-text">3. Esquema estrella</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/trazabilidad.html">
+ <span class="dropdown-text">4. Matriz de trazabilidad</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/uso_ia.html">
+ <span class="dropdown-text">5. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e2---eda-y-preparación" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E2 - EDA y Preparación</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e2---eda-y-preparación">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/eda.html">
+ <span class="dropdown-text">1. Análisis exploratorio (EDA)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/preparacion.html">
+ <span class="dropdown-text">2. Preparación de los datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/pipeline.html">
+ <span class="dropdown-text">3. Pipeline y DW poblado</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/decisiones.html">
+ <span class="dropdown-text">4. Decisiones (no técnico)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/trazabilidad.html">
+ <span class="dropdown-text">5. Matriz de trazabilidad</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/ajustes.html">
+ <span class="dropdown-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/uso_ia.html">
+ <span class="dropdown-text">7. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/decisiones.html">4. Qué hicimos con los datos y por qué</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">E0 - Comprensión del Negocio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/bitacora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Bitácora de la reunión con el stakeholder</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/canvas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Business Understanding Canvas (CRISP-DM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/preguntas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Preguntas de investigación priorizadas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/criterio_exito.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Criterio de éxito en términos de negocio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Supuestos y riesgos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Fuentes consultadas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">E1 - Arquitectura del DW</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Fuentes de datos: búsqueda, catálogo e integración</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Arquitectura de tres capas en BigQuery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/estrella.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Esquema estrella</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Matriz de trazabilidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">E2 - EDA y Preparación</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Análisis exploratorio (EDA)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/preparacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Preparación de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Pipeline reproducible y DW poblado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/decisiones.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4. Qué hicimos con los datos y por qué</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Matriz de trazabilidad (extendida en E2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/ajustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#de-dónde-partimos" id="toc-de-dónde-partimos" class="nav-link active" data-scroll-target="#de-dónde-partimos">De dónde partimos</a></li>
+  <li><a href="#las-decisiones-importantes" id="toc-las-decisiones-importantes" class="nav-link" data-scroll-target="#las-decisiones-importantes">Las decisiones importantes</a>
+  <ul class="collapse">
+  <li><a href="#los-ceros-no-siempre-significan-que-nadie-viajó" id="toc-los-ceros-no-siempre-significan-que-nadie-viajó" class="nav-link" data-scroll-target="#los-ceros-no-siempre-significan-que-nadie-viajó">1. Los “ceros” no siempre significan que nadie viajó</a></li>
+  <li><a href="#los-días-raros-se-quedan" id="toc-los-días-raros-se-quedan" class="nav-link" data-scroll-target="#los-días-raros-se-quedan">2. Los días “raros” se quedan</a></li>
+  <li><a href="#corregimos-textos-mal-escritos-y-unimos-las-fuentes" id="toc-corregimos-textos-mal-escritos-y-unimos-las-fuentes" class="nav-link" data-scroll-target="#corregimos-textos-mal-escritos-y-unimos-las-fuentes">3. Corregimos textos mal escritos y unimos las fuentes</a></li>
+  <li><a href="#el-calendario-legal-manda-sobre-la-fuente-de-festivos" id="toc-el-calendario-legal-manda-sobre-la-fuente-de-festivos" class="nav-link" data-scroll-target="#el-calendario-legal-manda-sobre-la-fuente-de-festivos">4. El calendario legal manda sobre la fuente de festivos</a></li>
+  <li><a href="#agregamos-sismos-y-eventos-masivos-como-se-nos-pidió" id="toc-agregamos-sismos-y-eventos-masivos-como-se-nos-pidió" class="nav-link" data-scroll-target="#agregamos-sismos-y-eventos-masivos-como-se-nos-pidió">5. Agregamos sismos y eventos masivos, como se nos pidió</a></li>
+  <li><a href="#nos-quedamos-con-las-variables-útiles-y-quitamos-las-repetidas" id="toc-nos-quedamos-con-las-variables-útiles-y-quitamos-las-repetidas" class="nav-link" data-scroll-target="#nos-quedamos-con-las-variables-útiles-y-quitamos-las-repetidas">6. Nos quedamos con las variables útiles y quitamos las repetidas</a></li>
+  <li><a href="#no-recortamos-los-datos" id="toc-no-recortamos-los-datos" class="nav-link" data-scroll-target="#no-recortamos-los-datos">7. No recortamos los datos</a></li>
+  <li><a href="#definimos-qué-es-un-día-de-alta-demanda" id="toc-definimos-qué-es-un-día-de-alta-demanda" class="nav-link" data-scroll-target="#definimos-qué-es-un-día-de-alta-demanda">8. Definimos qué es un “día de alta demanda”</a></li>
+  </ul></li>
+  <li><a href="#lo-que-se-perdió-y-los-riesgos-que-quedan" id="toc-lo-que-se-perdió-y-los-riesgos-que-quedan" class="nav-link" data-scroll-target="#lo-que-se-perdió-y-los-riesgos-que-quedan">Lo que se perdió y los riesgos que quedan</a></li>
+  <li><a href="#glosario" id="toc-glosario" class="nav-link" data-scroll-target="#glosario">Glosario</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/decisiones.html">4. Qué hicimos con los datos y por qué</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">4. Qué hicimos con los datos y por qué</h1>
+<p class="subtitle lead">Entrega E2 - Documento de decisiones en lenguaje no técnico</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Este documento está escrito para la Subdirección de Planeación del Servicio del Metro (el stakeholder de E0) o para cualquier persona sin formación técnica. Explica qué encontramos en los datos, qué hicimos con ellos, por qué, y qué significa para las preguntas del proyecto. Las palabras técnicas que no pudimos evitar están en el glosario al final.</em></p>
+<section id="de-dónde-partimos" class="level2">
+<h2 class="anchored" data-anchor-id="de-dónde-partimos">De dónde partimos</h2>
+<p>Trabajamos con el registro público de <strong>cuántas personas entran cada día a cada estación del Metro</strong>, de enero de 2010 a julio de 2026: 1,180,920 registros, uno por estación y día. Lo acompañamos con las entradas diarias del Metrobús por línea, el clima de cada día, los días festivos, los sismos fuertes y el catálogo oficial de estaciones con su ubicación.</p>
+<p>El objetivo de esta etapa no es predecir nada todavía. Es <strong>conocer bien los datos y dejarlos listos y confiables</strong> para la siguiente etapa, sin borrar justamente lo que queremos estudiar: los días en que una estación se llena más de lo normal.</p>
+</section>
+<section id="las-decisiones-importantes" class="level2">
+<h2 class="anchored" data-anchor-id="las-decisiones-importantes">Las decisiones importantes</h2>
+<section id="los-ceros-no-siempre-significan-que-nadie-viajó" class="level3">
+<h3 class="anchored" data-anchor-id="los-ceros-no-siempre-significan-que-nadie-viajó">1. Los “ceros” no siempre significan que nadie viajó</h3>
+<p><strong>Qué encontramos.</strong> El 5.3 % de los registros (62,025) dicen que en una estación entraron <strong>cero</strong> personas ese día. Al revisarlos vimos que mezclan cuatro situaciones distintas:</p>
+<ul>
+<li><strong>20,780</strong> son de la Línea 12 antes de su inauguración en 2012: la estación todavía no existía.</li>
+<li><strong>39,190</strong> son cierres de una semana o más, por obras, accidentes o la pandemia (por ejemplo, la Línea 12 tras el colapso de 2021 y la Línea 1 durante su modernización).</li>
+<li><strong>477</strong> son cierres de un solo día, casi siempre por marchas o eventos (la estación Zócalo en varios 8 de marzo, por ejemplo).</li>
+<li>En <strong>10 días</strong> toda la red marcó cero o casi cero. Eran días en que <strong>el transporte fue gratuito</strong>: tras el sismo del 19 de septiembre de 2017 y durante la contingencia ambiental de marzo de 2016. Las personas sí viajaron, pero los torniquetes no las contaron.</li>
+</ul>
+<p><strong>Qué hicimos.</strong> Tratamos cada caso por separado. Los 10 días de gratuidad quedaron como <strong>“sin dato”</strong>, no como cero, y quedaron marcados en el calendario. Los cierres se conservaron y se anotaron en el historial de cada estación: abierta, cerrada o todavía no inaugurada, con sus fechas. Los cierres de un día se conservaron con una marca.</p>
+<p><strong>Por qué así.</strong> Si dejáramos los ceros de la gratuidad, el sistema aprendería que después de un sismo nadie usa el Metro, y eso es falso. Si borráramos los cierres, perderíamos justo los episodios que sirven para estudiar a dónde se va la gente cuando una línea cierra. Tampoco “rellenamos” ningún día con un número inventado, porque nadie sabe cuántas personas viajaron en esos días.</p>
+<p><strong>Qué cambia.</strong> Para anticipar la demanda (P2) solo se usarán días en que la estación operó normalmente. Se pierde la información de esos 10 días, que de todos modos no existía.</p>
+</section>
+<section id="los-días-raros-se-quedan" class="level3">
+<h3 class="anchored" data-anchor-id="los-días-raros-se-quedan">2. Los días “raros” se quedan</h3>
+<p><strong>Qué encontramos.</strong> 18,553 registros (1.7 % de los días con servicio) se alejan mucho de lo normal para esa estación y ese día de la semana. Por ejemplo, las estaciones junto a la Basílica cada 12 de diciembre, o casi cualquier estación en Navidad.</p>
+<p><strong>Qué hicimos.</strong> <strong>No borramos ninguno.</strong> Solo les pusimos una marca para poder identificarlos.</p>
+<p><strong>Por qué así.</strong> Esos días raros son exactamente lo que el operador quiere anticipar: los picos y las caídas. Borrarlos dejaría unos datos más “bonitos” pero inútiles para el proyecto. Comprobamos que, después de toda la preparación, la concentración de la demanda y el patrón semanal siguen idénticos a los de los datos originales.</p>
+<p><strong>Qué cambia.</strong> Nada se pierde. La marca <strong>no</strong> se usará para predecir, porque se calcula viendo también las semanas posteriores, y eso sería hacer trampa con información del futuro. Sirve para describir anomalías (P4).</p>
+</section>
+<section id="corregimos-textos-mal-escritos-y-unimos-las-fuentes" class="level3">
+<h3 class="anchored" data-anchor-id="corregimos-textos-mal-escritos-y-unimos-las-fuentes">3. Corregimos textos mal escritos y unimos las fuentes</h3>
+<p><strong>Qué encontramos.</strong> Un problema de formato hacía que la base del Metro tuviera “Línea 1” escrita de tres formas distintas (24 nombres para 12 líneas). Además, 379,214 nombres de estación tenían caracteres dañados (“CatÃ³lica” en lugar de “Católica”), dos estaciones aparecían con dos escrituras (“Gómez Farías” y “Gómez Farias”) y, en diciembre de 2020, la Línea B reportaba “Oceanía” dos veces y nunca “Deportivo Oceanía”.</p>
+<p><strong>Qué hicimos.</strong> Reparamos los caracteres, unificamos los nombres y asignamos el dato que faltaba de Deportivo Oceanía usando cómo se comportaron ambas estaciones en los meses de alrededor. Además unimos cada estación con el catálogo oficial de ubicaciones: 187 coincidieron solas y 8 necesitaron una tabla de equivalencias, porque cada fuente escribe distinto los nombres compuestos.</p>
+<p><strong>Por qué así.</strong> Sin estas correcciones, una misma estación se contaría como dos, o una línea se partiría en tres. Las reglas son automáticas y solo tocan los textos dañados.</p>
+<p><strong>Qué cambia.</strong> Las 195 estaciones quedaron completas, con su ubicación, todos los días.</p>
+</section>
+<section id="el-calendario-legal-manda-sobre-la-fuente-de-festivos" class="level3">
+<h3 class="anchored" data-anchor-id="el-calendario-legal-manda-sobre-la-fuente-de-festivos">4. El calendario legal manda sobre la fuente de festivos</h3>
+<p><strong>Qué encontramos.</strong> La fuente de festivos mueve 10 fechas cuando caen en fin de semana (por ejemplo, pone el Día del Trabajo de 2022 el lunes 2 de mayo).</p>
+<p><strong>Qué hicimos.</strong> Usamos las fechas que marca la Ley Federal del Trabajo y la fuente solo como comprobación.</p>
+<p><strong>Por qué así.</strong> Ese lunes no fue día de descanso obligatorio: marcarlo como festivo haría creer que la gente faltó por el festivo.</p>
+</section>
+<section id="agregamos-sismos-y-eventos-masivos-como-se-nos-pidió" class="level3">
+<h3 class="anchored" data-anchor-id="agregamos-sismos-y-eventos-masivos-como-se-nos-pidió">5. Agregamos sismos y eventos masivos, como se nos pidió</h3>
+<p><strong>Qué encontramos.</strong> En la revisión de E1 nos sugirieron incluir sismos y manifestaciones. Encontramos una fuente pública de sismos (el servicio geológico de EE. UU.: 27 sismos de magnitud 6 o más a menos de 800 km entre 2010 y 2026). Para las marchas <strong>no existe una base pública descargable</strong>: la Secretaría de Seguridad Ciudadana publica una agenda diaria en PDF, sin histórico. Sí vimos en los datos fechas fijas que, año con año, cierran estaciones o las saturan: 8 de marzo, 16 de septiembre, 2 de octubre, 25 de noviembre y 12 de diciembre.</p>
+<p><strong>Qué hicimos.</strong> Agregamos al calendario los días con sismo y esas cinco fechas de eventos masivos.</p>
+<p><strong>Por qué así y qué cambia.</strong> Los sismos casi no cambian la demanda del día, así que no servirán para pronosticar, pero sí para explicar anomalías. Las marchas que no caen en fechas fijas seguirán sin explicación. Es un riesgo que ya declarábamos en E0.</p>
+</section>
+<section id="nos-quedamos-con-las-variables-útiles-y-quitamos-las-repetidas" class="level3">
+<h3 class="anchored" data-anchor-id="nos-quedamos-con-las-variables-útiles-y-quitamos-las-repetidas">6. Nos quedamos con las variables útiles y quitamos las repetidas</h3>
+<p><strong>Qué encontramos.</strong> Revisamos más de 30 variables con tres pruebas estadísticas (ver glosario). La variable “lluvia” era <strong>idéntica</strong> a “precipitación” todos los días (en la Ciudad de México no nieva). “Semana del año” decía lo mismo que “mes”. La afluencia de hace 7 días ya estaba incluida en el promedio de las 4 semanas previas. Además, la lluvia y la temperatura casi no cambian cuánta gente entra al Metro.</p>
+<p><strong>Qué hicimos.</strong> Quitamos las repetidas. Conservamos el clima solo como posible explicación de días raros, y dejamos escrita la razón de cada variable en una tabla.</p>
+<p><strong>Por qué así.</strong> Las variables repetidas no agregan información y vuelven más difícil explicar un modelo. Las variables con poco efecto se quedaron cuando alguna pregunta del proyecto las necesitaba, por ejemplo los festivos para explicar anomalías.</p>
+</section>
+<section id="no-recortamos-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="no-recortamos-los-datos">7. No recortamos los datos</h3>
+<p><strong>Qué encontramos.</strong> Todos los datos caben sin problema en la computadora y en BigQuery, dentro de la capa gratuita.</p>
+<p><strong>Qué hicimos.</strong> Trabajamos con <strong>todos</strong> los registros. Solo guardamos en el repositorio una muestra pequeña (una semana por cada trimestre de cada año) para que cualquiera pueda probar el proceso sin conectarse a BigQuery. Comprobamos que esa muestra se parece a los datos completos.</p>
+</section>
+<section id="definimos-qué-es-un-día-de-alta-demanda" class="level3">
+<h3 class="anchored" data-anchor-id="definimos-qué-es-un-día-de-alta-demanda">8. Definimos qué es un “día de alta demanda”</h3>
+<p><strong>Qué encontramos.</strong> Comparamos las entradas de cada estación con el promedio del mismo día de la semana en las 4 semanas anteriores (lo que hoy “haría cualquiera”). El 8.4 % de los días-estación superan ese promedio en más de 20 %.</p>
+<p><strong>Qué hicimos.</strong> Dejamos el umbral en <strong>20 % por encima de lo habitual de esa misma estación</strong>.</p>
+<p><strong>Por qué así.</strong> Un umbral fijo en número de personas solo marcaría siempre las mismas estaciones grandes. Un umbral más alto dejaría tan pocos casos que no se podría evaluar si el sistema acierta.</p>
+<p><strong>Qué cambia.</strong> El criterio de éxito de E0 ya se puede medir. La regla “de siempre” se equivoca hoy en un 10.7 % de las entradas; el sistema tendrá que equivocarse al menos un 20 % menos.</p>
+</section>
+</section>
+<section id="lo-que-se-perdió-y-los-riesgos-que-quedan" class="level2">
+<h2 class="anchored" data-anchor-id="lo-que-se-perdió-y-los-riesgos-que-quedan">Lo que se perdió y los riesgos que quedan</h2>
+<ul>
+<li><strong>10 días sin dato</strong> (2016 y 2017): no se pueden recuperar.</li>
+<li><strong>Los datos son por día, no por hora</strong>: no se puede hablar de la hora pico (ya se sabía desde E0).</li>
+<li><strong>El Metrobús solo informa por línea</strong>: la ruta alterna en Metrobús se propondrá por línea, no por estación.</li>
+<li><strong>Las marchas fuera de fechas fijas y las vacaciones escolares</strong> no tienen fuente abierta: tres de cada cuatro días raros quedan hoy sin causa atribuida.</li>
+<li><strong>Desde la pandemia la red recibe 30 % menos gente</strong> que antes: el pronóstico se basará en datos de 2022 en adelante.</li>
+</ul>
+</section>
+<section id="glosario" class="level2">
+<h2 class="anchored" data-anchor-id="glosario">Glosario</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Término</th>
+<th>Qué significa aquí</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Atípico</strong></td>
+<td>Un día cuyo valor se aleja mucho de lo normal para esa estación y ese día de la semana. No es lo mismo que un error.</td>
+</tr>
+<tr class="even">
+<td><strong>Imputar</strong></td>
+<td>Rellenar un dato faltante con un valor estimado. Aquí <strong>no</strong> imputamos nada.</td>
+</tr>
+<tr class="odd">
+<td><strong>Valor faltante (“sin dato”)</strong></td>
+<td>Un registro sin número porque no se midió, distinto de un cero real.</td>
+</tr>
+<tr class="even">
+<td><strong>Grano</strong></td>
+<td>Qué representa cada fila: aquí, una estación de una línea en un día.</td>
+</tr>
+<tr class="odd">
+<td><strong>Historial de la estación (SCD tipo 2)</strong></td>
+<td>En lugar de sobrescribir el estado de una estación, se guarda cada periodo (abierta, cerrada, no inaugurada) con sus fechas.</td>
+</tr>
+<tr class="even">
+<td><strong>Línea base ingenua</strong></td>
+<td>El promedio del mismo día de la semana en las 4 semanas previas: lo que se esperaría sin ningún modelo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Coeficiente de Gini</strong></td>
+<td>Mide qué tan repartida está la demanda: 0 = todas las estaciones reciben lo mismo; cerca de 1 = una sola recibe casi todo. Hoy vale 0.38.</td>
+</tr>
+<tr class="even">
+<td><strong>Entropía</strong></td>
+<td>Mide qué tan parejo es un reparto entre categorías: 1 = perfectamente parejo; 0 = todo en una sola.</td>
+</tr>
+<tr class="odd">
+<td><strong>Chi-cuadrada y V de Cramér</strong></td>
+<td>Prueba si una característica de tipo categoría (mes, festivo…) se relaciona con los días de alta demanda, y qué tan fuerte es esa relación.</td>
+</tr>
+<tr class="even">
+<td><strong>Correlación</strong></td>
+<td>Mide si dos números suben y bajan juntos. Si dos variables casi siempre se mueven igual, una sobra.</td>
+</tr>
+<tr class="odd">
+<td><strong>Componentes principales (PCA)</strong></td>
+<td>Una forma de resumir varias variables relacionadas en unas pocas combinaciones. Aquí mostró que la mayor diferencia entre estaciones es “estación de trabajo vs.&nbsp;estación de paseo”.</td>
+</tr>
+<tr class="even">
+<td><strong>Muestra</strong></td>
+<td>Una parte de los datos elegida para representar al todo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Fuga de información</strong></td>
+<td>Usar, sin darse cuenta, datos del futuro para “predecir” el pasado. Hace que un modelo parezca mejor de lo que es.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fernando-bm\.github\.io\/Proyecto_Mineria_Datos");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../entregas/E2_eda_preparacion/pipeline.html" class="pagination-link" aria-label="3. Pipeline reproducible y DW poblado">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3. Pipeline reproducible y DW poblado</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../entregas/E2_eda_preparacion/trazabilidad.html" class="pagination-link" aria-label="5. Matriz de trazabilidad (extendida en E2)">
+        <span class="nav-page-text">5. Matriz de trazabilidad (extendida en E2)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Facultad de Ciencias, UNAM · Almacenes y Minería de Datos</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Datos: SEMOVI, Portal de Datos Abiertos de la CDMX (CC-BY-4.0-ESP)</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

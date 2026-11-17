@@ -10,6 +10,10 @@ datos/crudos/*.csv
 datos/crudos/*.zip
 !datos/crudos/MANIFIESTO.md
 
+# Salidas locales del pipeline E2 (DW en Parquet, log, corrida de la muestra)
+pipeline/salidas/
+resultados_e2.zip
+
 # Python
 __pycache__/
 *.py[cod]

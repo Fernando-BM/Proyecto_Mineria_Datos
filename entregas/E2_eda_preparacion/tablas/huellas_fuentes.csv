@@ -1,0 +1,8 @@
+fuente,archivo,sha256
+metro,mineria-metro-cdmx.metro_staging.stg_metro_afluencia,
+metrobus,mineria-metro-cdmx.metro_staging.stg_metrobus_afluencia,
+gtfs_stops,mineria-metro-cdmx.metro_staging.stg_gtfs_stops,
+gtfs_routes,mineria-metro-cdmx.metro_staging.stg_gtfs_routes,
+festivos,mineria-metro-cdmx.metro_staging.stg_festivos_nager,
+clima,mineria-metro-cdmx.metro_staging.stg_clima_openmeteo,
+sismos,mineria-metro-cdmx.metro_staging.stg_sismos_usgs,

@@ -1,0 +1,7 @@
+variable,prueba,estadístico,p,media población,media muestra,mediana población,mediana muestra
+afluencia estación-día,Kolmogorov-Smirnov,0.006677491566163374,0.0010754440351123799,19639.805269005996,19466.751205018158,14453.0,14275.0
+precipitación diaria (mm),Kolmogorov-Smirnov,0.03860345376345298,0.521851945015864,3.0366743725231173,3.3221748400852875,0.3,0.3
+línea,χ² de bondad de ajuste,1.2679040658384852e-28,1.0,,,,
+día de la semana,χ² de bondad de ajuste,4.600096035893891,0.5960260923498932,,,,
+categoría de lluvia,χ² de bondad de ajuste,3.03105695980223,0.38686154625446906,,,,
+año,χ² de bondad de ajuste,306.2822052304781,1.2736646623778546e-55,,,,

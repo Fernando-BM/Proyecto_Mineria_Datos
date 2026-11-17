@@ -1,0 +1,26 @@
+validacion,resultado,detalle
+dim_fecha: llave primaria sin nulos,OK,"6,056 filas"
+dim_fecha: llave primaria única (grano),OK,"6,056 filas = 6,056 combinaciones distintas"
+dim_linea: llave primaria sin nulos,OK,19 filas
+dim_linea: llave primaria única (grano),OK,19 filas = 19 combinaciones distintas
+dim_estacion: llave primaria sin nulos,OK,603 filas
+dim_estacion: llave primaria única (grano),OK,603 filas = 603 combinaciones distintas
+dim_clima: llave primaria sin nulos,OK,"6,056 filas"
+dim_clima: llave primaria única (grano),OK,"6,056 filas = 6,056 combinaciones distintas"
+hechos_afluencia_metro: llave primaria sin nulos,OK,"1,180,920 filas"
+hechos_afluencia_metro: llave primaria única (grano),OK,"1,180,920 filas = 1,180,920 combinaciones distintas"
+hechos_afluencia_metrobus: llave primaria sin nulos,OK,"34,505 filas"
+hechos_afluencia_metrobus: llave primaria única (grano),OK,"34,505 filas = 34,505 combinaciones distintas"
+hechos_afluencia_metro.fecha_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metro.linea_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metro.clima_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metrobus.fecha_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metrobus.linea_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metrobus.clima_key: sin llaves huérfanas,OK,0 huérfanas
+hechos_afluencia_metro.estacion_key: sin llaves huérfanas,OK,0 huérfanas
+hechos ↔ dim_estacion: cada fila cae en la versión vigente ese día,OK,603 versiones
+dim_estacion: exactamente una versión vigente por estación,OK,195 estaciones
+hechos_afluencia_metro: grano estación-línea × día único,OK,195 estaciones-línea
+afluencia >= 0,OK,Metro y Metrobús
+hechos_afluencia_metro: filas = días × 195,OK,"1,180,920 = 1,180,920"
+precipitación >= 0 y mínima <= máxima,OK,dim_clima

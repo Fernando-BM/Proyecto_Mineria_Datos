@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6. Ajustes a E1 (E1 v2) – Proyecto Integrador - Almacenes y Minería de Datos</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../entregas/E2_eda_preparacion/uso_ia.html" rel="next">
+<link href="../../entregas/E2_eda_preparacion/trazabilidad.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a0b5e2e85ec7fb1d5bf63db1008f0e2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Proyecto Integrador - Almacenes y Minería de Datos</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e0---comprensión-del-negocio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E0 - Comprensión del Negocio</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e0---comprensión-del-negocio">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/bitacora.html">
+ <span class="dropdown-text">1. Bitácora del stakeholder</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/canvas.html">
+ <span class="dropdown-text">2. Business Understanding Canvas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/preguntas.html">
+ <span class="dropdown-text">3. Preguntas de investigación</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/criterio_exito.html">
+ <span class="dropdown-text">4. Criterio de éxito</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html">
+ <span class="dropdown-text">5. Supuestos y riesgos</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/uso_ia.html">
+ <span class="dropdown-text">6. Uso de herramientas de IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/fuentes.html">
+ <span class="dropdown-text">7. Fuentes consultadas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e1---arquitectura-del-dw" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E1 - Arquitectura del DW</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e1---arquitectura-del-dw">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/fuentes.html">
+ <span class="dropdown-text">1. Fuentes de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/arquitectura.html">
+ <span class="dropdown-text">2. Arquitectura de tres capas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/estrella.html">
+ <span class="dropdown-text">3. Esquema estrella</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/trazabilidad.html">
+ <span class="dropdown-text">4. Matriz de trazabilidad</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/uso_ia.html">
+ <span class="dropdown-text">5. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e2---eda-y-preparación" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E2 - EDA y Preparación</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e2---eda-y-preparación">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/eda.html">
+ <span class="dropdown-text">1. Análisis exploratorio (EDA)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/preparacion.html">
+ <span class="dropdown-text">2. Preparación de los datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/pipeline.html">
+ <span class="dropdown-text">3. Pipeline y DW poblado</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/decisiones.html">
+ <span class="dropdown-text">4. Decisiones (no técnico)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/trazabilidad.html">
+ <span class="dropdown-text">5. Matriz de trazabilidad</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/ajustes.html">
+ <span class="dropdown-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/uso_ia.html">
+ <span class="dropdown-text">7. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/ajustes.html">6. Ajustes a E1 (E1 v2)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">E0 - Comprensión del Negocio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/bitacora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Bitácora de la reunión con el stakeholder</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/canvas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Business Understanding Canvas (CRISP-DM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/preguntas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Preguntas de investigación priorizadas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/criterio_exito.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Criterio de éxito en términos de negocio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Supuestos y riesgos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Fuentes consultadas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">E1 - Arquitectura del DW</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Fuentes de datos: búsqueda, catálogo e integración</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Arquitectura de tres capas en BigQuery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/estrella.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Esquema estrella</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Matriz de trazabilidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">E2 - EDA y Preparación</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Análisis exploratorio (EDA)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/preparacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Preparación de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Pipeline reproducible y DW poblado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/decisiones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Qué hicimos con los datos y por qué</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Matriz de trazabilidad (extendida en E2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/ajustes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#retroalimentación-de-e1" id="toc-retroalimentación-de-e1" class="nav-link active" data-scroll-target="#retroalimentación-de-e1">6.1 Retroalimentación de E1</a></li>
+  <li><a href="#cambios-en-el-esquema-estrella-ddl-v2" id="toc-cambios-en-el-esquema-estrella-ddl-v2" class="nav-link" data-scroll-target="#cambios-en-el-esquema-estrella-ddl-v2">6.2 Cambios en el esquema estrella (DDL v2)</a></li>
+  <li><a href="#cambios-en-el-datamart-vistas-v2" id="toc-cambios-en-el-datamart-vistas-v2" class="nav-link" data-scroll-target="#cambios-en-el-datamart-vistas-v2">6.3 Cambios en el DataMart (vistas v2)</a></li>
+  <li><a href="#correcciones-a-afirmaciones-de-e1" id="toc-correcciones-a-afirmaciones-de-e1" class="nav-link" data-scroll-target="#correcciones-a-afirmaciones-de-e1">6.4 Correcciones a afirmaciones de E1</a></li>
+  <li><a href="#por-qué-sigue-en-la-línea-de-e0" id="toc-por-qué-sigue-en-la-línea-de-e0" class="nav-link" data-scroll-target="#por-qué-sigue-en-la-línea-de-e0">6.5 Por qué sigue en la línea de E0</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/ajustes.html">6. Ajustes a E1 (E1 v2)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">6. Ajustes a E1 (E1 v2)</h1>
+<p class="subtitle lead">Entrega E2 - EDA y Preparación de Datos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>El EDA y la retroalimentación de E1 obligaron a ajustar el diseño. Los ajustes se documentan como <strong>E1 v2</strong>, <strong>sin borrar la versión original</strong>:</p>
+<ul>
+<li>E1 original, sin cambios: <code>entregas/E1_arquitectura_dw/sql/ddl_dw.sql</code> y <code>consultas_mart.sql</code>.</li>
+<li>E1 v2, la que ejecuta el pipeline: <code>sql/ddl_dw.sql</code> y <code>sql/consultas_mart.sql</code> en la raíz del repositorio. Cada archivo empieza con la lista de diferencias.</li>
+</ul>
+<div class="caja caja-clave">
+<p><span class="etiqueta">¿Hay pivote?</span> <strong>No.</strong> Ningún ajuste cambia el objetivo de minería de E0 (anticipar con 24 h la afluencia diaria por estación y clasificar los días de alta demanda) ni el criterio de éxito (recall y precisión ≥ 0.70 y mejora ≥ 20 % sobre la base ingenua). Por eso no hay <code>pivote.qmd</code> ni E0 v2.</p>
+</div>
+<section id="retroalimentación-de-e1" class="level2">
+<h2 class="anchored" data-anchor-id="retroalimentación-de-e1">6.1 Retroalimentación de E1</h2>
+<p>E1 obtuvo 10/10. La revisión dejó tres observaciones, y E2 atiende las tres:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Observación de la revisión</th>
+<th>Qué hicimos en E2</th>
+<th>Dónde verlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Esquema estrella:</em> “Sería interesante aclarar cómo identificarán las estaciones cerradas y distinguirlas de datos faltantes”</td>
+<td>Regla explícita en el pipeline, con un conteo para cada caso. <strong>Cerrada</strong> = racha de 7 días o más en cero en esa estación: genera una versión <code>cerrada</code> en <code>dim_estacion</code> y el 0 se conserva (39,190 estación-días). <strong>No inaugurada</strong> = ceros antes del primer dato de la estación (20,780). <strong>Faltante</strong> = día en que toda la red registra menos del 10 % de su nivel habitual (gratuidad de 2016 y 2017): <code>afluencia</code> NULL y <code>es_dia_sin_medicion</code> en <code>dim_fecha</code> (10 días, 1,950 estación-días). <strong>Cierre puntual</strong> = cero de menos de 7 días: el 0 se conserva con <code>es_registro_cero</code> (477)</td>
+<td><a href="../../entregas/E2_eda_preparacion/preparacion.html#criterios-por-tipo-de-problema">Preparación 2.1</a>, registro L17-L20, hallazgo H2</td>
+</tr>
+<tr class="even">
+<td><em>Arquitectura y total:</em> “Algunas consultas necesitan ajustes para responder completamente las preguntas planteadas” / “asegurar que las consultas respondan directamente a los objetivos de investigación”</td>
+<td>Cada vista del DataMart se revisó contra su pregunta y ahora devuelve la respuesta, no solo insumos. <strong>P2:</strong> umbral de alta demanda fijado (1.20 × base) y la vara del criterio de éxito (WAPE de la base ingenua). <strong>P3:</strong> se agregó la correlación sin ciclo semanal, que sí identifica alternativas (la de niveles daba 0.9 para casi todo). <strong>P4:</strong> cada anomalía recibe una causa probable y se reporta la proporción explicada. <strong>P5:</strong> nueva vista contra un grupo de control (líneas del Metro que siguieron abiertas), que separa la absorción de la recuperación de la pandemia. Todas las lecturas están junto a su resultado</td>
+<td><a href="../../entregas/E2_eda_preparacion/pipeline.html#resultados-del-datamart">Pipeline 3.4</a>, tabla 6.3</td>
+</tr>
+<tr class="odd">
+<td><em>Comentario adicional:</em> incorporar datos de sismos, manifestaciones y eventos similares</td>
+<td>Nueva fuente de sismos (F6) y calendario de eventos masivos recurrentes (detalle abajo)</td>
+<td>Tabla siguiente</td>
+</tr>
+</tbody>
+</table>
+<p>Detalle de la tercera observación:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 39%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Qué se pidió</th>
+<th>Qué se encontró</th>
+<th>Qué cambia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sismos</td>
+<td>El servicio FDSN del USGS es una API pública sin llave y reproducible. Devuelve <strong>27 sismos</strong> de magnitud ≥ 6.0 a 800 km o menos de la CDMX entre 2010 y 2026. El catálogo del Servicio Sismológico Nacional es la referencia nacional, pero no encontramos una API documentada para descargarlo desde el pipeline</td>
+<td>Nueva fuente <strong>F6</strong> (<code>pipeline/data/fuentes/sismos_usgs_2010_2026.csv</code>, consulta en <code>config.yaml</code>); nueva tabla de staging <code>stg_sismos_usgs</code> que el pipeline sube sola; columnas <code>es_dia_sismo</code> y <code>sismo_magnitud_max</code> en <code>dim_fecha</code> (en hora de la CDMX)</td>
+</tr>
+<tr class="even">
+<td>Manifestaciones</td>
+<td>No hay un conjunto abierto y estructurado. La SSC publica una agenda diaria en PDF sin histórico descargable, y las cifras de prensa salen de solicitudes de transparencia agregadas. Pero F1 muestra cierres de Zócalo y picos en fechas fijas (H6 del EDA)</td>
+<td>Calendario de <strong>eventos recurrentes</strong> basado en reglas (<code>config.yaml</code>): 8M, 16 de septiembre, 2 de octubre, 25N y 12 de diciembre. Nueva columna <code>evento_masivo</code> en <code>dim_fecha</code>. Las marchas no recurrentes quedan como anomalías “sin causa atribuida” (supuesto S6 de E0)</td>
+</tr>
+</tbody>
+</table>
+<p>Con estas variables, la vista de P4 ahora atribuye cada anomalía a una causa probable. Los resultados están en el <a href="../../entregas/E2_eda_preparacion/pipeline.html#p4-anomalías-por-causa-probable-grouping-sets">DataMart</a>.</p>
+</section>
+<section id="cambios-en-el-esquema-estrella-ddl-v2" class="level2">
+<h2 class="anchored" data-anchor-id="cambios-en-el-esquema-estrella-ddl-v2">6.2 Cambios en el esquema estrella (DDL v2)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Elemento</th>
+<th>E1</th>
+<th>E1 v2</th>
+<th>Por qué</th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Todas las tablas</td>
+<td><code>CREATE TABLE IF NOT EXISTS</code></td>
+<td><code>DROP</code> de los hechos + <code>CREATE OR REPLACE</code></td>
+<td>El pipeline debe ser idempotente: correrlo dos veces deja el mismo DW</td>
+<td><a href="../../entregas/E2_eda_preparacion/pipeline.html">Pipeline</a></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>dim_fecha</code></td>
+<td>14 columnas</td>
+<td><strong>+ <code>es_dia_sin_medicion</code></strong>, <code>es_dia_sismo</code>, <code>sismo_magnitud_max</code>, <code>evento_masivo</code></td>
+<td>Días de gratuidad (H2) y retroalimentación de E1 (6.1)</td>
+<td>Registro L17; Fig. 1</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>dim_clima</code></td>
+<td><code>precipitacion_mm</code> y <code>lluvia_mm</code></td>
+<td><strong>Sin <code>lluvia_mm</code></strong></td>
+<td>Es idéntica a la precipitación los 6,056 días (ρ = 1.00)</td>
+<td>Tabla 15; PCA (CP4 con varianza 0)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>dim_clima.categoria_lluvia</code></td>
+<td>“umbrales a fijar en E2”</td>
+<td>Escala del SMN: sin lluvia &lt; 0.1 mm, ligera &lt; 5.1, moderada &lt; 25, fuerte ≥ 25</td>
+<td>Fijar el pendiente de E1 con una fuente externa</td>
+<td>Fig. 9</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><code>dim_clima.clima_key</code></td>
+<td>Llave sustituta sin regla</td>
+<td><code>AAAAMMDD</code> (igual que <code>fecha_key</code>)</td>
+<td>Un registro por día; la llave inteligente es estable entre corridas</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><code>dim_estacion.estado_servicio</code></td>
+<td><code>operando</code>, <code>cerrada_obra</code>, <code>cerrada_incidente</code>, <code>no_inaugurada</code></td>
+<td><code>operando</code>, <code>cerrada</code>, <code>no_inaugurada</code></td>
+<td>Los datos dicen <strong>cuándo</strong> cerró una estación (racha de 7 o más días en 0), pero no <strong>por qué</strong>. Separar obra de incidente exigiría un catálogo manual de causas que no existe como fuente abierta</td>
+<td>603 versiones (Tabla 26)</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><code>dim_linea.nombre_linea</code></td>
+<td>“Línea 1”</td>
+<td>“Metro Línea 1” / “Metrobús Línea 1”</td>
+<td>Con nombres repetidos, el CUBE de P5 mezclaba la Línea 1 del Metro con la del Metrobús</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><code>hechos_afluencia_metro</code></td>
+<td><code>afluencia</code>, <code>es_registro_cero</code></td>
+<td><strong>+ <code>es_atipico</code></strong>; <code>afluencia</code> NULL en los 10 días sin medición</td>
+<td>Conservar los atípicos con marca (P4) y no confundir “no se midió” con 0</td>
+<td>Registro L17, L21</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><code>hechos_afluencia_metrobus</code></td>
+<td>Filas con NULL antes de la inauguración</td>
+<td><strong>Solo días desde la inauguración</strong> de cada línea y desde 2010</td>
+<td>Los ‘NaN’ son ausencia estructural; además el DW empieza en 2010</td>
+<td>Registro L23, L24</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cambios-en-el-datamart-vistas-v2" class="level2">
+<h2 class="anchored" data-anchor-id="cambios-en-el-datamart-vistas-v2">6.3 Cambios en el DataMart (vistas v2)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 33%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vista</th>
+<th>Cambio</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Todas</td>
+<td>Se excluyen los días con <code>afluencia</code> NULL</td>
+<td>Días sin medición (H2)</td>
+</tr>
+<tr class="even">
+<td><code>v_p1_picos_vs_base</code>, <code>v_p2_dataset_pronostico</code>, <code>v_p4_anomalias_por_causa</code></td>
+<td>Las ventanas se particionan por <code>estacion_nk</code> y no por <code>estacion_key</code></td>
+<td>Con la SCD2, <code>estacion_key</code> cambia en cada versión y cortaba la serie después de cada cierre</td>
+</tr>
+<tr class="odd">
+<td><code>v_p2_dataset_pronostico</code></td>
+<td>El umbral de alta demanda sale de <code>config.yaml</code> (1.20); se agregan <code>mes</code>, sismo, evento y temperatura</td>
+<td>E1 dejó el umbral “a fijar en E2” con el resultado de P1 (Fig. 13)</td>
+</tr>
+<tr class="even">
+<td><code>v_p4_anomalias_por_causa</code></td>
+<td>Solo días en <code>operando</code>; nueva columna <code>causa_probable</code> (cierre puntual, festivo o Semana Santa, evento masivo, sismo, lluvia fuerte o sin causa); GROUPING SETS por causa, evento y lluvia</td>
+<td>Retroalimentación de E1; P4 pide la proporción explicada</td>
+</tr>
+<tr class="odd">
+<td><code>v_p5_absorcion_cierre_l1</code></td>
+<td>El periodo de referencia empieza en <strong>2022</strong> (en E1, en 2019)</td>
+<td>El EDA mostró que 2020-2021 hundían el nivel “antes” y simulaban una absorción que era recuperación de la pandemia (Fig. 14)</td>
+</tr>
+<tr class="even">
+<td><code>v_p3_correlacion_metro_metrobus</code></td>
+<td>Además de la correlación de niveles, <code>correlacion_sin_ciclo</code>: correlación de la desviación de cada día contra el mismo día de la semana en sus 4 semanas previas, solo con la línea del Metro completa en operación y sin festivos</td>
+<td>La de niveles era 0.5-0.96 para casi cualquier par por el ciclo semanal compartido: no respondía qué línea sirve de alternativa</td>
+</tr>
+<tr class="odd">
+<td><strong><code>v_p5_diferencia_vs_control</code></strong> (nueva)</td>
+<td>Cambio de cada línea frente al periodo previo menos el cambio de las 10 líneas del Metro que siguieron abiertas (LAG)</td>
+<td>El CUBE solo daba promedios; con un control, la pregunta “¿el Metrobús absorbe?” tiene respuesta por línea</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="correcciones-a-afirmaciones-de-e1" class="level2">
+<h2 class="anchored" data-anchor-id="correcciones-a-afirmaciones-de-e1">6.4 Correcciones a afirmaciones de E1</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 47%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Afirmación de E1</th>
+<th>Lo que muestran los datos</th>
+<th>Corrección</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“F3 corresponde a la versión del 31 de octubre de 2022” (E1, sección 1.5)</td>
+<td>El ZIP descargado el 2026-10-02 trae archivos fechados el <strong>2026-02-16</strong>, y su <code>calendar.txt</code> tiene servicios vigentes hasta el 2026-12-31</td>
+<td>El GTFS usado es de <strong>2026</strong>, no de 2022. La fecha de 2022 era la de la descripción del conjunto en el portal, no la del contenido. El riesgo de nombres desactualizados es menor de lo que se declaró</td>
+</tr>
+<tr class="even">
+<td>“Ceros: 62,025 en total, concentrados en L12 y L1”</td>
+<td>Correcto, pero incompleto: también hay 8 días de gratuidad con 0 en toda la red (2017) y cierres en otras líneas: A (2012 y 2015), 9 (2023-2024), 7 y 2 (2025-2026), las estaciones cerradas en la pandemia y Zócalo en fechas de marchas</td>
+<td>Clasificación en 4 tipos (H2)</td>
+</tr>
+<tr class="odd">
+<td>“187 de 195 estaciones unen por nombre con GTFS”</td>
+<td>Se confirma</td>
+<td>Además, el <code>stop_id</code> de Moctezuma usa ’_’ en lugar de ‘-’ (registro L06)</td>
+</tr>
+<tr class="even">
+<td>Un día = 195 filas</td>
+<td>Se confirma, salvo que en diciembre de 2020 dos de esas filas eran la misma estación</td>
+<td>Registro L15</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="por-qué-sigue-en-la-línea-de-e0" class="level2">
+<h2 class="anchored" data-anchor-id="por-qué-sigue-en-la-línea-de-e0">6.5 Por qué sigue en la línea de E0</h2>
+<p>El grano (estación-línea × día), los dos hechos, las cuatro dimensiones y las cinco preguntas no cambian. Los ajustes <strong>agregan</strong> causas candidatas que E0 ya pedía en P4 (“cierres de línea, festivos, sismos, eventos masivos, clima”), <strong>quitan</strong> una variable redundante y <strong>corrigen</strong> el tratamiento de los ceros, como pedía el riesgo R3 de E0. El objetivo y el criterio de éxito siguen iguales.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fernando-bm\.github\.io\/Proyecto_Mineria_Datos");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../entregas/E2_eda_preparacion/trazabilidad.html" class="pagination-link" aria-label="5. Matriz de trazabilidad (extendida en E2)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">5. Matriz de trazabilidad (extendida en E2)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../entregas/E2_eda_preparacion/uso_ia.html" class="pagination-link" aria-label="7. Documentación del uso de herramientas de IA">
+        <span class="nav-page-text">7. Documentación del uso de herramientas de IA</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Facultad de Ciencias, UNAM · Almacenes y Minería de Datos</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Datos: SEMOVI, Portal de Datos Abiertos de la CDMX (CC-BY-4.0-ESP)</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

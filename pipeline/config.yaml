@@ -1,0 +1,134 @@
+# =====================================================================
+# Configuración del pipeline E2 (staging -> limpieza -> DW poblado).
+# Todos los parámetros viven aquí; el código no tiene umbrales sueltos.
+# Las rutas son relativas a la raíz del repositorio.
+# =====================================================================
+
+semilla: 20261106
+
+# ---------------------------------------------------------------------
+# BigQuery
+# ---------------------------------------------------------------------
+bigquery:
+  proyecto: mineria-metro-cdmx        # se puede sobrescribir con la variable de entorno GCP_PROJECT
+  ubicacion: US
+  datasets:
+    staging: metro_staging
+    dw: metro_dw
+    mart: metro_mart
+  tablas_staging:
+    metro: stg_metro_afluencia
+    metrobus: stg_metrobus_afluencia
+    gtfs_stops: stg_gtfs_stops
+    gtfs_routes: stg_gtfs_routes
+    festivos: stg_festivos_nager
+    clima: stg_clima_openmeteo
+    sismos: stg_sismos_usgs           # nueva en E2 (atiende la retroalimentación de E1)
+  sql:
+    ddl: sql/ddl_dw.sql
+    mart: sql/consultas_mart.sql
+    validaciones: sql/validaciones_dw.sql
+    resultados_mart: sql/resultados_mart.sql
+
+# ---------------------------------------------------------------------
+# Fuentes en archivo (modo --fuente local) y muestra del repositorio
+# ---------------------------------------------------------------------
+fuente_local:
+  metro: datos/crudos/0e8ffe58-28bb-4dde-afcd-e5f5b4de4ccb.csv
+  metrobus: datos/crudos/f7943c47-835d-4078-93ea-906f64b72f3b.csv
+  gtfs_zip: datos/crudos/32ed1b6b-41cd-49b3-b7f0-b57acb0eb819.zip
+  festivos: entregas/E1_arquitectura_dw/staging/festivos_mx_nager_2010_2026.jsonl
+  clima: entregas/E1_arquitectura_dw/staging/clima_cdmx_openmeteo_2010_2026.csv
+  sismos: pipeline/data/fuentes/sismos_usgs_2010_2026.csv
+
+fecha_descarga_clima: "2026-10-02"   # fecha en que F5 se cargó a staging (E1)
+
+urls_descarga:   # referencia de dónde salió cada archivo (ver pipeline/README.md)
+  metro: https://datos.cdmx.gob.mx/dataset/afluencia-diaria-del-metro-cdmx
+  metrobus: https://datos.cdmx.gob.mx/dataset/afluencia-diaria-de-metrobus-cdmx
+  gtfs: https://datos.cdmx.gob.mx/dataset/gtfs
+  sismos: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2010-01-01&endtime=2026-08-01&latitude=19.4326&longitude=-99.1332&maxradiuskm=800&minmagnitude=6.0&orderby=time-asc"
+
+muestra:
+  directorio: pipeline/data/sample
+  semanas_por_trimestre: 1            # una semana completa (lun-dom) por año-trimestre
+
+# ---------------------------------------------------------------------
+# Salidas
+# ---------------------------------------------------------------------
+salidas:
+  figuras: entregas/E2_eda_preparacion/img
+  tablas: entregas/E2_eda_preparacion/tablas
+  dw_local: pipeline/salidas/dw          # Parquet del DW en modo --destino local (no se versiona)
+  log: pipeline/salidas/ultima_ejecucion.log
+
+# ---------------------------------------------------------------------
+# Periodo y valores esperados (validaciones automáticas)
+# ---------------------------------------------------------------------
+periodo:
+  inicio: "2010-01-01"
+  fin: "2026-07-31"
+esperado:
+  estaciones_linea: 195
+  lineas_metro: 12
+  lineas_metrobus: 7
+
+# ---------------------------------------------------------------------
+# Limpieza
+# ---------------------------------------------------------------------
+limpieza:
+  min_dias_cierre: 7                 # racha de ceros >= 7 días = cierre (nueva versión SCD2)
+  umbral_sin_medicion: 0.10          # total de la red < 10 % de la mediana del mismo día en 4 semanas = no medido
+  z_robusto_atipico: 3.5             # |z| robusto (MAD) para marcar atípicos (Iglewicz y Hoaglin)
+  ventana_semanas: 9                 # mediana móvil centrada del mismo día de la semana
+  mad_minimo_relativo: 0.10          # piso de la MAD: 10 % de la mediana local (evita marcar variaciones de ±15 %)
+  metrobus_min_vs_mediana: 0.01      # < 1 % de la mediana de su línea = dato imposible
+  estacion_duplicada:                # duplicado de llave natural detectado en el EDA
+    linea: "B"
+    nombre_repetido: "Oceanía"
+    nombre_faltante: "Deportivo Oceanía"
+  equivalencias_gtfs:                # 8 nombres compuestos que no unen por texto con F3 (clave: línea|nombre en F1)
+    "2|Zócalo/Tenochtitlan": B_0200L2-ZOCALO
+    "3|Etiopía/Plaza de la Transparencia": B_0200L3-ETIOPIA
+    "3|Niños Héroes": B_0200L3-NINOSHEROES
+    "3|Viveros/Derechos Humanos": B_0200L3-VIVEROS
+    "6|Ferrería/Arena Ciudad de México": B_0200L6-FERRERIA
+    "6|La Villa/Basílica": B_0200L6-LAVILLA
+    "8|Garibaldi/Lagunilla": B_0200L8-GARIBALDI
+    "B|Garibaldi/Lagunilla": B_0200LB-GARIBALDI
+  nombres_canonicos:                 # variantes de escritura en F1 -> nombre canónico
+    "Gómez Farias": "Gómez Farías"
+    "Peñón viejo": "Peñón Viejo"
+
+lluvia_mm:          # escala del SMN por acumulado en 24 h
+  ligera: 0.1       # 0.1 a 5 mm  (lluvia aislada)
+  moderada: 5.1     # 5.1 a 25 mm (intervalos de chubascos)
+  fuerte: 25.0      # >= 25 mm    (fuerte, muy fuerte o intensa)
+
+sismos:
+  magnitud_min: 6.0
+  radio_km: 800
+  zona_horaria: America/Mexico_City
+
+eventos_recurrentes:   # fechas fijas con evidencia de cierres o picos en F1 (ver EDA)
+  "03-08": marcha_8M
+  "09-16": desfile_16_septiembre
+  "10-02": marcha_2_octubre
+  "11-25": marcha_25N
+  "12-12": peregrinacion_basilica
+
+transmision_poder_ejecutivo: ["2012-12-01", "2018-12-01", "2024-10-01"]
+
+# ---------------------------------------------------------------------
+# Reducción de dimensionalidad
+# ---------------------------------------------------------------------
+reduccion:
+  inicio_modelado: "2022-01-01"      # regimen posterior a la pandemia (riesgo R5 de E0)
+  fin_entrenamiento: "2024-12-31"    # todo lo que aprende parámetros se ajusta solo hasta aquí
+  alfa: 0.01                          # antes de la corrección de Bonferroni
+  v_cramer_min: 0.10                  # efecto pequeño (Cohen)
+  rho_redundancia: 0.90               # |rho| de Spearman para declarar redundancia
+  varianza_pca: 0.90
+
+alta_demanda:
+  umbral_vs_base: 1.20     # afluencia > 1.20 x media del mismo día en las 4 semanas previas

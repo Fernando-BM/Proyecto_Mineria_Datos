@@ -1,0 +1,65 @@
+---
+title: "7. Documentación del uso de herramientas de IA"
+subtitle: "Entrega E2 - EDA y Preparación de Datos"
+---
+
+En E2 el equipo usó un modelo de lenguaje con acceso a un entorno de ejecución de Python, búsqueda web y navegador. Lo usó para tres cosas: escribir el código del pipeline, proponer interpretaciones y redactar borradores de las páginas. **Toda cifra publicada sale de una tabla que genera el pipeline**, y ninguna interpretación se quedó sin una figura o tabla del propio dataset que la respalde.
+
+## Registro de usos
+
+### Uso 1 - Exploración de los datos crudos
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5, con entorno de Python (pandas) |
+| **Fecha** | 29 de octubre de 2026 |
+| **Tarea** | Abrir los CSV de F1 y F2 y el ZIP de F3 descargados del portal, reproducir las cifras de E1 y buscar problemas de calidad |
+| **Prompt (resumen fiel)** | Se entregó el PDF de instrucciones de E2 con la petición: "Ahora necesito hacer la entrega E2 – EDA y Preparación de Datos", más los archivos de la carpeta de descargas |
+| **Qué produjo** | Reprodujo las cifras de E1 (1,180,920 filas, 195 por día, 62,025 ceros, 17,227 'NaN'). Encontró además el duplicado de Oceanía en diciembre de 2020, los 8 días con 0 en toda la red en 2017, las rachas de ceros por estación y las variantes "Gómez Farias" y "Peñón viejo" |
+| **Qué se verificó** | Que los 8 días de 2017 coincidieran con la gratuidad posterior al sismo, contrastado con prensa (Eje Central, ver [EDA](eda.qmd#fuentes-de-los-eventos-citados)). La fecha de reapertura de la Línea 1 tras el incendio del PCC (25 de enero de 2021) coincide con el fin de la racha de ceros |
+
+### Uso 2 - Código del pipeline
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5 |
+| **Fecha** | 29 de octubre de 2026 |
+| **Tarea** | Escribir `pipeline/` (ingesta, calidad, limpieza, reducción, muestreo, verificación, modelo y carga), `config.yaml`, el DDL y las vistas v2, las validaciones SQL y el cuaderno de Colab |
+| **Prompt (resumen fiel)** | "Implementar el flujo de limpieza, reducción y muestreo que además pueble el DW de E1, con un solo punto de entrada, configuración, semilla, validaciones y README", con los requisitos del PDF de E2 |
+| **Cómo se verificó** | (1) El pipeline se ejecutó de principio a fin con los archivos completos (`--fuente local`, unos 30 s) y con la muestra (`--fuente muestra`, unos 10 s), con las versiones fijadas de `requirements.txt` en un entorno virtual limpio. (2) **Idempotencia:** dos corridas seguidas produjeron tablas, figuras y muestra idénticas byte por byte (MD5). (3) **SQL:** las 26 sentencias de `sql/` se analizaron con sqlglot en dialecto BigQuery, y las 8 vistas, las 20 validaciones y las 9 consultas de resultados se ejecutaron en DuckDB sobre el DW local (20 de 20 validaciones OK). (4) La conversión de los dataframes al esquema de BigQuery se probó con la misma función que usa `load_table_from_dataframe`. (5) La corrida oficial en BigQuery la hizo Aldair Coronel Ruiz el 15 de noviembre de 2026, en Google Colab (unos 3 minutos; 20 de 20 validaciones OK). (6) Se comparó la salida de BigQuery contra la local tabla por tabla, y así se detectó la diferencia de "Miguel Ángel de Quevedo" (ver abajo) |
+| **Correcciones hechas al verificar** | La primera regla de "día sin medición" solo buscaba días con 0 en **todas** las estaciones y dejaba fuera el 16 y el 17 de marzo de 2016 (3 % y 4 % del nivel normal, contingencia ambiental). Se cambió por "red < 10 % de su nivel habitual". La primera versión de los atípicos marcaba el 7.4 % de los días (variaciones de apenas ±15 % en estaciones muy estables); se agregó un piso a la MAD y quedó en 1.7 %. La primera corrida en BigQuery dio 604 versiones de estación contra 603 en local: el cargador CSV de BigQuery había alterado un carácter de "Miguel Ángel de Quevedo" (julio de 2026) y la estación quedó duplicada con otro nombre, aunque las 20 validaciones pasaron. Se agregó la regla L26 (unificar nombres con la misma clave normalizada) y se volvió a correr. La primera vista de validación usaba `FORMAT('%d-%d')`, que en DuckDB no se comporta igual; se cambió por `CONCAT` para que la prueba sea la misma en ambos motores |
+
+### Uso 3 - Interpretación de resultados
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5 |
+| **Fecha** | 29 de octubre de 2026 |
+| **Tarea** | Proponer lecturas de las medidas (Gini, entropía, χ², PCA) y los hallazgos H1-H7 |
+| **Qué se contrastó con los datos** | Cada hallazgo tiene una tabla o figura generada por el pipeline. Dos interpretaciones cambiaron al contrastarlas: (a) la comparación de P5 desde 2019 sugería una absorción del Metrobús, pero la serie mostró que era la recuperación de la pandemia; se acotó a 2022 y P5 quedó como parcial. (b) La correlación Metro ↔ Metrobús de 0.91-0.96 se iba a leer como complementariedad; se reinterpretó como ciclo semanal compartido y, por la retroalimentación de E1, se agregó a la vista una correlación sin ciclo semanal y, para P5, una comparación contra un grupo de control. La afirmación de que Zócalo cierra "cada" 8 de marzo se corrigió contra los datos: cierra en 2021, 2022, 2023, 2025 y 2026, no en todos los años |
+| **Revisión del equipo** | [Indicar quién revisó cada hallazgo y si está de acuerdo con la lectura]{.todo} |
+
+### Uso 4 - Búsqueda de fuentes nuevas (retroalimentación de E1)
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5, con búsqueda web |
+| **Fecha** | 29 de octubre de 2026 |
+| **Tarea** | Buscar fuentes de sismos y de manifestaciones |
+| **Qué se verificó y qué se descartó** | La API del USGS se consultó directamente y su respuesta CSV es el archivo de F6 (27 sismos). Para manifestaciones no se encontró ninguna fuente abierta con histórico; solo la agenda diaria de la SSC en PDF. El calendario de eventos recurrentes **no salió de la IA**: salió de los ceros y los picos observados en F1 (Zócalo, Basílica) |
+
+### Uso 5 - Redacción de las páginas del sitio
+
+| Campo | Detalle |
+|-------|---------|
+| **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5 |
+| **Fecha** | 29 de octubre de 2026 |
+| **Tarea** | Borradores de `eda.qmd`, `preparacion.qmd`, `pipeline.qmd`, `decisiones.qmd`, `trazabilidad.qmd`, `ajustes.qmd` y esta página |
+| **Revisión del equipo** | [Indicar qué secciones reescribió o corrigió cada integrante]{.todo} |
+
+## Qué hizo la herramienta y qué no
+
+- **Sí** escribió el código del pipeline y lo ejecutó sobre los archivos locales y la muestra.
+- **Sí** propuso interpretaciones. Las que no se pudieron respaldar con una cifra del dataset se quitaron o se marcaron como límite (P3, P5).
+- **No** tuvo acceso al proyecto de Google Cloud del equipo: la corrida en BigQuery la hizo el equipo con sus propias credenciales, y ninguna llave se compartió con la herramienta.
+- **No** hizo commits ni publicó el sitio.

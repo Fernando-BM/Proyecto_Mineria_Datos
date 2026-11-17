@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1. Análisis exploratorio (EDA) – Proyecto Integrador - Almacenes y Minería de Datos</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../entregas/E2_eda_preparacion/preparacion.html" rel="next">
+<link href="../../entregas/E1_arquitectura_dw/uso_ia.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a0b5e2e85ec7fb1d5bf63db1008f0e2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Proyecto Integrador - Almacenes y Minería de Datos</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e0---comprensión-del-negocio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E0 - Comprensión del Negocio</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e0---comprensión-del-negocio">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/bitacora.html">
+ <span class="dropdown-text">1. Bitácora del stakeholder</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/canvas.html">
+ <span class="dropdown-text">2. Business Understanding Canvas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/preguntas.html">
+ <span class="dropdown-text">3. Preguntas de investigación</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/criterio_exito.html">
+ <span class="dropdown-text">4. Criterio de éxito</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html">
+ <span class="dropdown-text">5. Supuestos y riesgos</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/uso_ia.html">
+ <span class="dropdown-text">6. Uso de herramientas de IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E0_comprension_negocio/fuentes.html">
+ <span class="dropdown-text">7. Fuentes consultadas</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e1---arquitectura-del-dw" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E1 - Arquitectura del DW</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e1---arquitectura-del-dw">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/fuentes.html">
+ <span class="dropdown-text">1. Fuentes de datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/arquitectura.html">
+ <span class="dropdown-text">2. Arquitectura de tres capas</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/estrella.html">
+ <span class="dropdown-text">3. Esquema estrella</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/trazabilidad.html">
+ <span class="dropdown-text">4. Matriz de trazabilidad</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E1_arquitectura_dw/uso_ia.html">
+ <span class="dropdown-text">5. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-e2---eda-y-preparación" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">E2 - EDA y Preparación</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-e2---eda-y-preparación">    
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/eda.html">
+ <span class="dropdown-text">1. Análisis exploratorio (EDA)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/preparacion.html">
+ <span class="dropdown-text">2. Preparación de los datos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/pipeline.html">
+ <span class="dropdown-text">3. Pipeline y DW poblado</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/decisiones.html">
+ <span class="dropdown-text">4. Decisiones (no técnico)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/trazabilidad.html">
+ <span class="dropdown-text">5. Matriz de trazabilidad</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/ajustes.html">
+ <span class="dropdown-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../entregas/E2_eda_preparacion/uso_ia.html">
+ <span class="dropdown-text">7. Uso de herramientas de IA</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">1. Análisis exploratorio (EDA)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">E0 - Comprensión del Negocio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/bitacora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Bitácora de la reunión con el stakeholder</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/canvas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Business Understanding Canvas (CRISP-DM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/preguntas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Preguntas de investigación priorizadas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/criterio_exito.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Criterio de éxito en términos de negocio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/riesgos_supuestos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Supuestos y riesgos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E0_comprension_negocio/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Fuentes consultadas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">E1 - Arquitectura del DW</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/fuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Fuentes de datos: búsqueda, catálogo e integración</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/arquitectura.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Arquitectura de tres capas en BigQuery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/estrella.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Esquema estrella</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Matriz de trazabilidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">E2 - EDA y Preparación</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/eda.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Análisis exploratorio (EDA)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/preparacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Preparación de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/pipeline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Pipeline reproducible y DW poblado</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/decisiones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Qué hicimos con los datos y por qué</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/trazabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Matriz de trazabilidad (extendida en E2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/ajustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Ajustes a E1 (E1 v2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../entregas/E2_eda_preparacion/uso_ia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Documentación del uso de herramientas de IA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#datos-de-partida" id="toc-datos-de-partida" class="nav-link active" data-scroll-target="#datos-de-partida">1.1 Datos de partida</a>
+  <ul class="collapse">
+  <li><a href="#diagnóstico-inicial-de-calidad" id="toc-diagnóstico-inicial-de-calidad" class="nav-link" data-scroll-target="#diagnóstico-inicial-de-calidad">Diagnóstico inicial de calidad</a></li>
+  </ul></li>
+  <li><a href="#estadística-descriptiva-en-las-cuatro-dimensiones" id="toc-estadística-descriptiva-en-las-cuatro-dimensiones" class="nav-link" data-scroll-target="#estadística-descriptiva-en-las-cuatro-dimensiones">1.2 Estadística descriptiva en las cuatro dimensiones</a>
+  <ul class="collapse">
+  <li><a href="#comparación-por-grupos" id="toc-comparación-por-grupos" class="nav-link" data-scroll-target="#comparación-por-grupos">Comparación por grupos</a></li>
+  </ul></li>
+  <li><a href="#concentración-gini-y-curva-de-lorenz" id="toc-concentración-gini-y-curva-de-lorenz" class="nav-link" data-scroll-target="#concentración-gini-y-curva-de-lorenz">1.3 Concentración: Gini y curva de Lorenz</a></li>
+  <li><a href="#heterogeneidad-entropía-normalizada" id="toc-heterogeneidad-entropía-normalizada" class="nav-link" data-scroll-target="#heterogeneidad-entropía-normalizada">1.4 Heterogeneidad: entropía normalizada</a></li>
+  <li><a href="#series-ceros-lluvia-y-el-umbral-de-alta-demanda" id="toc-series-ceros-lluvia-y-el-umbral-de-alta-demanda" class="nav-link" data-scroll-target="#series-ceros-lluvia-y-el-umbral-de-alta-demanda">1.5 Series, ceros, lluvia y el umbral de alta demanda</a></li>
+  <li><a href="#hallazgos" id="toc-hallazgos" class="nav-link" data-scroll-target="#hallazgos">1.6 Hallazgos</a></li>
+  <li><a href="#lo-que-el-eda-dice-que-no-se-puede-responder" id="toc-lo-que-el-eda-dice-que-no-se-puede-responder" class="nav-link" data-scroll-target="#lo-que-el-eda-dice-que-no-se-puede-responder">1.7 Lo que el EDA dice que no se puede responder</a></li>
+  <li><a href="#elección-de-gráficos" id="toc-elección-de-gráficos" class="nav-link" data-scroll-target="#elección-de-gráficos">Elección de gráficos</a></li>
+  <li><a href="#fuentes-de-los-eventos-citados" id="toc-fuentes-de-los-eventos-citados" class="nav-link" data-scroll-target="#fuentes-de-los-eventos-citados">Fuentes de los eventos citados</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">E2 - EDA y Preparación</a></li><li class="breadcrumb-item"><a href="../../entregas/E2_eda_preparacion/eda.html">1. Análisis exploratorio (EDA)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1. Análisis exploratorio (EDA)</h1>
+<p class="subtitle lead">Entrega E2 - EDA y Preparación de Datos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Esta página cierra la fase de <strong>comprensión de los datos</strong> de CRISP-DM. El análisis se hace sobre los datos <strong>crudos</strong> (antes de limpiar), porque lo que encontremos aquí decide qué hay que limpiar en la <a href="../../entregas/E2_eda_preparacion/preparacion.html">preparación</a>.</p>
+<div class="caja caja-clave">
+<p><span class="etiqueta">Cómo se reproduce</span> Todas las tablas y figuras de esta página las genera el paso <code>calidad</code> del <a href="../../entregas/E2_eda_preparacion/pipeline.html">pipeline</a> (<code>python pipeline/run_pipeline.py</code>). Las tablas se incluyen desde <code>tablas/*.md</code>: si los datos cambian, la página se actualiza sola al volver a correr el pipeline.</p>
+</div>
+<section id="datos-de-partida" class="level2">
+<h2 class="anchored" data-anchor-id="datos-de-partida">1.1 Datos de partida</h2>
+<p>El <strong>dataset analítico</strong> une las fuentes de E1 al grano declarado: <strong>una fila por estación-línea del Metro por día</strong>. Antes de analizarlo solo se hicieron tres cosas, las mínimas para poder leerlo: convertir la fecha a tipo fecha, convertir la afluencia a número y reparar la doble codificación del texto (<code>LÃ­nea 1</code> → <code>Línea 1</code>).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 69%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Filas</td>
+<td><strong>1,180,920</strong> (195 estaciones-línea × 6,056 días, sin huecos)</td>
+</tr>
+<tr class="even">
+<td>Variables</td>
+<td><strong>13</strong> (tabla siguiente)</td>
+</tr>
+<tr class="odd">
+<td>Periodo</td>
+<td>2010-01-01 a 2026-07-31</td>
+</tr>
+<tr class="even">
+<td>Territorio</td>
+<td>Red del STC Metro: 12 líneas, 163 estaciones físicas y 195 estaciones-línea (las de transbordo cuentan una vez por línea), en la Ciudad de México y en Ecatepec, Nezahualcóyotl y La Paz (Estado de México). El clima es un solo punto de malla en el centro de la ciudad</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Fuente</th>
+<th>Tipo</th>
+<th>Regla de integración</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>fecha</code></td>
+<td>F1</td>
+<td>fecha</td>
+<td>Llave temporal</td>
+</tr>
+<tr class="even">
+<td><code>linea_codigo</code></td>
+<td>F1</td>
+<td>categórica (12)</td>
+<td>Código extraído del texto de la línea</td>
+</tr>
+<tr class="odd">
+<td><code>estacion</code></td>
+<td>F1</td>
+<td>categórica (195 con la línea)</td>
+<td>Texto reparado; sin unificar todavía</td>
+</tr>
+<tr class="even">
+<td><code>afluencia</code></td>
+<td>F1</td>
+<td>numérica discreta ≥ 0</td>
+<td>Entradas registradas en el día</td>
+</tr>
+<tr class="odd">
+<td><code>anio</code>, <code>dia_semana</code>, <code>periodo</code></td>
+<td>derivadas de <code>fecha</code></td>
+<td>categóricas</td>
+<td>Periodo: 2010-2019, 2020-2021 (pandemia), 2022-2026</td>
+</tr>
+<tr class="even">
+<td><code>precipitacion_mm</code>, <code>lluvia_mm</code>, <code>temp_max_c</code>, <code>temp_min_c</code></td>
+<td>F5</td>
+<td>numéricas</td>
+<td>Un valor por día para toda la ciudad, repetido en las 195 estaciones</td>
+</tr>
+<tr class="odd">
+<td><code>categoria_lluvia</code></td>
+<td>derivada de F5</td>
+<td>categórica ordinal (4)</td>
+<td>Escala del SMN para 24 h: sin lluvia &lt; 0.1 mm, ligera &lt; 5.1, moderada &lt; 25, fuerte ≥ 25</td>
+</tr>
+<tr class="even">
+<td><code>es_festivo_f4</code></td>
+<td>F4</td>
+<td>binaria</td>
+<td>Festivo según Nager.Date, tal como viene</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Regla de agregación.</strong> Ninguna fuente es más fina que el grano: todas son diarias. Clima y festivos son más gruesos (un valor por día para la ciudad) y se repiten en cada estación. Además del grano estación-día, analizamos dos fuentes a su granularidad original: la <strong>red completa por día</strong> (suma de las 195 estaciones) y el <strong>Metrobús por línea y día</strong> (F2).</p>
+<section id="diagnóstico-inicial-de-calidad" class="level3">
+<h3 class="anchored" data-anchor-id="diagnóstico-inicial-de-calidad">Diagnóstico inicial de calidad</h3>
+<p><strong>Tabla 1.</strong> Lo que traen las fuentes antes de tocarlas. Cada problema tiene su tratamiento en el <a href="../../entregas/E2_eda_preparacion/preparacion.html#registro-de-limpieza">registro de limpieza</a>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>tabla</th>
+<th>variable</th>
+<th>filas</th>
+<th>vacios_o_NaN</th>
+<th>ceros</th>
+<th>distintos</th>
+<th>nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>metro (F1)</td>
+<td>fecha</td>
+<td>1,180,920</td>
+<td>0</td>
+<td>0</td>
+<td>6,056</td>
+<td>2010-01-01 a 2026-07-31</td>
+</tr>
+<tr class="even">
+<td>metro (F1)</td>
+<td>linea</td>
+<td>1,180,920</td>
+<td>0</td>
+<td>0</td>
+<td>24</td>
+<td>24 textos para 12 líneas (doble codificación)</td>
+</tr>
+<tr class="odd">
+<td>metro (F1)</td>
+<td>estacion</td>
+<td>1,180,920</td>
+<td>0</td>
+<td>0</td>
+<td>168</td>
+<td>nombres con doble codificación</td>
+</tr>
+<tr class="even">
+<td>metro (F1)</td>
+<td>afluencia</td>
+<td>1,180,920</td>
+<td>0</td>
+<td>62,025</td>
+<td>92,564</td>
+<td>enteros &gt;= 0</td>
+</tr>
+<tr class="odd">
+<td>metrobús (F2)</td>
+<td>fecha</td>
+<td>53,732</td>
+<td>0</td>
+<td>0</td>
+<td>7,676</td>
+<td>2005-07-26 a 2026-07-31</td>
+</tr>
+<tr class="even">
+<td>metrobús (F2)</td>
+<td>linea</td>
+<td>53,732</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+<td>14 textos para 7 líneas</td>
+</tr>
+<tr class="odd">
+<td>metrobús (F2)</td>
+<td>afluencia</td>
+<td>53,732</td>
+<td>17,227</td>
+<td>0</td>
+<td>34,320</td>
+<td>‘NaN’ antes de inaugurar cada línea</td>
+</tr>
+<tr class="even">
+<td>clima (F5)</td>
+<td>precipitation_sum_mm</td>
+<td>6,056</td>
+<td>0</td>
+<td>0</td>
+<td>284</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>clima (F5)</td>
+<td>rain_sum_mm</td>
+<td>6,056</td>
+<td>0</td>
+<td>0</td>
+<td>284</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>clima (F5)</td>
+<td>temperature_2m_max_c</td>
+<td>6,056</td>
+<td>0</td>
+<td>0</td>
+<td>211</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>clima (F5)</td>
+<td>temperature_2m_min_c</td>
+<td>6,056</td>
+<td>0</td>
+<td>0</td>
+<td>164</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>festivos (F4)</td>
+<td>date</td>
+<td>156</td>
+<td>0</td>
+<td>0</td>
+<td>156</td>
+<td>festivos y Semana Santa 2010-2026</td>
+</tr>
+<tr class="odd">
+<td>sismos (F6)</td>
+<td>mag</td>
+<td>27</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+<td>M &gt;= 6.0 a &lt;= 800 km</td>
+</tr>
+<tr class="even">
+<td>gtfs (F3)</td>
+<td>stop_id (Metro)</td>
+<td>195</td>
+<td>0</td>
+<td>0</td>
+<td>195</td>
+<td>195 paradas del Metro</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="estadística-descriptiva-en-las-cuatro-dimensiones" class="level2">
+<h2 class="anchored" data-anchor-id="estadística-descriptiva-en-las-cuatro-dimensiones">1.2 Estadística descriptiva en las cuatro dimensiones</h2>
+<p><strong>Tabla 2.</strong> Localización, variabilidad y forma de las variables numéricas (datos crudos).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>medida</th>
+<th>afluencia estación-día (Metro)</th>
+<th>afluencia estación-día &gt; 0 (Metro)</th>
+<th>afluencia diaria de la red (Metro)</th>
+<th>afluencia línea-día (Metrobús)</th>
+<th>precipitación diaria (mm)</th>
+<th>temperatura máxima (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n</td>
+<td>1,180,920</td>
+<td>1,118,895</td>
+<td>6,056</td>
+<td>34,505</td>
+<td>6,056</td>
+<td>6,056</td>
+</tr>
+<tr class="even">
+<td>media</td>
+<td>19,608</td>
+<td>20,695</td>
+<td>3,823,500</td>
+<td>165,332</td>
+<td>3.037</td>
+<td>23.3</td>
+</tr>
+<tr class="odd">
+<td>mediana</td>
+<td>14,426</td>
+<td>15,299</td>
+<td>4,006,165</td>
+<td>135,349</td>
+<td>0.300</td>
+<td>22.9</td>
+</tr>
+<tr class="even">
+<td>moda</td>
+<td>0</td>
+<td>6,934</td>
+<td>0</td>
+<td>67,099</td>
+<td>0</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>media recortada 10 %</td>
+<td>16,321</td>
+<td>17,233</td>
+<td>3,903,340</td>
+<td>144,803</td>
+<td>1.658</td>
+<td>23.2</td>
+</tr>
+<tr class="even">
+<td>P5</td>
+<td>0</td>
+<td>3,602</td>
+<td>1,744,915</td>
+<td>43,110</td>
+<td>0</td>
+<td>18.3</td>
+</tr>
+<tr class="odd">
+<td>Q1</td>
+<td>7,462</td>
+<td>8,375</td>
+<td>2,790,213</td>
+<td>82,150</td>
+<td>0</td>
+<td>21.1</td>
+</tr>
+<tr class="even">
+<td>Q3</td>
+<td>25,347</td>
+<td>26,109</td>
+<td>4,919,784</td>
+<td>200,840</td>
+<td>3.500</td>
+<td>25.3</td>
+</tr>
+<tr class="odd">
+<td>P95</td>
+<td>54,896</td>
+<td>56,147</td>
+<td>5,324,034</td>
+<td>455,000</td>
+<td>15.4</td>
+<td>29.2</td>
+</tr>
+<tr class="even">
+<td>P99</td>
+<td>105,176</td>
+<td>106,386</td>
+<td>5,554,763</td>
+<td>524,261</td>
+<td>25.2</td>
+<td>31.5</td>
+</tr>
+<tr class="odd">
+<td>mínimo</td>
+<td>0</td>
+<td>1.000</td>
+<td>0</td>
+<td>9.000</td>
+<td>0</td>
+<td>9.800</td>
+</tr>
+<tr class="even">
+<td>máximo</td>
+<td>263,056</td>
+<td>263,056</td>
+<td>6,257,109</td>
+<td>619,643</td>
+<td>59.4</td>
+<td>34.2</td>
+</tr>
+<tr class="odd">
+<td>rango</td>
+<td>263,056</td>
+<td>263,055</td>
+<td>6,257,109</td>
+<td>619,634</td>
+<td>59.4</td>
+<td>24.4</td>
+</tr>
+<tr class="even">
+<td>varianza</td>
+<td>372,103,498</td>
+<td>370,237,006</td>
+<td>1,436,493,360,475</td>
+<td>13,765,258,624</td>
+<td>32.1</td>
+<td>11.0</td>
+</tr>
+<tr class="odd">
+<td>desviación estándar</td>
+<td>19,290</td>
+<td>19,242</td>
+<td>1,198,538</td>
+<td>117,325</td>
+<td>5.665</td>
+<td>3.313</td>
+</tr>
+<tr class="even">
+<td>IQR</td>
+<td>17,885</td>
+<td>17,734</td>
+<td>2,129,572</td>
+<td>118,690</td>
+<td>3.500</td>
+<td>4.200</td>
+</tr>
+<tr class="odd">
+<td>MAD</td>
+<td>8,135</td>
+<td>8,064</td>
+<td>999,193</td>
+<td>58,372</td>
+<td>0.300</td>
+<td>2.000</td>
+</tr>
+<tr class="even">
+<td>CV</td>
+<td>0.984</td>
+<td>0.930</td>
+<td>0.313</td>
+<td>0.710</td>
+<td>1.866</td>
+<td>0.142</td>
+</tr>
+<tr class="odd">
+<td>asimetría</td>
+<td>2.593</td>
+<td>2.646</td>
+<td>-0.444</td>
+<td>1.487</td>
+<td>2.958</td>
+<td>0.225</td>
+</tr>
+<tr class="even">
+<td>curtosis (exceso)</td>
+<td>9.471</td>
+<td>9.618</td>
+<td>-0.863</td>
+<td>1.762</td>
+<td>12.1</td>
+<td>0.323</td>
+</tr>
+<tr class="odd">
+<td>media / mediana</td>
+<td>1.359</td>
+<td>1.353</td>
+<td>0.954</td>
+<td>1.222</td>
+<td>10.1</td>
+<td>1.016</td>
+</tr>
+<tr class="even">
+<td>desv. est. / IQR</td>
+<td>1.079</td>
+<td>1.085</td>
+<td>0.563</td>
+<td>0.989</td>
+<td>1.619</td>
+<td>0.789</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Localización: la media engaña.</strong> En una estación-día típica entran <strong>14,426 personas</strong> (mediana), pero la media es de <strong>19,608</strong>: es 36 % mayor porque unas cuantas estaciones muy cargadas jalan el promedio hacia arriba. La media recortada al 10 % (16,321) queda entre las dos. La <strong>moda es 0</strong>: el valor más repetido de toda la base es “nadie entró”, y eso por sí solo ya es un hallazgo (sección 1.6). Sin los ceros, la mediana sube a 15,299.</p>
+<p><strong>Variabilidad: colas largas.</strong> La desviación estándar (19,290) es mayor que el rango intercuartil (17,885). En una distribución normal la desviación sería de unas tres cuartas partes del IQR; aquí lo supera, señal de valores extremos. La asimetría de 2.59 y la curtosis de 9.5 lo confirman. El percentil 99 (105,176) es más de 7 veces la mediana. Por eso para comparar estaciones usamos <strong>mediana e IQR</strong>, no media y desviación.</p>
+<p><strong>La red completa se comporta al revés.</strong> La suma diaria de la red tiene la media (3.82 millones) <strong>por debajo</strong> de la mediana (4.01 millones) y asimetría negativa (−0.44). La cola está a la izquierda: días con muy poca gente por la pandemia, los cierres y los festivos.</p>
+<p><strong>Clima.</strong> La lluvia es la variable más sesgada: la mediana es de 0.3 mm y la media de 3.0 mm (diez veces más), y el 42.5 % de los días no llueve. La temperatura máxima es casi simétrica (asimetría 0.23) y poco variable (CV de 0.14).</p>
+<section id="comparación-por-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="comparación-por-grupos">Comparación por grupos</h3>
+<p><strong>Tabla 3.</strong> Entradas por estación-día según la línea, 2022-2026, ordenadas por mediana.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>línea</th>
+<th>n</th>
+<th>media</th>
+<th>mediana</th>
+<th>desv_est</th>
+<th>ceros</th>
+<th>IQR</th>
+<th>CV</th>
+<th>participacion_total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>40,152</td>
+<td>22,750</td>
+<td>18,395</td>
+<td>17,017</td>
+<td>378</td>
+<td>13,877</td>
+<td>0.748</td>
+<td>0.173</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>16,730</td>
+<td>20,506</td>
+<td>17,036</td>
+<td>11,176</td>
+<td>0</td>
+<td>14,827</td>
+<td>0.545</td>
+<td>0.065</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>35,133</td>
+<td>22,203</td>
+<td>16,753</td>
+<td>18,352</td>
+<td>6</td>
+<td>13,750</td>
+<td>0.827</td>
+<td>0.147</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>35,133</td>
+<td>16,329</td>
+<td>14,644</td>
+<td>11,515</td>
+<td>12</td>
+<td>12,906</td>
+<td>0.705</td>
+<td>0.108</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>20,076</td>
+<td>20,387</td>
+<td>13,201</td>
+<td>17,091</td>
+<td>793</td>
+<td>19,818</td>
+<td>0.838</td>
+<td>0.077</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>33,460</td>
+<td>13,577</td>
+<td>12,972</td>
+<td>12,822</td>
+<td>10,996</td>
+<td>21,584</td>
+<td>0.944</td>
+<td>0.086</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>31,787</td>
+<td>17,419</td>
+<td>12,589</td>
+<td>19,436</td>
+<td>1</td>
+<td>11,457</td>
+<td>1.116</td>
+<td>0.105</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>23,422</td>
+<td>15,811</td>
+<td>12,567</td>
+<td>10,768</td>
+<td>141</td>
+<td>13,290</td>
+<td>0.681</td>
+<td>0.070</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>33,460</td>
+<td>10,132</td>
+<td>8,444</td>
+<td>11,705</td>
+<td>10,730</td>
+<td>13,735</td>
+<td>1.155</td>
+<td>0.064</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>18,403</td>
+<td>9,486</td>
+<td>7,402</td>
+<td>7,389</td>
+<td>0</td>
+<td>9,022</td>
+<td>0.779</td>
+<td>0.033</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>21,749</td>
+<td>12,132</td>
+<td>7,092</td>
+<td>12,719</td>
+<td>0</td>
+<td>10,199</td>
+<td>1.048</td>
+<td>0.050</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>16,730</td>
+<td>6,800</td>
+<td>5,852</td>
+<td>5,120</td>
+<td>2</td>
+<td>4,279</td>
+<td>0.753</td>
+<td>0.022</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/fig03_caja_por_linea.png" class="img-fluid"></p>
+<p>La <strong>Línea 2</strong> tiene la estación-día mediana más cargada (18,395) y concentra el 17.3 % de las entradas de la red. La <strong>Línea 4</strong>, la más ligera, tiene una mediana tres veces menor (5,852). La <strong>Fig. 3</strong> muestra dos cosas que la media escondería: las Líneas 2, 3 y 8 tienen cajas parecidas pero colas muy largas, por terminales como Cuatro Caminos, Indios Verdes y Constitución de 1917. Las Líneas 1 y 12 tienen el Q1 pegado a cero por sus cierres de 2022-2025 (10,996 y 10,730 ceros), lo que infla su IQR y su CV.</p>
+<p><img src="img/fig04_calor_linea_dia.png" class="img-fluid"></p>
+<p>La <strong>Fig. 4</strong> cruza línea y día de la semana (es la vista que pedía P1 desde E0). En todas las líneas el patrón es el mismo: de lunes a viernes la mediana es estable, el sábado baja y el domingo cae a la mitad. Lo que cambia entre líneas es el tamaño del fin de semana. La Línea 4 conserva el sábado (6.2 mil, más que su lunes de 5.8 mil); la Línea 7 lo pierde (9.7 mil contra 14 mil entre semana).</p>
+<p><strong>Tabla 4.</strong> Entradas diarias a la red por día de la semana (2022-2026, sin días en cero).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>día</th>
+<th>días</th>
+<th>media</th>
+<th>mediana</th>
+<th>desv_est</th>
+<th>IQR</th>
+<th>CV</th>
+<th>vs_mediana_lun_vie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>lun</td>
+<td>239</td>
+<td>3,304,354</td>
+<td>3,399,939</td>
+<td>564,367</td>
+<td>560,962</td>
+<td>0.171</td>
+<td>0.959</td>
+</tr>
+<tr class="even">
+<td>mar</td>
+<td>239</td>
+<td>3,486,334</td>
+<td>3,511,237</td>
+<td>430,999</td>
+<td>534,742</td>
+<td>0.124</td>
+<td>0.990</td>
+</tr>
+<tr class="odd">
+<td>mié</td>
+<td>239</td>
+<td>3,542,415</td>
+<td>3,569,840</td>
+<td>474,126</td>
+<td>536,516</td>
+<td>0.134</td>
+<td>1.007</td>
+</tr>
+<tr class="even">
+<td>jue</td>
+<td>239</td>
+<td>3,519,371</td>
+<td>3,572,473</td>
+<td>495,923</td>
+<td>528,896</td>
+<td>0.141</td>
+<td>1.007</td>
+</tr>
+<tr class="odd">
+<td>vie</td>
+<td>239</td>
+<td>3,585,156</td>
+<td>3,626,825</td>
+<td>515,028</td>
+<td>541,279</td>
+<td>0.144</td>
+<td>1.023</td>
+</tr>
+<tr class="even">
+<td>sáb</td>
+<td>239</td>
+<td>2,848,960</td>
+<td>2,883,364</td>
+<td>332,784</td>
+<td>272,869</td>
+<td>0.117</td>
+<td>0.813</td>
+</tr>
+<tr class="odd">
+<td>dom</td>
+<td>239</td>
+<td>1,843,678</td>
+<td>1,814,313</td>
+<td>213,938</td>
+<td>216,426</td>
+<td>0.116</td>
+<td>0.512</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/fig12_red_por_dia_semana.png" class="img-fluid"></p>
+<p>El domingo la red recibe el <strong>51 %</strong> de lo que recibe un día entre semana; el sábado, el <strong>81 %</strong>. El lunes queda ligeramente abajo (96 %) porque los festivos del calendario legal caen en lunes. Los puntos aislados abajo de cada caja en la <strong>Fig. 12</strong> son festivos, vacaciones y días con líneas cerradas.</p>
+<p><strong>Tabla 5.</strong> La red por periodo.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>periodo</th>
+<th>días</th>
+<th>media red/día</th>
+<th>mediana red/día</th>
+<th>desv. est. red/día</th>
+<th>IQR red/día</th>
+<th>mediana estación-día</th>
+<th>% ceros</th>
+<th>Gini estaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010-2019</td>
+<td>3,652</td>
+<td>4,439,478</td>
+<td>4,794,232</td>
+<td>943,845</td>
+<td>963,900</td>
+<td>17,269</td>
+<td>0.042</td>
+<td>0.406</td>
+</tr>
+<tr class="even">
+<td>2020-2021</td>
+<td>731</td>
+<td>2,309,882</td>
+<td>2,293,588</td>
+<td>933,333</td>
+<td>943,568</td>
+<td>8,601</td>
+<td>0.064</td>
+<td>0.387</td>
+</tr>
+<tr class="odd">
+<td>2022-2026</td>
+<td>1,673</td>
+<td>3,161,467</td>
+<td>3,354,642</td>
+<td>737,381</td>
+<td>856,379</td>
+<td>12,835</td>
+<td>0.071</td>
+<td>0.378</td>
+</tr>
+</tbody>
+</table>
+<p>La mediana diaria de la red pasó de <strong>4.79 millones</strong> (2010-2019) a <strong>2.29 millones</strong> (pandemia) y solo se ha recuperado a <strong>3.35 millones</strong> (2022-2026), un 30 % por debajo del nivel previo. El porcentaje de ceros subió de 4.2 % a 7.1 % por las obras de las Líneas 1, 9 y 12.</p>
+</section>
+</section>
+<section id="concentración-gini-y-curva-de-lorenz" class="level2">
+<h2 class="anchored" data-anchor-id="concentración-gini-y-curva-de-lorenz">1.3 Concentración: Gini y curva de Lorenz</h2>
+<p>Aplicamos el coeficiente de Gini a dos variables del proyecto. Antes, tres declaraciones que cambian el resultado:</p>
+<ul>
+<li><strong>Unidad de agregación.</strong> Se calcula sobre el total anual de entradas por <strong>estación-línea</strong> (195 unidades) y, por separado, por <strong>línea</strong> (12 del Metro y hasta 7 del Metrobús).</li>
+<li><strong>Ceros.</strong> Una estación con 0 entradas en todo el año (la Línea 12 antes de abrir y durante 2022, cuando estuvo cerrada todo el año) <strong>se excluye</strong> de ese año: no es una estación con poca demanda, es una estación que no existía o no operaba. Los ceros de días sueltos sí cuentan, porque forman parte del total anual.</li>
+<li><strong>Conteos absolutos y no tasas.</strong> El operador dimensiona trenes y personal según cuántas personas entran, no según una tasa. Además no existe un denominador público (capacidad o población del entorno) por estación.</li>
+</ul>
+<p><strong>Tabla 6.</strong> Gini por año.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>año</th>
+<th>días</th>
+<th>estaciones con entradas</th>
+<th>Gini estaciones</th>
+<th>top 10 % estaciones</th>
+<th>Gini líneas Metro</th>
+<th>líneas Metrobús</th>
+<th>Gini líneas Metrobús</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>365</td>
+<td>175</td>
+<td>0.419</td>
+<td>0.319</td>
+<td>0.340</td>
+<td>2</td>
+<td>0.222</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td>365</td>
+<td>175</td>
+<td>0.358</td>
+<td>0.265</td>
+<td>0.335</td>
+<td>3</td>
+<td>0.288</td>
+</tr>
+<tr class="odd">
+<td>2012</td>
+<td>366</td>
+<td>195</td>
+<td>0.426</td>
+<td>0.305</td>
+<td>0.381</td>
+<td>4</td>
+<td>0.387</td>
+</tr>
+<tr class="even">
+<td>2013</td>
+<td>365</td>
+<td>195</td>
+<td>0.410</td>
+<td>0.317</td>
+<td>0.328</td>
+<td>5</td>
+<td>0.483</td>
+</tr>
+<tr class="odd">
+<td>2014</td>
+<td>365</td>
+<td>195</td>
+<td>0.432</td>
+<td>0.326</td>
+<td>0.339</td>
+<td>5</td>
+<td>0.377</td>
+</tr>
+<tr class="even">
+<td>2015</td>
+<td>365</td>
+<td>195</td>
+<td>0.441</td>
+<td>0.333</td>
+<td>0.336</td>
+<td>5</td>
+<td>0.372</td>
+</tr>
+<tr class="odd">
+<td>2016</td>
+<td>366</td>
+<td>195</td>
+<td>0.406</td>
+<td>0.317</td>
+<td>0.305</td>
+<td>6</td>
+<td>0.334</td>
+</tr>
+<tr class="even">
+<td>2017</td>
+<td>365</td>
+<td>195</td>
+<td>0.401</td>
+<td>0.313</td>
+<td>0.297</td>
+<td>6</td>
+<td>0.327</td>
+</tr>
+<tr class="odd">
+<td>2018</td>
+<td>365</td>
+<td>195</td>
+<td>0.398</td>
+<td>0.315</td>
+<td>0.290</td>
+<td>7</td>
+<td>0.351</td>
+</tr>
+<tr class="even">
+<td>2019</td>
+<td>365</td>
+<td>195</td>
+<td>0.378</td>
+<td>0.293</td>
+<td>0.305</td>
+<td>7</td>
+<td>0.320</td>
+</tr>
+<tr class="odd">
+<td>2020</td>
+<td>366</td>
+<td>195</td>
+<td>0.384</td>
+<td>0.291</td>
+<td>0.295</td>
+<td>7</td>
+<td>0.273</td>
+</tr>
+<tr class="even">
+<td>2021</td>
+<td>365</td>
+<td>195</td>
+<td>0.410</td>
+<td>0.304</td>
+<td>0.311</td>
+<td>7</td>
+<td>0.227</td>
+</tr>
+<tr class="odd">
+<td>2022</td>
+<td>365</td>
+<td>175</td>
+<td>0.372</td>
+<td>0.289</td>
+<td>0.283</td>
+<td>7</td>
+<td>0.214</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td>365</td>
+<td>188</td>
+<td>0.399</td>
+<td>0.287</td>
+<td>0.307</td>
+<td>7</td>
+<td>0.226</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td>366</td>
+<td>188</td>
+<td>0.378</td>
+<td>0.284</td>
+<td>0.294</td>
+<td>7</td>
+<td>0.231</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td>365</td>
+<td>195</td>
+<td>0.377</td>
+<td>0.286</td>
+<td>0.275</td>
+<td>7</td>
+<td>0.250</td>
+</tr>
+<tr class="odd">
+<td>2026</td>
+<td>212</td>
+<td>196</td>
+<td>0.374</td>
+<td>0.288</td>
+<td>0.274</td>
+<td>7</td>
+<td>0.269</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/fig05_lorenz_gini_estaciones.png" class="img-fluid"></p>
+<p><strong>Lectura.</strong> En 2025 el Gini entre estaciones es de <strong>0.377</strong>, y el 10 % de las estaciones más cargadas (20 de 195) recibe el <strong>28.6 %</strong> de todas las entradas. Es una concentración moderada y muy <strong>estable</strong>: el Gini se ha movido entre 0.36 y 0.44 en 16 años, y las curvas de Lorenz de 2013, 2019, 2021 y 2025 casi se enciman (<strong>Fig. 5</strong>). Para P1 esto significa que los picos absolutos siempre caen en las mismas estaciones grandes. Si el umbral de “alta demanda” fuera un número fijo de entradas, solo esas estaciones alcanzarían a tocarlo. Por eso el umbral se define <strong>contra la base de cada estación</strong> (sección 1.5).</p>
+<p>Entre las <strong>líneas del Metrobús</strong> la concentración bajó mucho: de 0.48 en 2013 a 0.21 en 2022. Las líneas nuevas maduraron y la demanda se repartió (P5).</p>
+<p><img src="img/fig06_pareto_estaciones.png" class="img-fluid"></p>
+<p>El diagrama de Pareto (<strong>Fig. 6</strong>) nombra a las estaciones: Cuatro Caminos (L2), Constitución de 1917 (L8) e Indios Verdes (L3) recibieron más de 32 millones de entradas cada una en 2025. Las tres son terminales que conectan con el transporte del Estado de México. Pantitlán aparece cuatro veces porque es estación de cuatro líneas.</p>
+<p><strong>Segunda variable: la lluvia.</strong> La precipitación diaria está mucho más concentrada que la demanda.</p>
+<p><strong>Tabla 7.</strong> Concentración de la lluvia por año.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>año</th>
+<th>días</th>
+<th>días con lluvia</th>
+<th>mm totales</th>
+<th>Gini días</th>
+<th>% del total en el 10 % de días más lluviosos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>365</td>
+<td>168</td>
+<td>1,018</td>
+<td>0.800</td>
+<td>0.594</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td>365</td>
+<td>158</td>
+<td>837.4</td>
+<td>0.828</td>
+<td>0.666</td>
+</tr>
+<tr class="odd">
+<td>2012</td>
+<td>366</td>
+<td>189</td>
+<td>901.9</td>
+<td>0.785</td>
+<td>0.583</td>
+</tr>
+<tr class="even">
+<td>2013</td>
+<td>365</td>
+<td>206</td>
+<td>1,120</td>
+<td>0.786</td>
+<td>0.588</td>
+</tr>
+<tr class="odd">
+<td>2014</td>
+<td>365</td>
+<td>225</td>
+<td>1,146</td>
+<td>0.730</td>
+<td>0.487</td>
+</tr>
+<tr class="even">
+<td>2015</td>
+<td>365</td>
+<td>257</td>
+<td>1,240</td>
+<td>0.716</td>
+<td>0.487</td>
+</tr>
+<tr class="odd">
+<td>2016</td>
+<td>366</td>
+<td>224</td>
+<td>1,153</td>
+<td>0.759</td>
+<td>0.571</td>
+</tr>
+<tr class="even">
+<td>2017</td>
+<td>365</td>
+<td>212</td>
+<td>1,163</td>
+<td>0.757</td>
+<td>0.536</td>
+</tr>
+<tr class="odd">
+<td>2018</td>
+<td>365</td>
+<td>248</td>
+<td>1,366</td>
+<td>0.702</td>
+<td>0.456</td>
+</tr>
+<tr class="even">
+<td>2019</td>
+<td>365</td>
+<td>220</td>
+<td>1,052</td>
+<td>0.775</td>
+<td>0.583</td>
+</tr>
+<tr class="odd">
+<td>2020</td>
+<td>366</td>
+<td>205</td>
+<td>889.4</td>
+<td>0.807</td>
+<td>0.648</td>
+</tr>
+<tr class="even">
+<td>2021</td>
+<td>365</td>
+<td>216</td>
+<td>1,336</td>
+<td>0.780</td>
+<td>0.581</td>
+</tr>
+<tr class="odd">
+<td>2022</td>
+<td>365</td>
+<td>219</td>
+<td>997.1</td>
+<td>0.769</td>
+<td>0.561</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td>365</td>
+<td>199</td>
+<td>833.7</td>
+<td>0.791</td>
+<td>0.601</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td>366</td>
+<td>179</td>
+<td>1,254</td>
+<td>0.791</td>
+<td>0.577</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td>365</td>
+<td>222</td>
+<td>1,400</td>
+<td>0.758</td>
+<td>0.517</td>
+</tr>
+<tr class="odd">
+<td>2026</td>
+<td>212</td>
+<td>137</td>
+<td>682.3</td>
+<td>0.716</td>
+<td>0.472</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/fig07_lorenz_lluvia.png" class="img-fluid"></p>
+<p>El Gini de la lluvia diaria en 2010-2026 es de <strong>0.772</strong>. El 10 % de los días más lluviosos acumula el <strong>56.4 %</strong> de toda la precipitación, y el 42.5 % de los días no llueve nada (el tramo plano de la curva en la <strong>Fig. 7</strong>). Para P2 y P4 esto implica que, si la lluvia afecta la demanda, lo hará en pocos días. Una variable continua con tantos ceros se describe mejor por categorías, y por eso se conserva <code>categoria_lluvia</code>.</p>
+<p><em>Precaución: este Gini mide concentración de una variable. No es la “impureza de Gini” que usan los árboles de decisión, que se verá en el modelado.</em></p>
+</section>
+<section id="heterogeneidad-entropía-normalizada" class="level2">
+<h2 class="anchored" data-anchor-id="heterogeneidad-entropía-normalizada">1.4 Heterogeneidad: entropía normalizada</h2>
+<p><strong>Tabla 8.</strong> Entropía normalizada (<span class="math inline">\(H_{norm} = H / \log_2 K\)</span>) de variables categóricas.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>ámbito</th>
+<th>K</th>
+<th>moda</th>
+<th>proporción de la moda</th>
+<th>H (bits)</th>
+<th>H normalizada</th>
+<th>nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>línea (filas)</td>
+<td>2022-2026</td>
+<td>12</td>
+<td>2</td>
+<td>0.123</td>
+<td>3.520</td>
+<td>0.982</td>
+<td>reparto de estaciones entre líneas</td>
+</tr>
+<tr class="even">
+<td>línea (entradas)</td>
+<td>2022-2026</td>
+<td>12</td>
+<td>2</td>
+<td>0.173</td>
+<td>3.399</td>
+<td>0.948</td>
+<td>reparto de la demanda entre líneas</td>
+</tr>
+<tr class="odd">
+<td>línea Metrobús (entradas)</td>
+<td>2022-2026</td>
+<td>7</td>
+<td>1</td>
+<td>0.287</td>
+<td>2.670</td>
+<td>0.951</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>día de la semana (entradas)</td>
+<td>2022-2026</td>
+<td>7</td>
+<td>vie</td>
+<td>0.162</td>
+<td>2.779</td>
+<td>0.990</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>categoría de lluvia (días)</td>
+<td>2010-2026</td>
+<td>4</td>
+<td>sin_lluvia</td>
+<td>0.425</td>
+<td>1.579</td>
+<td>0.789</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>categoría de lluvia (días)</td>
+<td>jun-sep (lluvias)</td>
+<td>4</td>
+<td>ligera</td>
+<td>0.452</td>
+<td>1.520</td>
+<td>0.760</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>categoría de lluvia (días)</td>
+<td>dic-mar (secas)</td>
+<td>4</td>
+<td>sin_lluvia</td>
+<td>0.729</td>
+<td>1.006</td>
+<td>0.503</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>tipo de registro</td>
+<td>2010-2026</td>
+<td>2</td>
+<td>positivo</td>
+<td>0.947</td>
+<td>0.297</td>
+<td>0.297</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lectura.</strong> Se pueden comparar porque están normalizadas entre 0 y 1:</p>
+<ul>
+<li><strong>Línea.</strong> Las estaciones se reparten casi por igual entre las 12 líneas (<span class="math inline">\(H_{norm}\)</span> = 0.982), pero las <strong>entradas</strong> un poco menos (0.948): la demanda está más concentrada que la infraestructura. Es la misma conclusión del Gini, vista desde las categorías.</li>
+<li><strong>Categoría de lluvia.</strong> Es la variable más heterogénea entre temporadas: en secas (diciembre a marzo) el 73 % de los días caen en “sin lluvia” (<span class="math inline">\(H_{norm}\)</span> = 0.50), y en lluvias (junio a septiembre) los días se reparten entre las cuatro categorías (<span class="math inline">\(H_{norm}\)</span> = 0.76). Comparar la entropía <strong>por temporada</strong> muestra lo que el valor global (0.79) esconde (<strong>Fig. 9</strong>).</li>
+<li><strong>Tipo de registro</strong> (positivo o cero): <span class="math inline">\(H_{norm}\)</span> = 0.30, porque el 94.7 % de las filas son positivas.</li>
+</ul>
+<p><img src="img/fig09_lluvia_categorias.png" class="img-fluid"></p>
+<p><strong>Entropía del perfil semanal de cada estación (P3).</strong> Para cada estación calculamos qué parte de su demanda cae en cada día de la semana y la entropía de ese reparto.</p>
+<p><img src="img/fig08_entropia_perfil_semanal.png" class="img-fluid"></p>
+<p><strong>Tabla 9.</strong> Las cinco estaciones con el perfil semanal más concentrado y las cinco con el más parejo.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>línea</th>
+<th>estacion</th>
+<th>H normalizada</th>
+<th>participación sáb+dom</th>
+<th>media diaria</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td>Norte 45</td>
+<td>0.962</td>
+<td>0.147</td>
+<td>5,379</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Niños Héroes</td>
+<td>0.964</td>
+<td>0.136</td>
+<td>16,616</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Hospital 20 de Noviembre</td>
+<td>0.965</td>
+<td>0.137</td>
+<td>9,034</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Instituto del Petróleo</td>
+<td>0.967</td>
+<td>0.142</td>
+<td>2,561</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Barranca del Muerto</td>
+<td>0.967</td>
+<td>0.144</td>
+<td>29,269</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Santa Anita</td>
+<td>0.998</td>
+<td>0.261</td>
+<td>1,789</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>Romero Rubio</td>
+<td>0.998</td>
+<td>0.263</td>
+<td>13,140</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>La Villa/Basílica</td>
+<td>0.998</td>
+<td>0.316</td>
+<td>10,172</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>Bosque de Aragón</td>
+<td>0.998</td>
+<td>0.302</td>
+<td>4,897</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Autobuses del Norte</td>
+<td>0.999</td>
+<td>0.269</td>
+<td>18,149</td>
+</tr>
+</tbody>
+</table>
+<p>Todas las estaciones tienen una entropía alta (de 0.962 a 0.999), porque ninguna cierra en fin de semana. Las diferencias son pequeñas pero ordenan a las estaciones con claridad (<strong>Fig. 8</strong>, derecha):</p>
+<ul>
+<li><strong>Perfil concentrado</strong> (entropía baja): estaciones de trabajo, como Norte 45, Niños Héroes (juzgados) y Hospital 20 de Noviembre. Ahí sábado y domingo reciben solo el 14 % de la semana.</li>
+<li><strong>Perfil parejo</strong> (entropía alta): estaciones de paseo y viaje, como La Villa/Basílica, Autobuses del Norte y Bosque de Aragón. Ahí el fin de semana llega al 26-32 %.</li>
+</ul>
+<p>La entropía no depende del tamaño de la estación (ρ de Spearman = −0.05 contra la media diaria). Esto es justo lo que necesita P3: los perfiles existen y son independientes del volumen. Como la escala de la entropía queda muy comprimida, para el clustering conviene usar las participaciones por día y no la entropía sola (ver el <a href="../../entregas/E2_eda_preparacion/preparacion.html#pca">PCA</a>).</p>
+</section>
+<section id="series-ceros-lluvia-y-el-umbral-de-alta-demanda" class="level2">
+<h2 class="anchored" data-anchor-id="series-ceros-lluvia-y-el-umbral-de-alta-demanda">1.5 Series, ceros, lluvia y el umbral de alta demanda</h2>
+<p><img src="img/fig01_serie_red.png" class="img-fluid"></p>
+<p>La <strong>Fig. 1</strong> es la serie completa de la red. Se ven cuatro cosas:</p>
+<ol type="1">
+<li>Un patrón semanal muy marcado (la banda gris).</li>
+<li>La caída de la <strong>pandemia</strong> en 2020, de la que la red no se ha recuperado.</li>
+<li>Dos huecos que no son demanda. En <strong>marzo de 2016</strong> y <strong>septiembre de 2017</strong> la red registra casi cero o cero exacto, y coinciden con días en que el transporte fue gratuito: la contingencia ambiental de 2016 y los días posteriores al sismo del 19-S. Las fuentes de prensa están al final de la página.</li>
+<li>El efecto de las obras de las Líneas 1 y 12 a partir de 2021-2022.</li>
+</ol>
+<p><img src="img/fig11_ceros_linea_anio.png" class="img-fluid"></p>
+<p>La <strong>Fig. 11</strong> ubica los 62,025 ceros. Se ven en bloques: la Línea 12 antes de abrir (2010-2012), su cierre de 2014-2015 y el de 2021-2024, y la Línea 1 en 2022-2025. Además hay una franja vertical de 2 % en todas las líneas en 2017: los 8 días de gratuidad tras el sismo. Los ceros se agrupan por línea y periodo, no al azar: <strong>no son faltantes aleatorios</strong>, y cada patrón tiene una explicación distinta.</p>
+<p><img src="img/fig13_cociente_base.png" class="img-fluid"></p>
+<p><strong>El umbral de alta demanda (de P1 a P2).</strong> E1 dejó el umbral provisional en 1.20 × la línea base ingenua (la media del mismo día de la semana en las 4 semanas previas, que es la base del criterio de éxito). La <strong>Fig. 13</strong> muestra la distribución de ese cociente en 2022-2026. Está centrada en 1.01: la base ingenua acierta en promedio. Su percentil 90 es 1.18 y el 95 es 1.26. Con el umbral en <strong>1.20</strong>, el <strong>8.4 %</strong> de los estación-días son de alta demanda: un evento poco frecuente pero no raro. <strong>Se mantiene 1.20.</strong> Subirlo a 1.26 (P95) dejaría muy pocos positivos para medir recall y precisión.</p>
+<p><strong>Tabla 10.</strong> Proporción de estación-días de alta demanda por año.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>año</th>
+<th>% &gt; 1.2 x base</th>
+<th>estación-días</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2022</td>
+<td>0.107</td>
+<td>61,751</td>
+</tr>
+<tr class="even">
+<td>2023</td>
+<td>0.090</td>
+<td>63,613</td>
+</tr>
+<tr class="odd">
+<td>2024</td>
+<td>0.077</td>
+<td>67,114</td>
+</tr>
+<tr class="even">
+<td>2025</td>
+<td>0.070</td>
+<td>69,727</td>
+</tr>
+<tr class="odd">
+<td>2026</td>
+<td>0.079</td>
+<td>40,887</td>
+</tr>
+</tbody>
+</table>
+<p>La proporción baja de 10.7 % (2022) a 7.0 % (2025): mientras la red se recuperaba de la pandemia, cada semana superaba a las anteriores con más frecuencia. Para el modelado esto significa una clase minoritaria de alrededor del 8 %, que se tratará dentro de la partición de entrenamiento (nunca antes de separar).</p>
+<p><img src="img/fig10_lluvia_vs_cociente.png" class="img-fluid"></p>
+<p><strong>Tabla 11.</strong> Cociente contra la base según la lluvia del día (2022-2026).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>categoria_lluvia</th>
+<th>size</th>
+<th>median</th>
+<th>mean</th>
+<th>% &gt; umbral</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sin_lluvia</td>
+<td>129,666</td>
+<td>1.020</td>
+<td>1.014</td>
+<td>0.101</td>
+</tr>
+<tr class="even">
+<td>ligera</td>
+<td>110,107</td>
+<td>1.012</td>
+<td>1.010</td>
+<td>0.080</td>
+</tr>
+<tr class="odd">
+<td>moderada</td>
+<td>60,372</td>
+<td>1.002</td>
+<td>1.005</td>
+<td>0.057</td>
+</tr>
+<tr class="even">
+<td>fuerte</td>
+<td>2,947</td>
+<td>0.995</td>
+<td>1.001</td>
+<td>0.038</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado negativo: la lluvia casi no mueve la demanda diaria.</strong> La correlación de Spearman entre la precipitación y el cociente contra la base es de <strong>−0.06</strong>. Es significativa solo por el tamaño de la muestra (n = 303,092): la nube de la <strong>Fig. 10</strong> es horizontal. Lo único visible es que con lluvia fuerte hay <strong>menos</strong> días de alta demanda (3.8 % contra 10.1 % en días secos): la lluvia, si acaso, resta pasajeros.</p>
+<p><img src="img/fig14_metrobus_cierre_l1.png" class="img-fluid"></p>
+<p><strong>P5: Metrobús y el cierre de la Línea 1.</strong> La <strong>Fig. 14</strong> muestra la caída de la Línea 1 durante la obra (de unos 430 mil a 210 mil entradas diarias) y su recuperación al reabrir. El Metrobús subió durante el cierre, pero también subieron las demás líneas del Metro, porque toda la red seguía recuperándose de la pandemia. El <a href="../../entregas/E2_eda_preparacion/pipeline.html#resultados-del-datamart">resultado del DataMart</a> separa los periodos.</p>
+</section>
+<section id="hallazgos" class="level2">
+<h2 class="anchored" data-anchor-id="hallazgos">1.6 Hallazgos</h2>
+<p><strong>Tabla 12.</strong> Hallazgos del EDA vinculados a las preguntas de E0.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Hallazgo</th>
+<th>Evidencia</th>
+<th>Tipo</th>
+<th>Vínculo con E0</th>
+<th>Consecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>H1</strong></td>
+<td>El 10 % de las estaciones recibe el 28.6 % de las entradas (Gini 0.377 en 2025), y esa concentración casi no cambió en 16 años (0.36-0.44)</td>
+<td>Tabla 6, Figs. 5 y 6</td>
+<td>Esperado</td>
+<td><strong>P1</strong> se refuerza: los picos absolutos son siempre las mismas terminales. Un umbral fijo solo marcaría estaciones grandes</td>
+<td>El umbral de alta demanda se define <strong>contra la base de cada estación</strong> (1.20 × base, Fig. 13); se conserva la granularidad por estación</td>
+</tr>
+<tr class="even">
+<td><strong>H2</strong></td>
+<td>Los 62,025 ceros no son un solo fenómeno: 33.5 % son la L12 antes de abrir, 63.2 % son cierres de 7 días o más, 0.8 % son cierres de un día y 2.5 % caen en <strong>10 días en que no se midió</strong> (gratuidad de 2016 y 2017)</td>
+<td>Fig. 1, Fig. 11, registro L17-L20</td>
+<td><strong>Inesperado</strong></td>
+<td><strong>P2, P4.</strong> E0 (riesgo R3) suponía que los ceros eran cierres de obra. Los días de gratuidad no son demanda cero: si se dejaran, el modelo aprendería que tras un sismo nadie viaja</td>
+<td>Tratamiento distinto para cada tipo: NULL en los días sin medición (<code>es_dia_sin_medicion</code>), versiones SCD2 para los cierres y la marca <code>es_registro_cero</code> para los de un día</td>
+</tr>
+<tr class="odd">
+<td><strong>H3</strong></td>
+<td>La lluvia casi no cambia la demanda diaria (ρ = −0.06); con lluvia fuerte hay <strong>menos</strong> días de alta demanda (3.8 % contra 10.1 %)</td>
+<td>Fig. 10, Tabla 11</td>
+<td><strong>Negativo</strong></td>
+<td><strong>P2</strong> pierde una variable candidata; <strong>P4</strong> casi no podrá atribuir anomalías a la lluvia (0.9 % de las anomalías, ver DataMart)</td>
+<td>Se conserva la precipitación para que E3 mida su aporte; se descarta <code>lluvia_mm</code> (idéntica a la precipitación)</td>
+</tr>
+<tr class="even">
+<td><strong>H4</strong></td>
+<td>La red no recuperó su nivel previo a la pandemia: mediana de 3.35 millones al día en 2022-2026 contra 4.79 millones en 2010-2019 (−30 %)</td>
+<td>Tabla 5, Fig. 1</td>
+<td>Esperado (riesgo R5 de E0)</td>
+<td><strong>P2:</strong> mezclar periodos sesgaría el pronóstico</td>
+<td>El dataset de modelado empieza en 2022; los años anteriores solo sirven para estacionalidad</td>
+</tr>
+<tr class="odd">
+<td><strong>H5</strong></td>
+<td>El domingo la red recibe el 51 % de un día laboral y el sábado el 81 %. El perfil semanal separa estaciones de trabajo (fin de semana = 14 %) de estaciones de paseo (hasta 32 %)</td>
+<td>Tabla 4, Figs. 4, 8 y 12, Tabla 9</td>
+<td>Esperado</td>
+<td><strong>P1</strong> (picos entre semana) y <strong>P3</strong> (los perfiles existen y no dependen del volumen)</td>
+<td>La base se compara contra el mismo día de la semana; el perfil semanal es la entrada del clustering (PCA en la preparación)</td>
+</tr>
+<tr class="even">
+<td><strong>H6</strong></td>
+<td>Las marchas y peregrinaciones recurrentes dejan huella: la estación Zócalo registra 0 en fechas fijas (8 de marzo de 2021, 2022, 2023, 2025 y 2026; 16 de septiembre de 2013 y de 2020 a 2023; 2 de octubre de 2013, 2020 y 2024; 25 de noviembre de 2020 a 2022), y cada 12 de diciembre las estaciones junto a la Basílica multiplican su demanda (Deportivo 18 de Marzo de la L6, de 7 a 21 veces su nivel en 2010-2017; La Villa/Basílica, unas 3 veces desde 2017)</td>
+<td>Registro L20-L21, <code>es_atipico</code></td>
+<td><strong>Inesperado</strong> (lo pidió la retroalimentación de E1, pero no esperábamos verlo tan claro)</td>
+<td><strong>P4:</strong> hay causas identificables que ninguna fuente de E1 cubría</td>
+<td>Nueva variable <code>evento_masivo</code> en <code>dim_fecha</code> (calendario de fechas fijas) y nueva fuente de sismos (F6)</td>
+</tr>
+<tr class="odd">
+<td><strong>H7</strong></td>
+<td>Diciembre de 2020: la Línea B reporta “Oceanía” dos veces y le falta “Deportivo Oceanía” (31 días)</td>
+<td>Registro L15</td>
+<td>Inesperado (calidad)</td>
+<td><strong>P1, P3:</strong> una estación con dos series mezcladas</td>
+<td>Se reasigna el valor mayor de cada par, con evidencia de los meses vecinos</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lo-que-el-eda-dice-que-no-se-puede-responder" class="level2">
+<h2 class="anchored" data-anchor-id="lo-que-el-eda-dice-que-no-se-puede-responder">1.7 Lo que el EDA dice que no se puede responder</h2>
+<ul>
+<li><strong>Hora pico:</strong> ninguna fuente tiene datos por hora (riesgo R1 de E0, sin cambio).</li>
+<li><strong>Alternativa de Metrobús por estación (P3):</strong> F2 solo trae líneas. Además, la correlación diaria de los niveles entre líneas de Metro y de Metrobús es alta para casi cualquier par porque todas comparten el ciclo semanal y la recuperación: <strong>no prueba complementariedad</strong>. Por eso el DataMart ahora correlaciona las desviaciones sin el ciclo semanal (ver <a href="../../entregas/E2_eda_preparacion/pipeline.html#p3-acoplamiento-metro-metrobús-correlación-sin-ciclo-semanal">P3 en el DataMart</a>).</li>
+<li><strong>Manifestaciones no recurrentes (P4):</strong> no encontramos una fuente abierta y estructurada. La SSC publica una agenda diaria en PDF, sin histórico descargable. Solo las fechas fijas entran al calendario; las demás marchas quedarán como anomalías “sin causa atribuida”.</li>
+<li><strong>P5:</strong> los promedios solos mezclan la absorción con la recuperación de la pandemia (el Metrobús creció 28 % durante el cierre y las demás líneas del Metro, 20 %). Por eso el DataMart compara cada línea contra un grupo de control (<a href="../../entregas/E2_eda_preparacion/pipeline.html#p5-diferencia-contra-un-grupo-de-control-ventanas">P5 en el DataMart</a>).</li>
+</ul>
+</section>
+<section id="elección-de-gráficos" class="level2">
+<h2 class="anchored" data-anchor-id="elección-de-gráficos">Elección de gráficos</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 33%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable o pregunta</th>
+<th>Gráfico usado</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numérica (afluencia)</td>
+<td>Histograma con dos anchos de bin, histograma en log10 y caja (Fig. 2)</td>
+<td>La escala log se justifica por la asimetría de 2.6: en escala lineal todo queda pegado al cero</td>
+</tr>
+<tr class="even">
+<td>Numérica por grupos</td>
+<td>Cajas ordenadas por mediana (Figs. 3 y 12)</td>
+<td>Muestran dispersión y atípicos, no solo el promedio</td>
+</tr>
+<tr class="odd">
+<td>Dos categóricas con una medida</td>
+<td>Mapa de calor línea × día (Fig. 4)</td>
+<td>La vista que pide P1</td>
+</tr>
+<tr class="even">
+<td>Serie temporal</td>
+<td>Línea con media móvil y eventos marcados (Figs. 1 y 14)</td>
+<td>Eje temporal continuo, sin truncar</td>
+</tr>
+<tr class="odd">
+<td>Concentración</td>
+<td>Lorenz, Gini por año y Pareto (Figs. 5, 6 y 7)</td>
+<td>Lo que pide la guía para concentración</td>
+</tr>
+<tr class="even">
+<td>Categórica</td>
+<td>Barras ordenadas por frecuencia y barras al 100 % por mes (Fig. 9)</td>
+<td>Categórica sola y categórica contra categórica</td>
+</tr>
+<tr class="odd">
+<td>Numérica contra numérica, n grande</td>
+<td>Hexbin con escala logarítmica de conteo (Fig. 10)</td>
+<td>303 mil puntos se enciman en un diagrama de dispersión</td>
+</tr>
+<tr class="even">
+<td>Patrón de faltantes</td>
+<td>Mapa de calor línea × año (Fig. 11)</td>
+<td>Muestra que los ceros se agrupan, no son aleatorios</td>
+</tr>
+</tbody>
+</table>
+<p><img src="img/fig02_distribucion_afluencia.png" class="img-fluid"></p>
+<p>La <strong>Fig. 2</strong> completa la descriptiva: en escala lineal la distribución es una rampa pegada al cero con una cola hasta 263 mil. En escala log10 se vuelve casi simétrica alrededor de 4.2 (unas 15 mil entradas). La caja muestra la cantidad de valores por encima de 1.5 × IQR: son estaciones grandes, no errores.</p>
+</section>
+<section id="fuentes-de-los-eventos-citados" class="level2">
+<h2 class="anchored" data-anchor-id="fuentes-de-los-eventos-citados">Fuentes de los eventos citados</h2>
+<ul>
+<li>Gratuidad del transporte tras el sismo del 19-S hasta el 27 de septiembre de 2017: <a href="https://www.ejecentral.com.mx/miercoles-ultimo-dia-de-gratuidad-en-transporte-capitalino?p=7">Eje Central</a>.</li>
+<li>Gratuidad por la contingencia ambiental de marzo de 2016: <a href="https://mexico.quadratin.com.mx/Metro-%C2%A0Metrobus-RTP-y-Transportes-electrico-gratis-por-Contingencia">Quadratín</a> y <a href="https://www.chilango.com/ciudad/metrobus-gratis-por-contingencia-ambiental/">Chilango</a>.</li>
+<li>Incendio del Puesto Central de Control (9 de enero de 2021) y reapertura de la Línea 1 el 25 de enero: <a href="https://www.chilango.com/noticias/abren-la-linea-1-del-metro-cdmx/">Chilango</a>.</li>
+<li>Escala de lluvia del SMN para 24 h: <a href="https://www.milenio.com/comunidad/que-significan-25-50-o-150-mm-de-lluvia-pronostico-smn">Milenio</a>.</li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Volver arriba</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fernando-bm\.github\.io\/Proyecto_Mineria_Datos");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../entregas/E1_arquitectura_dw/uso_ia.html" class="pagination-link" aria-label="5. Documentación del uso de herramientas de IA">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">5. Documentación del uso de herramientas de IA</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../entregas/E2_eda_preparacion/preparacion.html" class="pagination-link" aria-label="2. Preparación de los datos">
+        <span class="nav-page-text">2. Preparación de los datos</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Facultad de Ciencias, UNAM · Almacenes y Minería de Datos</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Datos: SEMOVI, Portal de Datos Abiertos de la CDMX (CC-BY-4.0-ESP)</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,72 @@
+---
+title: "6. Ajustes a E1 (E1 v2)"
+subtitle: "Entrega E2 - EDA y Preparación de Datos"
+---
+
+El EDA y la retroalimentación de E1 obligaron a ajustar el diseño. Los ajustes se documentan como **E1 v2**, **sin borrar la versión original**:
+
+- E1 original, sin cambios: `entregas/E1_arquitectura_dw/sql/ddl_dw.sql` y `consultas_mart.sql`.
+- E1 v2, la que ejecuta el pipeline: `sql/ddl_dw.sql` y `sql/consultas_mart.sql` en la raíz del repositorio. Cada archivo empieza con la lista de diferencias.
+
+::: {.caja .caja-clave}
+[¿Hay pivote?]{.etiqueta}
+**No.** Ningún ajuste cambia el objetivo de minería de E0 (anticipar con 24 h la afluencia diaria por estación y clasificar los días de alta demanda) ni el criterio de éxito (recall y precisión ≥ 0.70 y mejora ≥ 20 % sobre la base ingenua). Por eso no hay `pivote.qmd` ni E0 v2.
+:::
+
+## 6.1 Retroalimentación de E1
+
+E1 obtuvo 10/10. La revisión dejó tres observaciones, y E2 atiende las tres:
+
+| Observación de la revisión | Qué hicimos en E2 | Dónde verlo |
+|----------------------------|-------------------|-------------|
+| *Esquema estrella:* "Sería interesante aclarar cómo identificarán las estaciones cerradas y distinguirlas de datos faltantes" | Regla explícita en el pipeline, con un conteo para cada caso. **Cerrada** = racha de 7 días o más en cero en esa estación: genera una versión `cerrada` en `dim_estacion` y el 0 se conserva (39,190 estación-días). **No inaugurada** = ceros antes del primer dato de la estación (20,780). **Faltante** = día en que toda la red registra menos del 10 % de su nivel habitual (gratuidad de 2016 y 2017): `afluencia` NULL y `es_dia_sin_medicion` en `dim_fecha` (10 días, 1,950 estación-días). **Cierre puntual** = cero de menos de 7 días: el 0 se conserva con `es_registro_cero` (477) | [Preparación 2.1](preparacion.qmd#criterios-por-tipo-de-problema), registro L17-L20, hallazgo H2 |
+| *Arquitectura y total:* "Algunas consultas necesitan ajustes para responder completamente las preguntas planteadas" / "asegurar que las consultas respondan directamente a los objetivos de investigación" | Cada vista del DataMart se revisó contra su pregunta y ahora devuelve la respuesta, no solo insumos. **P2:** umbral de alta demanda fijado (1.20 × base) y la vara del criterio de éxito (WAPE de la base ingenua). **P3:** se agregó la correlación sin ciclo semanal, que sí identifica alternativas (la de niveles daba 0.9 para casi todo). **P4:** cada anomalía recibe una causa probable y se reporta la proporción explicada. **P5:** nueva vista contra un grupo de control (líneas del Metro que siguieron abiertas), que separa la absorción de la recuperación de la pandemia. Todas las lecturas están junto a su resultado | [Pipeline 3.4](pipeline.qmd#resultados-del-datamart), tabla 6.3 |
+| *Comentario adicional:* incorporar datos de sismos, manifestaciones y eventos similares | Nueva fuente de sismos (F6) y calendario de eventos masivos recurrentes (detalle abajo) | Tabla siguiente |
+
+Detalle de la tercera observación:
+
+| Qué se pidió | Qué se encontró | Qué cambia |
+|--------------|-----------------|------------|
+| Sismos | El servicio FDSN del USGS es una API pública sin llave y reproducible. Devuelve **27 sismos** de magnitud ≥ 6.0 a 800 km o menos de la CDMX entre 2010 y 2026. El catálogo del Servicio Sismológico Nacional es la referencia nacional, pero no encontramos una API documentada para descargarlo desde el pipeline | Nueva fuente **F6** (`pipeline/data/fuentes/sismos_usgs_2010_2026.csv`, consulta en `config.yaml`); nueva tabla de staging `stg_sismos_usgs` que el pipeline sube sola; columnas `es_dia_sismo` y `sismo_magnitud_max` en `dim_fecha` (en hora de la CDMX) |
+| Manifestaciones | No hay un conjunto abierto y estructurado. La SSC publica una agenda diaria en PDF sin histórico descargable, y las cifras de prensa salen de solicitudes de transparencia agregadas. Pero F1 muestra cierres de Zócalo y picos en fechas fijas (H6 del EDA) | Calendario de **eventos recurrentes** basado en reglas (`config.yaml`): 8M, 16 de septiembre, 2 de octubre, 25N y 12 de diciembre. Nueva columna `evento_masivo` en `dim_fecha`. Las marchas no recurrentes quedan como anomalías "sin causa atribuida" (supuesto S6 de E0) |
+
+Con estas variables, la vista de P4 ahora atribuye cada anomalía a una causa probable. Los resultados están en el [DataMart](pipeline.qmd#p4-anomalías-por-causa-probable-grouping-sets).
+
+## 6.2 Cambios en el esquema estrella (DDL v2)
+
+| # | Elemento | E1 | E1 v2 | Por qué | Evidencia |
+|---|----------|----|-------|---------|-----------|
+| 1 | Todas las tablas | `CREATE TABLE IF NOT EXISTS` | `DROP` de los hechos + `CREATE OR REPLACE` | El pipeline debe ser idempotente: correrlo dos veces deja el mismo DW | [Pipeline](pipeline.qmd) |
+| 2 | `dim_fecha` | 14 columnas | **+ `es_dia_sin_medicion`**, `es_dia_sismo`, `sismo_magnitud_max`, `evento_masivo` | Días de gratuidad (H2) y retroalimentación de E1 (6.1) | Registro L17; Fig. 1 |
+| 3 | `dim_clima` | `precipitacion_mm` y `lluvia_mm` | **Sin `lluvia_mm`** | Es idéntica a la precipitación los 6,056 días (ρ = 1.00) | Tabla 15; PCA (CP4 con varianza 0) |
+| 4 | `dim_clima.categoria_lluvia` | "umbrales a fijar en E2" | Escala del SMN: sin lluvia < 0.1 mm, ligera < 5.1, moderada < 25, fuerte ≥ 25 | Fijar el pendiente de E1 con una fuente externa | Fig. 9 |
+| 5 | `dim_clima.clima_key` | Llave sustituta sin regla | `AAAAMMDD` (igual que `fecha_key`) | Un registro por día; la llave inteligente es estable entre corridas | — |
+| 6 | `dim_estacion.estado_servicio` | `operando`, `cerrada_obra`, `cerrada_incidente`, `no_inaugurada` | `operando`, `cerrada`, `no_inaugurada` | Los datos dicen **cuándo** cerró una estación (racha de 7 o más días en 0), pero no **por qué**. Separar obra de incidente exigiría un catálogo manual de causas que no existe como fuente abierta | 603 versiones (Tabla 26) |
+| 7 | `dim_linea.nombre_linea` | "Línea 1" | "Metro Línea 1" / "Metrobús Línea 1" | Con nombres repetidos, el CUBE de P5 mezclaba la Línea 1 del Metro con la del Metrobús | — |
+| 8 | `hechos_afluencia_metro` | `afluencia`, `es_registro_cero` | **+ `es_atipico`**; `afluencia` NULL en los 10 días sin medición | Conservar los atípicos con marca (P4) y no confundir "no se midió" con 0 | Registro L17, L21 |
+| 9 | `hechos_afluencia_metrobus` | Filas con NULL antes de la inauguración | **Solo días desde la inauguración** de cada línea y desde 2010 | Los 'NaN' son ausencia estructural; además el DW empieza en 2010 | Registro L23, L24 |
+
+## 6.3 Cambios en el DataMart (vistas v2)
+
+| Vista | Cambio | Por qué |
+|-------|--------|---------|
+| Todas | Se excluyen los días con `afluencia` NULL | Días sin medición (H2) |
+| `v_p1_picos_vs_base`, `v_p2_dataset_pronostico`, `v_p4_anomalias_por_causa` | Las ventanas se particionan por `estacion_nk` y no por `estacion_key` | Con la SCD2, `estacion_key` cambia en cada versión y cortaba la serie después de cada cierre |
+| `v_p2_dataset_pronostico` | El umbral de alta demanda sale de `config.yaml` (1.20); se agregan `mes`, sismo, evento y temperatura | E1 dejó el umbral "a fijar en E2" con el resultado de P1 (Fig. 13) |
+| `v_p4_anomalias_por_causa` | Solo días en `operando`; nueva columna `causa_probable` (cierre puntual, festivo o Semana Santa, evento masivo, sismo, lluvia fuerte o sin causa); GROUPING SETS por causa, evento y lluvia | Retroalimentación de E1; P4 pide la proporción explicada |
+| `v_p5_absorcion_cierre_l1` | El periodo de referencia empieza en **2022** (en E1, en 2019) | El EDA mostró que 2020-2021 hundían el nivel "antes" y simulaban una absorción que era recuperación de la pandemia (Fig. 14) |
+| `v_p3_correlacion_metro_metrobus` | Además de la correlación de niveles, `correlacion_sin_ciclo`: correlación de la desviación de cada día contra el mismo día de la semana en sus 4 semanas previas, solo con la línea del Metro completa en operación y sin festivos | La de niveles era 0.5-0.96 para casi cualquier par por el ciclo semanal compartido: no respondía qué línea sirve de alternativa |
+| **`v_p5_diferencia_vs_control`** (nueva) | Cambio de cada línea frente al periodo previo menos el cambio de las 10 líneas del Metro que siguieron abiertas (LAG) | El CUBE solo daba promedios; con un control, la pregunta "¿el Metrobús absorbe?" tiene respuesta por línea |
+
+## 6.4 Correcciones a afirmaciones de E1
+
+| Afirmación de E1 | Lo que muestran los datos | Corrección |
+|------------------|---------------------------|------------|
+| "F3 corresponde a la versión del 31 de octubre de 2022" (E1, sección 1.5) | El ZIP descargado el 2026-10-02 trae archivos fechados el **2026-02-16**, y su `calendar.txt` tiene servicios vigentes hasta el 2026-12-31 | El GTFS usado es de **2026**, no de 2022. La fecha de 2022 era la de la descripción del conjunto en el portal, no la del contenido. El riesgo de nombres desactualizados es menor de lo que se declaró |
+| "Ceros: 62,025 en total, concentrados en L12 y L1" | Correcto, pero incompleto: también hay 8 días de gratuidad con 0 en toda la red (2017) y cierres en otras líneas: A (2012 y 2015), 9 (2023-2024), 7 y 2 (2025-2026), las estaciones cerradas en la pandemia y Zócalo en fechas de marchas | Clasificación en 4 tipos (H2) |
+| "187 de 195 estaciones unen por nombre con GTFS" | Se confirma | Además, el `stop_id` de Moctezuma usa '_' en lugar de '-' (registro L06) |
+| Un día = 195 filas | Se confirma, salvo que en diciembre de 2020 dos de esas filas eran la misma estación | Registro L15 |
+
+## 6.5 Por qué sigue en la línea de E0
+
+El grano (estación-línea × día), los dos hechos, las cuatro dimensiones y las cinco preguntas no cambian. Los ajustes **agregan** causas candidatas que E0 ya pedía en P4 ("cierres de línea, festivos, sismos, eventos masivos, clima"), **quitan** una variable redundante y **corrigen** el tratamiento de los ceros, como pedía el riesgo R3 de E0. El objetivo y el criterio de éxito siguen iguales.

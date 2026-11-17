@@ -1,0 +1,28 @@
+grupo,periodo,afluencia_media_diaria,dias,cambio_vs_periodo_previo,diferencia_vs_control
+Metro Línea 1,1_antes_del_cierre,425939.0,191,,
+Metro Línea 1,2_durante_el_cierre,209771.0,1224,-0.508,-0.708
+Metro Línea 1,3_despues_de_reabrir,450337.0,258,1.147,1.188
+Metro: control (10 líneas abiertas),1_antes_del_cierre,2296629.0,191,,
+Metro: control (10 líneas abiertas),2_durante_el_cierre,2757478.0,1224,0.201,0.0
+Metro: control (10 líneas abiertas),3_despues_de_reabrir,2643379.0,258,-0.041,0.0
+Metrobús Línea 1,1_antes_del_cierre,301627.0,191,,
+Metrobús Línea 1,2_durante_el_cierre,398758.0,1224,0.322,0.121
+Metrobús Línea 1,3_despues_de_reabrir,412221.0,258,0.034,0.075
+Metrobús Línea 2,1_antes_del_cierre,146994.0,191,,
+Metrobús Línea 2,2_durante_el_cierre,197907.0,1224,0.346,0.146
+Metrobús Línea 2,3_despues_de_reabrir,183355.0,258,-0.074,-0.032
+Metrobús Línea 3,1_antes_del_cierre,122491.0,191,,
+Metrobús Línea 3,2_durante_el_cierre,162598.0,1224,0.327,0.127
+Metrobús Línea 3,3_despues_de_reabrir,166817.0,258,0.026,0.067
+Metrobús Línea 4,1_antes_del_cierre,73404.0,191,,
+Metrobús Línea 4,2_durante_el_cierre,97628.0,1224,0.33,0.129
+Metrobús Línea 4,3_despues_de_reabrir,77878.0,258,-0.202,-0.161
+Metrobús Línea 5,1_antes_del_cierre,187727.0,191,,
+Metrobús Línea 5,2_durante_el_cierre,231731.0,1224,0.234,0.034
+Metrobús Línea 5,3_despues_de_reabrir,235993.0,258,0.018,0.06
+Metrobús Línea 6,1_antes_del_cierre,138162.0,191,,
+Metrobús Línea 6,2_durante_el_cierre,172688.0,1224,0.25,0.049
+Metrobús Línea 6,3_despues_de_reabrir,176273.0,258,0.021,0.062
+Metrobús Línea 7,1_antes_del_cierre,123188.0,191,,
+Metrobús Línea 7,2_durante_el_cierre,135282.0,1224,0.098,-0.102
+Metrobús Línea 7,3_despues_de_reabrir,109604.0,258,-0.19,-0.148
