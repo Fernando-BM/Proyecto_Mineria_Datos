@@ -37,7 +37,7 @@ En E2 el equipo usó un modelo de lenguaje con acceso a un entorno de ejecución
 | **Fecha** | 29 de octubre de 2026 |
 | **Tarea** | Proponer lecturas de las medidas (Gini, entropía, χ², PCA) y los hallazgos H1-H7 |
 | **Qué se contrastó con los datos** | Cada hallazgo tiene una tabla o figura generada por el pipeline. Dos interpretaciones cambiaron al contrastarlas: (a) la comparación de P5 desde 2019 sugería una absorción del Metrobús, pero la serie mostró que era la recuperación de la pandemia; se acotó a 2022 y P5 quedó como parcial. (b) La correlación Metro ↔ Metrobús de 0.91-0.96 se iba a leer como complementariedad; se reinterpretó como ciclo semanal compartido y, por la retroalimentación de E1, se agregó a la vista una correlación sin ciclo semanal y, para P5, una comparación contra un grupo de control. La afirmación de que Zócalo cierra "cada" 8 de marzo se corrigió contra los datos: cierra en 2021, 2022, 2023, 2025 y 2026, no en todos los años |
-| **Revisión del equipo** |  Se revisan medidas generadas|
+| **Revisión del equipo** | Se revisan medidas generadas. Tania Ramírez revisó la claridad del hallazgo sobre lluvia (H3) y la conclusión sobre el cierre de la Línea 1 (P5). En H3 pidió explicar en palabras sencillas qué significa el valor de Spearman. En P5 revisó que se distinguieran los cambios de entradas por línea de un posible traslado de pasajeros. |
 
 ### Uso 4 - Búsqueda de fuentes nuevas (retroalimentación de E1)
 
@@ -55,7 +55,7 @@ En E2 el equipo usó un modelo de lenguaje con acceso a un entorno de ejecución
 | **Herramienta** | Claude (Anthropic) - modelo: Opus 5.5 |
 | **Fecha** | 29 de octubre de 2026 |
 | **Tarea** | Borradores de `eda.qmd`, `preparacion.qmd`, `pipeline.qmd`, `decisiones.qmd`, `trazabilidad.qmd`, `ajustes.qmd` y esta página |
-| **Revisión del equipo** | Se revisó el contenido, redacción y presentación de la página, se aseguró que el diagrama sea legible. |
+| **Revisión del equipo** | Se revisó el contenido, redacción y presentación de la página, se aseguró que el diagrama sea legible. Tania Ramírez revisó la redacción de los hallazgos y del reporte de decisiones. Revisó cómo se explica la asignación de los conteos de Oceanía y Deportivo Oceanía y la regla para identificar los días sin medición. También revisó que la conclusión de P5 se entendiera con la comparación de las entradas durante el cierre y después de la reapertura. |
 
 ## Qué hizo la herramienta y qué no
 

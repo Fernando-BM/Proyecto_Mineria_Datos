@@ -22,11 +22,15 @@ El objetivo de esta etapa no es predecir nada todavía. Es **conocer bien los da
 - **477** son cierres de un solo día, casi siempre por marchas o eventos (la estación Zócalo en varios 8 de marzo, por ejemplo).
 - En **10 días** toda la red marcó cero o casi cero. Eran días en que **el transporte fue gratuito**: tras el sismo del 19 de septiembre de 2017 y durante la contingencia ambiental de marzo de 2016. Las personas sí viajaron, pero los torniquetes no las contaron.
 
-**Qué hicimos.** Tratamos cada caso por separado. Los 10 días de gratuidad quedaron como **"sin dato"**, no como cero, y quedaron marcados en el calendario. Los cierres se conservaron y se anotaron en el historial de cada estación: abierta, cerrada o todavía no inaugurada, con sus fechas. Los cierres de un día se conservaron con una marca.
+**Qué hicimos.** Marcamos un día como «sin medición» cuando toda la red registró menos del **10 %** de las entradas habituales. Para calcular lo habitual usamos la mediana de las cuatro semanas anteriores para el mismo día de la semana. Por ejemplo, para un miércoles tomamos los totales de los cuatro miércoles previos y usamos el promedio de los dos valores centrales.
+
+La regla detectó **10 días**. Marcamos esas fechas en el calendario y dejamos sin dato los **1,950 registros** de esos días. De ellos, **1,578** originalmente tenían cero y los otros **372** registraban alguna entrada. El detalle está en L17 del [registro de limpieza](preparacion.qmd#registro-de-limpieza).
+
+Para los cierres de una semana o más y los días previos a la inauguración, conservamos los ceros y guardamos el estado de servicio con sus fechas. Los ceros de los cierres breves también se conservaron y se marcaron.
 
 **Por qué así.** Si dejáramos los ceros de la gratuidad, el sistema aprendería que después de un sismo nadie usa el Metro, y eso es falso. Si borráramos los cierres, perderíamos justo los episodios que sirven para estudiar a dónde se va la gente cuando una línea cierra. Tampoco "rellenamos" ningún día con un número inventado, porque nadie sabe cuántas personas viajaron en esos días.
 
-**Qué cambia.** Para anticipar la demanda (P2) solo se usarán días en que la estación operó normalmente. Se pierde la información de esos 10 días, que de todos modos no existía.
+**Qué cambia.** Para anticipar la demanda (P2) solo se usarán días en que la estación operó normalmente. Los 10 días marcados quedan fuera del análisis de demanda porque los conteos disponibles eran incompletos.
 
 ### 2. Los días "raros" se quedan
 
@@ -42,11 +46,11 @@ El objetivo de esta etapa no es predecir nada todavía. Es **conocer bien los da
 
 **Qué encontramos.** Un problema de formato hacía que la base del Metro tuviera "Línea 1" escrita de tres formas distintas (24 nombres para 12 líneas). Además, 379,214 nombres de estación tenían caracteres dañados ("CatÃ³lica" en lugar de "Católica"), dos estaciones aparecían con dos escrituras ("Gómez Farías" y "Gómez Farias") y, en diciembre de 2020, la Línea B reportaba "Oceanía" dos veces y nunca "Deportivo Oceanía".
 
-**Qué hicimos.** Reparamos los caracteres, unificamos los nombres y asignamos el dato que faltaba de Deportivo Oceanía usando cómo se comportaron ambas estaciones en los meses de alrededor. Además unimos cada estación con el catálogo oficial de ubicaciones: 187 coincidieron solas y 8 necesitaron una tabla de equivalencias, porque cada fuente escribe distinto los nombres compuestos.
+**Qué hicimos.** Reparamos los caracteres y unificamos los nombres. En diciembre de 2020 había dos conteos diarios con el nombre «Oceanía». Para cada par dejamos el conteo menor en Oceanía y asignamos el mayor a Deportivo Oceanía. Además unimos cada estación con el catálogo oficial de ubicaciones: 187 coincidieron solas y 8 necesitaron una tabla de equivalencias, porque cada fuente escribe distinto los nombres compuestos.
 
-**Por qué así.** Sin estas correcciones, una misma estación se contaría como dos, o una línea se partiría en tres. Las reglas son automáticas y solo tocan los textos dañados.
+**Por qué así.** Unificar las variantes permite reunir los registros que pertenecen a una misma línea o estación. En los meses cercanos, Deportivo Oceanía tuvo más entradas que Oceanía casi todos los días (entre el 97 % y el 100 %). Ese patrón nos sirvió para decidir a qué estación correspondía cada conteo. Conservamos las dos cifras originales.
 
-**Qué cambia.** Las 195 estaciones quedaron completas, con su ubicación, todos los días.
+**Qué cambia.** Pudimos ubicar las 195 estaciones del catálogo contando cada estación por línea. Al comparar Oceanía con Deportivo Oceanía en diciembre de 2020, hay que tener en cuenta cómo se repartieron los dos conteos de cada día.
 
 ### 4. El calendario legal manda sobre la fuente de festivos
 
