@@ -158,7 +158,7 @@ El resultado es igual para las 12 líneas del Metro:
 - La **Línea 2 del Metrobús** (Tepalcates–Tacubaya) es siempre la **más acoplada** (0.61 a 0.78). Cuando una línea del Metro tiene un día inesperadamente cargado, ella también. Por eso es mala alternativa: se satura al mismo tiempo.
 - La **Línea 4 del Metrobús** (Centro Histórico–San Lázaro–Aeropuerto–Pantitlán) es siempre la **menos acoplada** (0.12 a 0.32). Su demanda tiene dinámica propia, por el aeropuerto y el turismo, y tiende a tener margen justo cuando el Metro se satura.
 
-Su menor acoplamiento es con la **Línea 1** (0.117), que también conecta San Lázaro con Pantitlán. Es también la línea que mejor se comportó como "absorbente" en P5 (abajo).
+Su menor acoplamiento es con la **Línea 1** (0.117), que también conecta San Lázaro con Pantitlán. En P5 se describe cómo cambió su número de entradas durante el cierre y después de la reapertura.
 
 **Respuesta a P3 (ajustada):** la alternativa de Metrobús con mejor evidencia es la Línea 4, sobre todo para la Línea 1 del Metro. Para las demás líneas, el acoplamiento no las distingue entre sí: elegir la alternativa de cada perfil necesita la cercanía geográfica (coordenadas de F3), que se cruza en E3.
 
@@ -182,24 +182,26 @@ Su menor acoplamiento es con la **Línea 1** (0.117), que también conecta San L
 
 {{< include tablas/mart_p5_absorcion_cierre_l1.md >}}
 
-**Lectura.** La Línea 1 bajó de 426 mil a 210 mil entradas diarias durante la obra y subió a 450 mil al reabrir. El Metrobús pasó de 156 mil a 200 mil entradas por línea al día (+28 %). Pero el CUBE solo da promedios: el resto de la red también creció en esos años por la recuperación posterior a la pandemia, y con eso no basta para decir que el Metrobús *absorbió* a los usuarios de la Línea 1. Por eso se agregó la vista siguiente.
+**Lectura.** La Línea 1 bajó de 426 mil a 210 mil entradas diarias durante la obra y subió a 450 mil al reabrir. El Metrobús pasó de 156 mil a 200 mil entradas por línea al día (+28 %). Las entradas también aumentaron en otras líneas del Metro. Para poner ese aumento en contexto, la tabla siguiente compara cada línea del Metrobús con las diez líneas del Metro que siguieron abiertas.
 
 ### P5 · Diferencia contra un grupo de control (ventanas)
 
 {{< include tablas/mart_p5_diferencia_vs_control.md >}}
 
-**Lectura.** El **control** son las 10 líneas del Metro que siguieron abiertas (todas menos la 1 y la 12). Crecieron **20.1 %** durante el cierre, por la recuperación y la estacionalidad, y bajaron 4.1 % al reabrir la Línea 1. La columna `diferencia_vs_control` resta ese cambio. Una línea que absorbe usuarios debería quedar **por encima del control durante el cierre y por debajo al reabrir**:
+**Lectura.** Comparamos los cambios en las entradas diarias de cada línea del Metrobús con los de diez líneas del Metro (todas salvo la 1 y la 12). En esas diez líneas las entradas subieron **20.1 %** durante el cierre frente al periodo anterior y bajaron **4.1 %** después de la reapertura frente al periodo del cierre.
 
-| Línea de Metrobús | Durante vs. control | Al reabrir vs. control | Lectura |
+La Línea 4 del Metrobús subió **33.0 %** durante el cierre. La diferencia entre ese aumento y el **20.1 %** del grupo de comparación es de **12.9 puntos porcentuales**. Después de la reapertura bajó **20.2 %**, una caída **16.1 puntos porcentuales** mayor que la del grupo de comparación.
+
+| Línea de Metrobús | Durante el cierre (pp) | Después de reabrir (pp) | Lectura |
 |---|---|---|---|
-| **L4** (Centro–San Lázaro–Pantitlán) | +12.9 pp | **−16.1 pp** | Patrón completo de absorción: ganó usuarios con el cierre y los devolvió al reabrir |
-| **L2** (Tepalcates–Tacubaya) | +14.6 pp | −3.2 pp | Absorción parcial: devolvió una parte |
-| L1, L3, L5, L6 | +3 a +13 pp | +6 a +8 pp | Siguieron creciendo después de reabrir: su aumento es crecimiento propio, no absorción |
-| L7 (Reforma) | −10.2 pp | −14.8 pp | Perdió en ambos periodos: su caída no se explica por la Línea 1 |
+| **L4** | +12.9 | −16.1 | Subió más durante el cierre y bajó más después de la reapertura |
+| **L2** | +14.6 | −3.2 | También subió más durante el cierre. Después, la diferencia en la caída fue menor que en la L4 |
+| L1, L3, L5, L6 | +3 a +13 | +6 a +8 | Las entradas siguieron aumentando tras la reapertura |
+| L7 | −10.2 | −14.8 | Subió menos durante el cierre y bajó más tras la reapertura |
 
-*pp = puntos porcentuales.*
+*Las diferencias se expresan en puntos porcentuales (pp) respecto a las diez líneas del Metro usadas como referencia.*
 
-**Respuesta a P5:** sí hay absorción medible, concentrada en la **Línea 4 del Metrobús** y, en menor medida, en la **Línea 2**. Las demás crecieron por su cuenta. El periodo "antes" es solo el primer semestre de 2022 (en E1 empezaba en 2019; se ajustó porque la pandemia simulaba absorción, ver [Ajustes](ajustes.qmd)). La comparación contra el control corrige la recuperación de la pandemia, pero no las diferencias de estacionalidad entre un semestre y varios años completos. P5 pasa de "parcial" a **"cubierta con una limitación"**.
+**Respuesta parcial a P5.** Los cambios de las líneas 4 y 2 del Metrobús son compatibles con un posible traslado de pasajeros durante el cierre. Los datos registran entradas totales por línea, así que queda por saber cuántas personas cambiaron del Metro al Metrobús. Además, el periodo anterior al cierre abarca de enero a julio de 2022 y los periodos tienen distinta duración. Parte de la diferencia puede deberse a cambios habituales de afluencia según la época del año.
 
 ## 3.5 Prueba externa
 
